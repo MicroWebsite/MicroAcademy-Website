@@ -7,10 +7,11 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-    { label: 'About', href: '/about' },
+    { label: 'Home', href: '/' },
+    { label: 'About us', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Corporate Training', href: '/corporate-training' },
-    { label: 'Train & Hire', href: '/train-and-hire' },
+    { label: 'Freshers drive', href: '/freshers-drive' },
+    { label: 'Careers', href: '/careers' },
 ];
 
 export default function Header() {
@@ -52,10 +53,10 @@ export default function Header() {
 
                 <div className="flex items-center gap-4">
                     <Link
-                        href="/consultation"
+                        href="/contact"
                         className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-[#5C5E00] text-white text-sm font-semibold hover:bg-[#4a4c00] transition-colors"
                     >
-                        Consultation
+                        Contact us
                     </Link>
 
                     <button
@@ -87,11 +88,11 @@ export default function Header() {
                         );
                     })}
                     <Link
-                        href="/consultation"
+                        href="/contact"
                         onClick={() => setMenuOpen(false)}
                         className="mt-2 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#5C5E00] text-white text-sm font-semibold hover:bg-[#4a4c00] transition-colors"
                     >
-                        Consultation
+                        Contact us
                     </Link>
                 </div>
             )}

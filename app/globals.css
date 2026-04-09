@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #6A5F00;
+  --secondary: #FBE426;
 }
 
 @theme inline {
@@ -17,6 +19,15 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+* {
+  @apply antialiased;
+}
+
+html,
+body {
+  @apply h-full;
 }
 
 body {

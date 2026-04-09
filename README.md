@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+---
 
-## Getting Started
+# 🚀 MicroAcademy
 
-First, run the development server:
+MicroAcademy is a modern, high-performance Next.js application built with cutting-edge technologies and a strong focus on scalability, maintainability, and developer experience.
+
+---
+
+## ✨ Overview
+
+This project follows industry best practices with strict type safety, automated quality checks, optimized performance, and server-side rendering capabilities using the latest full-stack ecosystem.
+
+---
+
+## 🧠 Tech Stack
+
+| Category       | Technology                |
+| -------------- | ------------------------- |
+| **Framework**  | Next.js 16                |
+| **React**      | React 19 + React DOM 19   |
+| **Language**   | TypeScript (Strict Mode)  |
+| **Styling**    | Tailwind CSS v4           |
+| **Linting**    | ESLint (Strict Rules)     |
+| **Formatting** | Prettier                  |
+| **Git Hooks**  | Husky + lint-staged       |
+| **Package Manager** | npm                   |
+
+---
+
+## 🚀 Features
+
+* 🔒 **Strict Type Safety**
+  Fully configured with `strict: true` and advanced TypeScript checks for compile-time safety.
+
+* ⚡ **Blazing Fast Performance**
+  Next.js App Router with automatic code splitting, server-side rendering, and optimized image handling.
+
+* 🎨 **Modern Styling System**
+  Tailwind CSS v4 with a utility-first and highly efficient compilation approach.
+
+* 🖥️ **Full-Stack Capabilities**
+  API routes, server components, and middleware support for complete application development.
+
+* ✅ **Automated Code Quality**
+  Pre-commit hooks ensure:
+
+  * No TypeScript errors
+  * No unused variables
+  * No `any` types
+  * Consistent formatting
+
+* 🛠 **Developer-Friendly Workflow**
+  Clean structure, reusable components, and scalable architecture with Hot Module Replacement.
+
+---
+
+## 🏁 Getting Started
+
+### 📌 Prerequisites
+
+* Node.js (LTS version recommended)
+* npm or yarn
+
+---
+
+### 📥 Installation
+
+```bash
+git clone <repository-url>
+cd MicroAcademy
+npm install
+```
+
+---
+
+## 💻 Development
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Hot Module Replacement (HMR) enabled ⚡
+* Access at `http://localhost:3000`
+* Instant feedback during development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📦 Production Build
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+✔ Includes mandatory TypeScript validation before build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧹 Code Quality
 
-## Deploy on Vercel
+Maintain high standards with the following commands:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint         # Run ESLint checks
+npm run format       # Apply Prettier formatting
+npm run type-check   # Run TypeScript validation
+npm run lint:fix     # Auto-fix linting issues
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔐 Pre-commit Workflow
+
+Every commit is automatically validated:
+
+* ✅ TypeScript check
+* 🎨 Prettier formatting
+* 🔍 ESLint fixes
+* ❌ Blocks commits on strict violations
+
+---
+
+## 📂 Project Structure
+
+```bash
+app/
+├── components/      # Reusable UI components
+├── hooks/           # Custom React hooks
+├── utils/           # Utility functions
+├── types/           # Global TypeScript types
+├── layout.tsx       # Root layout component
+├── page.tsx         # Home page
+└── globals.css      # Global styles (Tailwind)
+
+public/             # Static assets
+```
+
+**Next.js App Router** enables:
+- File-based routing
+- Server and client components
+- API routes in `app/api/`
+- Built-in image optimization
+
+## 🎯 Why This Project Stands Out
+
+* 🔥 Production-ready architecture
+* 📏 Enforced coding standards
+* ⚙️ Scalable and maintainable design
+* 🚀 Performance-first approach
+
+---
+
+## 📄 License
+
+This project is **private and proprietary**.
+
+---

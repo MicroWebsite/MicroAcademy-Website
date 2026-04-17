@@ -31,125 +31,62 @@ const inter = 'var(--font-inter), Inter, sans-serif';
    ═══════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden" style={{ background: '#FAF9F6' }}>
-      <div
-        className="relative max-w-[1344px] mx-auto flex flex-col lg:flex-row items-center justify-center"
-        style={{ paddingTop: '128px', paddingBottom: '128px', minHeight: '676px' }}
-      >
+    <section className="w-full bg-[#F5F4EE] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+
         {/* ── Left Content ── */}
-        <div className="flex flex-col items-start gap-6 w-full z-10 px-8" style={{ maxWidth: '770px' }}>
-          {/* Label */}
-          <p
-            className="text-xs leading-4 uppercase"
-            style={{
-              fontFamily: inter,
-              fontWeight: 400,
-              letterSpacing: '2.4px',
-              color: '#6F5D00',
-            }}
-          >
+        <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
+
+          {/* Badge */}
+          <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-[#FBE426] text-[#3a3800] text-xs font-bold tracking-[0.18em] uppercase">
             The Strategic Framework
-          </p>
+          </span>
 
-          {/* Heading */}
-          <h1
-            className="w-full text-4xl sm:text-5xl lg:text-6xl font-extrabold"
-            style={{
-              fontFamily: manrope,
-              letterSpacing: '-3.6px',
-              color: '#1A1C1A',
-            }}
-          >
-            Strategic Skill
-            <br />
-            <span style={{ color: '#485422' }}>Architecture</span>
-          </h1>
-
-          {/* Description */}
-          <div className="max-w-[576px]" style={{ paddingTop: '7px' }}>
-            <p
-              className="text-base leading-relaxed"
-              style={{ fontFamily: manrope, color: '#46483C' }}
-            >
-              We architect enterprise-grade training ecosystems that transform
-              your workforce into a competitive advantage. Our ISO-certified
-              methodology ensures measurable skill elevation across all
-              technology domains.
-            </p>
+          {/* Title */}
+          <div className="flex flex-col gap-1">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1B1C19] leading-[1.1] tracking-tight">
+              Strategic Skill
+            </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#6A5F00] leading-[1.1] tracking-tight">
+              Architecture
+            </h1>
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-wrap items-start gap-4" style={{ paddingTop: '16px' }}>
+          <p className="text-base text-[#4a4a4a] leading-relaxed max-w-120">
+            We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 mt-2">
             <Link
               href="/consultation"
-              className="relative inline-flex items-center justify-center gap-2 text-white font-bold text-lg hover:brightness-110 transition-all"
-              style={{
-                fontFamily: manrope,
-                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
-                borderRadius: '9999px',
-                padding: '16px 32px',
-                lineHeight: '28px',
-              }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:from-[#5C5300] hover:to-[#FBE426] transition-colors"
             >
               Start Your Program
-              <span className="w-5 h-5 flex items-center justify-center">
-                <ArrowRight className="w-5 h-5 text-white" />
-              </span>
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center font-bold text-base hover:opacity-80 transition-all gap-2"
-              style={{
-                fontFamily: manrope,
-                padding: '18px 32px',
-                color: '#485422',
-                lineHeight: '24px',
-              }}
+              className="inline-flex items-center px-6 py-3 rounded-full border border-[#6A5F00] text-[#6A5F00] text-sm font-semibold hover:bg-[#1a1a1a] hover:text-white transition-colors"
             >
               Explore Curriculum
-              <ArrowRight className="w-4 h-4" style={{ color: '#485422' }} />
             </Link>
           </div>
         </div>
 
-        {/* ── Right: Image + Decorative ── */}
-        <div className="flex-1 relative mt-16 lg:mt-0 flex justify-center lg:justify-end w-full lg:w-auto px-8">
-          <div className="relative" style={{ width: '541px', maxWidth: '100%' }}>
-            {/* Yellow blur decorative */}
-            <div
-              className="absolute z-0"
-              style={{
-                width: '256px',
-                height: '256px',
-                left: '-40px',
-                bottom: '-40px',
-                background: '#FEE16D',
-                opacity: 0.3,
-                filter: 'blur(20px)',
-                borderRadius: '16px',
-              }}
-            />
-
-            {/* Main hero image */}
-            <div
-              className="relative w-full overflow-hidden z-10"
-              style={{
-                aspectRatio: '541 / 677',
-                borderRadius: '16px',
-                boxShadow: '0px 25px 50px -12px rgba(0, 0, 0, 0.25)',
-              }}
-            >
+        <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
+          <div className="relative w-full max-w-120">
+            {/* Image card */}
+            <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none">
               <Image
                 src="/assets/corporate-training-hero.png"
                 alt="Corporate training session"
                 fill
-                sizes="(max-width: 768px) 100vw, 541px"
                 className="object-cover"
                 priority
               />
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

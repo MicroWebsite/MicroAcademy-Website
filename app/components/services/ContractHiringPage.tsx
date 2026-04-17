@@ -24,62 +24,41 @@ const inter = 'var(--font-inter), Inter, sans-serif';
    ═══════════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative w-full bg-[#FAF9F6] overflow-hidden">
-      <div
-        className="relative max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-center px-8"
-        style={{ paddingTop: '110px', paddingBottom: '110px', minHeight: '819px' }}
-      >
+    <section className="w-full bg-[#F5F4EE] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+
         {/* ── Left Content ── */}
-        <div className="flex flex-col items-start gap-6 lg:max-w-[690px] w-full z-10">
+        <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
+
           {/* Badge */}
-          <span
-            className="inline-flex items-center px-3 py-1 rounded-full text-white text-xs font-bold uppercase"
-            style={{ fontFamily: inter, letterSpacing: '1.2px', background: '#485422' }}
-          >
+          <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-[#FBE426] text-[#3a3800] text-xs font-bold tracking-[0.18em] uppercase">
             AGILE STAFFING
           </span>
 
-          {/* Heading */}
-          <div className="w-full">
-            <h1
-              className="text-[#1A1C1A] text-4xl sm:text-5xl lg:text-6xl font-extrabold"
-              style={{
-                fontFamily: manrope,
-                letterSpacing: '-4.8px',
-              }}
-            >
+          {/* Title */}
+          <div className="flex flex-col gap-1">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1B1C19] leading-[1.1] tracking-tight">
               Contract
-              <br />
-              <span style={{ color: '#485422' }}>Hiring</span> Solutions
+            </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#6A5F00] leading-[1.1] tracking-tight">
+              Hiring Solutions
             </h1>
           </div>
 
-          {/* Description */}
-          <div className="max-w-[576px] pt-[7px]">
-            <p
-              className="text-base leading-relaxed text-[#46483C]"
-              style={{ fontFamily: manrope }}
-            >
-              Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.
-            </p>
-          </div>
+          <p className="text-base text-[#4a4a4a] leading-relaxed max-w-120">
+            Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.
+          </p>
 
-          {/* Buttons */}
-          <div className="flex flex-wrap items-start gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-4 mt-2">
             <Link
               href="/consultation"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base transition-all hover:brightness-110"
-              style={{ fontFamily: manrope, background: 'linear-gradient(to right, #6A5F00, #D1B000)' }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:from-[#5C5300] hover:to-[#FBE426] transition-colors"
             >
               Hire Contractors
-              <span className="w-4 h-4 flex items-center justify-center">
-                <ArrowRight className="w-4 h-4 text-white" />
-              </span>
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg text-[#1A1C1A] font-bold text-base transition-colors"
-              style={{ fontFamily: manrope, border: '2px solid #C7C8B9' }}
+              className="inline-flex items-center px-6 py-3 rounded-full border border-[#6A5F00] text-[#6A5F00] text-sm font-semibold hover:bg-[#1a1a1a] hover:text-white transition-colors"
             >
               Browse Roles
             </Link>
@@ -87,62 +66,21 @@ function HeroSection() {
         </div>
 
         {/* ── Right: Image ── */}
-        <div className="flex-1 relative mt-16 lg:mt-0 flex justify-center lg:justify-end w-full lg:w-auto">
-          <div className="relative" style={{ width: '479px', maxWidth: '100%' }}>
-            
-            {/* Background Blob */}
-            <div
-              className="absolute z-0"
-              style={{
-                width: '300px',
-                height: '300px',
-                right: '-40px',
-                bottom: '-40px',
-                background: '#FEE16D',
-                opacity: 0.3,
-                filter: 'blur(40px)',
-                borderRadius: '50%',
-              }}
-            />
-
-            {/* Main image */}
-            <div
-              className="relative w-full overflow-hidden rounded-2xl z-10"
-              style={{
-                aspectRatio: '479 / 598',
-                boxShadow: '0px 24px 40px -10px rgba(26, 28, 26, 0.1)',
-              }}
-            >
+        <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
+          <div className="relative w-full max-w-120">
+            {/* Image card */}
+            <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none">
               <Image
                 src="/assets/recruitment-hero.png"
                 alt="Contract professionals working dynamically"
                 fill
-                sizes="(max-width: 768px) 100vw, 479px"
                 className="object-cover"
                 priority
               />
             </div>
-            
-            {/* Floating Stat Card */}
-            <div
-              className="absolute z-20 bg-white rounded-xl flex items-center gap-4"
-              style={{
-                bottom: '40px',
-                left: '-40px',
-                padding: '24px 32px',
-                boxShadow: '0px 20px 25px -5px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#F5F4EE' }}>
-                    <Zap className="w-6 h-6" style={{ color: '#485422' }} />
-                </div>
-                <div>
-                    <p className="text-[24px] leading-[30px]" style={{ fontFamily: manrope, fontWeight: 800, color: '#1A1C1A' }}>48 Hours</p>
-                    <p className="text-[12px] font-bold uppercase text-[#46483C]" style={{ fontFamily: inter, letterSpacing: '1px' }}>Average Deployment</p>
-                </div>
-            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

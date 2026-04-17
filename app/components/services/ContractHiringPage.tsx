@@ -42,12 +42,9 @@ function HeroSection() {
           {/* Heading */}
           <div className="w-full">
             <h1
-              className="text-[#1A1C1A]"
+              className="text-[#1A1C1A] text-4xl sm:text-5xl lg:text-6xl font-extrabold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 400,
-                fontSize: 'clamp(48px, 7vw, 96px)',
-                lineHeight: 1,
                 letterSpacing: '-4.8px',
               }}
             >
@@ -60,7 +57,7 @@ function HeroSection() {
           {/* Description */}
           <div className="max-w-[576px] pt-[7px]">
             <p
-              className="text-xl leading-8 text-[#46483C]"
+              className="text-base leading-relaxed text-[#46483C]"
               style={{ fontFamily: manrope }}
             >
               Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.
@@ -183,12 +180,9 @@ function BenefitsSection() {
       <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
         <div className="flex flex-col items-center text-center gap-4 max-w-[700px] mx-auto">
           <h2
-            className="text-[#1A1C1A]"
+            className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 700,
-              fontSize: 'clamp(32px, 4vw, 48px)',
-              lineHeight: '48px',
             }}
           >
             The Strategic Advantage of Contract Staffing
@@ -273,12 +267,9 @@ function ProcessSection() {
             HOW IT WORKS
           </p>
           <h2
-            className="text-[#1A1C1A]"
+            className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 700,
-              fontSize: 'clamp(32px, 4vw, 40px)',
-              lineHeight: '48px',
             }}
           >
             A Streamlined Delivery Engine
@@ -347,11 +338,9 @@ function DomainsSection() {
       <div className="max-w-[1000px] mx-auto flex flex-col gap-12 items-center text-center">
         <div className="flex flex-col gap-4">
           <h2
-            className="text-[#1A1C1A]"
+            className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 700,
-              fontSize: 'clamp(28px, 4vw, 36px)',
             }}
           >
             Expertise Across the Tech Spectrum
@@ -391,12 +380,9 @@ function CTASection() {
       >
         <div className="relative z-10 flex flex-col items-center gap-6 text-white">
           <h2
-            className="text-center"
+            className="text-center text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 800,
-              fontSize: 'clamp(32px, 4vw, 48px)',
-              lineHeight: '48px',
             }}
           >
             Ready to Augment Your Team?

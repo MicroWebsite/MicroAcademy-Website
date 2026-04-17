@@ -19,12 +19,12 @@ export default function ServicesHero() {
           </span>
 
           {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#1B1C19] leading-[1.05] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1B1C19] leading-[1.05] tracking-tight">
             {title}
           </h1>
 
           {/* Description */}
-          <p className="text-base lg:text-lg text-[#4a4a4a] leading-relaxed max-w-xl">
+          <p className="text-base text-[#4a4a4a] leading-relaxed max-w-xl">
             {description}
           </p>
 

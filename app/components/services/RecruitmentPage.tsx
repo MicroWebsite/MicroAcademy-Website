@@ -41,12 +41,9 @@ function HeroSection() {
 
           {/* Heading */}
           <h1
-            className="w-full"
+            className="w-full text-4xl sm:text-5xl lg:text-6xl font-extrabold"
             style={{
               fontFamily: manrope,
-              fontWeight: 400,
-              fontSize: 'clamp(48px, 7vw, 96px)',
-              lineHeight: 1,
               letterSpacing: '-2.4px',
               color: '#1A1C1A',
             }}
@@ -59,7 +56,7 @@ function HeroSection() {
           {/* Description */}
           <div className="max-w-[576px]" style={{ padding: '7.25px 0 0.75px' }}>
             <p
-              className="text-xl leading-8 text-[#46483C]"
+              className="text-base leading-relaxed text-[#46483C]"
               style={{ fontFamily: manrope }}
             >
               Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level headhunting.
@@ -172,12 +169,9 @@ function ServicesContentSection() {
           {/* ── Left Column: Heading + Service Cards ── */}
           <div className="flex flex-col gap-8 lg:max-w-[576px] w-full">
             <h2
-              className="text-[#1A1C1A]"
+              className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 400,
-                fontSize: 'clamp(28px, 3vw, 36px)',
-                lineHeight: '40px',
               }}
             >
               An Extension of Your
@@ -316,12 +310,9 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="flex flex-col gap-4 max-w-[556px]">
             <h2
-              className="text-[#1A1C1A]"
+              className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 700,
-                fontSize: 'clamp(28px, 3vw, 36px)',
-                lineHeight: '40px',
               }}
             >
               Open Opportunities
@@ -580,12 +571,9 @@ function ApplicationFormModal({
             {/* ── Left: Info Column ── */}
             <div className="flex flex-col gap-4 w-full lg:max-w-[360px] lg:pt-2">
               <h2
-                className="text-white"
+                className="text-white text-2xl sm:text-3xl font-bold"
                 style={{
                   fontFamily: manrope,
-                  fontWeight: 400,
-                  fontSize: 'clamp(24px, 3vw, 34px)',
-                  lineHeight: '38px',
                 }}
               >
                 Submit Your

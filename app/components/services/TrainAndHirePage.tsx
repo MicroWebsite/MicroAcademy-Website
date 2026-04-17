@@ -29,12 +29,9 @@ function HeroSection() {
           {/* Heading */}
           <div className="w-full">
             <h1
-              className="text-[#1A1C1A]"
+              className="text-[#1A1C1A] text-4xl sm:text-5xl lg:text-6xl font-extrabold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 400,
-                fontSize: 'clamp(48px, 7vw, 96px)',
-                lineHeight: 1,
                 letterSpacing: '-4.8px',
               }}
             >
@@ -47,7 +44,7 @@ function HeroSection() {
           {/* Description */}
           <div className="max-w-[576px] pt-[7px]">
             <p
-              className="text-xl leading-8 text-[#46483C]"
+              className="text-base leading-relaxed text-[#46483C]"
               style={{ fontFamily: manrope }}
             >
               We bridge the gap between raw talent and enterprise-ready
@@ -170,12 +167,9 @@ function ProcessSection() {
           {/* Left: Heading + Description */}
           <div className="flex flex-col gap-4 max-w-[672px]">
             <h2
-              className="text-[#1A1C1A]"
+              className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 700,
-                fontSize: 'clamp(32px, 4vw, 48px)',
-                lineHeight: '48px',
               }}
             >
               The Architectural Blueprint
@@ -352,12 +346,9 @@ function WhySection() {
 
           {/* Heading */}
           <h2
-            className="text-[#1A1C1A]"
+            className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 400,
-              fontSize: 'clamp(32px, 4vw, 48px)',
-              lineHeight: '48px',
             }}
           >
             Why Micro Academy?
@@ -438,11 +429,9 @@ function TestimonialSection() {
           className="max-w-[896px] mb-12 px-5"
         >
           <p
-            className="text-center text-[#F2F1EE]"
+            className="text-center text-[#F2F1EE] text-lg sm:text-xl lg:text-3xl font-light"
             style={{
               fontFamily: manrope,
-              fontWeight: 300,
-              fontSize: 'clamp(24px, 3vw, 36px)',
               lineHeight: '40px',
             }}
           >
@@ -543,12 +532,9 @@ function CTASection() {
         <div className="relative z-10 flex flex-col items-center gap-6">
           {/* Heading */}
           <h2
-            className="text-center text-[#1A1C1A]"
+            className="text-center text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 800,
-              fontSize: 'clamp(32px, 4vw, 48px)',
-              lineHeight: '48px',
             }}
           >
             Ready to Build Your Dream Team?

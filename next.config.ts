@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         hostname: 'microacademy.net',
         pathname: '/wp-content/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 };

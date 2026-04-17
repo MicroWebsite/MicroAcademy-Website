@@ -68,12 +68,14 @@ function HeroSection() {
 
         <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
           <div className="relative w-full max-w-120">
+            <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-[#F8E122]/50" />
             {/* Image card */}
-            <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none">
+            <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-2xl">
               <Image
                 src="/assets/recruitment-hero.png"
                 alt="Strategic talent recruitment"
                 fill
+                sizes="(max-width: 1024px) 100vw, 30rem"
                 className="object-cover"
                 priority
               />
@@ -245,6 +247,8 @@ const typeStyles = {
   Contract: { bg: '#FEE16D', color: '#221B00' },
 };
 
+const TABLE_GRID_COLUMNS = '2.5fr 1.8fr 1.5fr 1fr 1fr';
+
 function PositionsTableSection({ onApply }: { onApply: (position: string) => void }) {
   return (
     <section className="w-full" style={{ background: '#FAF9F6', padding: '96px 0' }}>
@@ -290,17 +294,15 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
         {/* Table */}
         <div className="w-full overflow-x-auto" style={{ padding: '16px 0' }}>
           {/* Header */}
-          <div className="hidden md:flex min-w-[900px]">
+          <div
+            className="hidden md:grid min-w-[900px]"
+            style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
+          >
             {['POSITION ROLE', 'DEPARTMENT', 'LOCATION', 'TYPE', 'ACTION'].map(
               (header, i) => (
                 <div
                   key={header}
-                  className="py-4 px-8"
-                  style={{
-                    flex:
-                      i === 0 ? '2.5' : i === 4 ? '1' : i === 1 ? '1.8' : '1.5',
-                    textAlign: i === 4 ? 'right' : 'left',
-                  }}
+                  className={`py-4 px-8 ${i === 4 ? 'text-right' : 'text-left'}`}
                 >
                   <span
                     className="text-sm leading-5 uppercase text-[#46483C]"
@@ -322,13 +324,16 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
             {positions.map((pos, i) => (
               <div
                 key={i}
-                className="flex items-center"
-                style={{ background: '#F4F3F1', minHeight: '76px' }}
+                className="grid items-center"
+                style={{
+                  background: '#F4F3F1',
+                  minHeight: '76px',
+                  gridTemplateColumns: TABLE_GRID_COLUMNS,
+                }}
               >
                 {/* Position */}
                 <div
-                  className="py-6 px-8"
-                  style={{ flex: '2.5', borderLeft: '4px solid #6A5F00' }}
+                  className="py-6 pr-8 pl-7 border-l-4 border-[#6A5F00]"
                 >
                   <span
                     className="text-lg leading-7 text-[#1A1C1A]"
@@ -339,7 +344,7 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
                 </div>
 
                 {/* Department */}
-                <div className="py-7 px-8" style={{ flex: '1.8' }}>
+                <div className="py-6 px-8">
                   <span
                     className="text-base leading-[22px] text-[#46483C]"
                     style={{ fontFamily: manrope }}
@@ -349,7 +354,7 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
                 </div>
 
                 {/* Location */}
-                <div className="py-7 px-8" style={{ flex: '1.5' }}>
+                <div className="py-6 px-8">
                   <span
                     className="text-base leading-[22px] text-[#46483C]"
                     style={{ fontFamily: manrope }}
@@ -359,7 +364,7 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
                 </div>
 
                 {/* Status */}
-                <div className="py-6 px-8" style={{ flex: '1' }}>
+                <div className="py-6 px-8">
                   <span
                     className="inline-flex items-center px-3 py-1 text-xs font-bold"
                     style={{
@@ -374,10 +379,7 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
                 </div>
 
                 {/* Action */}
-                <div
-                  className="py-7 px-8 text-right"
-                  style={{ flex: '1' }}
-                >
+                <div className="py-6 px-8 text-right">
                   <button
                     onClick={() => onApply(pos.title)}
                     className="text-base font-bold underline text-[#6A5F00] hover:text-[#5C5300] transition-colors cursor-pointer bg-transparent border-none"

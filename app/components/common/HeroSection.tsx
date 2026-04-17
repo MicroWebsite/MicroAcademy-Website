@@ -72,6 +72,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 30rem"
                   className="object-cover"
                   priority
                 />

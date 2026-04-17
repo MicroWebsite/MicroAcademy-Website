@@ -68,8 +68,8 @@ function HeroSection() {
           <div className="flex flex-wrap items-start gap-4 pt-4">
             <Link
               href="/consultation"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-white font-bold text-base transition-colors"
-              style={{ fontFamily: manrope, background: '#485422' }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base transition-all hover:brightness-110"
+              style={{ fontFamily: manrope, background: 'linear-gradient(to right, #6A5F00, #D1B000)' }}
             >
               Hire Contractors
               <span className="w-4 h-4 flex items-center justify-center">
@@ -398,14 +398,18 @@ function CTASection() {
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Link
               href="/consultation"
-              className="inline-flex items-center justify-center rounded-lg bg-white text-[#485422] font-bold transition-all hover:bg-[#FEE16D]"
+              className="inline-flex items-center gap-2 justify-center rounded-full text-white font-bold transition-all hover:brightness-110"
               style={{
                 fontFamily: manrope,
+                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
                 fontSize: '18px',
                 padding: '16px 32px',
               }}
             >
               Request Talent Now
+              <span className="w-5 h-5 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
             </Link>
           </div>
         </div>

@@ -82,16 +82,19 @@ function HeroSection() {
           <div className="flex flex-wrap items-start gap-4" style={{ paddingTop: '16px' }}>
             <Link
               href="/consultation"
-              className="relative inline-flex items-center justify-center text-white font-bold text-lg hover:brightness-110 transition-all"
+              className="relative inline-flex items-center justify-center gap-2 text-white font-bold text-lg hover:brightness-110 transition-all"
               style={{
                 fontFamily: manrope,
-                background: '#485422',
-                borderRadius: '8px',
+                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
+                borderRadius: '9999px',
                 padding: '16px 32px',
                 lineHeight: '28px',
               }}
             >
               Start Your Program
+              <span className="w-5 h-5 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
             </Link>
             <Link
               href="/services"

@@ -57,8 +57,8 @@ function HeroSection() {
           <div className="flex flex-wrap items-start gap-4 pt-4">
             <Link
               href="/consultation"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6A5F00] text-white font-bold text-base hover:bg-[#5C5300] transition-colors"
-              style={{ fontFamily: manrope }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base hover:brightness-110 transition-all"
+              style={{ fontFamily: manrope, background: 'linear-gradient(to right, #6A5F00, #D1B000)' }}
             >
               Partner With Us
               <span className="w-4 h-4 flex items-center justify-center">
@@ -555,15 +555,19 @@ function CTASection() {
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Link
               href="/consultation"
-              className="inline-flex items-center justify-center rounded-full bg-[#6A5F00] text-white font-bold hover:bg-[#5C5300] transition-colors"
+              className="inline-flex items-center gap-2 justify-center rounded-full text-white font-bold hover:brightness-110 transition-all"
               style={{
                 fontFamily: manrope,
+                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
                 fontSize: '18px',
                 lineHeight: '28px',
                 padding: '21px 40px',
               }}
             >
               Schedule a Consultation
+              <span className="w-5 h-5 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
             </Link>
             <Link
               href="/contact"

@@ -56,7 +56,7 @@ export default function Header() {
                                         href={link.href}
                                         className={`relative flex items-center gap-1 text-base font-bold transition-colors pb-1 ${isActive
                                             ? 'text-[#6B6B00] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#6B6B00]'
-                                            : 'text-[#1B1C19] hover:text-[#6B6B00]'
+                                            : 'text-[#1B1C19] hover:text-[#6B6B00] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-[#6B6B00]'
                                             }`}
                                     >
                                         {link.label}
@@ -83,9 +83,9 @@ export default function Header() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`relative text-base shrink-0 font-bold transition-colors pb-1 flex items-center h-full ${isActive
+                                className={`relative text-base shrink-0 font-bold transition-colors pb-1 flex items-center ${isActive
                                     ? 'text-[#6B6B00] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#6B6B00]'
-                                    : 'text-[#1B1C19] hover:text-[#6B6B00]'
+                                    : 'text-[#1B1C19] hover:text-[#6B6B00] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-[#6B6B00]'
                                     }`}
                             >
                                 {link.label}

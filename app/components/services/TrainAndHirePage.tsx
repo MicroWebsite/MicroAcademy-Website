@@ -271,8 +271,21 @@ function WhySection() {
    ═══════════════════════════════════════════════════════════════════ */
 function TestimonialSection() {
   return (
-    <section className="w-full bg-[#F5F7FA]" style={{ padding: '96px 32px' }}>
-      <div className="max-w-[1216px] mx-auto">
+    <section 
+      className="relative w-full bg-[#2F312F] overflow-hidden" 
+      style={{ padding: '96px 32px' }}
+    >
+      {/* Decorative Grain/Texture Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-10"
+        style={{
+          background: 'radial-gradient(70.71% 70.71% at 50% 50%, #FFFFFF 3.54%, rgba(255, 255, 255, 0) 3.54%)',
+          backgroundSize: '12px 12px',
+          zIndex: 0
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1216px] mx-auto">
         <TrainAndHireTestimonialsCarousel
           testimonials={trainAndHireTestimonials}
           manrope={manrope}

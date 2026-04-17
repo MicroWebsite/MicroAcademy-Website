@@ -47,15 +47,19 @@ export default function ServicesHero() {
 
             {/* Image */}
             {image?.src && image?.alt && (
-              <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              <>
+                <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-[#F8E122]/50" />
+                <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-2xl">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 30rem"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </>
             )}
 
             {/* Floating Stat Card */}

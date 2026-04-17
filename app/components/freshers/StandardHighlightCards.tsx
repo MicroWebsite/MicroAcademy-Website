@@ -2,37 +2,51 @@
 
 import { GraduationCap, ShieldCheck, BadgePercent } from 'lucide-react';
 
-const highlights = [
+const highlightModels = [
   {
     icon: GraduationCap,
     title: 'Train & Hire Model',
-    description: 'Industry-certified training before deployment.',
+    description: 'Industry-certified training and immediate deployment with leading IT companies.',
   },
   {
     icon: ShieldCheck,
     title: 'Tier-1 IT Provider',
-    description: 'Partnerships with global technology leaders.',
+    description: 'Direct partnerships with global Tier-1 technology leaders and enterprises.',
   },
   {
     icon: BadgePercent,
     title: 'Zero Registration Fees',
-    description: 'No upfront costs for the recruitment process.',
+    description: 'Absolutely no upfront costs or hidden registration fees for the entire process.',
   },
 ];
 
 export default function StandardHighlightCards() {
   return (
-    <section className="bg-white py-12 border-t border-[#E2E0D4]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {highlights.map((item, idx) => (
-          <div key={idx} className="bg-[#FAF9F3] p-8 rounded-2xl flex flex-col items-center text-center gap-4 group hover:shadow-lg transition-all">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#6A5F00] shadow-sm">
-              <item.icon size={24} />
+    <section className="bg-[#1B1C19] py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Our Drive Highlights</h2>
+          <p className="text-[#888] text-lg leading-relaxed">
+            We bridge the gap between academic learning and industry requirements with our unique recruitment philosophy.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {highlightModels.map((item, idx) => (
+            <div 
+              key={idx} 
+              className="bg-[#242521] p-10 rounded-[2.5rem] flex flex-col items-start text-left gap-6 group hover:bg-[#2a2b27] transition-all border border-white/5"
+            >
+              <div className="w-14 h-14 rounded-full bg-[#6A5F00] flex items-center justify-center text-white shadow-lg overflow-hidden">
+                <item.icon size={28} strokeWidth={1.5} />
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-bold text-white text-2xl tracking-tight">{item.title}</h3>
+                <p className="text-[#888] leading-relaxed text-sm font-medium">{item.description}</p>
+              </div>
             </div>
-            <h3 className="font-bold text-[#1B1C19] text-xl">{item.title}</h3>
-            <p className="text-sm text-[#666] leading-relaxed">{item.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

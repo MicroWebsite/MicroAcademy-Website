@@ -20,7 +20,7 @@ export const freshersDrives: DriveDomain[] = [
     id: 'storage-and-backup',
     title: 'Freshers Drive For Storage And Backup Domain',
     description: 'Architecting the future of data infrastructure. Join a world-class IT service provider through our curated Train & Hire model.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=2000&auto=format&fit=crop',
     eligibility: {
       academicYear: '2023 and 2024 batch pass outs',
       degreeRequirement: 'BE/B.Tech, B.Sc (Computer Science)',

@@ -1,6 +1,6 @@
 import CoreCapabilities from './components/home/CoreCapabilities';
-import HomeTemplate from './components/common/HeroSection';
 import CountriesCarousel from './components/home/CountryCarousel';
+import HomeTemplate from './components/home/homeTemplate';
 import StatsSection from './components/home/StatsSection';
 import { heroData } from './data/heroData';
 

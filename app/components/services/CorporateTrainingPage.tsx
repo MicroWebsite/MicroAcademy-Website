@@ -53,12 +53,9 @@ function HeroSection() {
 
           {/* Heading */}
           <h1
-            className="w-full"
+            className="w-full text-4xl sm:text-5xl lg:text-6xl font-extrabold"
             style={{
               fontFamily: manrope,
-              fontWeight: 400,
-              fontSize: 'clamp(40px, 6vw, 72px)',
-              lineHeight: '90px',
               letterSpacing: '-3.6px',
               color: '#1A1C1A',
             }}
@@ -71,7 +68,7 @@ function HeroSection() {
           {/* Description */}
           <div className="max-w-[576px]" style={{ paddingTop: '7px' }}>
             <p
-              className="text-xl leading-8"
+              className="text-base leading-relaxed"
               style={{ fontFamily: manrope, color: '#46483C' }}
             >
               We architect enterprise-grade training ecosystems that transform
@@ -183,11 +180,9 @@ function TechLogosGrid() {
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
           <h2
+            className="text-2xl sm:text-3xl font-bold"
             style={{
               fontFamily: manrope,
-              fontWeight: 700,
-              fontSize: '36px',
-              lineHeight: '40px',
               letterSpacing: '-0.9px',
               color: '#1A1C1A',
             }}
@@ -287,11 +282,9 @@ function MethodologySection() {
           {/* Heading */}
           <div style={{ marginBottom: '32px' }}>
             <h2
+              className="text-2xl sm:text-3xl font-bold"
               style={{
                 fontFamily: manrope,
-                fontWeight: 400,
-                fontSize: 'clamp(32px, 4vw, 48px)',
-                lineHeight: '48px',
                 letterSpacing: '-1.2px',
                 color: '#1A1C1A',
               }}
@@ -303,11 +296,9 @@ function MethodologySection() {
           {/* Description */}
           <div style={{ marginBottom: '32px' }}>
             <p
+              className="text-base leading-relaxed"
               style={{
                 fontFamily: manrope,
-                fontWeight: 400,
-                fontSize: '18px',
-                lineHeight: '29px',
                 color: '#46483C',
                 maxWidth: '655px',
               }}

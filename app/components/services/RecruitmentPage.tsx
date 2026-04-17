@@ -13,6 +13,7 @@ import {
   Flame,
   Sparkles,
   X,
+  ArrowRight,
 } from 'lucide-react';
 
 /* ─────────────────────── Font helpers ─────────────────────── */
@@ -67,16 +68,19 @@ function HeroSection() {
           <div className="flex flex-wrap items-start gap-4" style={{ paddingTop: '24px' }}>
             <Link
               href="/consultation"
-              className="relative inline-flex items-center justify-center text-white font-bold text-base hover:brightness-110 transition-all"
+              className="relative inline-flex items-center justify-center gap-2 text-white font-bold text-base hover:brightness-110 transition-all"
               style={{
                 fontFamily: manrope,
-                background: '#6A5F00',
-                borderRadius: '8px',
+                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
+                borderRadius: '9999px',
                 padding: '18px 32px',
                 boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)',
               }}
             >
               Explore Services
+              <span className="w-4 h-4 flex items-center justify-center">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </span>
             </Link>
             <Link
               href="/services"

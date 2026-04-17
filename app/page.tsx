@@ -1,5 +1,5 @@
 import CoreCapabilities from './components/home/CoreCapabilities';
-import HomeTemplate from './components/home/homeTemplate';
+import HomeTemplate from './components/common/HeroSection';
 import StatsSection from './components/home/StatsSection';
 import { heroData } from './data/heroData';
 

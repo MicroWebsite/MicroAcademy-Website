@@ -65,9 +65,12 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
 
         <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
           <div className="relative w-full max-w-120">
+            {/* Decorative background box */}
+            <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-[#F8E122]/50" />
+            
             {/* Image card */}
             {image?.src && image?.alt && (
-              <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none">
+              <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-2xl">
                 <Image
                   src={image.src}
                   alt={image.alt}

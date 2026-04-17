@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import ServicesHero from "../components/services/ServicesHero";
+import CoreCapabilities from "../components/home/CoreCapabilities";
 
 export const metadata: Metadata = {
     title: "Services | MicroAcademy",
@@ -7,6 +9,9 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
     return (
-        <></>
+        <>
+            <ServicesHero />
+            <CoreCapabilities />
+        </>
     );
 }

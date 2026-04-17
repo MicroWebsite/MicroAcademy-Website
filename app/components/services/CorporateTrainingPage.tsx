@@ -32,7 +32,7 @@ const inter = 'var(--font-inter), Inter, sans-serif';
 function HeroSection() {
   return (
     <section className="w-full bg-[#F5F4EE] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-8">
 
         {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
@@ -378,3 +378,4 @@ export default function CorporateTrainingPage() {
     </div>
   );
 }
+

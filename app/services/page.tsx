@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import ServicesHero from "../components/services/ServicesHero";
+import HomeTemplate from "../components/common/HeroSection";
 import CoreCapabilities from "../components/home/CoreCapabilities";
+import { servicesHeroData } from "../data/servicesHeroData";
 
 export const metadata: Metadata = {
     title: "Services | MicroAcademy",
@@ -8,9 +9,18 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+    const heroContent = {
+        badge: servicesHeroData.badge,
+        titleLine1: servicesHeroData.title,
+        titleAccent: "", // Or split if needed
+        description: servicesHeroData.description,
+        primaryCTA: { label: servicesHeroData.ctaLabel, href: servicesHeroData.ctaHref },
+        image: servicesHeroData.image,
+    };
+
     return (
         <>
-            <ServicesHero />
+            <HomeTemplate heroContent={heroContent} />
             <CoreCapabilities showAll={true} />
         </>
     );

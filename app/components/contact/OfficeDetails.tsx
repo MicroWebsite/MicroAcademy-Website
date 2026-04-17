@@ -2,7 +2,7 @@ export default function OfficeDetails() {
   const channels = [
     {
       id: 'hq',
-      label: 'Our HQ',
+      label: 'Registered Office',
       value: (
         <>
           #189, Amar Jyothi Layout,
@@ -90,24 +90,24 @@ export default function OfficeDetails() {
   ];
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-8 items-center justify-center text-center lg:items-start lg:text-left py-4">
       <h2 className="text-2xl sm:text-3xl font-bold text-[#1B1C19]">
         Direct Channels
       </h2>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-8 w-full max-w-sm lg:max-w-none">
         {channels.map((ch) => (
-          <div key={ch.id} className="flex items-start gap-4 group">
+          <div key={ch.id} className="flex flex-col items-center gap-3 lg:flex-row lg:items-start lg:gap-5 group">
             {/* Icon badge */}
-            <div className="shrink-0 w-11 h-11 rounded-xl bg-[#5C5E00] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+            <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#5C5E00] text-white flex items-center justify-center shadow-lg shadow-[#5C5E00]/20 group-hover:scale-110 transition-all duration-300">
               {ch.icon}
             </div>
             {/* Text */}
-            <div className="flex flex-col gap-0.5">
-              <span className="text-xs font-bold tracking-[0.14em] uppercase text-[#6A5F00]">
+            <div className="flex flex-col gap-1 lg:text-left">
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#6A5F00]">
                 {ch.label}
               </span>
-              <span className="text-sm text-[#3a3a3a] leading-relaxed">
+              <span className="text-base text-[#3a3a3a] leading-relaxed font-medium">
                 {ch.value}
               </span>
             </div>

@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description: "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
 };
 
+import { ToastProvider } from "./context/ToastContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,9 +28,11 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-gray-900">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ToastProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );

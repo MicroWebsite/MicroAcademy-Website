@@ -26,16 +26,12 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-
-    // Numeric only for phone
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '');
       setFormData(prev => ({ ...prev, [name]: numericValue }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
-
-    // Clear error for this field
     if (errors[name]) {
       setErrors(prev => {
         const newErrors = { ...prev };
@@ -65,8 +61,6 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-    // Validate all fields
     const newErrors: Record<string, string> = {};
 
     const firstNameErr = validateRequired(formData.firstName, 'First Name');
@@ -109,13 +103,10 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
         const data = await res.json();
         throw new Error(data.error || 'Submission failed');
       }
-
       setStatus('success');
       showToast('Your application has been submitted successfully!', 'success');
       setFormData({ firstName: '', lastName: '', email: '', phone: '' });
       setResume(null);
-
-      // Reset status after delay
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err: any) {
       setStatus('error');
@@ -125,122 +116,130 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
   };
 
   return (
-    <div className="bg-white rounded-[2rem] p-8 lg:p-14 shadow-[0_4px_40px_rgba(0,0,0,0.06)] border border-[#E2E0D4]">
-      <div className="text-center max-w-lg mx-auto mb-12">
-        <h2 className="text-4xl font-bold text-[#1B1C19] mb-4">Register Interest</h2>
-        <p className="text-[#666] leading-relaxed">
-          Submit your professional profile for immediate consideration in the drive.
-        </p>
-      </div>
+    <div className="bg-white relative overflow-hidden rounded-[2.5rem] p-10 lg:p-14 shadow-[0_10px_60px_rgba(0,0,0,0.08)]">
+      {/* Decorative corner accent */}
+      <div className="absolute top-0 right-0 w-48 h-48 bg-[#FAF9F3] rounded-full -mr-20 -mt-20 z-0" />
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="flex flex-col gap-2">
-            <label className="text-[10px] font-extrabold tracking-widest text-[#666] uppercase">First Name</label>
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Enter your first name"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className={`w-full px-5 py-4 rounded-xl bg-[#F5F4EE] border outline-none transition-all ${errors.firstName ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00]'
-                }`}
-            />
-            {errors.firstName && <span className="text-xs text-red-500">{errors.firstName}</span>}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-[10px] font-extrabold tracking-widest text-[#666] uppercase">Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Enter your last name"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              className={`w-full px-5 py-4 rounded-xl bg-[#F5F4EE] border outline-none transition-all ${errors.lastName ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00]'
-                }`}
-            />
-            {errors.lastName && <span className="text-xs text-red-500">{errors.lastName}</span>}
-          </div>
+      <div className="relative z-10">
+        <div className="text-center max-w-md mx-auto mb-10">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1B1C19] mb-4">Submit Your Application</h2>
+          <p className="text-[#888] text-sm leading-relaxed font-medium">
+            Complete the form below with your professional profile for immediate consideration.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="flex flex-col gap-2">
-            <label className="text-[10px] font-extrabold tracking-widest text-[#666] uppercase">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="email@university.edu"
-              value={formData.email}
-              onChange={handleInputChange}
-              className={`w-full px-5 py-4 rounded-xl bg-[#F5F4EE] border outline-none transition-all ${errors.email ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00]'
-                }`}
-            />
-            {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="flex flex-col gap-2">
+              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Enter your first name"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.firstName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                  }`}
+              />
+              {errors.firstName && <span className="text-[10px] text-red-500 font-medium px-1">{errors.firstName}</span>}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Enter your last name"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.lastName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                  }`}
+              />
+              {errors.lastName && <span className="text-[10px] text-red-500 font-medium px-1">{errors.lastName}</span>}
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-[10px] font-extrabold tracking-widest text-[#666] uppercase">Contact Number</label>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="00000 00000"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className={`w-full px-5 py-4 rounded-xl bg-[#F5F4EE] border outline-none transition-all ${errors.phone ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00]'
-                }`}
-            />
-            {errors.phone && <span className="text-xs text-red-500">{errors.phone}</span>}
-          </div>
-        </div>
 
-        <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-extrabold tracking-widest text-[#666] uppercase">Resume Upload</label>
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add('border-[#6A5F00]'); }}
-            onDragLeave={(e) => { e.preventDefault(); e.currentTarget.classList.remove('border-[#6A5F00]'); }}
-            onDrop={(e) => {
-              e.preventDefault();
-              e.currentTarget.classList.remove('border-[#6A5F00]');
-              if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                const file = e.dataTransfer.files[0];
-                const error = validateFile(file, 'Resume');
-                if (error) setErrors(prev => ({ ...prev, resume: error }));
-                else { setResume(file); setErrors(prev => { const n = { ...prev }; delete n.resume; return n; }); }
-              }
-            }}
-            className={`w-full border-2 border-dashed rounded-2xl p-10 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${errors.resume ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] bg-[#F9F9F7] hover:border-[#6A5F00]'
-              }`}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="flex flex-col gap-2">
+              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="email@university.edu"
+                value={formData.email}
+                onChange={handleInputChange}
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.email ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                  }`}
+              />
+              {errors.email && <span className="text-[10px] text-red-500 font-medium px-1">{errors.email}</span>}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Contact Number</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+91 00000 00000"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.phone ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                  }`}
+              />
+              {errors.phone && <span className="text-[10px] text-red-500 font-medium px-1">{errors.phone}</span>}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Resume Upload</label>
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add('border-[#6A5F00]'); }}
+              onDragLeave={(e) => { e.preventDefault(); e.currentTarget.classList.remove('border-[#6A5F00]'); }}
+              onDrop={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.remove('border-[#6A5F00]');
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                  const file = e.dataTransfer.files[0];
+                  const error = validateFile(file, 'Resume');
+                  if (error) setErrors(prev => ({ ...prev, resume: error }));
+                  else { setResume(file); setErrors(prev => { const n = { ...prev }; delete n.resume; return n; }); }
+                }
+              }}
+              className={`w-full border-2 border-dashed rounded-[1.5rem] p-12 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${errors.resume ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] hover:border-[#6A5F00] bg-transparent'
+                }`}
+            >
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                className="hidden"
+                accept=".pdf,.doc,.docx"
+              />
+              <div className="w-12 h-12 rounded-xl bg-[#F5F4EE] flex items-center justify-center text-[#6A5F00]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <path d="M12 18v-6" />
+                  <path d="m9 15 3-3 3 3" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <p className="text-[#1B1C19] font-bold text-sm">
+                  {resume ? resume.name : 'Click to upload or drag and drop'}
+                </p>
+                <p className="text-[10px] text-[#AEAEAE] font-bold mt-1 uppercase tracking-tight">PDF, DOCX (MAX. 5MB)</p>
+              </div>
+            </div>
+            {errors.resume && <span className="text-[10px] text-red-500 font-medium px-1">{errors.resume}</span>}
+          </div>
+
+          <button
+            type="submit"
+            disabled={status === 'loading'}
+            className="w-full py-5 mt-4 rounded-xl bg-[#6A5F00] text-white text-base font-bold hover:bg-[#5C5300] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-[#6A5F00]/20"
           >
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              className="hidden"
-              accept=".pdf,.doc,.docx"
-            />
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm text-[#6A5F00]">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" />
-              </svg>
-            </div>
-            <div className="text-center">
-              <p className="text-[#1B1C19] font-bold">
-                {resume ? resume.name : 'Click to upload or drag and drop'}
-              </p>
-              <p className="text-xs text-[#999] mt-1">PDF, DOCX (MAX. 5MB)</p>
-            </div>
-          </div>
-          {errors.resume && <span className="text-xs text-red-500">{errors.resume}</span>}
-        </div>
-
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="w-full py-5 rounded-2xl bg-[#5C5E00] text-white text-lg font-bold hover:bg-[#4a4c00] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-[#5C5E00]/20"
-        >
-          {status === 'loading' ? 'Submitting Application...' : 'Submit Application'}
-        </button>
-      </form>
+            {status === 'loading' ? 'Submitting Application...' : 'Submit Application'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

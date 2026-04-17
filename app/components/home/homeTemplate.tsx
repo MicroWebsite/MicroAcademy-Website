@@ -25,9 +25,11 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
 
           {/* Badge */}
+          {badge && (
           <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-[#FBE426] text-[#3a3800] text-xs font-bold tracking-[0.18em] uppercase">
             {badge}
           </span>
+          )}
 
           {/* Title */}
           <div className="flex flex-col gap-1">

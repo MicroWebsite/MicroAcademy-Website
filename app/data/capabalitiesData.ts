@@ -1,13 +1,17 @@
 export interface Capability {
   id: string;
-  icon: "train-hire" | "recruitment" | "corporate-training";
+  icon:
+    | "train-hire"
+    | "recruitment"
+    | "corporate-training"
+    | "contract-to-hire";
   title: string;
   description: string;
   ctaLabel: string;
   ctaHref: string;
   highlighted: boolean;
   image?: string;
-  images?: string[]; // for corporate training — two photos side by side
+  images?: string[];
 }
 
 export const capabilitiesData: {
@@ -37,7 +41,17 @@ export const capabilitiesData: {
       ctaLabel: "Explore Recruitment Services",
       ctaHref: "/services/recruitment",
       highlighted: true,
-      image: "/assets/Interview.svg", // portrait-style photo of a professional
+      image: "/assets/Interview.svg",
+    },
+    {
+      id: "contract-to-hire",
+      icon: "contract-to-hire",
+      title: "Contract to Hire",
+      description:
+        "MicroAcademy will source the candidates for the client. On selection by the client, the candidates will be on MicroAcademy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
+      ctaLabel: "Explore Contract to Hire",
+      ctaHref: "/services/contract-to-hire",
+      highlighted: false,
     },
     {
       id: "corporate-training",
@@ -48,10 +62,7 @@ export const capabilitiesData: {
       ctaLabel: "Explore Corporate Training",
       ctaHref: "/services/corporate-training",
       highlighted: true,
-      images: [
-        "/assets/Office.svg", // team around laptop
-        "/assets/Workshop.svg", // office/meeting room
-      ],
+      images: ["/assets/Office.svg", "/assets/Workshop.svg"],
     },
   ],
 };

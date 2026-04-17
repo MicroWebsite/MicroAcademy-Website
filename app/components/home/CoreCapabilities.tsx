@@ -1,17 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { capabilitiesData } from "@/data/capabalitiesData";
 
-// ─── Icons (your SVG files) ────────────────────────────────────────────────
-const iconMap: Record<string, string> = {
-  "train-hire": "/assets/Interview.svg",     // assuming this is for Train & Hire
-  recruitment: "/assets/Overlay.svg",        // or Overlay1.svg — you can change
-  "corporate-training": "/assets/Workshop.svg",
-};
+interface CoreCapabilitiesProps {
+  showAll?: boolean;   // false = Home, true = Services
+}
 
-// ─── Train & Hire Card (White background + Olive pill button) ───────────────
+// ─── Train & Hire Card (White) ─────────────────────────────────────
 const TrainHireCard: React.FC<{
   icon: string;
   title: string;
@@ -20,21 +17,10 @@ const TrainHireCard: React.FC<{
   ctaHref: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref }) => (
   <div className="relative rounded-3xl bg-white p-8 lg:p-10 flex flex-col h-full shadow-[0_4px_25px_rgb(180,175,150,0.15)] overflow-hidden">
-    {/* Decorative blob */}
-    <div 
-      className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-[#EDECD6]" 
-      aria-hidden 
-    />
+    <div className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-[#EDECD6]" aria-hidden />
 
-    {/* Icon */}
     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-      <Image 
-        src={icon} 
-        alt="Train & Hire Icon" 
-        width={28} 
-        height={28} 
-        className="text-[#5a5215] w-12 h-12"
-      />
+      <Image src={icon} alt="Train & Hire" width={28} height={28} className="text-[#5a5215]" />
     </div>
 
     <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
@@ -42,7 +28,7 @@ const TrainHireCard: React.FC<{
 
     <Link
       href={ctaHref}
-      className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#7A6F1E] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+      className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
     >
       {ctaLabel}
       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -50,45 +36,32 @@ const TrainHireCard: React.FC<{
   </div>
 );
 
-// ─── Recruitment Card (Beige + Woman image on right) ───────────────────────
-const RecruitmentCard: React.FC<{
+const HighlightedCard: React.FC<{
   icon: string;
   title: string;
   description: string;
   ctaLabel: string;
   ctaHref: string;
-  image?: string;           // This is the woman photo, not the icon
+  image?: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref, image }) => (
   <div className="relative rounded-3xl bg-[#F5F4EE] p-8 lg:p-10 overflow-hidden h-full flex flex-col">
-    {/* Decorative circle */}
-    <div 
-      className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-[#E3E0CF]" 
-      aria-hidden 
-    />
+    <div className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-[#E3E0CF]" aria-hidden />
 
-    {/* Woman / Person Image on the right */}
     {image && (
-      <div className="absolute -right-10 top-60 bottom-0 w-[32%]  overflow-hidden">
+      <div className="absolute -right-10 top-60 bottom-0 w-[32%] overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover object-top" 
+          className="object-cover object-top"
           sizes="(max-width: 768px) 90vw, 90vw"
         />
       </div>
     )}
 
     <div className="pr-0 lg:pr-[45%] relative z-10 flex flex-col h-full">
-      {/* Icon */}
       <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-        <Image 
-          src={icon} 
-          alt="Recruitment Icon" 
-          width={28} 
-          height={28} 
-          className="w-12 h-12"
-        />
+        <Image src={icon} alt={`${title} Icon`} width={28} height={28} className="w-12 h-12" />
       </div>
 
       <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
@@ -96,7 +69,7 @@ const RecruitmentCard: React.FC<{
 
       <Link
         href={ctaHref}
-        className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#7A6F1E] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+        className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full  bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
       >
         {ctaLabel}
         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -105,7 +78,7 @@ const RecruitmentCard: React.FC<{
   </div>
 );
 
-// ─── Corporate Training Card (Full width with two images) ───────────────────
+// ─── Corporate Training Card ─────────────────────────────────────
 const CorporateTrainingCard: React.FC<{
   icon: string;
   title: string;
@@ -115,23 +88,12 @@ const CorporateTrainingCard: React.FC<{
   images?: string[];
 }> = ({ icon, title, description, ctaLabel, ctaHref, images }) => (
   <div className="relative rounded-3xl bg-[#F5F4EE] p-8 lg:p-10 overflow-hidden">
-    <div 
-      className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-[#E3E0CF]" 
-      aria-hidden 
-    />
+    <div className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-[#E3E0CF]" aria-hidden />
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      {/* Left Content */}
       <div>
-        {/* Icon */}
-        <div className="inline-flex items-center justify-center mb-6">
-          <Image 
-            src={icon} 
-            alt="Corporate Training Icon" 
-            width={28} 
-            height={28}
-            className="w-10 h-10" 
-          />
+        <div className="inline-flex items-center justify-center mb-6 ">
+          <Image src={icon} alt="Corporate Training Icon" width={28} height={28} className="w-10 h-10" />
         </div>
 
         <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
@@ -139,30 +101,21 @@ const CorporateTrainingCard: React.FC<{
 
         <Link
           href={ctaHref}
-          className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#7A6F1E] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+          className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
         >
           {ctaLabel}
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </Link>
       </div>
 
-      {/* Right: Two images */}
       {images && images.length > 0 && (
         <div className="grid grid-cols-2 gap-4 lg:gap-6 relative">
           {images.map((src, i) => (
             <div
               key={i}
-              className={`relative aspect-4/3 rounded-2xl overflow-hidden shadow-lg ${
-                i === 0 ? "lg:-translate-y-4" : "lg:translate-y-4"
-              }`}
+              className={`relative aspect-4/3 rounded-2xl overflow-hidden shadow-lg ${i === 0 ? "lg:-translate-y-4" : "lg:translate-y-4"}`}
             >
-              <Image
-                src={src}
-                alt={`Corporate training visual ${i + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 45vw, 22vw"
-              />
+              <Image src={src} alt={`Training ${i + 1}`} fill className="object-cover" />
             </div>
           ))}
         </div>
@@ -171,12 +124,13 @@ const CorporateTrainingCard: React.FC<{
   </div>
 );
 
-// ─── Main Section ──────────────────────────────────────────────────────────
-const CoreCapabilities: React.FC = () => {
+// ─── Main Component ─────────────────────────────────────────────
+const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({ showAll = false }) => {
   const { sectionTag, heading, items } = capabilitiesData;
 
   const trainHire = items.find((i) => i.id === "train-hire");
   const recruitment = items.find((i) => i.id === "recruitment");
+  const contractToHire = items.find((i) => i.id === "contract-to-hire");
   const corporate = items.find((i) => i.id === "corporate-training");
 
   return (
@@ -192,43 +146,68 @@ const CoreCapabilities: React.FC = () => {
           </h2>
         </div>
 
-        {/* Top Row: Train & Hire + Recruitment */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {trainHire && (
-            <TrainHireCard
-              icon={"/assets/Overlay.svg"}
-              title={trainHire.title}
-              description={trainHire.description}
-              ctaLabel={trainHire.ctaLabel}
-              ctaHref={trainHire.ctaHref}
-            />
-          )}
+        {/* ==================== HOME PAGE LAYOUT ==================== */}
+        {!showAll && (
+          <>
+            {/* First Row: 2 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {trainHire && <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />}
+              {recruitment && (
+                <HighlightedCard
+                  {...recruitment}
+                  icon="/assets/Overlay1.svg"
+                  image={recruitment.image}
+                />
+              )}
+            </div>
 
-          {recruitment && (
-            <RecruitmentCard
-              icon={"/assets/Overlay1.svg"}
-              title={recruitment.title}
-              description={recruitment.description}
-              ctaLabel={recruitment.ctaLabel}
-              ctaHref={recruitment.ctaHref}
-              image={recruitment.image}   // woman photo
-            />
-          )}
-        </div>
+            {/* Second Row: Corporate Training */}
+            {corporate && (
+              <CorporateTrainingCard
+                icon="/assets/Overlay3.svg"
+                title={corporate.title}
+                description={corporate.description}
+                ctaLabel={corporate.ctaLabel}
+                ctaHref={corporate.ctaHref}
+                images={corporate.images}
+              />
+            )}
+          </>
+        )}
 
-        {/* Bottom: Corporate Training */}
-        {corporate && (
-          <CorporateTrainingCard
-            icon={"/assets/Overlay3.svg"}
-            title={corporate.title}
-            description={corporate.description}
-            ctaLabel={corporate.ctaLabel}
-            ctaHref={corporate.ctaHref}
-            images={[
-              "/assets/Office.svg",
-              "/assets/Workshop.svg",
-            ]}
-          />
+        {/* ==================== SERVICES PAGE LAYOUT (2x2 Grid) ==================== */}
+        {showAll && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* First Row */}
+            {trainHire && <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />}
+
+            {recruitment && (
+              <HighlightedCard
+                {...recruitment}
+                icon="/assets/Overlay1.svg"
+                image={recruitment.image}
+              />
+            )}
+
+            {/* Second Row */}
+            {contractToHire && (
+              <HighlightedCard
+                {...contractToHire}
+                icon="/assets/Overlay1.svg"
+              />
+            )}
+
+            {corporate && (
+              <CorporateTrainingCard
+                icon="/assets/Overlay3.svg"
+                title={corporate.title}
+                description={corporate.description}
+                ctaLabel={corporate.ctaLabel}
+                ctaHref={corporate.ctaHref}
+                images={corporate.images}
+              />
+            )}
+          </div>
         )}
       </div>
     </section>

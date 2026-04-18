@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
         port: "8888",
         pathname: "/sites/default/files/**",
       },
+      {
+        protocol: "http",
+        hostname: "168.144.70.136",
+        pathname: "/sites/default/files/**",
+      },
     ],
   },
 };

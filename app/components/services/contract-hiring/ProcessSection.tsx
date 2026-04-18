@@ -40,8 +40,8 @@ export default function ProcessSection() {
         <div className="flex-1 relative w-full flex justify-center">
           <div className="relative w-full max-w-[500px] aspect-[4/5] overflow-hidden rounded-2xl shadow-[0px_24px_40px_-10px_rgba(0,0,0,0.1)]">
             <Image
-              src="/assets/service/collaboration-training.png"
-              alt="Process Strategy Meeting"
+              src="/assets/service/contract-hiring.png"
+              alt="Contract Hiring Process"
               fill
               sizes="(max-width: 1024px) 100vw, 500px"
               className="object-cover"

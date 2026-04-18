@@ -3,7 +3,7 @@ import { contractProcessSteps } from "@/app/data/contractHiringPageData";
 
 export default function ProcessSection() {
   return (
-    <section className="w-full bg-bg-cream px-8 py-24">
+    <section className="w-full bg-white px-8 py-24">
       <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
         <div className="flex-1 flex flex-col gap-6">
           <p className="text-xs font-bold uppercase tracking-[1.2px] text-primary font-inter">

@@ -37,7 +37,7 @@ const techCategories = [
 
 function TechLogosGrid() {
   return (
-    <section className="w-full bg-bg-cream px-8 py-32">
+    <section className="w-full bg-white px-8 py-32">
       <div className="max-w-[1344px] mx-auto flex flex-col gap-20">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
@@ -85,7 +85,7 @@ const methodologyFeatures = [
 
 function MethodologySection() {
   return (
-    <section className="w-full px-8">
+    <section className="w-full bg-bg-cream px-8 py-24">
       <div className="max-w-[1344px] mx-auto flex flex-col lg:flex-row gap-8">
         {/* ── Left: Content ── */}
         <div className="flex flex-col justify-center w-full lg:max-w-[656px] py-10">

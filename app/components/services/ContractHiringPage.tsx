@@ -40,7 +40,7 @@ export default function ContractHiringPage() {
         onClose={() => setIsModalOpen(false)}
         selectedPosition={selectedPosition}
       />
-      <div className="h-10 bg-bg-cream-alt" />
+      <div className="h-20 bg-bg-cream" />
     </div>
   );
 }

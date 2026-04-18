@@ -9,7 +9,7 @@ const iconByType = {
 
 export default function ProcessSection() {
   return (
-    <section className="w-full bg-bg-cream py-24">
+    <section className="w-full bg-white py-24">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-16">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
           <div className="flex flex-col gap-4 max-w-[672px]">

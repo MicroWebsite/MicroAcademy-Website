@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="w-full px-8 py-16">
+    <section className="w-full px-8 py-16 bg-bg-cream">
       <div className="relative max-w-[1216px] mx-auto rounded-[48px] bg-cta-card-bg overflow-hidden p-16 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto">
         <div className="absolute pointer-events-none w-64 h-64 -right-20 -top-20 bg-primary/10 blur-[32px] rounded-full z-0" />
         <div className="absolute pointer-events-none w-64 h-64 -left-20 -bottom-20 bg-primary/10 blur-[32px] rounded-full z-0" />

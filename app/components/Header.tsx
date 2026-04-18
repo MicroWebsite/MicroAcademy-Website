@@ -33,7 +33,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/assets/home/microacademy-logo.png"
+            src="/assets/common/microacademy-logo.png"
             alt="MicroAcademy"
             width={300}
             height={200}
@@ -102,10 +102,18 @@ export default function Header() {
         <div className="flex items-center gap-4 shrink-0">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
           >
             Contact us
           </Link>
+
+          <Image
+            src="/assets/common/iso-9001.png"
+            alt="TÜV SÜD ISO 9001 Certified"
+            width={100}
+            height={100}
+            className="hidden md:block h-12 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
+          />
 
           <button
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
@@ -194,6 +202,15 @@ export default function Header() {
           >
             Contact us
           </Link>
+          <div className="mt-6 flex justify-center">
+            <Image
+              src="/assets/common/iso-9001.png"
+              alt="TÜV SÜD ISO 9001 Certified"
+              width={80}
+              height={80}
+              className="h-14 w-auto object-contain mix-blend-multiply"
+            />
+          </div>
         </div>
       )}
     </header>

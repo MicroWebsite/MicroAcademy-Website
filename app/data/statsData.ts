@@ -1,5 +1,3 @@
-// data/statsData.ts — move this to a separate file / API / CMS as needed
-
 export interface Stat {
   id: string;
   value: string;

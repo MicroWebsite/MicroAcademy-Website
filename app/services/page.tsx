@@ -25,7 +25,7 @@ export default function ServicesPage() {
   return (
     <>
       <HomeTemplate heroContent={heroContent} />
-      <CoreCapabilities showAll={true} />
+      <CoreCapabilities />
     </>
   );
 }

@@ -7,7 +7,7 @@ export const careerHeroSection: HeroProps = {
   description:
     "Join a collective of visionary professionals dedicated to redefining the architectural standards of modern training and recruitment.",
   image: {
-    src: "/assets/homeheroImage.svg",
+    src: "/assets/home/homeheroImage.svg",
     alt: "Talent Architecture",
   },
   primaryCTA: { label: "Explore Positions", href: "/explore-positions" },

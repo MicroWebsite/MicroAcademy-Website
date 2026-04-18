@@ -1,4 +1,3 @@
-// Global TypeScript types and interfaces
 export interface Service {
   id: string;
   name: string;
@@ -12,7 +11,6 @@ export interface Program {
   category: string;
 }
 
-// src/types/hero.ts
 export interface HeroProps {
   badge: string;
   titleLine1: string;

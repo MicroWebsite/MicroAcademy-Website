@@ -7,7 +7,7 @@ export const aboutHeroData: HeroProps = {
   description:
     "We bridge the gap between human potential and enterprise excellence through curated intelligence and strategic workforce evolution.",
   image: {
-    src: "/assets/homeheroImage.svg",
+    src: "/assets/home/homeheroImage.svg",
     alt: "Talent Architecture",
   },
 };

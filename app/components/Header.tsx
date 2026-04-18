@@ -34,7 +34,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="https://microacademy.net/wp-content/themes/micro19/img/logo.png"
+            src="/assets/home/microacademy-logo.png"
             alt="MicroAcademy"
             width={300}
             height={200}

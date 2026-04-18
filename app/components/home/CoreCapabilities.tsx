@@ -59,10 +59,10 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
 );
 
 const iconMap: Record<string, string> = {
-  "train-hire": "/assets/trainandhire.svg",
-  recruitment: "/assets/re.svg",
-  "contract-to-hire": "/assets/trainandhire.svg",
-  "corporate-training": "/assets/co.svg",
+  "train-hire": "/assets/home/trainandhire.svg",
+  recruitment: "/assets/home/re.svg",
+  "contract-to-hire": "/assets/home/trainandhire.svg",
+  "corporate-training": "/assets/home/co.svg",
 };
 
 const CoreCapabilities: React.FC = () => {

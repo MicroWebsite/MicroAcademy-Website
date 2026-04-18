@@ -20,9 +20,6 @@ import {
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 
-/* ══════════════════════════════════════════════════════════════
-   2. TECHNOLOGY LOGOS GRID SECTION
-   ═══════════════════════════════════════════════════════════ */
 const techCategories = [
   { icon: <Code2 className="w-[30px] h-[18px]" />, label: "Java / .NET" },
   { icon: <Cloud className="w-[33px] h-6" />, label: "Cloud Computing" },
@@ -71,9 +68,6 @@ function TechLogosGrid() {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   3. TRAINING METHODOLOGY & FACILITIES SECTION
-   ═══════════════════════════════════════════════════════════ */
 const methodologyFeatures = [
   {
     icon: <Award className="w-5 h-[18px]" />,
@@ -149,7 +143,7 @@ function MethodologySection() {
           <div className="flex gap-4 pt-12">
             <div className="relative overflow-hidden w-[320px] h-[320px] rounded-2xl shadow-xl">
               <Image
-                src="/assets/training-lab-1.png"
+                src="/assets/service/training-lab-1.png"
                 alt="Training lab environment"
                 fill
                 className="object-cover"
@@ -158,7 +152,7 @@ function MethodologySection() {
             </div>
             <div className="relative overflow-hidden w-[320px] h-[320px] mt-6 rounded-2xl shadow-xl">
               <Image
-                src="/assets/training-lab-2.png"
+                src="/assets/service/training-lab-2.png"
                 alt="Hands-on workshop"
                 fill
                 className="object-cover"
@@ -170,7 +164,7 @@ function MethodologySection() {
           {/* Bottom: Full-width image */}
           <div className="relative overflow-hidden mt-4 w-full max-w-[656px] h-[320px] rounded-2xl shadow-xl">
             <Image
-              src="/assets/training-facility.png"
+              src="/assets/service/training-facility.png"
               alt="Training facility overview"
               fill
               className="object-cover"
@@ -183,9 +177,6 @@ function MethodologySection() {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   EXPORT — Full Page Composition
-   ═══════════════════════════════════════════════════════════ */
 export default function CorporateTrainingPage() {
   const corporateTrainingData = capabilitiesData.items.find(
     (item) => item.id === "corporate-training",

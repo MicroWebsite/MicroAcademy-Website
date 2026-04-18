@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Logo & Address */}
         <div className="flex flex-col gap-4 items-start">
           <Image
-            src="https://microacademy.net/wp-content/themes/micro19/img/logo.png"
+            src="/assets/home/microacademy-logo.png"
             alt="MicroAcademy Logo"
             width={120}
             height={60}

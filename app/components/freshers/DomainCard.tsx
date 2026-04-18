@@ -12,17 +12,17 @@ interface DomainCardProps {
 export default function DomainCard({ id, title, image }: DomainCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all flex flex-col group">
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-48 overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="p-8 flex flex-col flex-grow items-center text-center gap-6">
-        <h3 className="text-xl font-bold text-text-dark min-h-[3rem]">
+      <div className="p-6 flex flex-col flex-grow items-center text-center gap-5">
+        <h3 className="text-lg font-bold text-text-dark min-h-[3rem]">
           {title}
         </h3>
         <Link

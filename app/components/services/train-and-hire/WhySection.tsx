@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { trainAndHireWhyPoints } from "@/app/data/trainAndHirePageData";
+import { ShieldCheck, GraduationCap, Users } from "lucide-react";
+
+const whyIcons = [ShieldCheck, GraduationCap, Users];
 
 export default function WhySection() {
   return (
@@ -76,32 +79,37 @@ export default function WhySection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope"
+            className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope mb-4"
           >
             Why Micro Academy?
           </motion.h2>
 
-          <div className="flex flex-col gap-8 pt-4">
-            {trainAndHireWhyPoints.map((point, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex gap-6"
-              >
-                <div className="w-1 self-stretch bg-primary rounded-full shrink-0" />
-                <div className="flex flex-col gap-2">
-                  <h4 className="text-xl leading-7 text-text-dark font-manrope font-bold">
-                    {point.title}
-                  </h4>
-                  <p className="text-base leading-6 text-text-muted-alt font-manrope">
-                    {point.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="flex flex-col gap-10">
+            {trainAndHireWhyPoints.map((point, i) => {
+              const Icon = whyIcons[i];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="flex gap-6 group"
+                >
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-secondary group-hover:scale-110 transition-transform duration-300 shrink-0">
+                    <Icon className="w-7 h-7 text-text-badge" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h4 className="text-xl leading-7 text-text-dark font-manrope font-bold">
+                      {point.title}
+                    </h4>
+                    <p className="text-base leading-6 text-text-muted-alt font-manrope">
+                      {point.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

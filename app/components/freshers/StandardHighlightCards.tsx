@@ -56,16 +56,16 @@ export default function StandardHighlightCards() {
                 y: -5,
                 transition: { type: "spring", stiffness: 400, damping: 25 },
               }}
-              className="bg-bg-cream-alt p-10 rounded-[2.5rem] flex flex-col items-start text-left gap-6 group hover:bg-white hover:shadow-xl transition-all border border-black/5 cursor-default"
+              className="bg-white p-8 rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white shadow-lg overflow-hidden group-hover:scale-110 transition-transform">
-                <item.icon size={28} strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-text-badge group-hover:scale-110 transition-transform duration-300 mb-6">
+                <item.icon size={28} strokeWidth={2} />
               </div>
               <div className="space-y-4">
                 <h3 className="font-bold text-text-dark text-2xl tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-text-muted leading-relaxed text-sm font-medium">
+                <p className="text-base text-gray-600 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>

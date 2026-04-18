@@ -15,7 +15,12 @@ export default function LifeAtAcedemy() {
 
   return (
     <section className="px-4 md:px-0 py-10 bg-white min-h-screen">
-      <motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="text-3xl font-extrabold text-center text-text-dark mb-6">
           Our Life At Acedemy
         </h2>

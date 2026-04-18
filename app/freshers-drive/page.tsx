@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import HomeTemplate from "../components/common/HeroSection";
 import { freshersHeroData } from "../data/freshersHeroData";
 import StandardHighlightCards from "../components/freshers/StandardHighlightCards";
@@ -9,7 +10,7 @@ import Link from "next/link";
 import { fetchFresherDrives } from "@/app/services/drupalApi";
 import { FresherDrive } from "@/app/types/drupal";
 
-export default function FreshersDrivePage() {
+export default function FreshersDrive() {
   const [drives, setDrives] = useState<FresherDrive[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +35,7 @@ export default function FreshersDrivePage() {
 
       <section
         id="active-domains"
-        className={`py-24 transition-colors duration-500 ${drives.length > 0 ? "bg-white" : "bg-bg-cream-alt"}`}
+        className={`py-24 transition-colors duration-500 overflow-hidden ${drives.length > 0 ? "bg-white" : "bg-bg-cream-alt"}`}
       >
         <div className="max-w-7xl mx-auto px-6">
           {loading ? (
@@ -43,7 +44,13 @@ export default function FreshersDrivePage() {
             </div>
           ) : drives.length > 0 ? (
             <>
-              <div className="text-center max-w-2xl mx-auto mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center max-w-2xl mx-auto mb-16"
+              >
                 <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
                   Career Pathways
                 </span>
@@ -54,12 +61,16 @@ export default function FreshersDrivePage() {
                   Select a domain to view eligibility criteria, job roles, and
                   other details about the scheduled upcoming freshers drive.
                 </p>
-              </div>
+              </motion.div>
 
               <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
-                {drives.map((drive, idx) => (
-                  <div
-                    key={`${drive.title}-${idx}`}
+                {drives.map((drive, index) => (
+                  <motion.div
+                    key={`${drive.title}-${index}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] max-w-sm"
                   >
                     <DomainCard
@@ -67,13 +78,20 @@ export default function FreshersDrivePage() {
                       title={drive.title}
                       image={drive.image || "/assets/freshers/Workshop.svg"}
                     />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </>
           ) : (
             <div className="max-w-6xl mx-auto">
-              <div className="bg-gradient-to-br from-bg-muted via-bg-cream to-bg-muted rounded-[3rem] p-12 lg:p-24 text-center shadow-[0_20px_80px_rgba(0,0,0,0.04)] ring-1 ring-black/5 relative overflow-hidden group">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-gradient-to-br from-bg-muted via-bg-cream to-bg-muted rounded-[3rem] p-12 lg:p-24 text-center shadow-[0_20px_80px_rgba(0,0,0,0.04)] ring-1 ring-black/5 relative overflow-hidden group"
+              >
+                {/* Decorative glows */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />
 
@@ -103,7 +121,7 @@ export default function FreshersDrivePage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           )}
         </div>

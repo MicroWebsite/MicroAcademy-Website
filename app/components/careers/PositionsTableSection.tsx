@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   careerTableHeaders,
   TABLE_GRID_COLUMNS,
@@ -36,9 +37,13 @@ export default function PositionsTableSection({
 
         {/* Body Rows */}
         <div className="flex flex-col gap-4 min-w-[900px]">
-          {jobs.map((pos) => (
-            <div
+          {jobs.map((pos, index) => (
+            <motion.div
               key={pos.id}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="grid items-center bg-bg-input-row min-h-[76px] rounded-lg overflow-hidden transition-all hover:bg-bg-cream"
               style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
             >
@@ -86,7 +91,7 @@ export default function PositionsTableSection({
                   Apply Now
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

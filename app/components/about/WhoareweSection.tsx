@@ -5,7 +5,7 @@ export default function WhoareweSection() {
     const { heading, paragraphs, images } = whoAreWeData;
 
     return (
-        <section className="w-full bg-[#F5F4EE] py-16 lg:py-20 px-6 lg:px-8">
+        <section className="w-full bg-bg-cream py-16 lg:py-20 px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
@@ -15,10 +15,10 @@ export default function WhoareweSection() {
                             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                                 {heading}
                             </h2>
-                            <div className="w-16 h-1 bg-[#6A5F00]"></div>
+                            <div className="w-16 h-1 bg-primary"></div>
                         </div>
 
-                        <div className="space-y-6 text-[#4B4732]">
+                        <div className="space-y-6 text-text-body-para">
                             {paragraphs.map((paragraph, index) => (
                                 <p
                                     key={index}

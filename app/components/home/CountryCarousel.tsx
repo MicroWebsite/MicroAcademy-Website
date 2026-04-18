@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { countriesData } from "@/app/data/countriesData";
 
 type Region = "All Regions" | "Asia" | "Africa" | "Europe" | "Middle East";
@@ -41,7 +41,7 @@ export default function CountriesCarousel() {
   return (
     <section className="w-full bg-white py-20 px-8">
       <div className="max-w-7xl mx-auto">
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#6A5F00] mb-2 font-sans">
+        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
           Global Reach
         </p>
 
@@ -75,7 +75,7 @@ export default function CountriesCarousel() {
                           setPage(0);
                         }}
                         className={`w-full text-left px-4 py-2.5 hover:bg-gray-50 transition-colors ${
-                          activeRegion === r ? "text-[#6A5F00] font-medium" : "text-gray-700"
+                          activeRegion === r ? "text-primary font-medium" : "text-gray-700"
                         }`}
                       >
                         {r}
@@ -127,23 +127,6 @@ export default function CountriesCarousel() {
               </div>
             ))}
           </div>
-
-          {/* Navigation Buttons */}
-          {/* <button
-            onClick={() => scrollTo("prev")}
-            disabled={page === 0}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center disabled:opacity-30 hover:enabled:bg-gray-100 transition-colors shadow-md"
-          >
-            <ChevronLeft size={18} />
-          </button>
-
-          <button
-            onClick={() => scrollTo("next")}
-            disabled={page >= pageCount - 1}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center disabled:opacity-30 hover:enabled:bg-gray-100 transition-colors shadow-md"
-          >
-            <ChevronRight size={18} />
-          </button> */}
         </div>
 
         {/* Pagination Dots */}
@@ -163,7 +146,7 @@ export default function CountriesCarousel() {
                 }}
                 className={`rounded-full transition-all duration-200 ${
                   i === page
-                    ? "w-6 h-2 bg-[#6A5F00]"
+                    ? "w-6 h-2 bg-primary"
                     : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
                 }`}
               />

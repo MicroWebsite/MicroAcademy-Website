@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   Code2,
   Cloud,
@@ -20,10 +19,6 @@ import {
 } from 'lucide-react';
 import HomeTemplate from '../common/HeroSection';
 import { capabilitiesData } from '@/app/data/capabalitiesData';
-
-/* ─────────────────────── Font helpers ─────────────────────── */
-const manrope = 'var(--font-manrope), Manrope, sans-serif';
-const inter = 'var(--font-inter), Inter, sans-serif';
 
 /* ══════════════════════════════════════════════════════════════
    2. TECHNOLOGY LOGOS GRID SECTION
@@ -45,33 +40,14 @@ const techCategories = [
 
 function TechLogosGrid() {
   return (
-    <section
-      className="w-full"
-      style={{ background: '#F5F4EE', padding: '128px 32px' }}
-    >
+    <section className="w-full bg-bg-cream px-8 py-32">
       <div className="max-w-[1344px] mx-auto flex flex-col gap-20">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2
-            className="text-2xl sm:text-3xl font-bold"
-            style={{
-              fontFamily: manrope,
-              letterSpacing: '-0.9px',
-              color: '#1A1C1A',
-            }}
-          >
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope tracking-[-0.9px]">
             Technology Domains We Master
           </h2>
-          <p
-            style={{
-              fontFamily: inter,
-              fontWeight: 400,
-              fontSize: '16px',
-              lineHeight: '24px',
-              letterSpacing: '0.4px',
-              color: '#46483C',
-            }}
-          >
+          <p className="text-base leading-6 text-text-muted-alt font-inter font-normal tracking-[0.4px]">
             Comprehensive training across enterprise technology stacks
           </p>
         </div>
@@ -81,25 +57,10 @@ function TechLogosGrid() {
           {techCategories.map((tech) => (
             <div
               key={tech.label}
-              className="flex flex-col justify-center items-center gap-4 p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default"
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid rgba(199, 200, 185, 0.15)',
-                borderRadius: '12px',
-              }}
+              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border/15 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default"
             >
-              <div style={{ color: '#485422' }}>{tech.icon}</div>
-              <span
-                className="text-center"
-                style={{
-                  fontFamily: manrope,
-                  fontWeight: 700,
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  letterSpacing: '-0.35px',
-                  color: '#1A1C1A',
-                }}
-              >
+              <div className="text-primary">{tech.icon}</div>
+              <span className="text-center text-sm leading-5 font-bold text-text-dark font-manrope tracking-[-0.35px]">
                 {tech.label}
               </span>
             </div>
@@ -130,52 +91,27 @@ const methodologyFeatures = [
 
 function MethodologySection() {
   return (
-    <section className="w-full" style={{ padding: '0 32px' }}>
+    <section className="w-full px-8">
       <div className="max-w-[1344px] mx-auto flex flex-col lg:flex-row gap-8">
         {/* ── Left: Content ── */}
-        <div
-          className="flex flex-col justify-center w-full lg:max-w-[656px]"
-          style={{ padding: '40px 0' }}
-        >
+        <div className="flex flex-col justify-center w-full lg:max-w-[656px] py-10">
           {/* Label */}
-          <div style={{ marginBottom: '16px' }}>
-            <p
-              className="text-xs leading-4 uppercase"
-              style={{
-                fontFamily: inter,
-                fontWeight: 400,
-                letterSpacing: '1.2px',
-                color: '#6F5D00',
-              }}
-            >
+          <div className="mb-4">
+            <p className="text-xs leading-4 uppercase tracking-[1.2px] text-text-olive-alt font-inter font-normal">
               Operational Excellence
             </p>
           </div>
 
           {/* Heading */}
-          <div style={{ marginBottom: '32px' }}>
-            <h2
-              className="text-2xl sm:text-3xl font-bold"
-              style={{
-                fontFamily: manrope,
-                letterSpacing: '-1.2px',
-                color: '#1A1C1A',
-              }}
-            >
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope tracking-[-1.2px]">
               ISO-Driven Methodology
             </h2>
           </div>
 
           {/* Description */}
-          <div style={{ marginBottom: '32px' }}>
-            <p
-              className="text-base leading-relaxed"
-              style={{
-                fontFamily: manrope,
-                color: '#46483C',
-                maxWidth: '655px',
-              }}
-            >
+          <div className="mb-8">
+            <p className="text-base leading-relaxed text-text-muted-alt font-manrope max-w-[655px]">
               Our training methodology is built on two decades of enterprise
               experience, refined through ISO 9001:2015 certification. We
               don&apos;t just teach technology — we engineer competency
@@ -189,40 +125,16 @@ function MethodologySection() {
             {methodologyFeatures.map((feat) => (
               <div key={feat.title} className="flex items-start gap-6">
                 {/* Icon Circle */}
-                <div
-                  className="flex items-center justify-center flex-shrink-0"
-                  style={{
-                    width: '48px',
-                    height: '48px',
-                    background: '#FEE16D',
-                    borderRadius: '9999px',
-                  }}
-                >
-                  <div style={{ color: '#766300' }}>{feat.icon}</div>
+                <div className="flex items-center justify-center shrink-0 w-12 h-12 bg-secondary-muted rounded-full">
+                  <div className="text-text-olive">{feat.icon}</div>
                 </div>
 
                 {/* Text */}
                 <div className="flex flex-col gap-2">
-                  <h4
-                    style={{
-                      fontFamily: manrope,
-                      fontWeight: 700,
-                      fontSize: '20px',
-                      lineHeight: '28px',
-                      color: '#1A1C1A',
-                    }}
-                  >
+                  <h4 className="text-xl leading-7 font-bold text-text-dark font-manrope">
                     {feat.title}
                   </h4>
-                  <p
-                    style={{
-                      fontFamily: manrope,
-                      fontWeight: 400,
-                      fontSize: '16px',
-                      lineHeight: '24px',
-                      color: '#46483C',
-                    }}
-                  >
+                  <p className="text-base leading-6 text-text-muted-alt font-manrope font-normal">
                     {feat.description}
                   </p>
                 </div>
@@ -232,18 +144,10 @@ function MethodologySection() {
         </div>
 
         {/* ── Right: Photo Grid ── */}
-        <div className="flex-1 relative w-full" style={{ minHeight: '656px' }}>
+        <div className="flex-1 relative w-full min-h-[656px]">
           {/* Top Row: 2 images side by side */}
-          <div className="flex gap-4" style={{ paddingTop: '48px' }}>
-            <div
-              className="relative overflow-hidden"
-              style={{
-                width: '320px',
-                height: '320px',
-                borderRadius: '16px',
-                boxShadow: '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)',
-              }}
-            >
+          <div className="flex gap-4 pt-12">
+            <div className="relative overflow-hidden w-[320px] h-[320px] rounded-2xl shadow-xl">
               <Image
                 src="/assets/training-lab-1.png"
                 alt="Training lab environment"
@@ -252,16 +156,7 @@ function MethodologySection() {
                 sizes="320px"
               />
             </div>
-            <div
-              className="relative overflow-hidden"
-              style={{
-                width: '320px',
-                height: '320px',
-                marginTop: '24px',
-                borderRadius: '16px',
-                boxShadow: '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)',
-              }}
-            >
+            <div className="relative overflow-hidden w-[320px] h-[320px] mt-6 rounded-2xl shadow-xl">
               <Image
                 src="/assets/training-lab-2.png"
                 alt="Hands-on workshop"
@@ -273,16 +168,7 @@ function MethodologySection() {
           </div>
 
           {/* Bottom: Full-width image */}
-          <div
-            className="relative overflow-hidden mt-4"
-            style={{
-              width: '100%',
-              maxWidth: '656px',
-              height: '320px',
-              borderRadius: '16px',
-              boxShadow: '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)',
-            }}
-          >
+          <div className="relative overflow-hidden mt-4 w-full max-w-[656px] h-[320px] rounded-2xl shadow-xl">
             <Image
               src="/assets/training-facility.png"
               alt="Training facility overview"
@@ -304,12 +190,13 @@ export default function CorporateTrainingPage() {
   const corporateTrainingData = capabilitiesData.items.find(item => item.id === 'corporate-training');
 
   return (
-    <div className="w-full overflow-hidden" style={{ paddingTop: '0px' }}>
+    <div className="w-full overflow-hidden pt-0">
       {corporateTrainingData && <HomeTemplate heroContent={corporateTrainingData.heroData} />}
       <TechLogosGrid />
       <MethodologySection />
       {/* Bottom spacer */}
-      <div style={{ height: '224px' }} />
+      <div className="h-56" />
     </div>
   );
 }
+

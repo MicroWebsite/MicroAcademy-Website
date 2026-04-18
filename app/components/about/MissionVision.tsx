@@ -3,14 +3,14 @@ import { missionVisionData, CardData } from "@/app/data/missionVision";
 import { Rocket, Eye, Sparkles } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Rocket: <Rocket className="w-7 h-7 text-[#3a3800]" />,
-  Eye: <Eye className="w-7 h-7 text-[#3a3800]" />,
-  Sparkles: <Sparkles className="w-7 h-7 text-[#3a3800]" />,
+  Rocket: <Rocket className="w-7 h-7 text-text-badge" />,
+  Eye: <Eye className="w-7 h-7 text-text-badge" />,
+  Sparkles: <Sparkles className="w-7 h-7 text-text-badge" />,
 };
 
 const MissionVision: React.FC = () => {
   return (
-    <section className="w-full bg-[#EFEEE8] py-20 px-6 lg:px-8">
+    <section className="w-full bg-bg-muted py-20 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Cards Container */}
         <div className="grid md:grid-cols-3 gap-8">
@@ -20,7 +20,7 @@ const MissionVision: React.FC = () => {
               className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group"
             >
               {/* Icon Circle */}
-              <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-[#FBE426] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
                 {iconMap[card.icon]}
               </div>
 

@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 import { ToastProvider } from "./context/ToastContext";
+import Chatbot from "./components/Chatbot";
 
 export default function RootLayout({
   children,
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Chatbot />
         </ToastProvider>
       </body>
     </html>

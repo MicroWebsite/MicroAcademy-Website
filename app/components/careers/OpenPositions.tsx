@@ -46,7 +46,7 @@ const OpenPositions: React.FC = () => {
             filteredJobs.map((job) => (
               <div
                 key={job.id}
-                className="group bg-[#F8F7F2] hover:bg-white border border-transparent hover:border-gray-200 rounded-3xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center justify-between transition-all duration-300"
+                className="group bg-bg-cream-light hover:bg-white border border-transparent hover:border-gray-200 rounded-3xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center justify-between transition-all duration-300"
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
@@ -75,7 +75,7 @@ const OpenPositions: React.FC = () => {
                 {/* Apply Button */}
                 <a
                   href={`/careers/${job.id}`}
-                  className="mt-6 lg:mt-0 inline-flex items-center gap-2 text-[#5A5215] font-medium hover:text-[#7A6F1E] transition-colors group-hover:gap-3"
+                  className="mt-6 lg:mt-0 inline-flex items-center gap-2 text-text-link font-medium hover:text-text-link-hover transition-colors group-hover:gap-3"
                 >
                   Apply for Role
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

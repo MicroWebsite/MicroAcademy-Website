@@ -23,7 +23,7 @@ const itemVariants = {
     show: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
@@ -32,7 +32,7 @@ const shimmerVariants = {
     show: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
@@ -72,7 +72,7 @@ const Lightbox: React.FC<{ image: GalleryImage; onClose: () => void }> = ({
                         </p>
                     )}
                     {image.category && (
-                        <span className="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-widest text-[#6A5F00] border border-[#6A5F00] rounded-full px-3 py-0.5">
+                        <span className="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-widest text-primary border border-primary rounded-full px-3 py-0.5">
                             {image.category}
                         </span>
                     )}
@@ -138,7 +138,7 @@ const GalleryCard: React.FC<{
 
             {image.category && (
                 <motion.span
-                    className="absolute top-2.5 left-2.5 z-20 text-[9px] font-bold uppercase tracking-widest text-white bg-[#6A5F00] rounded-full px-2 py-0.5"
+                    className="absolute top-2.5 left-2.5 z-20 text-[9px] font-bold uppercase tracking-widest text-white bg-primary rounded-full px-2 py-0.5"
                     animate={hovered ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
                     transition={{ duration: 0.22 }}
                 >
@@ -198,7 +198,7 @@ const Gallery: React.FC = () => {
     return (
         <section className="px-4 md:px-0 py-10 bg-white min-h-screen">
             <motion.div>
-                <h2 className="text-3xl font-extrabold text-center text-[#1B1C19] mb-6">
+                <h2 className="text-3xl font-extrabold text-center text-text-dark mb-6">
                     Our Gallery
                 </h2>
                 <p className="text-center text-gray-600 max-w-2xl mx-auto text-sm mb-12">

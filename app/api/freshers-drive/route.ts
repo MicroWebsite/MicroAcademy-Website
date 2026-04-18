@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 
+const EMAIL_COLORS = {
+  primary: '#6A5F00',
+  secondary: '#FBE426',
+  bgCream: '#F5F4EE',
+  textDark: '#1B1C19',
+  textMuted: '#666',
+};
+
 // ─── Google Sheets API helpers ───
 
 async function getGoogleAuth() {
@@ -94,20 +102,20 @@ async function sendEmail(data: {
     subject: `New Freshers Drive Registration: ${data.domain} - ${data.firstName} ${data.lastName}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
-        <h2 style="color:#6A5F00;border-bottom:2px solid #FBE426;padding-bottom:8px;">
+        <h2 style="color:${EMAIL_COLORS.primary};border-bottom:2px solid ${EMAIL_COLORS.secondary};padding-bottom:8px;">
           Drive Registration Details
         </h2>
         <p><strong>Freshers Drive:</strong> ${data.domain}</p>
         <table style="width:100%;border-collapse:collapse;margin-top:16px;">
           <tr>
-            <td style="padding:8px;font-weight:bold;background:#F5F4EE;width:140px;">First Name</td>
+            <td style="padding:8px;font-weight:bold;background:${EMAIL_COLORS.bgCream};width:140px;">First Name</td>
             <td style="padding:8px;">${data.firstName}</td>
           </tr>
           <tr>
             <td style="padding:8px;font-weight:bold;">Last Name</td>
             <td style="padding:8px;">${data.lastName}</td>
           </tr>
-          <tr style="background:#F5F4EE;">
+          <tr style="background:${EMAIL_COLORS.bgCream};">
             <td style="padding:8px;font-weight:bold;">Email</td>
             <td style="padding:8px;">${data.email}</td>
           </tr>
@@ -115,12 +123,12 @@ async function sendEmail(data: {
             <td style="padding:8px;font-weight:bold;">Phone</td>
             <td style="padding:8px;">${data.phone}</td>
           </tr>
-          <tr style="background:#F5F4EE;">
+          <tr style="background:${EMAIL_COLORS.bgCream};">
             <td style="padding:8px;font-weight:bold;">Submitted At</td>
             <td style="padding:8px;">${data.timestamp}</td>
           </tr>
         </table>
-        <p style="margin-top:20px;font-size:12px;color:#666;">
+        <p style="margin-top:20px;font-size:12px;color:${EMAIL_COLORS.textMuted};">
           Resume is attached to this email.
         </p>
       </div>

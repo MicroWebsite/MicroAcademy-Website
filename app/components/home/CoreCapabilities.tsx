@@ -17,10 +17,10 @@ const TrainHireCard: React.FC<{
   ctaHref: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref }) => (
   <div className="relative rounded-3xl bg-white p-8 lg:p-10 flex flex-col h-full shadow-[0_4px_25px_rgb(180,175,150,0.15)] overflow-hidden">
-    <div className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-[#EDECD6]" aria-hidden />
+    <div className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-bg-card-alt" aria-hidden />
 
     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-      <Image src={icon} alt="Train & Hire" width={28} height={28} className="text-[#5a5215]" />
+      <Image src={icon} alt="Train & Hire" width={28} height={28} className="text-text-link" />
     </div>
 
     <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
@@ -28,7 +28,7 @@ const TrainHireCard: React.FC<{
 
     <Link
       href={ctaHref}
-      className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+      className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-primary to-secondary text-white text-sm font-semibold hover:bg-text-link transition-all group"
     >
       {ctaLabel}
       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -44,8 +44,8 @@ const HighlightedCard: React.FC<{
   ctaHref: string;
   image?: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref, image }) => (
-  <div className="relative rounded-3xl bg-[#F5F4EE] p-8 lg:p-10 overflow-hidden h-full flex flex-col">
-    <div className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-[#E3E0CF]" aria-hidden />
+  <div className="relative rounded-3xl bg-bg-cream p-8 lg:p-10 overflow-hidden h-full flex flex-col">
+    <div className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-bg-decor" aria-hidden />
 
     {image && (
       <div className="absolute -right-10 top-60 bottom-0 w-[32%] overflow-hidden">
@@ -69,7 +69,7 @@ const HighlightedCard: React.FC<{
 
       <Link
         href={ctaHref}
-        className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full  bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+        className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full  bg-linear-to-r from-primary to-secondary text-white text-sm font-semibold hover:bg-text-link transition-all group"
       >
         {ctaLabel}
         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -87,8 +87,8 @@ const CorporateTrainingCard: React.FC<{
   ctaHref: string;
   images?: string[];
 }> = ({ icon, title, description, ctaLabel, ctaHref, images }) => (
-  <div className="relative rounded-3xl bg-[#F5F4EE] p-8 lg:p-10 overflow-hidden">
-    <div className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-[#E3E0CF]" aria-hidden />
+  <div className="relative rounded-3xl bg-bg-cream p-8 lg:p-10 overflow-hidden">
+    <div className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-bg-decor" aria-hidden />
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
@@ -101,7 +101,7 @@ const CorporateTrainingCard: React.FC<{
 
         <Link
           href={ctaHref}
-          className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:bg-[#5a5215] transition-all group"
+          className="mt-8 w-fit self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-linear-to-r from-primary to-secondary text-white text-sm font-semibold hover:bg-text-link transition-all group"
         >
           {ctaLabel}
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -138,7 +138,7 @@ const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({ showAll = false }) 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B7B1A] mb-3">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-text-gold-alt mb-3">
             {sectionTag}
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">

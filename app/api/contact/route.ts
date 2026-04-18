@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 
+const EMAIL_COLORS = {
+  primary: '#6A5F00',
+  secondary: '#FBE426',
+  bgCream: '#F5F4EE',
+  textDark: '#1B1C19',
+  textMuted: '#3a3a3a',
+};
+
 // ─── Google Sheets API helpers ───
 
 /**
@@ -102,29 +110,29 @@ async function sendEmail(data: {
     subject: `New Contact Form Submission from ${data.fullName}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
-        <h2 style="color:#6A5F00;border-bottom:2px solid #FBE426;padding-bottom:8px;">
+        <h2 style="color:${EMAIL_COLORS.primary};border-bottom:2px solid ${EMAIL_COLORS.secondary};padding-bottom:8px;">
           New Contact Form Submission
         </h2>
         <table style="width:100%;border-collapse:collapse;margin-top:16px;">
           <tr>
-            <td style="padding:8px 12px;font-weight:bold;color:#3a3a3a;width:140px;">Full Name</td>
-            <td style="padding:8px 12px;color:#1B1C19;">${data.fullName}</td>
+            <td style="padding:8px 12px;font-weight:bold;color:${EMAIL_COLORS.textMuted};width:140px;">Full Name</td>
+            <td style="padding:8px 12px;color:${EMAIL_COLORS.textDark};">${data.fullName}</td>
           </tr>
-          <tr style="background:#F5F4EE;">
-            <td style="padding:8px 12px;font-weight:bold;color:#3a3a3a;">Email</td>
-            <td style="padding:8px 12px;color:#1B1C19;">${data.email}</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 12px;font-weight:bold;color:#3a3a3a;">Phone</td>
-            <td style="padding:8px 12px;color:#1B1C19;">${data.phone}</td>
-          </tr>
-          <tr style="background:#F5F4EE;">
-            <td style="padding:8px 12px;font-weight:bold;color:#3a3a3a;">Message</td>
-            <td style="padding:8px 12px;color:#1B1C19;">${data.message}</td>
+          <tr style="background:${EMAIL_COLORS.bgCream};">
+            <td style="padding:8px 12px;font-weight:bold;color:${EMAIL_COLORS.textMuted};">Email</td>
+            <td style="padding:8px 12px;color:${EMAIL_COLORS.textDark};">${data.email}</td>
           </tr>
           <tr>
-            <td style="padding:8px 12px;font-weight:bold;color:#3a3a3a;">Submitted At</td>
-            <td style="padding:8px 12px;color:#1B1C19;">${data.timestamp}</td>
+            <td style="padding:8px 12px;font-weight:bold;color:${EMAIL_COLORS.textMuted};">Phone</td>
+            <td style="padding:8px 12px;color:${EMAIL_COLORS.textDark};">${data.phone}</td>
+          </tr>
+          <tr style="background:${EMAIL_COLORS.bgCream};">
+            <td style="padding:8px 12px;font-weight:bold;color:${EMAIL_COLORS.textMuted};">Message</td>
+            <td style="padding:8px 12px;color:${EMAIL_COLORS.textDark};">${data.message}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 12px;font-weight:bold;color:${EMAIL_COLORS.textMuted};">Submitted At</td>
+            <td style="padding:8px 12px;color:${EMAIL_COLORS.textDark};">${data.timestamp}</td>
           </tr>
         </table>
       </div>

@@ -3,14 +3,210 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ── Brand ────────────────────────────────────────────────── */
   --primary: #6A5F00;
+  --primary-50: #F5F3E6;
+  --primary-100: #EBE7CC;
+  --primary-200: #D6CF99;
+  --primary-300: #C2B866;
+  --primary-400: #ADA033;
+  --primary-dark: #5C5300;
+  --primary-darker: #4E4700;
+  --primary-800: #403B00;
+  --primary-900: #322F00;
+  --primary-light: #8B8200;
+  --primary-muted: #485422;
+
   --secondary: #FBE426;
+  --secondary-50: #FFFEF0;
+  --secondary-100: #FFFCE0;
+  --secondary-200: #FFF9C2;
+  --secondary-300: #FFF5A3;
+  --secondary-400: #FFF285;
+  --secondary-dark: #F8E122;
+  --secondary-muted: #FEE16D;
+  --secondary-700: #E6C400;
+  --secondary-800: #D4AD00;
+  --secondary-900: #B89600;
+
+  /* ── Surfaces / Backgrounds ───────────────────────────────── */
+  --bg-cream: #F5F4EE;
+  --bg-cream-light: #FAF9F3;
+  --bg-cream-alt: #FAF9F6;
+  --bg-muted: #EFEEE8;
+  --bg-card: #EEEADE;
+  --bg-card-alt: #EDECD6;
+  --bg-decor: #E3E0CF;
+  --bg-input: #EFEEEB;
+  --bg-input-alt: #F1F1F1;
+  --bg-input-row: #F4F3F1;
+  --bg-dark: #1B1C19;
+  --bg-dark-alt: #2F312F;
+  --bg-dark-card: #242521;
+  --bg-dark-card-hover: #2a2b27;
+  --bg-white: #FFFFFF;
+  --bg-header: #FAF9F3;
+  --bg-header-mobile: #F5F4EC;
+
+  /* ── Borders ──────────────────────────────────────────────── */
+  --border: #E2E0D4;
+  --border-light: #EBE9DE;
+  --border-muted: #D9D2C3;
+  --border-alt: #E3E2E0;
+  --border-soft: #C7C8B9;
+  --border-stat: #e8e5d8;
+
+  /* ── Text ─────────────────────────────────────────────────── */
+  --text-dark: #1B1C19;
+  --text-heading: #1A1C1A;
+  --text-body: #4a4a4a;
+  --text-body-alt: #46483C;
+  --text-muted: #5a5a5a;
+  --text-muted-alt: #3a3a3a;
+  --text-subtle: #8a8a8a;
+  --text-label: #9a9a9a;
+  --text-label-alt: #AEAEAE;
+  --text-label-input: #9a9a8a;
+  --text-accent: #6B6B00;
+  --text-gold: #7A6B1F;
+  --text-gold-alt: #8B7B1A;
+  --text-badge: #3a3800;
+  --text-body-para: #4B4732;
+  --text-olive: #766300;
+  --text-olive-alt: #6F5D00;
+  --text-link: #5A5215;
+  --text-link-hover: #7A6F1E;
+  --text-placeholder: #6B7280;
+  --text-muted-nav: #77786B;
+
+  /* ── Buttons / CTAs ───────────────────────────────────────── */
+  --btn-primary: #5C5E00;
+  --btn-primary-hover: #4a4c00;
+  --btn-grad-start: #6A5F00;
+  --btn-grad-end: #FBE426;
+  --btn-grad-end-alt: #D1B000;
+  --btn-cta-bg: #485422;
+
+  /* ── Chatbot ──────────────────────────────────────────────── */
+  --chat-online: #4ADE80;
+
+  /* ── Status badges ────────────────────────────────────────── */
+  --status-full-time-bg: #D7E9BD;
+  --status-full-time-text: #121F05;
+  --status-contract-bg: #FEE16D;
+  --status-contract-text: #221B00;
+
+  /* ── Misc ─────────────────────────────────────────────────── */
+  --text-quote: #F2F1EE;
+  --text-info-card: #F1E563;
+  --cta-card-bg: #E3E2E0;
+  --highlight-muted: #888;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+
+  /* ── Brand ────────────────────────────────────────────────── */
+  --color-primary: var(--primary);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-darker: var(--primary-darker);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-light: var(--primary-light);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-muted: var(--secondary-muted);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+
+  /* ── Surfaces / Backgrounds ───────────────────────────────── */
+  --color-bg-cream: var(--bg-cream);
+  --color-bg-cream-light: var(--bg-cream-light);
+  --color-bg-cream-alt: var(--bg-cream-alt);
+  --color-bg-muted: var(--bg-muted);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-alt: var(--bg-card-alt);
+  --color-bg-decor: var(--bg-decor);
+  --color-bg-input: var(--bg-input);
+  --color-bg-input-alt: var(--bg-input-alt);
+  --color-bg-input-row: var(--bg-input-row);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-dark-alt: var(--bg-dark-alt);
+  --color-bg-dark-card: var(--bg-dark-card);
+  --color-bg-dark-card-hover: var(--bg-dark-card-hover);
+  --color-bg-white: var(--bg-white);
+  --color-bg-header: var(--bg-header);
+  --color-bg-header-mobile: var(--bg-header-mobile);
+
+  /* ── Borders ──────────────────────────────────────────────── */
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-muted: var(--border-muted);
+  --color-border-alt: var(--border-alt);
+  --color-border-soft: var(--border-soft);
+  --color-border-stat: var(--border-stat);
+
+  /* ── Text ─────────────────────────────────────────────────── */
+  --color-text-dark: var(--text-dark);
+  --color-text-heading: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-body-alt: var(--text-body-alt);
+  --color-text-muted: var(--text-muted);
+  --color-text-muted-alt: var(--text-muted-alt);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-label: var(--text-label);
+  --color-text-label-alt: var(--text-label-alt);
+  --color-text-label-input: var(--text-label-input);
+  --color-text-accent: var(--text-accent);
+  --color-text-gold: var(--text-gold);
+  --color-text-gold-alt: var(--text-gold-alt);
+  --color-text-badge: var(--text-badge);
+  --color-text-body-para: var(--text-body-para);
+  --color-text-olive: var(--text-olive);
+  --color-text-olive-alt: var(--text-olive-alt);
+  --color-text-link: var(--text-link);
+  --color-text-link-hover: var(--text-link-hover);
+  --color-text-placeholder: var(--text-placeholder);
+  --color-text-muted-nav: var(--text-muted-nav);
+
+  /* ── Buttons / CTAs ───────────────────────────────────────── */
+  --color-btn-primary: var(--btn-primary);
+  --color-btn-primary-hover: var(--btn-primary-hover);
+  --color-btn-grad-start: var(--btn-grad-start);
+  --color-btn-grad-end: var(--btn-grad-end);
+  --color-btn-grad-end-alt: var(--btn-grad-end-alt);
+  --color-btn-cta-bg: var(--btn-cta-bg);
+
+  /* ── Chatbot ──────────────────────────────────────────────── */
+  --color-chat-online: var(--chat-online);
+
+  /* ── Status badges ────────────────────────────────────────── */
+  --color-status-full-time-bg: var(--status-full-time-bg);
+  --color-status-full-time-text: var(--status-full-time-text);
+  --color-status-contract-bg: var(--status-contract-bg);
+  --color-status-contract-text: var(--status-contract-text);
+
+  /* ── Misc ─────────────────────────────────────────────────── */
+  --color-text-quote: var(--text-quote);
+  --color-text-info-card: var(--text-info-card);
+  --color-cta-card-bg: var(--cta-card-bg);
+  --color-highlight-muted: var(--highlight-muted);
 }
 
 @media (prefers-color-scheme: dark) {

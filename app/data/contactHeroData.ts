@@ -7,7 +7,7 @@ export const contactHeroData: HeroProps = {
   description:
     'For any enquiries, please complete the form below and we\'ll be in contact as soon as possible. We\'ll be more than happy to help.',
   image: {
-    src: '/assets/homeheroImage.svg',
+    src: '/assets/recruitment-hero.png',
     alt: 'Contact MicroAcademy',
   },
 };

@@ -118,12 +118,12 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
   return (
     <div className="bg-white relative overflow-hidden rounded-[2.5rem] p-10 lg:p-14 shadow-[0_10px_60px_rgba(0,0,0,0.08)]">
       {/* Decorative corner accent */}
-      <div className="absolute top-0 right-0 w-48 h-48 bg-[#FAF9F3] rounded-full -mr-20 -mt-20 z-0" />
+      <div className="absolute top-0 right-0 w-48 h-48 bg-bg-cream-light rounded-full -mr-20 -mt-20 z-0" />
 
       <div className="relative z-10">
         <div className="text-center max-w-md mx-auto mb-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#1B1C19] mb-4">Submit Your Application</h2>
-          <p className="text-[#888] text-sm leading-relaxed font-medium">
+          <h2 className="text-3xl lg:text-4xl font-bold text-text-dark mb-4">Submit Your Application</h2>
+          <p className="text-highlight-muted text-sm leading-relaxed font-medium">
             Complete the form below with your professional profile for immediate consideration.
           </p>
         </div>
@@ -131,27 +131,27 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">First Name</label>
+              <label className="text-[10px] font-bold tracking-[0.15em] text-text-label-alt uppercase px-1">First Name</label>
               <input
                 type="text"
                 name="firstName"
                 placeholder="Enter your first name"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.firstName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-bg-input-alt border-none text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.firstName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-primary/20'
                   }`}
               />
               {errors.firstName && <span className="text-[10px] text-red-500 font-medium px-1">{errors.firstName}</span>}
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Last Name</label>
+              <label className="text-[10px] font-bold tracking-[0.15em] text-text-label-alt uppercase px-1">Last Name</label>
               <input
                 type="text"
                 name="lastName"
                 placeholder="Enter your last name"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.lastName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-bg-input-alt border-none text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.lastName ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-primary/20'
                   }`}
               />
               {errors.lastName && <span className="text-[10px] text-red-500 font-medium px-1">{errors.lastName}</span>}
@@ -160,27 +160,27 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Email Address</label>
+              <label className="text-[10px] font-bold tracking-[0.15em] text-text-label-alt uppercase px-1">Email Address</label>
               <input
                 type="email"
                 name="email"
                 placeholder="email@university.edu"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.email ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-bg-input-alt border-none text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.email ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-primary/20'
                   }`}
               />
               {errors.email && <span className="text-[10px] text-red-500 font-medium px-1">{errors.email}</span>}
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Contact Number</label>
+              <label className="text-[10px] font-bold tracking-[0.15em] text-text-label-alt uppercase px-1">Contact Number</label>
               <input
                 type="tel"
                 name="phone"
                 placeholder="+91 00000 00000"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className={`w-full px-5 py-4 rounded-[1.25rem] bg-[#F1F1F1] border-none text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.phone ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-[#6A5F00]/20'
+                className={`w-full px-5 py-4 rounded-[1.25rem] bg-bg-input-alt border-none text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.phone ? 'ring-2 ring-red-500 bg-red-50' : 'focus:ring-2 focus:ring-primary/20'
                   }`}
               />
               {errors.phone && <span className="text-[10px] text-red-500 font-medium px-1">{errors.phone}</span>}
@@ -188,14 +188,13 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] font-bold tracking-[0.15em] text-[#AEAEAE] uppercase px-1">Resume Upload</label>
+            <label className="text-[10px] font-bold tracking-[0.15em] text-text-label-alt uppercase px-1">Resume Upload</label>
             <div
               onClick={() => fileInputRef.current?.click()}
-              onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add('border-[#6A5F00]'); }}
-              onDragLeave={(e) => { e.preventDefault(); e.currentTarget.classList.remove('border-[#6A5F00]'); }}
+              onDragOver={(e) => { e.preventDefault(); }}
+              onDragLeave={(e) => { e.preventDefault(); }}
               onDrop={(e) => {
                 e.preventDefault();
-                e.currentTarget.classList.remove('border-[#6A5F00]');
                 if (e.dataTransfer.files && e.dataTransfer.files[0]) {
                   const file = e.dataTransfer.files[0];
                   const error = validateFile(file, 'Resume');
@@ -203,7 +202,7 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
                   else { setResume(file); setErrors(prev => { const n = { ...prev }; delete n.resume; return n; }); }
                 }
               }}
-              className={`w-full border-2 border-dashed rounded-[1.5rem] p-12 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${errors.resume ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] hover:border-[#6A5F00] bg-transparent'
+              className={`w-full border-2 border-dashed rounded-[1.5rem] p-12 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${errors.resume ? 'border-red-500 bg-red-50' : 'border-border hover:border-primary bg-transparent'
                 }`}
             >
               <input
@@ -213,7 +212,7 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
                 className="hidden"
                 accept=".pdf,.doc,.docx"
               />
-              <div className="w-12 h-12 rounded-xl bg-[#F5F4EE] flex items-center justify-center text-[#6A5F00]">
+              <div className="w-12 h-12 rounded-xl bg-bg-cream flex items-center justify-center text-primary">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                   <polyline points="14 2 14 8 20 8" />
@@ -222,10 +221,10 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
                 </svg>
               </div>
               <div className="text-center">
-                <p className="text-[#1B1C19] font-bold text-sm">
+                <p className="text-text-dark font-bold text-sm">
                   {resume ? resume.name : 'Click to upload or drag and drop'}
                 </p>
-                <p className="text-[10px] text-[#AEAEAE] font-bold mt-1 uppercase tracking-tight">PDF, DOCX (MAX. 5MB)</p>
+                <p className="text-[10px] text-text-label-alt font-bold mt-1 uppercase tracking-tight">PDF, DOCX (MAX. 5MB)</p>
               </div>
             </div>
             {errors.resume && <span className="text-[10px] text-red-500 font-medium px-1">{errors.resume}</span>}
@@ -234,7 +233,7 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full py-5 mt-4 rounded-xl bg-[#6A5F00] text-white text-base font-bold hover:bg-[#5C5300] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-[#6A5F00]/20"
+            className="w-full py-5 mt-4 rounded-xl bg-primary text-white text-base font-bold hover:bg-primary-dark transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-primary/20"
           >
             {status === 'loading' ? 'Submitting Application...' : 'Submit Application'}
           </button>
@@ -243,3 +242,4 @@ export default function DriveRegistrationForm({ domainTitle }: RegistrationFormP
     </div>
   );
 }
+

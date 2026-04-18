@@ -6,7 +6,7 @@ export const servicesHeroData = {
   ctaLabel: "Partner With Us",
   ctaHref: "/contact",
   image: {
-    src: "/assets/original/home-exterior.png",
+    src: "/assets/home/home-exterior.png",
     alt: "Micro Academy Bangalore Office - Professional Environment",
   },
   stat: {

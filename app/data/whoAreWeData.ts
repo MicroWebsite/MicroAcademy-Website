@@ -15,12 +15,12 @@ export const whoAreWeData: WhoAreWeData = {
   ],
   images: [
     {
-      src: "/assets/career/graduation.png",
-      alt: "Training facility with Bultina branding",
+      src: "/assets/about/group-success.jpg",
+      alt: "Successful Micro Academy batch celebration",
     },
     {
-      src: "/assets/career/office-space.png",
-      alt: "Team meeting and collaboration",
+      src: "/assets/about/classroom-group.jpg",
+      alt: "Authentic technical training session at Micro Academy Bangalore",
     },
   ],
 };

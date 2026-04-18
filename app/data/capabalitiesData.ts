@@ -43,7 +43,7 @@ export const capabilitiesData: {
         primaryCTA: { label: "Partner With Us", href: "/contact" },
         secondaryCTA: { label: "Explore Services", href: "/services" },
         image: {
-          src: "/assets/original/classroom-session.jpg",
+          src: "/assets/service/classroom-session.jpg",
           alt: "Authentic Technical Training Session at Micro Academy Bangalore",
         },
       },
@@ -66,7 +66,7 @@ export const capabilitiesData: {
         primaryCTA: { label: "Explore Services", href: "/contact" },
         secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
-          src: "/assets/original/recruitment-drive.jpg",
+          src: "/assets/service/recruitment-drive.jpg",
           alt: "Authentic Recruitment Drive Event at Micro Academy",
         },
       },
@@ -89,7 +89,7 @@ export const capabilitiesData: {
         primaryCTA: { label: "Hire Contractors", href: "/contact" },
         secondaryCTA: { label: "Browse Roles", href: "/services" },
         image: {
-          src: "/assets/original/team-celebration.jpg",
+          src: "/assets/service/team-celebration.jpg",
           alt: "Diverse team at Micro Academy Bangalore office",
         },
       },
@@ -112,7 +112,7 @@ export const capabilitiesData: {
         primaryCTA: { label: "Start Your Program", href: "/contact" },
         secondaryCTA: { label: "Explore Curriculum", href: "/services" },
         image: {
-          src: "/assets/original/training-lab.jpg",
+          src: "/assets/service/training-lab.jpg",
           alt: "Corporate Training Facility at Micro Academy Bangalore",
         },
       },

@@ -19,8 +19,8 @@ export default function WhySection() {
           >
             <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
-                src="/assets/service/tech-training.png"
-                alt="Tech training session"
+                src="/assets/original/classroom-active.jpg"
+                alt="Original training session at Micro Academy"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 276px"
@@ -28,8 +28,8 @@ export default function WhySection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
-                src="/assets/service/collaboration.png"
-                alt="Team collaboration"
+                src="/assets/original/team-collaboration-2.jpg"
+                alt="Authentic team collaboration"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 276px"
@@ -46,8 +46,8 @@ export default function WhySection() {
           >
             <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
-                src="/assets/career/office-space.png"
-                alt="Modern office space"
+                src="/assets/original/office-lobby.jpg"
+                alt="Micro Academy Bangalore Office Lobby"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 276px"
@@ -55,8 +55,8 @@ export default function WhySection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
-                src="/assets/career/graduation.png"
-                alt="Graduation celebration"
+                src="/assets/original/team-outdoor.jpg"
+                alt="Team celebration and outdoor collaboration"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 276px"

@@ -92,7 +92,7 @@ export default function DriveRegistrationForm({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full py-5 mt-4 rounded-xl bg-primary text-white text-base font-bold hover:bg-primary-dark transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-primary/20"
+            className="w-full py-5 mt-4 rounded-xl bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-base font-bold hover:shadow-xl hover:scale-[1.01] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-primary/20 active:scale-[0.99]"
           >
             {status === "loading"
               ? "Submitting Application..."

@@ -37,12 +37,12 @@ const OpenPositions: React.FC = () => {
   }
 
   return (
-    <section className="w-full bg-bg-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-bg-white pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
               Open Positions
             </h2>
             <p className="mt-3 text-lg text-gray-600">

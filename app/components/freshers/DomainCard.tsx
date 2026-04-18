@@ -31,7 +31,7 @@ export default function DomainCard({ id, title, image }: DomainCardProps) {
         </h3>
         <Link
           href={`/freshers-drive/${id}`}
-          className="px-6 py-2.5 rounded-lg border border-border text-text-dark text-sm font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all"
+          className="px-6 py-2.5 rounded-lg ring-1 ring-border text-text-dark text-sm font-semibold hover:bg-linear-to-r hover:from-btn-grad-start hover:to-btn-grad-end hover:text-white hover:ring-0 transition-all shadow-sm active:scale-95"
         >
           View More &rsaquo;
         </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   timelineHeader,
   TimelineMilestone,
@@ -28,10 +29,13 @@ function MilestoneCard({ milestone, index }: MilestoneCardProps) {
         md:flex-row md:items-center md:gap-0
         ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}
       `}
-      style={{ animationDelay: `${index * 150}ms` }}
     >
       {/* ── Text block ── */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className={`
           w-full
           md:w-[calc(50%-2rem)]
@@ -73,12 +77,16 @@ function MilestoneCard({ milestone, index }: MilestoneCardProps) {
         >
           {milestone.description}
         </p>
-      </div>
+      </motion.div>
 
       {/* ── Centre dot + vertical line connector ── */}
       {/* On mobile the dot sits in-line with a left border line */}
       <div className="hidden md:flex md:w-16 md:flex-col md:items-center md:shrink-0">
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.4 }}
           className="
             w-3 h-3 rounded-full bg-[#8a7a1a]
             ring-4 ring-[#f5f0e8] ring-offset-0
@@ -123,23 +131,19 @@ export default function ThirtyYearGenesis() {
         }}
       />
 
-      {/* ── Google Fonts ── */}
-      {/* Add to your _app.tsx / layout.tsx instead for production */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
-
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up {
-          animation: fadeUp 0.7s ease both;
-        }
       `}</style>
 
       <div className="relative mx-auto max-w-4xl">
         {/* ── Header ── */}
-        <div className="mb-16 text-center animate-fade-up">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center"
+        >
           <h1
             className="
               text-4xl sm:text-5xl md:text-6xl font-bold text-[#1a1a0e]
@@ -155,12 +159,17 @@ export default function ThirtyYearGenesis() {
           >
             {timelineHeader.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* ── Timeline ── */}
         <div className="relative">
           {/* Vertical centre line – desktop */}
-          <div
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ transformOrigin: "top" }}
             className="
               hidden md:block
               absolute left-1/2 top-0 bottom-0 w-px
@@ -170,7 +179,12 @@ export default function ThirtyYearGenesis() {
           />
 
           {/* Vertical left border line – mobile */}
-          <div
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ transformOrigin: "top" }}
             className="
               block md:hidden
               absolute left-1 top-0 bottom-0 w-px
@@ -181,13 +195,15 @@ export default function ThirtyYearGenesis() {
           {/* Milestones */}
           <div className="flex flex-col gap-16 sm:gap-20 pl-7 md:pl-0">
             {timelineMilestones.map((milestone, index) => (
-              <div
+              <motion.div
                 key={milestone.year}
-                className="animate-fade-up"
-                style={{ animationDelay: `${(index + 1) * 180}ms` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
                 <MilestoneCard milestone={milestone} index={index} />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

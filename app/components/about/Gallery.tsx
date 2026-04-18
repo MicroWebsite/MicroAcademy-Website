@@ -228,7 +228,12 @@ const Gallery: React.FC = () => {
 
   return (
     <section className="px-4 md:px-0 py-10 bg-white min-h-screen">
-      <motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="text-3xl font-extrabold text-center text-text-dark mb-6">
           Our Gallery
         </h2>
@@ -238,43 +243,40 @@ const Gallery: React.FC = () => {
         </p>
       </motion.div>
 
-      {images.length > 0 ? (
-        <motion.div
-          style={{
-            maxWidth: "1152px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gridTemplateRows: "220px 220px 220px",
-            gap: "10px",
-          }}
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-        >
-          {images.map((image: GalleryImage, index: number) => {
-            const cell = CELLS[index % CELLS.length];
-            return (
-              <motion.div
-                key={image.id}
-                variants={itemVariants}
-                style={{
-                  gridColumn: cell.gridColumn,
-                  gridRow: cell.gridRow,
-                }}
-              >
-                <GalleryCard
-                  image={image}
-                  index={index}
-                  onClick={() => setActiveImage(image)}
-                />
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      ) : (
-        <p className="text-center text-gray-500 py-20">No images found.</p>
-      )}
+      <motion.div
+        style={{
+          maxWidth: "1152px",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateRows: "220px 220px 220px",
+          gap: "10px",
+        }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {images.map((image: GalleryImage, index: number) => {
+          const cell = CELLS[index % CELLS.length];
+          return (
+            <motion.div
+              key={image.id}
+              variants={itemVariants}
+              style={{
+                gridColumn: cell.gridColumn,
+                gridRow: cell.gridRow,
+              }}
+            >
+              <GalleryCard
+                image={image}
+                index={index}
+                onClick={() => setActiveImage(image)}
+              />
+            </motion.div>
+          );
+        })}
+      </motion.div>
 
       <AnimatePresence>
         {activeImage && (

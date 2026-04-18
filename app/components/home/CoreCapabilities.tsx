@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { capabilitiesData } from "@/data/capabalitiesData";
 
@@ -11,6 +14,7 @@ interface CapabilityCardProps {
   ctaLabel: string;
   ctaHref: string;
   highlighted: boolean;
+  index: number;
 }
 
 const CapabilityCard: React.FC<CapabilityCardProps> = ({
@@ -20,8 +24,17 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   ctaLabel,
   ctaHref,
   highlighted,
+  index,
 }) => (
-  <div
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{
+      y: -5,
+      transition: { type: "spring", stiffness: 400, damping: 25 },
+    }}
     className={`relative rounded-3xl p-8 lg:p-10 flex flex-col h-full overflow-hidden ${
       highlighted
         ? "bg-bg-cream"
@@ -61,7 +74,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       </Link>
     </div>
-  </div>
+  </motion.div>
 );
 
 const iconMap: Record<string, string> = {
@@ -77,18 +90,29 @@ const CoreCapabilities: React.FC = () => {
   return (
     <section className="w-full bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-text-gold-alt mb-3">
             {sectionTag}
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
             {heading}
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {items.map((item) => (
-            <CapabilityCard key={item.id} {...item} icon={iconMap[item.id]} />
+          {items.map((item, index) => (
+            <CapabilityCard
+              key={item.id}
+              {...item}
+              icon={iconMap[item.id]}
+              index={index}
+            />
           ))}
         </div>
       </div>

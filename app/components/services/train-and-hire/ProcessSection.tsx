@@ -1,5 +1,6 @@
-import { BookOpen, Handshake, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { trainAndHireSteps } from "@/app/data/trainAndHirePageData";
+import { BookOpen, Handshake, Users } from "lucide-react";
 
 const iconByType = {
   users: Users,
@@ -35,8 +36,12 @@ export default function ProcessSection() {
             const Icon = iconByType[step.icon];
 
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto ${
                   step.highlighted
                     ? "bg-linear-to-r from-primary to-secondary min-h-[336px]"
@@ -70,7 +75,7 @@ export default function ProcessSection() {
                 >
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

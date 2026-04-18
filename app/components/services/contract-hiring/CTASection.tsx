@@ -4,13 +4,16 @@ import { ArrowRight } from "lucide-react";
 export default function CTASection() {
   return (
     <section className="w-full px-8 py-16 bg-white">
-      <div className="relative max-w-[1216px] mx-auto rounded-[32px] bg-btn-cta-bg overflow-hidden p-16 shadow-[0px_24px_40px_-10px_rgba(0,0,0,0.2)] isolation-auto">
-        <div className="relative z-10 flex flex-col items-center gap-6 text-white">
-          <h2 className="text-center text-2xl sm:text-3xl font-bold font-manrope">
+      <div className="relative max-w-[1216px] mx-auto rounded-[32px] bg-cta-card-bg overflow-hidden p-16 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto">
+        <div className="absolute pointer-events-none w-64 h-64 -right-20 -top-20 bg-primary/10 blur-[32px] rounded-full z-0" />
+        <div className="absolute pointer-events-none w-64 h-64 -left-20 -bottom-20 bg-primary/10 blur-[32px] rounded-full z-0" />
+
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             Ready to Augment Your Team?
           </h2>
           <div className="max-w-[600px]">
-            <p className="text-center text-lg leading-8 opacity-90 font-manrope">
+            <p className="text-center text-lg leading-8 text-text-muted-alt font-manrope">
               Connect with our talent architects today and get access to the
               industry&apos;s best contract professionals tailored for your
               immediate project needs.

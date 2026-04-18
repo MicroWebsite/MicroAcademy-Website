@@ -10,6 +10,6 @@ export const careerHeroSection: HeroProps = {
     src: "/assets/headers/Career.png",
     alt: "Future professionals at Micro Academy",
   },
-  primaryCTA: { label: "Explore Positions", href: "/explore-positions" },
-  secondaryCTA: { label: "Our philosophy", href: "/our-philosophy" },
+  // primaryCTA: { label: "Explore Positions", href: "/explore-positions" },
+  // secondaryCTA: { label: "Our philosophy", href: "/our-philosophy" },
 };

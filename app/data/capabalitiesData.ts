@@ -40,8 +40,8 @@ export const capabilitiesData: {
         titleAccent: "Model",
         description:
           "We bridge the gap between raw talent and enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
-        primaryCTA: { label: "Partner With Us", href: "/contact" },
-        secondaryCTA: { label: "Explore Services", href: "/services" },
+        // primaryCTA: { label: "Partner With Us", href: "/contact" },
+        // secondaryCTA: { label: "Explore Services", href: "/services" },
         image: {
           src: "/assets/headers/train.png",
           alt: "Authentic Technical Training Session at Micro Academy Bangalore",
@@ -63,8 +63,8 @@ export const capabilitiesData: {
         titleAccent: "Architecture",
         description:
           "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level headhunting.",
-        primaryCTA: { label: "Explore Services", href: "/contact" },
-        secondaryCTA: { label: "View Roles", href: "/services" },
+        // primaryCTA: { label: "Explore Services", href: "/contact" },
+        // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
           src: "/assets/headers/Recruitment.png",
           alt: "Authentic Recruitment Drive Event at Micro Academy",
@@ -86,8 +86,8 @@ export const capabilitiesData: {
         titleAccent: "Hiring Solutions",
         description:
           "Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.",
-        primaryCTA: { label: "Hire Contractors", href: "/contact" },
-        secondaryCTA: { label: "Browse Roles", href: "/services" },
+        // primaryCTA: { label: "Hire Contractors", href: "/contact" },
+        // secondaryCTA: { label: "Browse Roles", href: "/services" },
         image: {
           src: "/assets/headers/Contract.png",
           alt: "Diverse team at Micro Academy Bangalore office",
@@ -109,8 +109,8 @@ export const capabilitiesData: {
         titleAccent: "Architecture",
         description:
           "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
-        primaryCTA: { label: "Start Your Program", href: "/contact" },
-        secondaryCTA: { label: "Explore Curriculum", href: "/services" },
+        // primaryCTA: { label: "Start Your Program", href: "/contact" },
+        // secondaryCTA: { label: "Explore Curriculum", href: "/services" },
         image: {
           src: "/assets/headers/Corporate.png",
           alt: "Corporate Training Facility at Micro Academy Bangalore",

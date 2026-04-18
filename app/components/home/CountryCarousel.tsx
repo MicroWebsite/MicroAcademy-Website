@@ -104,6 +104,7 @@ export default function CountriesCarousel() {
                     src={country.image}
                     alt={country.name}
                     fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
                     className="object-cover"
                   />
                   {/* Hover overlay */}

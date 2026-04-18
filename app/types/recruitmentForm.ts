@@ -1,4 +1,5 @@
 import { RecruitmentPosition } from "@/app/data/recruitmentPageData";
+import { JobPosition } from "./drupal";
 
 export type RecruitmentFormData = {
   firstName: string;
@@ -14,5 +15,5 @@ export type RecruitmentFormErrors = Record<string, string>;
 export type RecruitmentModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  selectedPosition: RecruitmentPosition | null;
+  selectedPosition: RecruitmentPosition | JobPosition | null;
 };

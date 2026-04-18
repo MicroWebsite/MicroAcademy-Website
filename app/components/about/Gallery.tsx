@@ -1,18 +1,17 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { galleryImages } from "@/app/data/gallery";
+import { fetchGallery } from "@/app/services/drupalApi";
 
 interface GalleryImage {
+  id: number | string;
   src: string;
   alt: string;
   caption?: string;
   category?: string;
 }
 
-// ── Framer Motion Variants ─────────────────────────────────────────────────────
 const containerVariants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.06 } },
@@ -103,7 +102,6 @@ const GalleryCard: React.FC<{
       onMouseLeave={() => setHovered(false)}
       onClick={onClick}
     >
-      {/* Zoom wrapper */}
       <motion.div
         className="absolute inset-0"
         animate={{ scale: hovered ? 1.09 : 1 }}
@@ -156,8 +154,6 @@ const GalleryCard: React.FC<{
           {image.caption}
         </motion.p>
       )}
-
-      {/* Amber corner triangle */}
       <motion.div
         className="absolute bottom-0 right-0 w-10 h-10 z-20 pointer-events-none"
         animate={{ opacity: hovered ? 1 : 0 }}
@@ -193,7 +189,42 @@ const CELLS: CellDef[] = [
 
 const Gallery: React.FC = () => {
   const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
-  const images = galleryImages.slice(0, 9);
+  const [images, setImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        const data = await fetchGallery();
+        const allImages: GalleryImage[] = data.flatMap((item) =>
+          item.images.map((imgUrl, idx) => ({
+            id: `${item.id}-${idx}`,
+            src: imgUrl,
+            alt: `Gallery Image ${item.id}`,
+            category: "Training",
+          })),
+        );
+        setImages(allImages.slice(0, 9));
+      } catch (error) {
+        console.error("Failed to fetch gallery images:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadImages();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <section className="px-4 md:px-0 py-10 bg-white min-h-screen">
@@ -206,36 +237,44 @@ const Gallery: React.FC = () => {
           and success from our global classrooms.
         </p>
       </motion.div>
-      <motion.div
-        style={{
-          maxWidth: "1152px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridTemplateRows: "220px 220px 220px",
-          gap: "10px",
-        }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
-        {images.map((image: GalleryImage, index: number) => (
-          <motion.div
-            key={`${image.src}-${index}`}
-            variants={itemVariants}
-            style={{
-              gridColumn: CELLS[index].gridColumn,
-              gridRow: CELLS[index].gridRow,
-            }}
-          >
-            <GalleryCard
-              image={image}
-              index={index}
-              onClick={() => setActiveImage(image)}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+
+      {images.length > 0 ? (
+        <motion.div
+          style={{
+            maxWidth: "1152px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateRows: "220px 220px 220px",
+            gap: "10px",
+          }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {images.map((image: GalleryImage, index: number) => {
+            const cell = CELLS[index % CELLS.length];
+            return (
+              <motion.div
+                key={image.id}
+                variants={itemVariants}
+                style={{
+                  gridColumn: cell.gridColumn,
+                  gridRow: cell.gridRow,
+                }}
+              >
+                <GalleryCard
+                  image={image}
+                  index={index}
+                  onClick={() => setActiveImage(image)}
+                />
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      ) : (
+        <p className="text-center text-gray-500 py-20">No images found.</p>
+      )}
 
       <AnimatePresence>
         {activeImage && (

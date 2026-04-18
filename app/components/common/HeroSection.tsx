@@ -74,6 +74,10 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
                   alt={image.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 30rem"
+                  unoptimized={
+                    image.src.startsWith("http://127.0.0.1") ||
+                    image.src.startsWith("http://localhost")
+                  }
                   className="object-cover"
                   priority
                 />

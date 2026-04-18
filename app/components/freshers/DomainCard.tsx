@@ -18,6 +18,10 @@ export default function DomainCard({ id, title, image }: DomainCardProps) {
           alt={title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          unoptimized={
+            image.startsWith("http://127.0.0.1") ||
+            image.startsWith("http://localhost")
+          }
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

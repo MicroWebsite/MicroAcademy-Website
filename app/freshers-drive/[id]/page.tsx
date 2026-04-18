@@ -1,30 +1,44 @@
-import { Metadata } from "next";
+"use client";
+
+import { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
-import { freshersDrives } from "@/app/data/freshersDriveData";
 import EligibilityCriteria from "@/app/components/freshers/EligibilityCriteria";
 import DriveRegistrationForm from "@/app/components/freshers/DriveRegistrationForm";
 import HomeTemplate from "@/app/components/common/HeroSection";
+import { fetchFresherDrives } from "@/app/services/drupalApi";
+import { FresherDrive } from "@/app/types/drupal";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-  const { id } = await params;
-  const drive = freshersDrives.find((d) => d.id === id);
-  return {
-    title: `${drive?.title || "Drive Details"} | MicroAcademy`,
-    description: drive?.description,
-  };
-}
-
-export default async function DriveDetailPage({
+export default function DriveDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
-  const drive = freshersDrives.find((d) => d.id === id);
+  const { id } = use(params);
+  const [drive, setDrive] = useState<FresherDrive | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadDrive = async () => {
+      try {
+        const drives = await fetchFresherDrives();
+        const found = drives.find((d) => encodeURIComponent(d.title) === id);
+        setDrive(found || null);
+      } catch (error) {
+        console.error("Failed to fetch drive details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadDrive();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   if (!drive) {
     notFound();
@@ -44,7 +58,7 @@ export default async function DriveDetailPage({
     titleAccent,
     description: drive.description,
     image: {
-      src: drive.image,
+      src: drive.image || "/assets/freshers/Workshop.svg",
       alt: drive.title,
     },
   };

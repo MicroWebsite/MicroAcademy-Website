@@ -38,7 +38,13 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
 
     <div className="relative z-10 flex flex-col h-full">
       <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-        <Image src={icon} alt={`${title} icon`} width={28} height={28} />
+        <Image
+          src={icon}
+          alt={`${title} icon`}
+          width={28}
+          height={28}
+          style={{ width: "auto", height: "auto" }}
+        />
       </div>
 
       <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>

@@ -1,18 +1,32 @@
-import { Metadata } from "next";
+"use client";
+
+import { useState, useEffect } from "react";
 import HomeTemplate from "../components/common/HeroSection";
 import { freshersHeroData } from "../data/freshersHeroData";
 import StandardHighlightCards from "../components/freshers/StandardHighlightCards";
 import DomainCard from "../components/freshers/DomainCard";
 import Link from "next/link";
-import { freshersDrives } from "../data/freshersDriveData";
+import { fetchFresherDrives } from "@/app/services/drupalApi";
+import { FresherDrive } from "@/app/types/drupal";
 
-export const metadata: Metadata = {
-  title: "Freshers Drive | MicroAcademy",
-  description:
-    "Join our recruitment drives and start your career with leading IT service providers.",
-};
+export default function FreshersDrivePage() {
+  const [drives, setDrives] = useState<FresherDrive[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default function FreshersDrive() {
+  useEffect(() => {
+    const loadDrives = async () => {
+      try {
+        const data = await fetchFresherDrives();
+        setDrives(data);
+      } catch (error) {
+        console.error("Failed to fetch fresher drives:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadDrives();
+  }, []);
+
   return (
     <main className="min-h-screen">
       <HomeTemplate heroContent={freshersHeroData} />
@@ -20,10 +34,14 @@ export default function FreshersDrive() {
 
       <section
         id="active-domains"
-        className={`py-24 transition-colors duration-500 ${freshersDrives.length > 0 ? "bg-white" : "bg-bg-cream-alt"}`}
+        className={`py-24 transition-colors duration-500 ${drives.length > 0 ? "bg-white" : "bg-bg-cream-alt"}`}
       >
         <div className="max-w-7xl mx-auto px-6">
-          {freshersDrives.length > 0 ? (
+          {loading ? (
+            <div className="flex justify-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+          ) : drives.length > 0 ? (
             <>
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
@@ -39,15 +57,15 @@ export default function FreshersDrive() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
-                {freshersDrives.map((drive) => (
+                {drives.map((drive, idx) => (
                   <div
-                    key={drive.id}
+                    key={`${drive.title}-${idx}`}
                     className="w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] max-w-sm"
                   >
                     <DomainCard
-                      id={drive.id}
+                      id={encodeURIComponent(drive.title)}
                       title={drive.title}
-                      image={drive.image}
+                      image={drive.image || "/assets/freshers/Workshop.svg"}
                     />
                   </div>
                 ))}
@@ -56,7 +74,6 @@ export default function FreshersDrive() {
           ) : (
             <div className="max-w-6xl mx-auto">
               <div className="bg-gradient-to-br from-bg-muted via-bg-cream to-bg-muted rounded-[3rem] p-12 lg:p-24 text-center shadow-[0_20px_80px_rgba(0,0,0,0.04)] ring-1 ring-black/5 relative overflow-hidden group">
-                {/* Decorative glows */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />
 

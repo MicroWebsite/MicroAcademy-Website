@@ -67,7 +67,7 @@ export default function ServicesContentSection() {
             className="relative w-full overflow-hidden h-[324px] rounded-2xl shadow-xl"
           >
             <Image
-              src="/assets/service/recruitment-meeting.png"
+              src="/assets/service/collaboration-training.png"
               alt="Team strategy meeting"
               fill
               className="object-cover"

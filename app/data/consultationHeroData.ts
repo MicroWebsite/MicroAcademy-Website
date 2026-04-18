@@ -7,7 +7,7 @@ export const consultationHeroData: HeroProps = {
   description:
     "Schedule a consultation with our experts to discuss your business needs. Please complete the form below and we'll be in contact as soon as possible.",
   image: {
-    src: "/assets/home/homeheroImage.svg",
-    alt: "Consultation with MicroAcademy",
+    src: "/assets/original/training-lab.jpg",
+    alt: "Consultation environment at Micro Academy",
   },
 };

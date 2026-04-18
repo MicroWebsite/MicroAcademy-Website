@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HomeTemplate from "../components/home/homeTemplate";
+import HeroSection from "@/app/components/common/HeroSection";
 import { careerHeroSection } from "../data/careerHeroSection";
 import MicroAdvantage from "../components/careers/MicroAdvantage";
 import OpenPositions from "../components/careers/OpenPositions";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Career() {
   return (
     <div className="w-full">
-      <HomeTemplate heroContent={careerHeroSection} />
+      <HeroSection heroContent={careerHeroSection} />
       <MicroAdvantage />
       <OpenPositions />
     </div>

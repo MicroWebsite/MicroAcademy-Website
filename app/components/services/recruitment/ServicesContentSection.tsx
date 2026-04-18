@@ -60,7 +60,7 @@ export default function ServicesContentSection() {
               />
             </div>
 
-            <div className="relative overflow-hidden bg-primary rounded-2xl p-10 shadow-lg">
+            <div className="relative overflow-hidden bg-linear-to-r from-primary to-secondary rounded-2xl p-10 shadow-lg">
               <h4 className="text-2xl leading-8 text-white mb-4 font-manrope font-normal">
                 The Micro Academy Difference
               </h4>

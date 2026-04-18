@@ -9,7 +9,7 @@ const iconByType = {
 
 export default function ServicesContentSection() {
   return (
-    <section className="w-full bg-bg-cream px-8 py-24">
+    <section className="w-full bg-white px-8 py-24">
       <div className="max-w-[1216px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col gap-8 lg:max-w-[576px] w-full">

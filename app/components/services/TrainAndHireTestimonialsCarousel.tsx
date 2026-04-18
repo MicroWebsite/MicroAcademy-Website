@@ -110,7 +110,7 @@ export default function TrainAndHireTestimonialsCarousel({
             onPointerEnter={() => setIsPaused(true)}
           >
             {/* Quote Text */}
-            <p className="text-text-quote text-center text-[28px] md:text-[36px] leading-[36px] md:leading-[40px] max-w-[896px] font-manrope font-light">
+            <p className="text-text-heading text-center text-[28px] md:text-[36px] leading-[36px] md:leading-[40px] max-w-[896px] font-manrope font-light">
               &quot;{active.quote}&quot;
             </p>
 
@@ -131,7 +131,7 @@ export default function TrainAndHireTestimonialsCarousel({
 
               {/* Name & Role */}
               <div className="flex flex-col items-start gap-1">
-                <span className="text-text-quote text-xl font-bold leading-7 font-manrope">
+                <span className="text-text-dark text-xl font-bold leading-7 font-manrope">
                   {active.name}
                 </span>
                 <span className="text-primary text-sm uppercase tracking-[0.35px] font-inter font-normal">

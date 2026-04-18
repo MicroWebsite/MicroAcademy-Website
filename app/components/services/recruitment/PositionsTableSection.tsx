@@ -14,7 +14,7 @@ export default function PositionsTableSection({
   onApply,
 }: PositionsTableSectionProps) {
   return (
-    <section className="w-full bg-bg-cream-alt py-24 px-8">
+    <section className="w-full bg-bg-cream py-24 px-8">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="flex flex-col gap-4 max-w-[556px]">

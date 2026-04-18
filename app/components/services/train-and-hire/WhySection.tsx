@@ -5,7 +5,7 @@ import { trainAndHireWhyPoints } from "@/app/data/trainAndHirePageData";
 export default function WhySection() {
   return (
     <section className="w-full bg-bg-cream px-8">
-      <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-[768px] py-32">
+      <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-[768px] py-24">
         <div className="relative flex gap-4 shrink-0 w-[568px] max-w-full h-[512px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

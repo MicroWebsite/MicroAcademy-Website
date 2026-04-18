@@ -109,7 +109,7 @@ export default function FreshersDrive() {
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link
                       href="/contact"
-                      className="px-12 py-5 bg-primary text-white text-base font-bold rounded-full hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 hover:-translate-y-1 active:scale-95"
+                      className="px-12 py-5 bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-base font-bold rounded-full hover:brightness-110 transition-all shadow-xl shadow-primary/10 hover:-translate-y-1 active:scale-95"
                     >
                       Contact Us
                     </Link>

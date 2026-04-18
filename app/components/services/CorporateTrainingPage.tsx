@@ -64,7 +64,7 @@ function TechLogosGrid() {
                 y: -5,
                 transition: { type: "spring", stiffness: 400, damping: 25 },
               }}
-              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border/15 rounded-xl hover:shadow-lg transition-all duration-300 cursor-default"
+              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border rounded-xl hover:shadow-lg transition-all duration-300 cursor-default"
             >
               <div className="text-primary">{tech.icon}</div>
               <span className="text-center text-sm leading-5 font-bold text-text-dark font-manrope tracking-[-0.35px]">

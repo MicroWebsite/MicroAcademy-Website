@@ -102,7 +102,7 @@ export default function Header() {
         <div className="flex items-center gap-4 shrink-0">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover transition-colors"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all"
           >
             Contact us
           </Link>
@@ -190,7 +190,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover transition-colors"
+            className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
           >
             Contact us
           </Link>

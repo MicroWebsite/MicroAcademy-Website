@@ -39,15 +39,15 @@ export default function BenefitsSection() {
                   y: -5,
                   transition: { type: "spring", stiffness: 400, damping: 25 },
                 }}
-                className="flex flex-col items-start gap-4 p-8 rounded-2xl transition-all hover:shadow-lg bg-bg-cream-alt border border-border/40"
+                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-2 bg-primary/10 text-primary">
-                  <Icon className="w-6 h-6" />
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-7 h-7 text-text-badge" />
                 </div>
-                <h3 className="text-xl leading-7 font-bold text-text-dark font-manrope">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-manrope">
                   {benefit.title}
                 </h3>
-                <p className="text-base leading-6 text-text-muted-alt font-manrope">
+                <p className="text-base text-gray-600 leading-relaxed font-manrope">
                   {benefit.description}
                 </p>
               </motion.div>

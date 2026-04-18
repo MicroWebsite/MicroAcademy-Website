@@ -37,24 +37,18 @@ export default function ServicesContentSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{
-                    x: 10,
+                    y: -5,
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
-                  className="flex flex-col gap-4 bg-white p-8 rounded-xl border border-border/5 hover:border-primary/20 hover:shadow-md transition-all duration-300"
+                  className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-primary">
-                      <Icon
-                        className={
-                          card.icon === "users" ? "w-6 h-3" : "w-[18px] h-5"
-                        }
-                      />
-                    </span>
-                    <h3 className="text-2xl leading-8 font-bold text-text-dark font-manrope">
-                      {card.title}
-                    </h3>
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-7 h-7 text-text-badge" />
                   </div>
-                  <p className="text-base leading-[26px] text-text-muted-alt font-manrope">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-manrope">
+                    {card.title}
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed font-manrope">
                     {card.description}
                   </p>
                 </motion.div>

@@ -1,9 +1,15 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { microAdvantageData } from "@/app/data/microAdvantageData";
+import { TrendingUp, Gem, Globe } from "lucide-react";
+
+const iconMap: Record<string, React.ReactNode> = {
+  "professional-growth": <TrendingUp className="w-7 h-7 text-text-badge" />,
+  "premium-benefits": <Gem className="w-7 h-7 text-text-badge" />,
+  "global-impact": <Globe className="w-7 h-7 text-text-badge" />,
+};
 
 const MicroAdvantage: React.FC = () => {
   const { sectionTag, heading, items } = microAdvantageData;
@@ -40,17 +46,11 @@ const MicroAdvantage: React.FC = () => {
                 y: -5,
                 transition: { type: "spring", stiffness: 400, damping: 25 },
               }}
-              className="group bg-white rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:shadow-xl flex flex-col cursor-default"
+              className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 flex items-center justify-center rounded-2xl mb-8 group-hover:bg-bg-card-alt transition-colors">
-                <Image
-                  src={item.icon}
-                  alt={item.title}
-                  width={50}
-                  height={50}
-                  className="text-text-link"
-                />
+              {/* Icon Circle */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
+                {iconMap[item.id]}
               </div>
 
               {/* Title */}
@@ -59,7 +59,7 @@ const MicroAdvantage: React.FC = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-[15px] leading-relaxed flex-1">
+              <p className="text-base text-gray-600 leading-relaxed">
                 {item.description}
               </p>
             </motion.div>

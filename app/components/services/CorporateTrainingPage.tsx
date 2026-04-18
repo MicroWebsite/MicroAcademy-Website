@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -135,8 +136,15 @@ function MethodologySection() {
                 className="flex items-start gap-6"
               >
                 {/* Icon Circle */}
-                <div className="flex items-center justify-center shrink-0 w-12 h-12 bg-secondary-muted rounded-full">
-                  <div className="text-text-olive">{feat.icon}</div>
+                <div className="flex items-center justify-center shrink-0 w-14 h-14 bg-secondary rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-text-badge">
+                    {React.cloneElement(
+                      feat.icon as React.ReactElement<{ className?: string }>,
+                      {
+                        className: "w-7 h-7",
+                      },
+                    )}
+                  </div>
                 </div>
 
                 {/* Text */}

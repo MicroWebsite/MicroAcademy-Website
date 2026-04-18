@@ -7,7 +7,7 @@ export const aboutHeroData: HeroProps = {
   description:
     "We bridge the gap between human potential and enterprise excellence through curated intelligence and strategic workforce evolution.",
   image: {
-    src: "/assets/service/training-lab.jpg",
+    src: "/assets/career/office-space.png",
     alt: "Micro Academy Technical Training Lab",
   },
 };

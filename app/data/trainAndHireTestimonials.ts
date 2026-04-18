@@ -5,8 +5,6 @@ export interface TrainAndHireTestimonial {
   avatar: string;
 }
 
-// Source: https://microacademy.net/?page_id=61
-// Source: https://microacademy.net/?page_id=61
 export const trainAndHireTestimonials: TrainAndHireTestimonial[] = [
   {
     name: "Sai Vivek",

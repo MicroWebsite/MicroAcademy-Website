@@ -1,13 +1,13 @@
 import { HeroProps } from "@/app/types/hero";
 
 export const careerHeroSection: HeroProps = {
-  //   badge: 'The Digital Curator',
+  badge: "Our Careers",
   titleLine1: "Build Your Career at",
   titleAccent: "Micro Academy.",
   description:
     "Join a collective of visionary professionals dedicated to redefining the architectural standards of modern training and recruitment.",
   image: {
-    src: "/assets/service/team-celebration.jpg",
+    src: "/assets/career/office-space.png",
     alt: "Future professionals at Micro Academy",
   },
   primaryCTA: { label: "Explore Positions", href: "/explore-positions" },

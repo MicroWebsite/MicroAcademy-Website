@@ -47,7 +47,7 @@ export default function Footer() {
         {/* Logo & Address */}
         <div className="flex flex-col gap-4 items-start text-left font-['Inter']">
           <Image
-            src="/assets/home/microacademy-logo.png"
+            src="/assets/common/microacademy-logo.png"
             alt="MicroAcademy Logo"
             width={120}
             height={60}

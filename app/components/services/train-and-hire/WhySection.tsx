@@ -19,7 +19,7 @@ export default function WhySection() {
           >
             <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
-                src="/assets/original/classroom-active.jpg"
+                src="/assets/service/classroom-active.jpg"
                 alt="Original training session at Micro Academy"
                 fill
                 className="object-cover"
@@ -28,7 +28,7 @@ export default function WhySection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
-                src="/assets/original/team-collaboration-2.jpg"
+                src="/assets/service/team-collaboration-2.jpg"
                 alt="Authentic team collaboration"
                 fill
                 className="object-cover"
@@ -46,7 +46,7 @@ export default function WhySection() {
           >
             <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
-                src="/assets/original/office-lobby.jpg"
+                src="/assets/about/office-lobby.jpg"
                 alt="Micro Academy Bangalore Office Lobby"
                 fill
                 className="object-cover"
@@ -55,7 +55,7 @@ export default function WhySection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
-                src="/assets/original/team-outdoor.jpg"
+                src="/assets/service/team-outdoor.jpg"
                 alt="Team celebration and outdoor collaboration"
                 fill
                 className="object-cover"

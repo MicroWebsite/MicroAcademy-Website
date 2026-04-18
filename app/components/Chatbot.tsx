@@ -13,13 +13,11 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setMounted(true);
       setMessages([
         {
           id: "welcome",
@@ -81,8 +79,6 @@ export default function Chatbot() {
     },
     [inputValue, sendMessage],
   );
-
-  if (!mounted) return null;
 
   return (
     <>

@@ -26,7 +26,7 @@ const highlightModels = [
 
 export default function StandardHighlightCards() {
   return (
-    <section className="bg-bg-dark py-24 px-6 overflow-hidden">
+    <section className="bg-white py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,10 +35,10 @@ export default function StandardHighlightCards() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-text-dark mb-6">
             Our Drive Highlights
           </h2>
-          <p className="text-highlight-muted text-lg leading-relaxed">
+          <p className="text-text-muted text-lg leading-relaxed">
             We bridge the gap between academic learning and industry
             requirements with our unique recruitment philosophy.
           </p>
@@ -56,16 +56,16 @@ export default function StandardHighlightCards() {
                 y: -5,
                 transition: { type: "spring", stiffness: 400, damping: 25 },
               }}
-              className="bg-bg-dark-card p-10 rounded-[2.5rem] flex flex-col items-start text-left gap-6 group hover:bg-bg-dark-card-hover transition-all border border-white/5 cursor-default"
+              className="bg-bg-cream-alt p-10 rounded-[2.5rem] flex flex-col items-start text-left gap-6 group hover:bg-white hover:shadow-xl transition-all border border-black/5 cursor-default"
             >
               <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white shadow-lg overflow-hidden group-hover:scale-110 transition-transform">
                 <item.icon size={28} strokeWidth={1.5} />
               </div>
               <div className="space-y-4">
-                <h3 className="font-bold text-white text-2xl tracking-tight">
+                <h3 className="font-bold text-text-dark text-2xl tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-highlight-muted leading-relaxed text-sm font-medium">
+                <p className="text-text-muted leading-relaxed text-sm font-medium">
                   {item.description}
                 </p>
               </div>

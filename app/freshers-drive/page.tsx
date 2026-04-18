@@ -35,7 +35,7 @@ export default function FreshersDrive() {
 
       <section
         id="active-domains"
-        className={`py-24 transition-colors duration-500 overflow-hidden ${drives.length > 0 ? "bg-white" : "bg-bg-cream-alt"}`}
+        className={`py-24 transition-colors duration-500 overflow-hidden ${drives.length > 0 ? "bg-bg-cream" : "bg-bg-cream-alt"}`}
       >
         <div className="max-w-7xl mx-auto px-6">
           {loading ? (

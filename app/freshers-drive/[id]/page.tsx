@@ -39,7 +39,7 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF9F3]">
+    <main className="min-h-screen bg-bg-cream-light">
       {/* Detail Hero */}
       <HomeTemplate heroContent={driveHeroData} />
 
@@ -50,11 +50,11 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
             <EligibilityCriteria criteria={drive.eligibility} />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="bg-[#1B1C19] text-white p-10 rounded-3xl shadow-xl relative overflow-hidden">
+            <div className="bg-bg-dark text-white p-10 rounded-3xl shadow-xl relative overflow-hidden">
               <div className="relative z-10 flex flex-col gap-6">
                 <span className="px-2 py-1 border border-white/20 text-[10px] font-bold tracking-widest uppercase rounded self-start">Official Drive Note</span>
                 <p className="text-lg leading-relaxed text-gray-300">
-                  This campaign is a <span className="text-[#FBE426] font-bold text-xl italic">"Fresher's Selection Drive"</span> conducted via our <span className="font-semibold text-white">Train & Hire Model</span> for a Tier-1 IT Service Provider. 
+                  This campaign is a <span className="text-secondary font-bold text-xl italic">"Fresher's Selection Drive"</span> conducted via our <span className="font-semibold text-white">Train & Hire Model</span> for a Tier-1 IT Service Provider. 
                 </p>
                 <div className="pt-6 border-t border-white/10">
                   <p className="text-sm font-bold text-white flex items-center gap-2">
@@ -71,7 +71,7 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
       </section>
 
       {/* Registration Form Section */}
-      <section id="register" className="py-24 px-6 bg-[#FAF9F3]">
+      <section id="register" className="py-24 px-6 bg-bg-cream-light">
         <div className="max-w-3xl mx-auto">
           <DriveRegistrationForm domainTitle={drive.title} />
         </div>

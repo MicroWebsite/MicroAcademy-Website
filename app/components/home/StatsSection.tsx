@@ -19,13 +19,13 @@ const StatCard: React.FC<StatCardProps> = ({ stat, isLast }) => (
   <div
     className={`
       flex flex-col items-center justify-center gap-2 py-8 px-6
-      ${!isLast ? "border-b sm:border-b-0 sm:border-r border-[#D9D2C3]" : ""}
+      ${!isLast ? "border-b sm:border-b-0 sm:border-r border-border-muted" : ""}
     `}
   >
-    <span className="text-[2.4rem] sm:text-[2.8rem] md:text-[3rem] font-bold text-[#7A6B1F] leading-none tracking-tight">
+    <span className="text-[2.4rem] sm:text-[2.8rem] md:text-[3rem] font-bold text-text-gold leading-none tracking-tight">
       {stat.value}
     </span>
-    <span className="text-[9px] sm:text-[10px] font-semibold text-[#1A1A1A] tracking-[0.15em] uppercase mt-1 text-center">
+    <span className="text-[9px] sm:text-[10px] font-semibold text-text-heading tracking-[0.15em] uppercase mt-1 text-center">
       {stat.label}
     </span>
   </div>
@@ -37,11 +37,10 @@ interface StatsSectionProps {
 
 const StatsSection: React.FC<StatsSectionProps> = ({ data = statsData }) => {
   return (
-    // No dark bg wrapper — inherits hero's #F5F4EE background
     <div className="w-full px-6 pb-10 pt-2">
       <div className="max-w-7xl mx-auto">
         {/* Rounded card sitting on the cream background */}
-        <div className="bg-[#EEEADE] rounded-2xl overflow-hidden shadow-sm">
+        <div className="bg-bg-card rounded-2xl overflow-hidden shadow-sm">
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {data.stats.map((stat, i) => (
               <StatCard

@@ -22,12 +22,12 @@ export default function DomainCard({ id, title, image }: DomainCardProps) {
         />
       </div>
       <div className="p-8 flex flex-col flex-grow items-center text-center gap-6">
-        <h3 className="text-xl font-bold text-[#1B1C19] min-h-[3rem]">
+        <h3 className="text-xl font-bold text-text-dark min-h-[3rem]">
           {title}
         </h3>
         <Link
           href={`/freshers-drive/${id}`}
-          className="px-6 py-2.5 rounded-lg border border-[#E2E0D4] text-[#1B1C19] text-sm font-semibold hover:bg-[#6A5F00] hover:text-white hover:border-[#6A5F00] transition-all"
+          className="px-6 py-2.5 rounded-lg border border-border text-text-dark text-sm font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all"
         >
           View More &rsaquo;
         </Link>
@@ -35,3 +35,4 @@ export default function DomainCard({ id, title, image }: DomainCardProps) {
     </div>
   );
 }
+

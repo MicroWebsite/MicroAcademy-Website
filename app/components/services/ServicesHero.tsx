@@ -7,26 +7,26 @@ export default function ServicesHero() {
     servicesHeroData;
 
   return (
-    <section className="w-full bg-[#F5F4EE] overflow-hidden">
+    <section className="w-full bg-bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-8">
 
         {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
 
           {/* Badge */}
-          <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-[#FBE426] text-[#3a3800] text-xs font-bold tracking-[0.18em] uppercase">
+          <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.18em] uppercase">
             {badge}
           </span>
 
           {/* Title */}
           <div className="flex flex-col gap-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1B1C19] leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-dark leading-[1.1] tracking-tight">
               {title}
             </h1>
           </div>
 
           {/* Description */}
-          <p className="text-base text-[#4a4a4a] leading-relaxed max-w-120">
+          <p className="text-base text-text-body leading-relaxed max-w-120">
             {description}
           </p>
 
@@ -34,7 +34,7 @@ export default function ServicesHero() {
           <div className="flex flex-wrap items-center gap-4 mt-2">
             <Link
               href={ctaHref}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-linear-to-r from-[#6A5F00] to-[#FBE426] text-white text-sm font-semibold hover:from-[#5C5300] hover:to-[#FBE426] transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-linear-to-r from-primary to-secondary text-white text-sm font-semibold hover:from-primary-dark hover:to-secondary transition-colors"
             >
               {ctaLabel}
             </Link>
@@ -48,7 +48,7 @@ export default function ServicesHero() {
             {/* Image */}
             {image?.src && image?.alt && (
               <>
-                <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-[#F8E122]/50" />
+                <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-secondary-dark/50" />
                 <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-2xl">
                   <Image
                     src={image.src}
@@ -64,11 +64,11 @@ export default function ServicesHero() {
 
             {/* Floating Stat Card */}
             {stat && (
-              <div className="absolute -bottom-8 -left-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[220px] border border-[#e8e5d8]">
-                <p className="text-[#6A5F00] font-extrabold text-4xl leading-none">
+              <div className="absolute -bottom-8 -left-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[220px] border border-border-stat">
+                <p className="text-primary font-extrabold text-4xl leading-none">
                   {stat.value}
                 </p>
-                <p className="text-[#4a4a4a] font-semibold text-sm mt-1.5 leading-snug">
+                <p className="text-text-body font-semibold text-sm mt-1.5 leading-snug">
                   {stat.label}
                 </p>
               </div>

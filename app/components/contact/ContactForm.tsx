@@ -99,7 +99,7 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
-      <h2 className="text-2xl sm:text-3xl font-bold text-[#1B1C19] mb-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-text-dark mb-8">
         Send a Message
       </h2>
 
@@ -109,7 +109,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="fullName"
-              className="text-xs font-semibold tracking-[0.12em] uppercase text-[#6A5F00]"
+              className="text-xs font-semibold tracking-[0.12em] uppercase text-primary"
             >
               Full Name
             </label>
@@ -120,7 +120,7 @@ export default function ContactForm() {
               placeholder="John Doe"
               value={formData.fullName}
               onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-lg bg-[#F5F4EE] border text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00] focus:ring-1 focus:ring-[#6A5F00]/30'
+              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
                 }`}
             />
             {errors.fullName && <span className="text-[10px] text-red-500 font-medium">{errors.fullName}</span>}
@@ -128,7 +128,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="email"
-              className="text-xs font-semibold tracking-[0.12em] uppercase text-[#6A5F00]"
+              className="text-xs font-semibold tracking-[0.12em] uppercase text-primary"
             >
               Email Address
             </label>
@@ -139,7 +139,7 @@ export default function ContactForm() {
               placeholder="john@example.com"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-lg bg-[#F5F4EE] border text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.email ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00] focus:ring-1 focus:ring-[#6A5F00]/30'
+              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.email ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
                 }`}
             />
             {errors.email && <span className="text-[10px] text-red-500 font-medium">{errors.email}</span>}
@@ -150,7 +150,7 @@ export default function ContactForm() {
         <div className="flex flex-col gap-1.5">
           <label
             htmlFor="phone"
-            className="text-xs font-semibold tracking-[0.12em] uppercase text-[#6A5F00]"
+            className="text-xs font-semibold tracking-[0.12em] uppercase text-primary"
           >
             Phone Number
           </label>
@@ -161,7 +161,7 @@ export default function ContactForm() {
             placeholder="000 000 0000"
             value={formData.phone}
             onChange={handleChange}
-            className={`w-full px-4 py-3 rounded-lg bg-[#F5F4EE] border text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all ${errors.phone ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00] focus:ring-1 focus:ring-[#6A5F00]/30'
+            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.phone ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
               }`}
           />
           {errors.phone && <span className="text-[10px] text-red-500 font-medium">{errors.phone}</span>}
@@ -171,7 +171,7 @@ export default function ContactForm() {
         <div className="flex flex-col gap-1.5">
           <label
             htmlFor="message"
-            className="text-xs font-semibold tracking-[0.12em] uppercase text-[#6A5F00]"
+            className="text-xs font-semibold tracking-[0.12em] uppercase text-primary"
           >
             Your Message
           </label>
@@ -182,7 +182,7 @@ export default function ContactForm() {
             placeholder="How can we help you?"
             value={formData.message}
             onChange={handleChange}
-            className={`w-full px-4 py-3 rounded-lg bg-[#F5F4EE] border text-sm text-[#1B1C19] placeholder:text-[#9a9a9a] outline-none transition-all resize-none ${errors.message ? 'border-red-500 bg-red-50' : 'border-[#E2E0D4] focus:border-[#6A5F00] focus:ring-1 focus:ring-[#6A5F00]/30'
+            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all resize-none ${errors.message ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
               }`}
           />
           {errors.message && <span className="text-[10px] text-red-500 font-medium">{errors.message}</span>}
@@ -192,7 +192,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="self-start inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#5C5E00] text-white text-sm font-semibold hover:bg-[#4a4c00] active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed transition-all cursor-pointer"
+          className="self-start inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed transition-all cursor-pointer"
         >
           {status === 'loading' ? (
             <>

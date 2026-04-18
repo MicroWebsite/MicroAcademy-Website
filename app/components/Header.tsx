@@ -30,7 +30,7 @@ export default function Header() {
     const pathname = usePathname();
 
     return (
-        <header className="w-full bg-[#FAF9F3] border-b border-[#E2E0D4] relative z-50">
+        <header className="w-full bg-bg-header border-b border-border relative z-50">
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
                 <Link href="/" className="flex items-center shrink-0">
@@ -55,8 +55,8 @@ export default function Header() {
                                     <Link
                                         href={link.href}
                                         className={`relative flex items-center gap-1 text-base font-bold transition-colors pb-1 ${isActive
-                                            ? 'text-[#6B6B00] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#6B6B00]'
-                                            : 'text-[#1B1C19] hover:text-[#6B6B00] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-[#6B6B00]'
+                                            ? 'text-text-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-text-accent'
+                                            : 'text-text-dark hover:text-text-accent hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-text-accent'
                                             }`}
                                     >
                                         {link.label}
@@ -64,12 +64,12 @@ export default function Header() {
                                     </Link>
                                     
                                     {/* Dropdown Menu */}
-                                    <div className="absolute top-full left-0 min-w-[220px] bg-white border border-[#E2E0D4] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
+                                    <div className="absolute top-full left-0 min-w-[220px] bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
                                         {link.subLinks.map((subLink) => (
                                             <Link
                                                 key={subLink.href}
                                                 href={subLink.href}
-                                                className={`px-4 py-2.5 text-sm font-semibold hover:bg-[#F5F4EC] hover:text-[#6B6B00] transition-colors ${pathname === subLink.href ? 'text-[#6B6B00] bg-[#F5F4EC]' : 'text-[#1B1C19]'}`}
+                                                className={`px-4 py-2.5 text-sm font-semibold hover:bg-bg-header-mobile hover:text-text-accent transition-colors ${pathname === subLink.href ? 'text-text-accent bg-bg-header-mobile' : 'text-text-dark'}`}
                                             >
                                                 {subLink.label}
                                             </Link>
@@ -84,8 +84,8 @@ export default function Header() {
                                 key={link.href}
                                 href={link.href}
                                 className={`relative text-base shrink-0 font-bold transition-colors pb-1 flex items-center ${isActive
-                                    ? 'text-[#6B6B00] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#6B6B00]'
-                                    : 'text-[#1B1C19] hover:text-[#6B6B00] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-[#6B6B00]'
+                                    ? 'text-text-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-text-accent'
+                                    : 'text-text-dark hover:text-text-accent hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-text-accent'
                                     }`}
                             >
                                 {link.label}
@@ -97,7 +97,7 @@ export default function Header() {
                 <div className="flex items-center gap-4 shrink-0">
                     <Link
                         href="/contact"
-                        className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-[#5C5E00] text-white text-sm font-semibold hover:bg-[#4a4c00] transition-colors"
+                        className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover transition-colors"
                     >
                         Contact us
                     </Link>
@@ -107,26 +107,26 @@ export default function Header() {
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
                     >
-                        <span className={`block w-5 h-0.5 bg-[#1a1a1a] transition-transform duration-200 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                        <span className={`block w-5 h-0.5 bg-[#1a1a1a] transition-opacity duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
-                        <span className={`block w-5 h-0.5 bg-[#1a1a1a] transition-transform duration-200 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                        <span className={`block w-5 h-0.5 bg-text-dark transition-transform duration-200 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                        <span className={`block w-5 h-0.5 bg-text-dark transition-opacity duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
+                        <span className={`block w-5 h-0.5 bg-text-dark transition-transform duration-200 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
                     </button>
                 </div>
             </div>
 
             {menuOpen && (
-                <div className="md:hidden bg-[#F5F4EC] border-t border-[#E2E0D4] px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50">
+                <div className="md:hidden bg-bg-header-mobile border-t border-border px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50">
                     {navLinks.map((link) => {
                         const isActive = pathname === link.href || (link.subLinks && pathname.startsWith('/services'));
                         
                         if (link.subLinks) {
                             return (
-                                <div key={link.href} className="flex flex-col border-b border-[#E2E0D4] py-1">
+                                <div key={link.href} className="flex flex-col border-b border-border py-1">
                                     <div className="flex items-center justify-between">
                                         <Link
                                             href={link.href}
                                             onClick={() => setMenuOpen(false)}
-                                            className={`text-sm font-medium py-2 flex-grow ${isActive ? 'text-[#6B6B00]' : 'text-[#3a3a3a]'}`}
+                                            className={`text-sm font-medium py-2 flex-grow ${isActive ? 'text-text-accent' : 'text-text-muted-alt'}`}
                                         >
                                             {link.label}
                                         </Link>
@@ -134,18 +134,18 @@ export default function Header() {
                                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                                             className="px-2 py-2 flex items-center justify-center shrink-0"
                                         >
-                                            <ChevronDown className={`w-5 h-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} style={{ color: '#3a3a3a' }} />
+                                            <ChevronDown className={`w-5 h-5 transition-transform text-text-muted-alt ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                                         </button>
                                     </div>
                                     
                                     {mobileServicesOpen && (
-                                        <div className="flex flex-col pl-4 pb-2 gap-1 mt-1 border-l-2 border-[#E2E0D4] ml-2">
+                                        <div className="flex flex-col pl-4 pb-2 gap-1 mt-1 border-l-2 border-border ml-2">
                                             {link.subLinks.map((subLink) => (
                                                 <Link
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     onClick={() => setMenuOpen(false)}
-                                                    className={`text-[13px] py-1.5 font-medium ${pathname === subLink.href ? 'text-[#6B6B00] font-bold' : 'text-[#5a5a5a]'}`}
+                                                    className={`text-[13px] py-1.5 font-medium ${pathname === subLink.href ? 'text-text-accent font-bold' : 'text-text-muted'}`}
                                                 >
                                                     {subLink.label}
                                                 </Link>
@@ -161,7 +161,7 @@ export default function Header() {
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setMenuOpen(false)}
-                                className={`text-sm font-medium py-3 border-b border-[#E2E0D4] ${isActive ? 'text-[#6B6B00]' : 'text-[#3a3a3a]'
+                                className={`text-sm font-medium py-3 border-b border-border ${isActive ? 'text-text-accent' : 'text-text-muted-alt'
                                     }`}
                             >
                                 {link.label}
@@ -171,7 +171,7 @@ export default function Header() {
                     <Link
                         href="/contact"
                         onClick={() => setMenuOpen(false)}
-                        className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#5C5E00] text-white text-sm font-semibold hover:bg-[#4a4c00] transition-colors"
+                        className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover transition-colors"
                     >
                         Contact us
                     </Link>

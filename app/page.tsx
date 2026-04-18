@@ -6,7 +6,7 @@ import { heroData } from './data/heroData';
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#F5F4EE] overflow-hidden">
+    <div className="w-full bg-bg-cream overflow-hidden">
       <HomeTemplate heroContent={heroData} />
       <StatsSection />
       <CoreCapabilities showAll={false} />

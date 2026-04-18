@@ -2,19 +2,15 @@
 
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { TrainAndHireTestimonial } from '@/app/data/trainAndHireTestimonials';
 
 interface TrainAndHireTestimonialsCarouselProps {
   testimonials: TrainAndHireTestimonial[];
-  manrope: string;
-  inter: string;
 }
 
 export default function TrainAndHireTestimonialsCarousel({
   testimonials,
-  manrope,
-  inter,
 }: TrainAndHireTestimonialsCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -79,10 +75,11 @@ export default function TrainAndHireTestimonialsCarousel({
             viewBox="0 0 43 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-primary"
           >
             <path
               d="M17.02 0V11.82H10.12C11.5 16.38 15.04 18.72 20.74 18.84V25.38C10.72 25.38 5.62002 18 1.72002 0H17.02ZM38.62 0V11.82H31.72C33.1 16.38 36.64 18.72 42.34 18.84V25.38C32.32 25.38 27.22 18 23.32 0H38.62Z"
-              fill="#6A5F00"
+              fill="currentColor"
             />
           </svg>
         </div>
@@ -112,17 +109,14 @@ export default function TrainAndHireTestimonialsCarousel({
             onPointerEnter={() => setIsPaused(true)}
           >
             {/* Quote Text */}
-            <p
-              className="text-[#F2F1EE] text-center text-[28px] md:text-[36px] leading-[36px] md:leading-[40px] max-w-[896px]"
-              style={{ fontFamily: manrope, fontWeight: 300 }}
-            >
-              "{active.quote}"
+            <p className="text-text-quote text-center text-[28px] md:text-[36px] leading-[36px] md:leading-[40px] max-w-[896px] font-manrope font-light">
+              &quot;{active.quote}&quot;
             </p>
 
             {/* Author Info */}
             <div className="mt-12 flex items-center gap-4">
               {/* Avatar with gold border */}
-              <div className="w-[64px] h-[64px] rounded-full border-2 border-[#6A5F00] p-[4px] flex-shrink-0">
+              <div className="w-[64px] h-[64px] rounded-full border-2 border-primary p-[4px] shrink-0">
                 <div className="relative w-full h-full rounded-full overflow-hidden">
                   <Image
                     src={active.avatar}
@@ -136,16 +130,10 @@ export default function TrainAndHireTestimonialsCarousel({
 
               {/* Name & Role */}
               <div className="flex flex-col items-start gap-1">
-                <span
-                  className="text-[#F2F1EE] text-xl font-bold leading-7"
-                  style={{ fontFamily: manrope }}
-                >
+                <span className="text-text-quote text-xl font-bold leading-7 font-manrope">
                   {active.name}
                 </span>
-                <span
-                  className="text-[#6A5F00] text-sm uppercase tracking-[0.35px]"
-                  style={{ fontFamily: inter, fontWeight: 400 }}
-                >
+                <span className="text-primary text-sm uppercase tracking-[0.35px] font-inter font-normal">
                   {active.role}
                 </span>
               </div>
@@ -164,7 +152,7 @@ export default function TrainAndHireTestimonialsCarousel({
               setActiveIndex(index);
             }}
             className={`h-1 rounded-full transition-all duration-300 ${
-              index === activeIndex ? 'w-12 bg-[#6A5F00]' : 'w-4 bg-[#C7C8B9]'
+              index === activeIndex ? 'w-12 bg-primary' : 'w-4 bg-border-soft'
             }`}
             aria-label={`Go to testimonial ${index + 1}`}
           />
@@ -173,3 +161,4 @@ export default function TrainAndHireTestimonialsCarousel({
     </div>
   );
 }
+

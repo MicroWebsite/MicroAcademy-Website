@@ -8,10 +8,6 @@ import { trainAndHireTestimonials } from '@/app/data/trainAndHireTestimonials';
 import HomeTemplate from '../common/HeroSection';
 import { capabilitiesData } from '@/app/data/capabalitiesData';
 
-/* ─────────────────────── Shared font helpers ─────────────────────── */
-const manrope = 'var(--font-manrope), Manrope, sans-serif';
-const inter = 'var(--font-inter), Inter, sans-serif';
-
 /* ══════════════════════════════════════════════════════════════════════
    2. PROCESS SECTION — "The Architectural Blueprint"
    ═══════════════════════════════════════════════════════════════════ */
@@ -41,24 +37,16 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="w-full bg-[#F5F4EE]" style={{ padding: '96px 0' }}>
+    <section className="w-full bg-bg-cream py-24">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-16">
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
           {/* Left: Heading + Description */}
           <div className="flex flex-col gap-4 max-w-[672px]">
-            <h2
-              className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
-              style={{
-                fontFamily: manrope,
-              }}
-            >
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
               The Architectural Blueprint
             </h2>
-            <p
-              className="text-lg leading-7 text-[#46483C]"
-              style={{ fontFamily: manrope }}
-            >
+            <p className="text-lg leading-7 text-text-muted-alt font-manrope">
               Our three-phase methodology transforms high-potential individuals
               into enterprise-grade professionals, precisely calibrated to your
               organizational DNA.
@@ -67,9 +55,9 @@ function ProcessSection() {
 
           {/* Right: Decorative dots */}
           <div className="flex items-start gap-2 pb-2">
-            <div className="w-12 h-1 bg-[#6A5F00] rounded-full" />
-            <div className="w-4 h-1 bg-[#C7C8B9] rounded-full" />
-            <div className="w-4 h-1 bg-[#C7C8B9] rounded-full" />
+            <div className="w-12 h-1 bg-primary rounded-full" />
+            <div className="w-4 h-1 bg-border-soft rounded-full" />
+            <div className="w-4 h-1 bg-border-soft rounded-full" />
           </div>
         </div>
 
@@ -78,44 +66,24 @@ function ProcessSection() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className="relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden"
-              style={{
-                padding: '40px',
-                minHeight: step.highlighted ? '336px' : '320px',
-                background: step.highlighted ? '#6A5F00' : '#FAF9F6',
-                boxShadow: '0px 24px 40px -10px rgba(26, 28, 26, 0.05)',
-                isolation: 'isolate',
-              }}
+              className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto ${step.highlighted ? 'bg-primary min-h-[336px]' : 'bg-bg-cream-alt min-h-[320px]'
+                }`}
             >
               {/* Icon */}
               <div
-                className="flex items-center justify-center rounded-2xl"
-                style={{
-                  width: step.highlighted ? '58.8px' : '56px',
-                  height: step.highlighted ? '58.8px' : '56px',
-                  background: step.highlighted
-                    ? 'rgba(255, 255, 255, 0.2)'
-                    : 'rgba(106, 95, 0, 0.1)',
-                }}
+                className={`flex items-center justify-center rounded-2xl ${step.highlighted
+                    ? 'w-[58.8px] h-[58.8px] bg-white/20 text-white'
+                    : 'w-[56px] h-[56px] bg-primary/10 text-primary'
+                  }`}
               >
-                <span
-                  style={{
-                    color: step.highlighted ? '#FFFFFF' : '#6A5F00',
-                  }}
-                >
-                  {step.icon}
-                </span>
+                {step.icon}
               </div>
 
               {/* Title */}
               <div className="pt-4">
                 <h3
-                  className="text-2xl leading-8"
-                  style={{
-                    fontFamily: manrope,
-                    fontWeight: 400,
-                    color: step.highlighted ? '#FFFFFF' : '#1A1C1A',
-                  }}
+                  className={`text-2xl leading-8 font-manrope font-normal ${step.highlighted ? 'text-white' : 'text-text-dark'
+                    }`}
                 >
                   {step.title}
                 </h3>
@@ -123,12 +91,8 @@ function ProcessSection() {
 
               {/* Description */}
               <p
-                className="text-base leading-[26px]"
-                style={{
-                  fontFamily: manrope,
-                  color: step.highlighted ? '#FFFFFF' : '#46483C',
-                  opacity: step.highlighted ? 0.9 : 1,
-                }}
+                className={`text-base leading-[26px] font-manrope ${step.highlighted ? 'text-white/90' : 'text-text-muted-alt'
+                  }`}
               >
                 {step.description}
               </p>
@@ -163,16 +127,13 @@ const whyPoints = [
 
 function WhySection() {
   return (
-    <section className="w-full bg-white" style={{ padding: '0 32px' }}>
-      <div
-        className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16 items-center"
-        style={{ minHeight: '768px', padding: '128px 0' }}
-      >
+    <section className="w-full bg-white px-8">
+      <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-[768px] py-32">
         {/* ── Left: Image Grid ── */}
-        <div className="relative flex gap-4 flex-shrink-0" style={{ width: '568px', maxWidth: '100%', height: '512px' }}>
+        <div className="relative flex gap-4 shrink-0 w-[568px] max-w-full h-[512px]">
           {/* Column 1 — offset down */}
           <div className="flex flex-col gap-4 flex-1 pt-12">
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: '256px' }}>
+            <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
                 src="/assets/tech-training.png"
                 alt="Tech training session"
@@ -181,7 +142,7 @@ function WhySection() {
                 sizes="276px"
               />
             </div>
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: '192px' }}>
+            <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
                 src="/assets/collaboration.png"
                 alt="Team collaboration"
@@ -194,7 +155,7 @@ function WhySection() {
 
           {/* Column 2 — offset up */}
           <div className="flex flex-col gap-4 flex-1 pb-12">
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: '192px' }}>
+            <div className="relative rounded-2xl overflow-hidden h-[192px]">
               <Image
                 src="/assets/office-space.png"
                 alt="Modern office space"
@@ -203,7 +164,7 @@ function WhySection() {
                 sizes="276px"
               />
             </div>
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: '256px' }}>
+            <div className="relative rounded-2xl overflow-hidden h-[256px]">
               <Image
                 src="/assets/graduation.png"
                 alt="Graduation celebration"
@@ -218,20 +179,12 @@ function WhySection() {
         {/* ── Right: Content ── */}
         <div className="flex flex-col gap-4 flex-1">
           {/* Label */}
-          <p
-            className="text-xs font-bold uppercase text-[#6A5F00]"
-            style={{ fontFamily: inter, letterSpacing: '1.2px' }}
-          >
+          <p className="text-xs font-bold uppercase tracking-[1.2px] text-primary font-inter">
             WHY CHOOSE US
           </p>
 
           {/* Heading */}
-          <h2
-            className="text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
-            style={{
-              fontFamily: manrope,
-            }}
-          >
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             Why Micro Academy?
           </h2>
 
@@ -240,20 +193,14 @@ function WhySection() {
             {whyPoints.map((point, i) => (
               <div key={i} className="flex gap-6">
                 {/* Accent bar */}
-                <div className="w-1 self-stretch bg-[#6A5F00] rounded-full flex-shrink-0" />
+                <div className="w-1 self-stretch bg-primary rounded-full shrink-0" />
 
                 {/* Content */}
                 <div className="flex flex-col gap-2">
-                  <h4
-                    className="text-xl leading-7 text-[#1A1C1A]"
-                    style={{ fontFamily: manrope, fontWeight: 700 }}
-                  >
+                  <h4 className="text-xl leading-7 text-text-dark font-manrope font-bold">
                     {point.title}
                   </h4>
-                  <p
-                    className="text-base leading-6 text-[#46483C]"
-                    style={{ fontFamily: manrope }}
-                  >
+                  <p className="text-base leading-6 text-text-muted-alt font-manrope">
                     {point.description}
                   </p>
                 </div>
@@ -271,90 +218,46 @@ function WhySection() {
    ═══════════════════════════════════════════════════════════════════ */
 function TestimonialSection() {
   return (
-    <section 
-      className="relative w-full bg-[#2F312F] overflow-hidden" 
-      style={{ padding: '96px 32px' }}
-    >
+    <section className="relative w-full bg-bg-dark-alt overflow-hidden px-8 py-24">
       {/* Decorative Grain/Texture Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-10"
+      <div
+        className="absolute inset-0 pointer-events-none opacity-10 z-0"
         style={{
-          background: 'radial-gradient(70.71% 70.71% at 50% 50%, #FFFFFF 3.54%, rgba(255, 255, 255, 0) 3.54%)',
+          background: 'radial-gradient(70.71% 70.71% at 50% 50%, var(--bg-white) 3.54%, rgba(255, 255, 255, 0) 3.54%)',
           backgroundSize: '12px 12px',
-          zIndex: 0
         }}
       />
 
       <div className="relative z-10 max-w-[1216px] mx-auto">
         <TrainAndHireTestimonialsCarousel
           testimonials={trainAndHireTestimonials}
-          manrope={manrope}
-          inter={inter}
         />
       </div>
     </section>
   );
 }
+
 /* ══════════════════════════════════════════════════════════════════════
    5. CALL-TO-ACTION SECTION
    ═══════════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
     <section className="w-full px-8 py-16">
-      <div
-        className="relative max-w-[1216px] mx-auto rounded-[48px] bg-[#E3E2E0] overflow-hidden"
-        style={{
-          padding: '64px',
-          boxShadow: '0px 24px 40px -10px rgba(26, 28, 26, 0.05)',
-          isolation: 'isolate',
-        }}
-      >
+      <div className="relative max-w-[1216px] mx-auto rounded-[48px] bg-cta-card-bg overflow-hidden p-16 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto">
         {/* Decorative blurs */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '256px',
-            height: '256px',
-            right: '-80px',
-            top: '-80px',
-            background: 'rgba(106, 95, 0, 0.1)',
-            filter: 'blur(32px)',
-            borderRadius: '9999px',
-            zIndex: 0,
-          }}
-        />
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '256px',
-            height: '256px',
-            left: '-80px',
-            bottom: '-80px',
-            background: 'rgba(106, 95, 0, 0.1)',
-            filter: 'blur(32px)',
-            borderRadius: '9999px',
-            zIndex: 0,
-          }}
-        />
+        <div className="absolute pointer-events-none w-64 h-64 -right-20 -top-20 bg-primary/10 blur-[32px] rounded-full z-0" />
+        <div className="absolute pointer-events-none w-64 h-64 -left-20 -bottom-20 bg-primary/10 blur-[32px] rounded-full z-0" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           {/* Heading */}
-          <h2
-            className="text-center text-[#1A1C1A] text-2xl sm:text-3xl font-bold"
-            style={{
-              fontFamily: manrope,
-            }}
-          >
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             Ready to Build Your Dream Team?
           </h2>
 
           {/* Description */}
           <div className="max-w-[672px]">
-            <p
-              className="text-center text-xl leading-8 text-[#46483C]"
-              style={{ fontFamily: manrope }}
-            >
+            <p className="text-center text-xl leading-8 text-text-muted-alt font-manrope">
               Partner with Micro Academy to access a pipeline of pre-trained,
               enterprise-ready professionals tailored to your exact needs.
             </p>
@@ -364,14 +267,7 @@ function CTASection() {
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Link
               href="/consultation"
-              className="inline-flex items-center gap-2 justify-center rounded-full text-white font-bold hover:brightness-110 transition-all"
-              style={{
-                fontFamily: manrope,
-                background: 'linear-gradient(to right, #6A5F00, #D1B000)',
-                fontSize: '18px',
-                lineHeight: '28px',
-                padding: '21px 40px',
-              }}
+              className="inline-flex items-center gap-2 justify-center rounded-full text-white font-bold hover:brightness-110 transition-all font-manrope text-lg leading-7 px-10 py-[21px] bg-linear-to-r from-primary to-btn-grad-end-alt"
             >
               Schedule a Consultation
               <span className="w-5 h-5 flex items-center justify-center">
@@ -380,14 +276,7 @@ function CTASection() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full text-[#1A1C1A] font-bold hover:bg-[rgba(0,0,0,0.05)] transition-colors"
-              style={{
-                fontFamily: manrope,
-                fontSize: '18px',
-                lineHeight: '28px',
-                padding: '20px 40px',
-                border: '1px solid #77786B',
-              }}
+              className="inline-flex items-center justify-center rounded-full font-bold hover:bg-black/5 transition-colors font-manrope text-lg leading-7 px-10 py-5 border border-text-muted-nav text-text-dark"
             >
               Contact Sales
             </Link>
@@ -414,3 +303,4 @@ export default function TrainAndHirePage() {
     </div>
   );
 }
+

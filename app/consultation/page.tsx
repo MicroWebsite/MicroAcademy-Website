@@ -28,7 +28,7 @@ export default function Consultation() {
             </section>
 
             {/* Map Section */}
-            <section className="w-full bg-[#F5F4EE] py-12 sm:py-16 lg:py-20">
+            <section className="w-full bg-bg-cream py-12 sm:py-16 lg:py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <GoogleMap />
                 </div>

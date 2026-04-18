@@ -9,7 +9,7 @@ export default function Home() {
     <div className="w-full bg-bg-cream overflow-hidden">
       <HomeTemplate heroContent={heroData} />
       <StatsSection />
-      <CoreCapabilities showAll={false} />
+      <CoreCapabilities />
       <CountriesCarousel />
     </div>
   );

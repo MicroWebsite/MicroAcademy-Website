@@ -4,6 +4,7 @@ import WhoareweSection from "@/app/components/about/WhoareweSection";
 import { aboutHeroData } from "@/app/data/aboutHeroData";
 import MissionVision from "../components/about/MissionVision";
 import Gallery from "../components/about/Gallery";
+import ThirtyYearGenesis from "../components/about/Thirtyyeargenesis";
 
 export const metadata: Metadata = {
   title: "About Us | MicroAcademy",
@@ -16,6 +17,7 @@ export default function AboutPage() {
     <div className="w-full">
       <HomeTemplate heroContent={aboutHeroData} />
       <WhoareweSection />
+      <ThirtyYearGenesis />
       <MissionVision />
       <Gallery />
     </div>

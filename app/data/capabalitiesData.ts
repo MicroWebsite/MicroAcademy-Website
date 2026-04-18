@@ -42,10 +42,6 @@ export const capabilitiesData: {
           "We bridge the gap between raw talent and enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
         primaryCTA: { label: "Partner With Us", href: "/consultation" },
         secondaryCTA: { label: "Explore Services", href: "/services" },
-        image: {
-          src: "/assets/contactHeroImage.png",
-          alt: "Professional training session",
-        },
       },
     },
     {
@@ -57,7 +53,6 @@ export const capabilitiesData: {
       ctaLabel: "Explore Recruitment Services",
       ctaHref: "/services/recruitment",
       highlighted: true,
-      image: "/assets/Interview.svg",
       heroData: {
         badge: "Recruitment Excellence",
         titleLine1: "Strategic Talent",
@@ -66,10 +61,6 @@ export const capabilitiesData: {
           "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level headhunting.",
         primaryCTA: { label: "Explore Services", href: "/consultation" },
         secondaryCTA: { label: "View Roles", href: "/services" },
-        image: {
-          src: "/assets/recruitment-hero.png",
-          alt: "Strategic talent recruitment",
-        },
       },
     },
     {
@@ -89,10 +80,6 @@ export const capabilitiesData: {
           "Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.",
         primaryCTA: { label: "Hire Contractors", href: "/consultation" },
         secondaryCTA: { label: "Browse Roles", href: "/services" },
-        image: {
-          src: "/assets/recruitment-hero.png",
-          alt: "Contract professionals working dynamically",
-        },
       },
     },
     {
@@ -104,7 +91,6 @@ export const capabilitiesData: {
       ctaLabel: "Explore Corporate Training",
       ctaHref: "/services/corporate-training",
       highlighted: true,
-      images: ["/assets/Office.svg", "/assets/Workshop.svg"],
       heroData: {
         badge: "The Strategic Framework",
         titleLine1: "Strategic Skill",
@@ -113,10 +99,6 @@ export const capabilitiesData: {
           "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
         primaryCTA: { label: "Start Your Program", href: "/consultation" },
         secondaryCTA: { label: "Explore Curriculum", href: "/services" },
-        image: {
-          src: "/assets/corporate-training-hero.png",
-          alt: "Corporate training session",
-        },
       },
     },
   ],

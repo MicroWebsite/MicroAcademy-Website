@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { HeroProps } from "@/app/types/hero";
 
 interface HomeTemplateProps {
@@ -19,7 +21,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
 
   return (
     <section className="w-full bg-bg-cream overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8 min-h-[60vh]">
         {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
           {/* Badge */}
@@ -68,7 +70,12 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
 
             {/* Image card */}
             {image?.src && image?.alt && (
-              <div className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-2xl">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none"
+              >
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -81,7 +88,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
                   className="object-cover"
                   priority
                 />
-              </div>
+              </motion.div>
             )}
           </div>
         </div>

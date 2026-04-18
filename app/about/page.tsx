@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HomeTemplate from "@/app/components/home/homeTemplate";
+import HomeTemplate from "@/app/components/common/HeroSection";
 import WhoareweSection from "@/app/components/about/WhoareweSection";
 import { aboutHeroData } from "@/app/data/aboutHeroData";
 import MissionVision from "../components/about/MissionVision";

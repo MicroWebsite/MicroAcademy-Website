@@ -43,8 +43,8 @@ export const capabilitiesData: {
         primaryCTA: { label: "Partner With Us", href: "/contact" },
         secondaryCTA: { label: "Explore Services", href: "/services" },
         image: {
-          src: "/assets/service/tech-training.png",
-          alt: "Professional technical training session with instructor and students",
+          src: "/assets/original/classroom-session.jpg",
+          alt: "Authentic Technical Training Session at Micro Academy Bangalore",
         },
       },
     },
@@ -66,8 +66,8 @@ export const capabilitiesData: {
         primaryCTA: { label: "Explore Services", href: "/contact" },
         secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
-          src: "/assets/service/recruitment-meeting.png",
-          alt: "Business professionals in a strategic recruitment meeting",
+          src: "/assets/original/recruitment-drive.jpg",
+          alt: "Authentic Recruitment Drive Event at Micro Academy",
         },
       },
     },
@@ -89,8 +89,8 @@ export const capabilitiesData: {
         primaryCTA: { label: "Hire Contractors", href: "/contact" },
         secondaryCTA: { label: "Browse Roles", href: "/services" },
         image: {
-          src: "/assets/service/collaboration.png",
-          alt: "Diverse team collaborating in a modern office environment",
+          src: "/assets/original/team-celebration.jpg",
+          alt: "Diverse team at Micro Academy Bangalore office",
         },
       },
     },
@@ -112,8 +112,8 @@ export const capabilitiesData: {
         primaryCTA: { label: "Start Your Program", href: "/contact" },
         secondaryCTA: { label: "Explore Curriculum", href: "/services" },
         image: {
-          src: "/assets/service/corporate-training-hero.png",
-          alt: "Corporate training seminar in a large modern conference room",
+          src: "/assets/original/training-lab.jpg",
+          alt: "Corporate Training Facility at Micro Academy Bangalore",
         },
       },
     },

@@ -38,7 +38,7 @@ const techCategories = [
 
 function TechLogosGrid() {
   return (
-    <section className="w-full bg-white px-8 py-32">
+    <section className="w-full bg-white px-8 py-24">
       <div className="max-w-[1344px] mx-auto flex flex-col gap-20">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
@@ -223,8 +223,6 @@ export default function CorporateTrainingPage() {
       )}
       <TechLogosGrid />
       <MethodologySection />
-      {/* Bottom spacer */}
-      <div className="h-56" />
     </div>
   );
 }

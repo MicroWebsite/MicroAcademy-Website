@@ -107,33 +107,62 @@ const FlashIcon = () => (
 );
 
 interface Props {
-  criteria: CriteriaType;
+  criteria: CriteriaType | string;
 }
 
 export default function EligibilityCriteria({ criteria }: Props) {
+  // Normalize criteria if it comes as a string from Drupal
+  const normalized: CriteriaType =
+    typeof criteria === "string"
+      ? (() => {
+          try {
+            // Attempt to parse if it's a JSON string
+            const parsed = JSON.parse(criteria);
+            return {
+              academicYear: parsed.academicYear || "Refer to description",
+              degreeRequirement: parsed.degreeRequirement || criteria,
+              minimumAggregate: parsed.minimumAggregate || "As specified",
+              educationGap: parsed.educationGap || "Not specified",
+              coreCompetency: parsed.coreCompetency || "As per role",
+              flexibility: parsed.flexibility || "Flexible",
+            };
+          } catch {
+            // Fallback for raw text strings
+            return {
+              academicYear: "Refer to description",
+              degreeRequirement: criteria,
+              minimumAggregate: "60% & above (UG/PG)",
+              educationGap: "Not specified",
+              coreCompetency: "As per job role",
+              flexibility: "Willing to relocate",
+            };
+          }
+        })()
+      : criteria;
+
   const items = [
     {
       label: "ACADEMIC YEAR",
-      value: criteria.academicYear,
+      value: normalized.academicYear,
       icon: CalendarIcon,
     },
     {
       label: "DEGREE REQUIREMENT",
-      value: criteria.degreeRequirement,
+      value: normalized.degreeRequirement,
       icon: GraduationIcon,
     },
     {
       label: "MINIMUM AGGREGATE",
-      value: criteria.minimumAggregate,
+      value: normalized.minimumAggregate,
       icon: ChartIcon,
     },
-    { label: "EDUCATION GAP", value: criteria.educationGap, icon: ClockIcon },
+    { label: "EDUCATION GAP", value: normalized.educationGap, icon: ClockIcon },
     {
       label: "CORE COMPETENCY",
-      value: criteria.coreCompetency,
+      value: normalized.coreCompetency,
       icon: MessageIcon,
     },
-    { label: "FLEXIBILITY", value: criteria.flexibility, icon: FlashIcon },
+    { label: "FLEXIBILITY", value: normalized.flexibility, icon: FlashIcon },
   ];
 
   return (

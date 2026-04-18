@@ -1,18 +1,14 @@
-import {
-  useState,
-  useEffect,
-  useCallback,
-  ChangeEvent,
-  FormEvent,
-} from "react";
+"use client";
+import { useState, useEffect, useCallback, ChangeEvent } from "react";
 import { X } from "lucide-react";
 import { useToast } from "@/app/context/ToastContext";
-import { JobPosition } from "@/app/data/openPositionsData";
+import { JobPosition as StaticJobPosition } from "@/app/data/openPositionsData";
+import { JobPosition as DrupalJobPosition } from "@/app/types/drupal";
 import {
   validateEmail,
+  validateFile,
   validatePhone,
   validateRequired,
-  validateFile,
 } from "@/app/utils/validation";
 import ApplicationFormFields, {
   CareerFormData,
@@ -22,7 +18,7 @@ import ApplicationFormFields, {
 type ApplicationFormModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  selectedPosition: JobPosition | null;
+  selectedPosition: StaticJobPosition | DrupalJobPosition | null;
 };
 
 export default function ApplicationFormModal({
@@ -90,7 +86,7 @@ export default function ApplicationFormModal({
     }
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
 

@@ -1,26 +1,43 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
-import { ContractPosition } from "@/app/data/contractHiringPageData";
+import { fetchContractHiring } from "@/app/services/drupalApi";
+import { JobPosition } from "@/app/types/drupal";
 import BenefitsSection from "./contract-hiring/BenefitsSection";
-import PositionsTableSection from "./contract-hiring/PositionsTableSection";
+import JobTableSection from "../common/JobTableSection";
 import ProcessSection from "./contract-hiring/ProcessSection";
 import DomainsSection from "./contract-hiring/DomainsSection";
 import CTASection from "./contract-hiring/CTASection";
 import ApplicationFormModal from "./contract-hiring/ApplicationFormModal";
 
 export default function ContractHiringPage() {
+  const [jobs, setJobs] = useState<JobPosition[]>([]);
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPosition, setSelectedPosition] =
-    useState<ContractPosition | null>(null);
+  const [selectedPosition, setSelectedPosition] = useState<JobPosition | null>(
+    null,
+  );
+
+  useEffect(() => {
+    const loadJobs = async () => {
+      try {
+        const data = await fetchContractHiring();
+        setJobs(data);
+      } catch (error) {
+        console.error("Failed to fetch contract hiring data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadJobs();
+  }, []);
 
   const contractHiringData = capabilitiesData.items.find(
     (item) => item.id === "contract-to-hire",
   );
 
-  const handleApply = (position: ContractPosition) => {
+  const handleApply = (position: JobPosition) => {
     setSelectedPosition(position);
     setIsModalOpen(true);
   };
@@ -31,7 +48,18 @@ export default function ContractHiringPage() {
         <HomeTemplate heroContent={contractHiringData.heroData} />
       )}
       <BenefitsSection />
-      <PositionsTableSection onApply={handleApply} />
+      {jobs.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 className="text-3xl font-bold text-text-dark mb-8">
+            Open Positions
+          </h2>
+          <JobTableSection
+            jobs={jobs}
+            onApply={handleApply}
+            loading={loading}
+          />
+        </div>
+      )}
       <ProcessSection />
       <DomainsSection />
       <CTASection />

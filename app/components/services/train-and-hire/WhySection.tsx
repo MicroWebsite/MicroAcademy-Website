@@ -20,7 +20,7 @@ export default function WhySection() {
                 alt="Tech training session"
                 fill
                 className="object-cover"
-                sizes="276px"
+                sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[192px]">
@@ -29,7 +29,7 @@ export default function WhySection() {
                 alt="Team collaboration"
                 fill
                 className="object-cover"
-                sizes="276px"
+                sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
           </motion.div>
@@ -47,7 +47,7 @@ export default function WhySection() {
                 alt="Modern office space"
                 fill
                 className="object-cover"
-                sizes="276px"
+                sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden h-[256px]">
@@ -56,7 +56,7 @@ export default function WhySection() {
                 alt="Graduation celebration"
                 fill
                 className="object-cover"
-                sizes="276px"
+                sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
           </motion.div>

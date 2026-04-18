@@ -1,4 +1,5 @@
 import { ContractPosition } from "@/app/data/contractHiringPageData";
+import { JobPosition } from "./drupal";
 
 export type ContractFormData = {
   firstName: string;
@@ -12,5 +13,5 @@ export type ContractFormData = {
 export type ContractModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  selectedPosition: ContractPosition | null;
+  selectedPosition: ContractPosition | JobPosition | null;
 };

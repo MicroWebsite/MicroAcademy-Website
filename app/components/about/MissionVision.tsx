@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const MissionVision: React.FC = () => {
   return (
-    <section className="w-full bg-bg-muted py-20 px-6 lg:px-8">
+    <section className="w-full bg-white py-20 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Cards Container */}
         <div className="grid md:grid-cols-3 gap-8">

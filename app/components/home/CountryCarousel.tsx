@@ -31,7 +31,7 @@ export default function CountriesCarousel() {
   const [page, setPage] = useState(0);
 
   return (
-    <section className="w-full bg-white py-20 px-8">
+    <section className="w-full bg-bg-cream py-20 px-8">
       <div className="max-w-7xl mx-auto">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
           Global Reach

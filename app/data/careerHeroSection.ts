@@ -7,7 +7,7 @@ export const careerHeroSection: HeroProps = {
   description:
     "Join a collective of visionary professionals dedicated to redefining the architectural standards of modern training and recruitment.",
   image: {
-    src: "/assets/original/team-celebration.jpg",
+    src: "/assets/service/team-celebration.jpg",
     alt: "Future professionals at Micro Academy",
   },
   primaryCTA: { label: "Explore Positions", href: "/explore-positions" },

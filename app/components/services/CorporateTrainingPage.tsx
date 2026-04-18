@@ -173,8 +173,8 @@ function MethodologySection() {
               className="relative overflow-hidden w-[320px] h-[320px] rounded-2xl shadow-xl"
             >
               <Image
-                src="/assets/service/training-lab-1.png"
-                alt="Training lab environment"
+                src="/assets/original/training-lab.jpg"
+                alt="Authentic training lab environment"
                 fill
                 className="object-cover"
                 sizes="320px"
@@ -188,8 +188,8 @@ function MethodologySection() {
               className="relative overflow-hidden w-[320px] h-[320px] mt-6 rounded-2xl shadow-xl"
             >
               <Image
-                src="/assets/service/training-lab-2.png"
-                alt="Hands-on workshop"
+                src="/assets/original/classroom-session.jpg"
+                alt="Original hands-on workshop"
                 fill
                 className="object-cover"
                 sizes="320px"
@@ -206,8 +206,8 @@ function MethodologySection() {
             className="relative overflow-hidden mt-4 w-full max-w-[656px] h-[320px] rounded-2xl shadow-xl"
           >
             <Image
-              src="/assets/service/training-facility.png"
-              alt="Training facility overview"
+              src="/assets/original/office-exterior-2.jpg"
+              alt="Micro Academy Bangalore Office Exterior"
               fill
               className="object-cover"
               sizes="656px"

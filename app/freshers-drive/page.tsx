@@ -38,14 +38,18 @@ export default function FreshersDrive() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
                 {freshersDrives.map((drive) => (
-                  <DomainCard
+                  <div
                     key={drive.id}
-                    id={drive.id}
-                    title={drive.title}
-                    image={drive.image}
-                  />
+                    className="w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] max-w-sm"
+                  >
+                    <DomainCard
+                      id={drive.id}
+                      title={drive.title}
+                      image={drive.image}
+                    />
+                  </div>
                 ))}
               </div>
             </>

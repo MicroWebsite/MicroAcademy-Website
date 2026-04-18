@@ -15,11 +15,11 @@ export const whoAreWeData: WhoAreWeData = {
   ],
   images: [
     {
-      src: "/assets/graduation.png",
+      src: "/assets/career/graduation.png",
       alt: "Training facility with Bultina branding",
     },
     {
-      src: "/assets/office-space.png",
+      src: "/assets/career/office-space.png",
       alt: "Team meeting and collaboration",
     },
   ],

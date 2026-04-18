@@ -4,9 +4,9 @@ export const servicesHeroData = {
   description:
     "With over two decades of technical training excellence, Micro Academy bridges the gap between potential and performance through bespoke recruitment and organizational learning strategies.",
   ctaLabel: "Partner With Us",
-  ctaHref: "/consultation",
+  ctaHref: "/contact",
   image: {
-    src: "/assets/contactHeroImage.png",
+    src: "/assets/service/contactHeroImage.png",
     alt: "Modern collaborative workspace with young professionals working on laptops",
   },
   stat: {

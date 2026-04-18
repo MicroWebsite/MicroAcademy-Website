@@ -40,8 +40,12 @@ export const capabilitiesData: {
         titleAccent: "Model",
         description:
           "We bridge the gap between raw talent and enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
-        primaryCTA: { label: "Partner With Us", href: "/consultation" },
+        primaryCTA: { label: "Partner With Us", href: "/contact" },
         secondaryCTA: { label: "Explore Services", href: "/services" },
+        image: {
+          src: "/assets/service/tech-training.png",
+          alt: "Professional technical training session with instructor and students",
+        },
       },
     },
     {
@@ -59,8 +63,12 @@ export const capabilitiesData: {
         titleAccent: "Architecture",
         description:
           "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level headhunting.",
-        primaryCTA: { label: "Explore Services", href: "/consultation" },
+        primaryCTA: { label: "Explore Services", href: "/contact" },
         secondaryCTA: { label: "View Roles", href: "/services" },
+        image: {
+          src: "/assets/service/recruitment-meeting.png",
+          alt: "Business professionals in a strategic recruitment meeting",
+        },
       },
     },
     {
@@ -78,8 +86,12 @@ export const capabilitiesData: {
         titleAccent: "Hiring Solutions",
         description:
           "Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.",
-        primaryCTA: { label: "Hire Contractors", href: "/consultation" },
+        primaryCTA: { label: "Hire Contractors", href: "/contact" },
         secondaryCTA: { label: "Browse Roles", href: "/services" },
+        image: {
+          src: "/assets/service/collaboration.png",
+          alt: "Diverse team collaborating in a modern office environment",
+        },
       },
     },
     {
@@ -97,8 +109,12 @@ export const capabilitiesData: {
         titleAccent: "Architecture",
         description:
           "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
-        primaryCTA: { label: "Start Your Program", href: "/consultation" },
+        primaryCTA: { label: "Start Your Program", href: "/contact" },
         secondaryCTA: { label: "Explore Curriculum", href: "/services" },
+        image: {
+          src: "/assets/service/corporate-training-hero.png",
+          alt: "Corporate training seminar in a large modern conference room",
+        },
       },
     },
   ],

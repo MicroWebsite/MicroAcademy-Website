@@ -1,5 +1,5 @@
+import ContractHiringPage from "@/app/components/services/ContractHiringPage";
 import { Metadata } from "next";
-import ContractHiringPage from "../../components/services/ContractHiringPage";
 
 export const metadata: Metadata = {
   title: "Contract Hiring | MicroAcademy",

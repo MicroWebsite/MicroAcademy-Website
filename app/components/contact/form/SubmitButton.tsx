@@ -9,7 +9,7 @@ export default function SubmitButton({ status }: SubmitButtonProps) {
     <button
       type="submit"
       disabled={status === "loading"}
-      className="self-start inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed transition-all cursor-pointer"
+      className="self-start inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:shadow-lg hover:scale-[1.02] active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed transition-all cursor-pointer"
     >
       {status === "loading" ? (
         <>

@@ -104,14 +104,14 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
                     href={pos.apply_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base font-bold underline text-primary hover:opacity-80 transition-colors font-manrope whitespace-nowrap"
+                    className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all font-manrope whitespace-nowrap active:scale-[0.98]"
                   >
                     Apply Now
                   </a>
                 ) : (
                   <button
                     onClick={() => onApply(pos)}
-                    className="text-base font-bold underline text-primary hover:opacity-80 transition-colors cursor-pointer bg-transparent border-none font-manrope whitespace-nowrap"
+                    className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer border-none font-manrope whitespace-nowrap active:scale-[0.98]"
                   >
                     Apply Now
                   </button>

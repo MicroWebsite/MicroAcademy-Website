@@ -2,7 +2,7 @@
 // FIX 1: StatsSection.tsx
 // Issues fixed:
 //   - Removed wrapping dark bg section (it was inside the hero which is light)
-//   - Fixed typo: bg-[#F5F4EE]] (double bracket) 
+//   - Fixed typo: bg-[#F5F4EE]] (double bracket)
 //   - Stats now sit directly on the cream bg with a rounded card, matching design
 // ─────────────────────────────────────────────────────────────────────────────
 "use client";

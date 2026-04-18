@@ -1,8 +1,8 @@
-import CoreCapabilities from './components/home/CoreCapabilities';
-import CountriesCarousel from './components/home/CountryCarousel';
-import HomeTemplate from './components/home/homeTemplate';
-import StatsSection from './components/home/StatsSection';
-import { heroData } from './data/heroData';
+import CoreCapabilities from "./components/home/CoreCapabilities";
+import CountriesCarousel from "./components/home/CountryCarousel";
+import HomeTemplate from "./components/home/homeTemplate";
+import StatsSection from "./components/home/StatsSection";
+import { heroData } from "./data/heroData";
 
 export default function Home() {
   return (

@@ -7,7 +7,13 @@ import { countriesData } from "@/app/data/countriesData";
 
 type Region = "All Regions" | "Asia" | "Africa" | "Europe" | "Middle East";
 
-const regions: Region[] = ["All Regions", "Asia", "Africa", "Europe", "Middle East"];
+const regions: Region[] = [
+  "All Regions",
+  "Asia",
+  "Africa",
+  "Europe",
+  "Middle East",
+];
 
 export default function CountriesCarousel() {
   const [activeRegion, setActiveRegion] = useState<Region>("All Regions");
@@ -23,20 +29,6 @@ export default function CountriesCarousel() {
   const visibleCount = 6;
   const pageCount = Math.ceil(filtered.length / visibleCount);
   const [page, setPage] = useState(0);
-
-  const scrollTo = (dir: "prev" | "next") => {
-    const newPage =
-      dir === "next"
-        ? Math.min(page + 1, pageCount - 1)
-        : Math.max(page - 1, 0);
-    setPage(newPage);
-    if (trackRef.current) {
-      trackRef.current.scrollTo({
-        left: (newPage * trackRef.current.scrollWidth) / pageCount,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <section className="w-full bg-white py-20 px-8">
@@ -75,7 +67,9 @@ export default function CountriesCarousel() {
                           setPage(0);
                         }}
                         className={`w-full text-left px-4 py-2.5 hover:bg-gray-50 transition-colors ${
-                          activeRegion === r ? "text-primary font-medium" : "text-gray-700"
+                          activeRegion === r
+                            ? "text-primary font-medium"
+                            : "text-gray-700"
                         }`}
                       >
                         {r}
@@ -113,10 +107,14 @@ export default function CountriesCarousel() {
                     className="object-cover"
                   />
                   {/* Hover overlay */}
-                  <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-200 ${
-                    hoveredIndex === i ? "opacity-100" : "opacity-0"
-                  }`}>
-                    <span className="text-white font-semibold text-center text-sm px-2">{country.name}</span>
+                  <div
+                    className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-200 ${
+                      hoveredIndex === i ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <span className="text-white font-semibold text-center text-sm px-2">
+                      {country.name}
+                    </span>
                   </div>
                 </div>
 

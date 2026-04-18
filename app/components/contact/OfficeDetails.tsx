@@ -1,8 +1,8 @@
 export default function OfficeDetails() {
   const channels = [
     {
-      id: 'hq',
-      label: 'Registered Office',
+      id: "hq",
+      label: "Registered Office",
       value: (
         <>
           #189, Amar Jyothi Layout,
@@ -34,8 +34,8 @@ export default function OfficeDetails() {
       ),
     },
     {
-      id: 'phone',
-      label: 'Call Us',
+      id: "phone",
+      label: "Call Us",
       value: (
         <a
           href="tel:+918025358182"
@@ -61,8 +61,8 @@ export default function OfficeDetails() {
       ),
     },
     {
-      id: 'email',
-      label: 'Email Us',
+      id: "email",
+      label: "Email Us",
       value: (
         <a
           href="mailto:info@microacademy.net"
@@ -97,7 +97,10 @@ export default function OfficeDetails() {
 
       <div className="flex flex-col gap-8 w-full max-w-sm lg:max-w-none">
         {channels.map((ch) => (
-          <div key={ch.id} className="flex flex-col items-center gap-3 lg:flex-row lg:items-start lg:gap-5 group">
+          <div
+            key={ch.id}
+            className="flex flex-col items-center gap-3 lg:flex-row lg:items-start lg:gap-5 group"
+          >
             {/* Icon badge */}
             <div className="shrink-0 w-12 h-12 rounded-2xl bg-btn-primary text-white flex items-center justify-center shadow-lg shadow-btn-primary/20 group-hover:scale-110 transition-all duration-300">
               {ch.icon}
@@ -117,4 +120,3 @@ export default function OfficeDetails() {
     </div>
   );
 }
-

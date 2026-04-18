@@ -1,6 +1,6 @@
 export interface AdvantageItem {
   id: string;
-  icon: string;           // path to SVG/PNG icon
+  icon: string; // path to SVG/PNG icon
   title: string;
   description: string;
 }
@@ -11,7 +11,7 @@ export const microAdvantageData = {
   items: [
     {
       id: "professional-growth",
-      icon: "/assets/career1.svg",           // replace with your actual icon
+      icon: "/assets/career1.svg", // replace with your actual icon
       title: "Professional Growth",
       description:
         "Continuous learning paths designed for senior mastery and executive leadership. We don't just fill roles; we build careers.",

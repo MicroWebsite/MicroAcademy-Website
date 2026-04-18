@@ -1,8 +1,5 @@
 "use client";
 
-import { EligibilityCriteria as CriteriaType } from "@/app/data/freshersDriveData";
-
-// Icons as inline SVGs
 const CalendarIcon = () => (
   <svg
     width="20"
@@ -106,39 +103,35 @@ const FlashIcon = () => (
   </svg>
 );
 
+import { crt } from "@/app/utils/helper/criteria";
+
 interface Props {
-  criteria: CriteriaType | string;
+  criteria: string;
 }
 
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+};
+
 export default function EligibilityCriteria({ criteria }: Props) {
-  // Normalize criteria if it comes as a string from Drupal
-  const normalized: CriteriaType =
-    typeof criteria === "string"
-      ? (() => {
-          try {
-            // Attempt to parse if it's a JSON string
-            const parsed = JSON.parse(criteria);
-            return {
-              academicYear: parsed.academicYear || "Refer to description",
-              degreeRequirement: parsed.degreeRequirement || criteria,
-              minimumAggregate: parsed.minimumAggregate || "As specified",
-              educationGap: parsed.educationGap || "Not specified",
-              coreCompetency: parsed.coreCompetency || "As per role",
-              flexibility: parsed.flexibility || "Flexible",
-            };
-          } catch {
-            // Fallback for raw text strings
-            return {
-              academicYear: "Refer to description",
-              degreeRequirement: criteria,
-              minimumAggregate: "60% & above (UG/PG)",
-              educationGap: "Not specified",
-              coreCompetency: "As per job role",
-              flexibility: "Willing to relocate",
-            };
-          }
-        })()
-      : criteria;
+  // Normalize criteria using the crt helper
+  const normalized = crt(criteria);
 
   const items = [
     {
@@ -166,7 +159,13 @@ export default function EligibilityCriteria({ criteria }: Props) {
   ];
 
   return (
-    <div className="bg-bg-cream-light rounded-3xl p-8 lg:p-12 border border-border shadow-sm">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      className="bg-bg-cream-light rounded-3xl p-8 lg:p-12 border border-border shadow-sm h-full"
+    >
       <div className="flex items-center gap-3 mb-10">
         <div className="w-1.5 h-8 bg-primary rounded-full" />
         <h2 className="text-3xl font-bold text-text-dark">
@@ -174,9 +173,9 @@ export default function EligibilityCriteria({ criteria }: Props) {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
         {items.map((item, idx) => (
-          <div key={idx} className="flex gap-4">
+          <motion.div key={idx} variants={itemVariants} className="flex gap-4">
             <div className="shrink-0 w-10 h-10 rounded-xl bg-white border border-border flex items-center justify-center shadow-sm">
               <item.icon />
             </div>
@@ -188,9 +187,9 @@ export default function EligibilityCriteria({ criteria }: Props) {
                 {item.value}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

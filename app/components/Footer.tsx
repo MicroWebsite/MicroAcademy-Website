@@ -1,4 +1,3 @@
-// src/components/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,7 +7,7 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Freshers drive", href: "/freshers-drive" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact us", href: "/contact" },
+  // { label: "Contact us", href: "/contact" },
 ];
 
 const legalLinks = [
@@ -34,12 +33,19 @@ const socialLinks = [
   },
 ];
 
+const serviceLinks = [
+  { label: "Recruitment", href: "/services/recruitment" },
+  { label: "Contract Hiring", href: "/services/contract-hiring" },
+  { label: "Train and Hire", href: "/services/train-and-hire" },
+  { label: "Corporate Training", href: "/services/corporate-training" },
+];
+
 export default function Footer() {
   return (
     <footer className="w-full bg-bg-cream border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-start gap-12">
         {/* Logo & Address */}
-        <div className="flex flex-col gap-4 items-start">
+        <div className="flex flex-col gap-4 items-start text-left font-['Inter']">
           <Image
             src="/assets/home/microacademy-logo.png"
             alt="MicroAcademy Logo"
@@ -59,7 +65,7 @@ export default function Footer() {
               Call Us:{" "}
               <a
                 href="tel:+918025358182"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors hover:font-bold"
               >
                 +91 080-25358182 / 25359192
               </a>
@@ -68,16 +74,17 @@ export default function Footer() {
               Email Us:{" "}
               <a
                 href="mailto:info@microacademy.net"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors hover:font-bold"
               >
                 info@microacademy.net
               </a>
             </span>
           </address>
         </div>
+
         {/* Quick Links */}
-        <div className="flex flex-col gap-4">
-          <span className="text-sm font-semibold text-text-dark">
+        <div className="flex flex-col gap-5">
+          <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
             Quick Links
           </span>
           <ul className="flex flex-col gap-3">
@@ -85,7 +92,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-text-muted hover:text-text-dark transition-colors"
+                  className="text-sm text-text-muted hover:text-text-dark hover:font-medium transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -93,15 +100,18 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        {/* Legal */}
-        <div className="flex flex-col gap-4">
-          <span className="text-sm font-semibold text-text-dark">Legal</span>
+
+        {/* Our Services (Replaced Legal) */}
+        <div className="flex flex-col gap-5">
+          <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
+            Our Services
+          </span>
           <ul className="flex flex-col gap-3">
-            {legalLinks.map((link) => (
+            {serviceLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-text-muted hover:text-text-dark transition-colors"
+                  className="text-sm text-text-muted hover:text-text-dark hover:font-medium transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -109,9 +119,10 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        {/* Social */}
-        <div className="flex flex-col gap-4">
-          <span className="text-sm font-semibold text-text-dark">
+
+        {/* Connect with Us */}
+        <div className="flex flex-col gap-5">
+          <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
             Connect with Us
           </span>
           <div className="flex gap-4">
@@ -122,7 +133,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="text-primary hover:text-secondary text-2xl transition-colors shrink-0"
+                className="text-text-muted hover:text-primary text-2xl transition-all hover:scale-110"
               >
                 {link.icon === "insta" && (
                   <svg
@@ -142,7 +153,7 @@ export default function Footer() {
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" />
+                    <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24 l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" />
                   </svg>
                 )}
                 {link.icon === "linkedin" && (
@@ -160,11 +171,23 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
       <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-text-subtle text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs font-medium text-text-subtle text-center sm:text-left">
             © 2026 Micro Academy. Curating the future of workforce intelligence.
           </p>
+          <div className="flex gap-6">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[10px] font-bold text-text-muted hover:text-text-dark transition-colors uppercase tracking-widest"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

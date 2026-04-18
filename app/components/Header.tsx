@@ -157,7 +157,7 @@ export default function Header() {
                   </div>
 
                   {mobileServicesOpen && (
-                    <div className="flex flex-col pl-4 pb-2 gap-1 mt-1 border-l-2 border-border ml-2">
+                    <div className="flex flex-col gap-1 mt-1">
                       {link.subLinks.map((subLink) => (
                         <Link
                           key={subLink.href}

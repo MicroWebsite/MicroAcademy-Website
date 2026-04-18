@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { useToast } from "@/app/context/ToastContext";
 import ApplicationFormFields from "./ApplicationFormFields";

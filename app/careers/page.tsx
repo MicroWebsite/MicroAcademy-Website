@@ -3,7 +3,6 @@ import HomeTemplate from "../components/home/homeTemplate";
 import { careerHeroSection } from "../data/careerHeroSection";
 import MicroAdvantage from "../components/careers/MicroAdvantage";
 import OpenPositions from "../components/careers/OpenPositions";
-import LifeAtAcedemy from "../components/careers/LifeAtAcedemy";
 
 export const metadata: Metadata = {
   title: "Career | MicroAcademy",
@@ -17,7 +16,6 @@ export default function Career() {
       <HomeTemplate heroContent={careerHeroSection} />
       <MicroAdvantage />
       <OpenPositions />
-      <LifeAtAcedemy />
     </div>
   );
 }

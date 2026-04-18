@@ -39,7 +39,7 @@ export default function ProcessSection() {
                 key={i}
                 className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto ${
                   step.highlighted
-                    ? "bg-primary min-h-[336px]"
+                    ? "bg-linear-to-r from-primary to-secondary min-h-[336px]"
                     : "bg-bg-cream-alt min-h-[320px]"
                 }`}
               >

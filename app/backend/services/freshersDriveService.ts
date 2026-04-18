@@ -16,16 +16,13 @@ export async function processFreshersDriveSubmission(data: {
   const resume = await toResumeAttachment(data.resumeFile);
 
   try {
-    await appendSheetValues("Sheet4", [
+    await appendSheetValues("FreshersDrive", [
       [
         data.firstName,
         data.lastName,
         data.email,
         data.phone,
         data.domain,
-        "Freshers Drive",
-        data.resumeFile ? "Yes" : "No",
-        "",
         timestamp,
       ],
     ]);

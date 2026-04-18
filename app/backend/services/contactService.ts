@@ -10,15 +10,8 @@ async function appendContactToSheet(data: {
   message: string;
   timestamp: string;
 }) {
-  const res = await appendSheetValues("Sheet3", [
-    [
-      data.fullName,
-      data.email,
-      data.phone,
-      "Contact Enquiry",
-      data.message,
-      data.timestamp,
-    ],
+  const res = await appendSheetValues("Contact", [
+    [data.fullName, data.email, data.phone, data.message, data.timestamp],
   ]);
 
   if (res.status !== 200) {

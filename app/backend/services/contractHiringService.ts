@@ -17,15 +17,13 @@ export async function processContractHiringSubmission(data: {
   const resume = await toResumeAttachment(data.resumeFile);
 
   try {
-    await appendSheetValues("Sheet4", [
+    await appendSheetValues("CorporateTraining", [
       [
         data.firstName,
         data.lastName,
         data.email,
         data.phone,
         data.position,
-        "CONTRACT",
-        data.resumeFile ? "Yes" : "No",
         data.message || "",
         timestamp,
       ],

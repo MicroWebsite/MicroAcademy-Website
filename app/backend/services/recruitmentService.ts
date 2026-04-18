@@ -16,19 +16,14 @@ export async function processRecruitmentSubmission(data: {
 }) {
   const timestamp = getIndiaTimestamp();
   const resume = await toResumeAttachment(data.resumeFile);
-  const sheetName =
-    data.type.toLowerCase() === "full-time" ? "Sheet3" : "Sheet4";
-
   try {
-    await appendSheetValues(sheetName, [
+    await appendSheetValues("Recruitment", [
       [
         data.firstName,
         data.lastName,
         data.email,
         data.phone,
         data.position,
-        data.type.toUpperCase(),
-        data.resumeFile ? "Yes" : "No",
         data.message || "",
         timestamp,
       ],

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { HeroProps } from '@/app/types/hero';
+import Link from "next/link";
+import Image from "next/image";
+import { HeroProps } from "@/app/types/hero";
 
 interface HomeTemplateProps {
   heroContent: HeroProps;
@@ -20,10 +20,8 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
   return (
     <section className="w-full bg-bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-8">
-
         {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
-
           {/* Badge */}
           <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.18em] uppercase">
             {badge}
@@ -83,9 +81,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
             )}
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-

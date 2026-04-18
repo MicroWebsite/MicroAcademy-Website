@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import { google } from "googleapis";
 
 const EMAIL_COLORS = {
-  primary: '#6A5F00',
-  secondary: '#FBE426',
-  bgCream: '#F5F4EE',
-  textDark: '#1B1C19',
-  textMuted: '#3a3a3a',
+  primary: "#6A5F00",
+  secondary: "#FBE426",
+  bgCream: "#F5F4EE",
+  textDark: "#1B1C19",
+  textMuted: "#3a3a3a",
 };
 
 // ─── Google Sheets API helpers ───
@@ -18,16 +18,21 @@ const EMAIL_COLORS = {
  */
 async function getGoogleAuth() {
   const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
+  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(
+    /\\n/g,
+    "\n",
+  );
 
   if (!clientEmail || !privateKey) {
-    throw new Error('Google Sheets credentials (GOOGLE_SHEETS_CLIENT_EMAIL, GOOGLE_SHEETS_PRIVATE_KEY) are not configured');
+    throw new Error(
+      "Google Sheets credentials (GOOGLE_SHEETS_CLIENT_EMAIL, GOOGLE_SHEETS_PRIVATE_KEY) are not configured",
+    );
   }
 
   const auth = new google.auth.JWT({
     email: clientEmail,
     key: privateKey,
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
   return auth;
@@ -42,30 +47,30 @@ async function getGoogleAuth() {
  */
 async function appendToGoogleSheet(row: Record<string, string>) {
   const auth = await getGoogleAuth();
-  const sheets = google.sheets({ version: 'v4', auth });
+  const sheets = google.sheets({ version: "v4", auth });
 
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-  const range = process.env.GOOGLE_SHEETS_RANGE || 'Sheet1!A:E';
+  const range = process.env.GOOGLE_SHEETS_RANGE || "Sheet1!A:E";
 
   if (!spreadsheetId) {
-    throw new Error('GOOGLE_SHEETS_SPREADSHEET_ID must be set in .env');
+    throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID must be set in .env");
   }
 
   // Values are passed as an array of arrays
   const values = [
     [
-      row['Full Name'],
-      row['Email'],
-      row['Phone'],
-      row['Message'],
-      row['Submitted At'],
-    ]
+      row["Full Name"],
+      row["Email"],
+      row["Phone"],
+      row["Message"],
+      row["Submitted At"],
+    ],
   ];
 
   const res = await sheets.spreadsheets.values.append({
     spreadsheetId,
     range,
-    valueInputOption: 'USER_ENTERED',
+    valueInputOption: "USER_ENTERED",
     requestBody: {
       values,
     },
@@ -89,10 +94,10 @@ async function sendEmail(data: {
   const smtpPort = Number(process.env.SMTP_PORT) || 587;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const toEmail = process.env.CONTACT_TO_EMAIL || 'info@microacademy.net';
+  const toEmail = process.env.CONTACT_TO_EMAIL || "info@microacademy.net";
 
   if (!smtpHost || !smtpUser || !smtpPass) {
-    console.warn('SMTP not configured — skipping email');
+    console.warn("SMTP not configured — skipping email");
     return;
   }
 
@@ -149,13 +154,13 @@ export async function POST(req: NextRequest) {
     // Validate
     if (!fullName || !email || !phone || !message) {
       return NextResponse.json(
-        { error: 'All fields are required' },
-        { status: 400 }
+        { error: "All fields are required" },
+        { status: 400 },
       );
     }
 
-    const timestamp = new Date().toLocaleString('en-IN', {
-      timeZone: 'Asia/Kolkata',
+    const timestamp = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
     });
 
     const errors: string[] = [];
@@ -163,30 +168,30 @@ export async function POST(req: NextRequest) {
     // 1. Save to Google Sheets
     try {
       await appendToGoogleSheet({
-        'Full Name': fullName,
+        "Full Name": fullName,
         Email: email,
         Phone: phone,
         Message: message,
-        'Submitted At': timestamp,
+        "Submitted At": timestamp,
       });
     } catch (sheetErr) {
-      console.error('Google Sheets error:', sheetErr);
-      errors.push('Google Sheets logging failed');
+      console.error("Google Sheets error:", sheetErr);
+      errors.push("Google Sheets logging failed");
     }
 
     // 2. Send Email
     try {
       await sendEmail({ fullName, email, phone, message, timestamp });
     } catch (mailErr) {
-      console.error('Email error:', mailErr);
-      errors.push('Email send failed');
+      console.error("Email error:", mailErr);
+      errors.push("Email send failed");
     }
 
     // If both failed, return error
     if (errors.length === 2) {
       return NextResponse.json(
-        { error: 'Failed to process your message. Please try again later.' },
-        { status: 500 }
+        { error: "Failed to process your message. Please try again later." },
+        { status: 500 },
       );
     }
 
@@ -195,10 +200,10 @@ export async function POST(req: NextRequest) {
       ...(errors.length > 0 && { warnings: errors }),
     });
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: 'Failed to process your message. Please try again later.' },
-      { status: 500 }
+      { error: "Failed to process your message. Please try again later." },
+      { status: 500 },
     );
   }
 }

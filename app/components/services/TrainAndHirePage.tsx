@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, Users, BookOpen, Handshake } from 'lucide-react';
-import TrainAndHireTestimonialsCarousel from '@/app/components/services/TrainAndHireTestimonialsCarousel';
-import { trainAndHireTestimonials } from '@/app/data/trainAndHireTestimonials';
-import HomeTemplate from '../common/HeroSection';
-import { capabilitiesData } from '@/app/data/capabalitiesData';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Users, BookOpen, Handshake } from "lucide-react";
+import TrainAndHireTestimonialsCarousel from "@/app/components/services/TrainAndHireTestimonialsCarousel";
+import { trainAndHireTestimonials } from "@/app/data/trainAndHireTestimonials";
+import HomeTemplate from "../common/HeroSection";
+import { capabilitiesData } from "@/app/data/capabalitiesData";
 
 /* ══════════════════════════════════════════════════════════════════════
    2. PROCESS SECTION — "The Architectural Blueprint"
@@ -14,23 +14,23 @@ import { capabilitiesData } from '@/app/data/capabalitiesData';
 const steps = [
   {
     icon: <Users className="w-6 h-6" />,
-    title: 'Precision Selection',
+    title: "Precision Selection",
     description:
-      'We identify raw potential through rigorous cognitive and cultural assessments, selecting only the top 5% of candidates.',
+      "We identify raw potential through rigorous cognitive and cultural assessments, selecting only the top 5% of candidates.",
     highlighted: false,
   },
   {
     icon: <BookOpen className="w-6 h-6" />,
-    title: 'Customized Training',
+    title: "Customized Training",
     description:
-      'Tailored curriculum designed around your tech stack, domain expertise, and company culture for maximum impact.',
+      "Tailored curriculum designed around your tech stack, domain expertise, and company culture for maximum impact.",
     highlighted: true,
   },
   {
     icon: <Handshake className="w-6 h-6" />,
-    title: 'Seamless Hiring',
+    title: "Seamless Hiring",
     description:
-      'A friction-less transition from academy to enterprise, with full administrative and onboarding support.',
+      "A friction-less transition from academy to enterprise, with full administrative and onboarding support.",
     highlighted: false,
   },
 ];
@@ -66,15 +66,19 @@ function ProcessSection() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto ${step.highlighted ? 'bg-primary min-h-[336px]' : 'bg-bg-cream-alt min-h-[320px]'
-                }`}
+              className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto ${
+                step.highlighted
+                  ? "bg-primary min-h-[336px]"
+                  : "bg-bg-cream-alt min-h-[320px]"
+              }`}
             >
               {/* Icon */}
               <div
-                className={`flex items-center justify-center rounded-2xl ${step.highlighted
-                    ? 'w-[58.8px] h-[58.8px] bg-white/20 text-white'
-                    : 'w-[56px] h-[56px] bg-primary/10 text-primary'
-                  }`}
+                className={`flex items-center justify-center rounded-2xl ${
+                  step.highlighted
+                    ? "w-[58.8px] h-[58.8px] bg-white/20 text-white"
+                    : "w-[56px] h-[56px] bg-primary/10 text-primary"
+                }`}
               >
                 {step.icon}
               </div>
@@ -82,8 +86,9 @@ function ProcessSection() {
               {/* Title */}
               <div className="pt-4">
                 <h3
-                  className={`text-2xl leading-8 font-manrope font-normal ${step.highlighted ? 'text-white' : 'text-text-dark'
-                    }`}
+                  className={`text-2xl leading-8 font-manrope font-normal ${
+                    step.highlighted ? "text-white" : "text-text-dark"
+                  }`}
                 >
                   {step.title}
                 </h3>
@@ -91,8 +96,9 @@ function ProcessSection() {
 
               {/* Description */}
               <p
-                className={`text-base leading-[26px] font-manrope ${step.highlighted ? 'text-white/90' : 'text-text-muted-alt'
-                  }`}
+                className={`text-base leading-[26px] font-manrope ${
+                  step.highlighted ? "text-white/90" : "text-text-muted-alt"
+                }`}
               >
                 {step.description}
               </p>
@@ -109,19 +115,19 @@ function ProcessSection() {
    ═══════════════════════════════════════════════════════════════════ */
 const whyPoints = [
   {
-    title: 'Zero Hiring Risk',
+    title: "Zero Hiring Risk",
     description:
-      'Pre-trained, pre-assessed talent eliminates the uncertainty of traditional recruitment and reduces onboarding time by 60%.',
+      "Pre-trained, pre-assessed talent eliminates the uncertainty of traditional recruitment and reduces onboarding time by 60%.",
   },
   {
-    title: 'Industry-Ready Talent',
+    title: "Industry-Ready Talent",
     description:
-      'Our graduates arrive equipped with the exact technical and soft skills your projects demand, from day one on the job.',
+      "Our graduates arrive equipped with the exact technical and soft skills your projects demand, from day one on the job.",
   },
   {
-    title: 'Scalable Workforce',
+    title: "Scalable Workforce",
     description:
-      'Whether you need 5 or 500 professionals, our pipeline adapts to meet your growth trajectory without compromising quality.',
+      "Whether you need 5 or 500 professionals, our pipeline adapts to meet your growth trajectory without compromising quality.",
   },
 ];
 
@@ -223,8 +229,9 @@ function TestimonialSection() {
       <div
         className="absolute inset-0 pointer-events-none opacity-10 z-0"
         style={{
-          background: 'radial-gradient(70.71% 70.71% at 50% 50%, var(--bg-white) 3.54%, rgba(255, 255, 255, 0) 3.54%)',
-          backgroundSize: '12px 12px',
+          background:
+            "radial-gradient(70.71% 70.71% at 50% 50%, var(--bg-white) 3.54%, rgba(255, 255, 255, 0) 3.54%)",
+          backgroundSize: "12px 12px",
         }}
       />
 
@@ -291,11 +298,15 @@ function CTASection() {
    EXPORT — Full Page Composition
    ═══════════════════════════════════════════════════════════════════ */
 export default function TrainAndHirePage() {
-  const trainAndHireData = capabilitiesData.items.find(item => item.id === 'train-hire');
+  const trainAndHireData = capabilitiesData.items.find(
+    (item) => item.id === "train-hire",
+  );
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      {trainAndHireData && <HomeTemplate heroContent={trainAndHireData.heroData} />}
+      {trainAndHireData && (
+        <HomeTemplate heroContent={trainAndHireData.heroData} />
+      )}
       <ProcessSection />
       <WhySection />
       <TestimonialSection />
@@ -303,4 +314,3 @@ export default function TrainAndHirePage() {
     </div>
   );
 }
-

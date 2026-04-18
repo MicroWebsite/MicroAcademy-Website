@@ -1,8 +1,12 @@
-'use client';
+"use client";
 
-import { useToast } from '@/app/context/ToastContext';
-import { validateEmail, validatePhone, validateRequired } from '@/app/utils/validation';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useToast } from "@/app/context/ToastContext";
+import {
+  validateEmail,
+  validatePhone,
+  validateRequired,
+} from "@/app/utils/validation";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface FormData {
   fullName: string;
@@ -11,27 +15,27 @@ interface FormData {
   message: string;
 }
 
-type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 export default function ContactForm() {
   const { showToast } = useToast();
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phone: '',
-    message: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
     // Numeric only for phone
-    if (name === 'phone') {
-      const numericValue = value.replace(/\D/g, '');
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, "");
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
@@ -39,7 +43,7 @@ export default function ContactForm() {
 
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => {
+      setErrors((prev) => {
         const newErrors = { ...prev };
         delete newErrors[name];
         return newErrors;
@@ -53,7 +57,7 @@ export default function ContactForm() {
     // Validate all fields
     const newErrors: Record<string, string> = {};
 
-    const nameErr = validateRequired(formData.fullName, 'Full Name');
+    const nameErr = validateRequired(formData.fullName, "Full Name");
     if (nameErr) newErrors.fullName = nameErr;
 
     const emailErr = validateEmail(formData.email);
@@ -62,7 +66,7 @@ export default function ContactForm() {
     const phoneErr = validatePhone(formData.phone);
     if (phoneErr) newErrors.phone = phoneErr;
 
-    const messageErr = validateRequired(formData.message, 'Message');
+    const messageErr = validateRequired(formData.message, "Message");
     if (messageErr) newErrors.message = messageErr;
 
     if (Object.keys(newErrors).length > 0) {
@@ -70,30 +74,33 @@ export default function ContactForm() {
       return;
     }
 
-    setStatus('loading');
+    setStatus("loading");
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || 'Something went wrong');
+        throw new Error(data.error || "Something went wrong");
       }
 
-      setStatus('success');
-      showToast("Message sent successfully! We'll get back to you soon.", 'success');
-      setFormData({ fullName: '', email: '', phone: '', message: '' });
+      setStatus("success");
+      showToast(
+        "Message sent successfully! We'll get back to you soon.",
+        "success",
+      );
+      setFormData({ fullName: "", email: "", phone: "", message: "" });
 
       // Reset status after 5s
-      setTimeout(() => setStatus('idle'), 5000);
+      setTimeout(() => setStatus("idle"), 5000);
     } catch (err: unknown) {
-      setStatus('error');
-      const msg = err instanceof Error ? err.message : 'Failed to send message';
-      showToast(msg, 'error');
+      setStatus("error");
+      const msg = err instanceof Error ? err.message : "Failed to send message";
+      showToast(msg, "error");
     }
   };
 
@@ -120,10 +127,17 @@ export default function ContactForm() {
               placeholder="John Doe"
               value={formData.fullName}
               onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
-                }`}
+              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${
+                errors.fullName
+                  ? "border-red-500 bg-red-50"
+                  : "border-border focus:border-primary focus:ring-1 focus:ring-primary/30"
+              }`}
             />
-            {errors.fullName && <span className="text-[10px] text-red-500 font-medium">{errors.fullName}</span>}
+            {errors.fullName && (
+              <span className="text-[10px] text-red-500 font-medium">
+                {errors.fullName}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-1.5">
             <label
@@ -139,10 +153,17 @@ export default function ContactForm() {
               placeholder="john@example.com"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.email ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
-                }`}
+              className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${
+                errors.email
+                  ? "border-red-500 bg-red-50"
+                  : "border-border focus:border-primary focus:ring-1 focus:ring-primary/30"
+              }`}
             />
-            {errors.email && <span className="text-[10px] text-red-500 font-medium">{errors.email}</span>}
+            {errors.email && (
+              <span className="text-[10px] text-red-500 font-medium">
+                {errors.email}
+              </span>
+            )}
           </div>
         </div>
 
@@ -161,10 +182,17 @@ export default function ContactForm() {
             placeholder="000 000 0000"
             value={formData.phone}
             onChange={handleChange}
-            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${errors.phone ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
-              }`}
+            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all ${
+              errors.phone
+                ? "border-red-500 bg-red-50"
+                : "border-border focus:border-primary focus:ring-1 focus:ring-primary/30"
+            }`}
           />
-          {errors.phone && <span className="text-[10px] text-red-500 font-medium">{errors.phone}</span>}
+          {errors.phone && (
+            <span className="text-[10px] text-red-500 font-medium">
+              {errors.phone}
+            </span>
+          )}
         </div>
 
         {/* Message */}
@@ -182,28 +210,50 @@ export default function ContactForm() {
             placeholder="How can we help you?"
             value={formData.message}
             onChange={handleChange}
-            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all resize-none ${errors.message ? 'border-red-500 bg-red-50' : 'border-border focus:border-primary focus:ring-1 focus:ring-primary/30'
-              }`}
+            className={`w-full px-4 py-3 rounded-lg bg-bg-cream border text-sm text-text-dark placeholder:text-text-label outline-none transition-all resize-none ${
+              errors.message
+                ? "border-red-500 bg-red-50"
+                : "border-border focus:border-primary focus:ring-1 focus:ring-primary/30"
+            }`}
           />
-          {errors.message && <span className="text-[10px] text-red-500 font-medium">{errors.message}</span>}
+          {errors.message && (
+            <span className="text-[10px] text-red-500 font-medium">
+              {errors.message}
+            </span>
+          )}
         </div>
 
         {/* Submit */}
         <button
           type="submit"
-          disabled={status === 'loading'}
+          disabled={status === "loading"}
           className="self-start inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-btn-primary text-white text-sm font-semibold hover:bg-btn-primary-hover active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed transition-all cursor-pointer"
         >
-          {status === 'loading' ? (
+          {status === "loading" ? (
             <>
-              <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              <svg
+                className="animate-spin w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               Sending...
             </>
           ) : (
-            'Send Message'
+            "Send Message"
           )}
         </button>
       </form>

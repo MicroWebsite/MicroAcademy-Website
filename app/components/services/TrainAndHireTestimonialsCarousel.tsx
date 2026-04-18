@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { TrainAndHireTestimonial } from '@/app/data/trainAndHireTestimonials';
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { TrainAndHireTestimonial } from "@/app/data/trainAndHireTestimonials";
 
 interface TrainAndHireTestimonialsCarouselProps {
   testimonials: TrainAndHireTestimonial[];
@@ -16,15 +16,18 @@ export default function TrainAndHireTestimonialsCarousel({
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const paginate = (newDirection: number) => {
-    setDirection(newDirection);
-    setActiveIndex((prev) => {
-      let next = prev + newDirection;
-      if (next < 0) next = testimonials.length - 1;
-      if (next >= testimonials.length) next = 0;
-      return next;
-    });
-  };
+  const paginate = useCallback(
+    (newDirection: number) => {
+      setDirection(newDirection);
+      setActiveIndex((prev) => {
+        let next = prev + newDirection;
+        if (next < 0) next = testimonials.length - 1;
+        if (next >= testimonials.length) next = 0;
+        return next;
+      });
+    },
+    [testimonials.length],
+  );
 
   useEffect(() => {
     if (isPaused) return;
@@ -34,7 +37,7 @@ export default function TrainAndHireTestimonialsCarousel({
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [activeIndex, isPaused]);
+  }, [activeIndex, isPaused, paginate]);
 
   if (!testimonials.length) return null;
 
@@ -58,15 +61,13 @@ export default function TrainAndHireTestimonialsCarousel({
   };
 
   return (
-    <div 
+    <div
       className="relative w-full flex flex-col items-center group touch-none"
       onPointerEnter={() => setIsPaused(true)}
       onPointerLeave={() => setIsPaused(false)}
     >
       {/* Testimonial Content Wrapper */}
-      <div 
-        className="relative w-full max-w-[896px] mx-auto min-h-[300px] flex flex-col items-center overflow-hidden pointer-events-auto"
-      >
+      <div className="relative w-full max-w-[896px] mx-auto min-h-[300px] flex flex-col items-center overflow-hidden pointer-events-auto">
         {/* Quote Icon */}
         <div className="mb-8 flex justify-center">
           <svg
@@ -93,14 +94,14 @@ export default function TrainAndHireTestimonialsCarousel({
             animate="center"
             exit="exit"
             transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30 },
+              x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.4 },
             }}
             className="w-full flex flex-col items-center cursor-grab active:cursor-grabbing"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
-            onDragEnd={(e, { offset, velocity }) => {
+            onDragEnd={(e, { offset }) => {
               const swipe = Math.abs(offset.x) > 50;
               if (swipe) {
                 paginate(offset.x > 0 ? -1 : 1);
@@ -152,7 +153,7 @@ export default function TrainAndHireTestimonialsCarousel({
               setActiveIndex(index);
             }}
             className={`h-1 rounded-full transition-all duration-300 ${
-              index === activeIndex ? 'w-12 bg-primary' : 'w-4 bg-border-soft'
+              index === activeIndex ? "w-12 bg-primary" : "w-4 bg-border-soft"
             }`}
             aria-label={`Go to testimonial ${index + 1}`}
           />
@@ -161,4 +162,3 @@ export default function TrainAndHireTestimonialsCarousel({
     </div>
   );
 }
-

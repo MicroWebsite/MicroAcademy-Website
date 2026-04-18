@@ -1,29 +1,32 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import { google } from "googleapis";
 
 const EMAIL_COLORS = {
-  primary: '#6A5F00',
-  secondary: '#FBE426',
-  bgCream: '#F5F4EE',
-  textDark: '#1B1C19',
-  textMuted: '#666',
+  primary: "#6A5F00",
+  secondary: "#FBE426",
+  bgCream: "#F5F4EE",
+  textDark: "#1B1C19",
+  textMuted: "#666",
 };
 
 // ─── Google Sheets API helpers ───
 
 async function getGoogleAuth() {
   const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
+  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(
+    /\\n/g,
+    "\n",
+  );
 
   if (!clientEmail || !privateKey) {
-    throw new Error('Google Sheets credentials are not configured');
+    throw new Error("Google Sheets credentials are not configured");
   }
 
   const auth = new google.auth.JWT({
     email: clientEmail,
     key: privateKey,
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
   return auth;
@@ -31,31 +34,31 @@ async function getGoogleAuth() {
 
 async function appendToGoogleSheet(row: Record<string, string>) {
   const auth = await getGoogleAuth();
-  const sheets = google.sheets({ version: 'v4', auth });
+  const sheets = google.sheets({ version: "v4", auth });
 
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-  const range = process.env.GOOGLE_SHEETS_DRIVE_RANGE || 'Sheet2!A:G'; // Assuming Sheet2 or different range for drives
+  const range = process.env.GOOGLE_SHEETS_DRIVE_RANGE || "Sheet2!A:G"; // Assuming Sheet2 or different range for drives
 
   if (!spreadsheetId) {
-    throw new Error('GOOGLE_SHEETS_SPREADSHEET_ID must be set');
+    throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID must be set");
   }
 
   const values = [
     [
-      row['First Name'],
-      row['Last Name'],
-      row['Email'],
-      row['Phone'],
-      row['Domain'],
-      row['Resume Attached'], // Status flag
-      row['Submitted At'],
-    ]
+      row["First Name"],
+      row["Last Name"],
+      row["Email"],
+      row["Phone"],
+      row["Domain"],
+      row["Resume Attached"], // Status flag
+      row["Submitted At"],
+    ],
   ];
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,
     range,
-    valueInputOption: 'USER_ENTERED',
+    valueInputOption: "USER_ENTERED",
     requestBody: { values },
   });
 }
@@ -75,10 +78,10 @@ async function sendEmail(data: {
   const smtpPort = Number(process.env.SMTP_PORT) || 587;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const toEmail = process.env.CONTACT_TO_EMAIL || 'info@microacademy.net';
+  const toEmail = process.env.CONTACT_TO_EMAIL || "info@microacademy.net";
 
   if (!smtpHost || !smtpUser || !smtpPass) {
-    console.warn('SMTP not configured — skipping email');
+    console.warn("SMTP not configured — skipping email");
     return;
   }
 
@@ -89,11 +92,15 @@ async function sendEmail(data: {
     auth: { user: smtpUser, pass: smtpPass },
   });
 
-  const attachments = data.resume ? [{
-    filename: data.resume.filename,
-    content: data.resume.content,
-    contentType: data.resume.contentType,
-  }] : [];
+  const attachments = data.resume
+    ? [
+        {
+          filename: data.resume.filename,
+          content: data.resume.content,
+          contentType: data.resume.contentType,
+        },
+      ]
+    : [];
 
   await transporter.sendMail({
     from: `"MicroAcademy Drive" <${smtpUser}>`,
@@ -140,20 +147,25 @@ async function sendEmail(data: {
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    
-    const firstName = formData.get('firstName') as string;
-    const lastName = formData.get('lastName') as string;
-    const email = formData.get('email') as string;
-    const phone = formData.get('phone') as string;
-    const domain = formData.get('domain') as string;
-    const resumeFile = formData.get('resume') as File | null;
+
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const domain = formData.get("domain") as string;
+    const resumeFile = formData.get("resume") as File | null;
 
     if (!firstName || !lastName || !email || !phone || !domain) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 },
+      );
     }
 
-    const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    
+    const timestamp = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+    });
+
     let resumeData;
     if (resumeFile) {
       const arrayBuffer = await resumeFile.arrayBuffer();
@@ -167,16 +179,16 @@ export async function POST(req: NextRequest) {
     // 1. Google Sheets
     try {
       await appendToGoogleSheet({
-        'First Name': firstName,
-        'Last Name': lastName,
+        "First Name": firstName,
+        "Last Name": lastName,
         Email: email,
         Phone: phone,
         Domain: domain,
-        'Resume Attached': resumeFile ? 'Yes' : 'No',
-        'Submitted At': timestamp,
+        "Resume Attached": resumeFile ? "Yes" : "No",
+        "Submitted At": timestamp,
       });
     } catch (err) {
-      console.error('Sheets error:', err);
+      console.error("Sheets error:", err);
     }
 
     // 2. Email
@@ -192,7 +204,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Fetch error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    console.error("Fetch error:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

@@ -10,7 +10,7 @@ const OpenPositions: React.FC = () => {
 
   // Filter jobs based on search
   const filteredJobs = jobs.filter((job) =>
-    job.title.toLowerCase().includes(searchTerm.toLowerCase())
+    job.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (

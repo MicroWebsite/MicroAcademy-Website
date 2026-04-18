@@ -18,7 +18,8 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "MicroAcademy - The Future of Workforce Intelligence",
-  description: "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+  description:
+    "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
 };
 
 import { ToastProvider } from "./context/ToastContext";

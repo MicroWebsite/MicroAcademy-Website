@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 import {
   Code2,
   Cloud,
@@ -16,26 +16,26 @@ import {
   BarChart3,
   Award,
   Building2,
-} from 'lucide-react';
-import HomeTemplate from '../common/HeroSection';
-import { capabilitiesData } from '@/app/data/capabalitiesData';
+} from "lucide-react";
+import HomeTemplate from "../common/HeroSection";
+import { capabilitiesData } from "@/app/data/capabalitiesData";
 
 /* ══════════════════════════════════════════════════════════════
    2. TECHNOLOGY LOGOS GRID SECTION
    ═══════════════════════════════════════════════════════════ */
 const techCategories = [
-  { icon: <Code2 className="w-[30px] h-[18px]" />, label: 'Java / .NET' },
-  { icon: <Cloud className="w-[33px] h-6" />, label: 'Cloud Computing' },
-  { icon: <Shield className="w-6 h-[30px]" />, label: 'Security' },
-  { icon: <GitBranch className="w-[30px] h-[27px]" />, label: 'DevOps' },
-  { icon: <Server className="w-7 h-7" />, label: 'IT Infrastructure' },
-  { icon: <Database className="w-7 h-7" />, label: 'ERP Tools' },
-  { icon: <Users2 className="w-9 h-[34px]" />, label: 'CRM Systems' },
-  { icon: <Car className="w-7 h-6" />, label: 'Automotive Tech' },
-  { icon: <Wrench className="w-7 h-[30px]" />, label: 'Service Now' },
-  { icon: <Lock className="w-[31px] h-[31px]" />, label: 'Internet Security' },
-  { icon: <TestTube2 className="w-[30px] h-[23px]" />, label: 'QA & Testing' },
-  { icon: <BarChart3 className="w-7 h-7" />, label: 'Data Science' },
+  { icon: <Code2 className="w-[30px] h-[18px]" />, label: "Java / .NET" },
+  { icon: <Cloud className="w-[33px] h-6" />, label: "Cloud Computing" },
+  { icon: <Shield className="w-6 h-[30px]" />, label: "Security" },
+  { icon: <GitBranch className="w-[30px] h-[27px]" />, label: "DevOps" },
+  { icon: <Server className="w-7 h-7" />, label: "IT Infrastructure" },
+  { icon: <Database className="w-7 h-7" />, label: "ERP Tools" },
+  { icon: <Users2 className="w-9 h-[34px]" />, label: "CRM Systems" },
+  { icon: <Car className="w-7 h-6" />, label: "Automotive Tech" },
+  { icon: <Wrench className="w-7 h-[30px]" />, label: "Service Now" },
+  { icon: <Lock className="w-[31px] h-[31px]" />, label: "Internet Security" },
+  { icon: <TestTube2 className="w-[30px] h-[23px]" />, label: "QA & Testing" },
+  { icon: <BarChart3 className="w-7 h-7" />, label: "Data Science" },
 ];
 
 function TechLogosGrid() {
@@ -77,15 +77,15 @@ function TechLogosGrid() {
 const methodologyFeatures = [
   {
     icon: <Award className="w-5 h-[18px]" />,
-    title: 'ISO 9001:2015 Certified Process',
+    title: "ISO 9001:2015 Certified Process",
     description:
-      'Every training program follows our internationally audited quality framework, ensuring consistent delivery standards.',
+      "Every training program follows our internationally audited quality framework, ensuring consistent delivery standards.",
   },
   {
     icon: <Building2 className="w-[22px] h-[21px]" />,
-    title: 'Enterprise-Grade Facilities',
+    title: "Enterprise-Grade Facilities",
     description:
-      'State-of-the-art labs with dedicated environments for hands-on practice across all technology domains.',
+      "State-of-the-art labs with dedicated environments for hands-on practice across all technology domains.",
   },
 ];
 
@@ -187,11 +187,15 @@ function MethodologySection() {
    EXPORT — Full Page Composition
    ═══════════════════════════════════════════════════════════ */
 export default function CorporateTrainingPage() {
-  const corporateTrainingData = capabilitiesData.items.find(item => item.id === 'corporate-training');
+  const corporateTrainingData = capabilitiesData.items.find(
+    (item) => item.id === "corporate-training",
+  );
 
   return (
     <div className="w-full overflow-hidden pt-0">
-      {corporateTrainingData && <HomeTemplate heroContent={corporateTrainingData.heroData} />}
+      {corporateTrainingData && (
+        <HomeTemplate heroContent={corporateTrainingData.heroData} />
+      )}
       <TechLogosGrid />
       <MethodologySection />
       {/* Bottom spacer */}
@@ -199,4 +203,3 @@ export default function CorporateTrainingPage() {
     </div>
   );
 }
-

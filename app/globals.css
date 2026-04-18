@@ -5,102 +5,102 @@
   --foreground: #171717;
 
   /* ── Brand ────────────────────────────────────────────────── */
-  --primary: #6A5F00;
-  --primary-50: #F5F3E6;
-  --primary-100: #EBE7CC;
-  --primary-200: #D6CF99;
-  --primary-300: #C2B866;
-  --primary-400: #ADA033;
-  --primary-dark: #5C5300;
-  --primary-darker: #4E4700;
-  --primary-800: #403B00;
-  --primary-900: #322F00;
-  --primary-light: #8B8200;
+  --primary: #6a5f00;
+  --primary-50: #f5f3e6;
+  --primary-100: #ebe7cc;
+  --primary-200: #d6cf99;
+  --primary-300: #c2b866;
+  --primary-400: #ada033;
+  --primary-dark: #5c5300;
+  --primary-darker: #4e4700;
+  --primary-800: #403b00;
+  --primary-900: #322f00;
+  --primary-light: #8b8200;
   --primary-muted: #485422;
 
-  --secondary: #FBE426;
-  --secondary-50: #FFFEF0;
-  --secondary-100: #FFFCE0;
-  --secondary-200: #FFF9C2;
-  --secondary-300: #FFF5A3;
-  --secondary-400: #FFF285;
-  --secondary-dark: #F8E122;
-  --secondary-muted: #FEE16D;
-  --secondary-700: #E6C400;
-  --secondary-800: #D4AD00;
-  --secondary-900: #B89600;
+  --secondary: #fbe426;
+  --secondary-50: #fffef0;
+  --secondary-100: #fffce0;
+  --secondary-200: #fff9c2;
+  --secondary-300: #fff5a3;
+  --secondary-400: #fff285;
+  --secondary-dark: #f8e122;
+  --secondary-muted: #fee16d;
+  --secondary-700: #e6c400;
+  --secondary-800: #d4ad00;
+  --secondary-900: #b89600;
 
   /* ── Surfaces / Backgrounds ───────────────────────────────── */
-  --bg-cream: #F5F4EE;
-  --bg-cream-light: #FAF9F3;
-  --bg-cream-alt: #FAF9F6;
-  --bg-muted: #EFEEE8;
-  --bg-card: #EEEADE;
-  --bg-card-alt: #EDECD6;
-  --bg-decor: #E3E0CF;
-  --bg-input: #EFEEEB;
-  --bg-input-alt: #F1F1F1;
-  --bg-input-row: #F4F3F1;
-  --bg-dark: #1B1C19;
-  --bg-dark-alt: #2F312F;
+  --bg-cream: #f5f4ee;
+  --bg-cream-light: #faf9f3;
+  --bg-cream-alt: #faf9f6;
+  --bg-muted: #efeee8;
+  --bg-card: #eeeade;
+  --bg-card-alt: #edecd6;
+  --bg-decor: #e3e0cf;
+  --bg-input: #efeeeb;
+  --bg-input-alt: #f1f1f1;
+  --bg-input-row: #f4f3f1;
+  --bg-dark: #1b1c19;
+  --bg-dark-alt: #2f312f;
   --bg-dark-card: #242521;
   --bg-dark-card-hover: #2a2b27;
-  --bg-white: #FFFFFF;
-  --bg-header: #FAF9F3;
-  --bg-header-mobile: #F5F4EC;
+  --bg-white: #ffffff;
+  --bg-header: #faf9f3;
+  --bg-header-mobile: #f5f4ec;
 
   /* ── Borders ──────────────────────────────────────────────── */
-  --border: #E2E0D4;
-  --border-light: #EBE9DE;
-  --border-muted: #D9D2C3;
-  --border-alt: #E3E2E0;
-  --border-soft: #C7C8B9;
+  --border: #e2e0d4;
+  --border-light: #ebe9de;
+  --border-muted: #d9d2c3;
+  --border-alt: #e3e2e0;
+  --border-soft: #c7c8b9;
   --border-stat: #e8e5d8;
 
   /* ── Text ─────────────────────────────────────────────────── */
-  --text-dark: #1B1C19;
-  --text-heading: #1A1C1A;
+  --text-dark: #1b1c19;
+  --text-heading: #1a1c1a;
   --text-body: #4a4a4a;
-  --text-body-alt: #46483C;
+  --text-body-alt: #46483c;
   --text-muted: #5a5a5a;
   --text-muted-alt: #3a3a3a;
   --text-subtle: #8a8a8a;
   --text-label: #9a9a9a;
-  --text-label-alt: #AEAEAE;
+  --text-label-alt: #aeaeae;
   --text-label-input: #9a9a8a;
-  --text-accent: #6B6B00;
-  --text-gold: #7A6B1F;
-  --text-gold-alt: #8B7B1A;
+  --text-accent: #6b6b00;
+  --text-gold: #7a6b1f;
+  --text-gold-alt: #8b7b1a;
   --text-badge: #3a3800;
-  --text-body-para: #4B4732;
+  --text-body-para: #4b4732;
   --text-olive: #766300;
-  --text-olive-alt: #6F5D00;
-  --text-link: #5A5215;
-  --text-link-hover: #7A6F1E;
-  --text-placeholder: #6B7280;
-  --text-muted-nav: #77786B;
+  --text-olive-alt: #6f5d00;
+  --text-link: #5a5215;
+  --text-link-hover: #7a6f1e;
+  --text-placeholder: #6b7280;
+  --text-muted-nav: #77786b;
 
   /* ── Buttons / CTAs ───────────────────────────────────────── */
-  --btn-primary: #5C5E00;
+  --btn-primary: #5c5e00;
   --btn-primary-hover: #4a4c00;
-  --btn-grad-start: #6A5F00;
-  --btn-grad-end: #FBE426;
-  --btn-grad-end-alt: #D1B000;
+  --btn-grad-start: #6a5f00;
+  --btn-grad-end: #fbe426;
+  --btn-grad-end-alt: #d1b000;
   --btn-cta-bg: #485422;
 
   /* ── Chatbot ──────────────────────────────────────────────── */
-  --chat-online: #4ADE80;
+  --chat-online: #4ade80;
 
   /* ── Status badges ────────────────────────────────────────── */
-  --status-full-time-bg: #D7E9BD;
-  --status-full-time-text: #121F05;
-  --status-contract-bg: #FEE16D;
-  --status-contract-text: #221B00;
+  --status-full-time-bg: #d7e9bd;
+  --status-full-time-text: #121f05;
+  --status-contract-bg: #fee16d;
+  --status-contract-text: #221b00;
 
   /* ── Misc ─────────────────────────────────────────────────── */
-  --text-quote: #F2F1EE;
-  --text-info-card: #F1E563;
-  --cta-card-bg: #E3E2E0;
+  --text-quote: #f2f1ee;
+  --text-info-card: #f1e563;
+  --cta-card-bg: #e3e2e0;
   --highlight-muted: #888;
 }
 

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState, useEffect, useCallback, FormEvent } from 'react';
+import Image from "next/image";
+import { useState, useEffect, useCallback, FormEvent } from "react";
 import {
   Briefcase,
   Users,
@@ -12,25 +12,25 @@ import {
   Flame,
   Sparkles,
   X,
-} from 'lucide-react';
-import HomeTemplate from '../common/HeroSection';
-import { capabilitiesData } from '@/app/data/capabalitiesData';
+} from "lucide-react";
+import HomeTemplate from "../common/HeroSection";
+import { capabilitiesData } from "@/app/data/capabalitiesData";
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    1. RECRUITMENT SERVICES CONTENT SECTION
-   ═══════════════════════════════════════════════════════════ */
+    */
 const serviceCards = [
   {
     icon: <Briefcase className="w-[18px] h-5" />,
-    title: 'Contractual Hiring Services',
+    title: "Contractual Hiring Services",
     description:
-      'Micro Academy provides agile, specialized staffing solutions for project-based requirements. We handle the complexities of short-term expert placement, ensuring your operations never miss a beat.',
+      "Micro Academy provides agile, specialized staffing solutions for project-based requirements. We handle the complexities of short-term expert placement, ensuring your operations never miss a beat.",
   },
   {
     icon: <Users className="w-6 h-3" />,
-    title: 'Lateral Hiring Expertise',
+    title: "Lateral Hiring Expertise",
     description:
-      'Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.',
+      "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.",
   },
 ];
 
@@ -39,7 +39,7 @@ function ServicesContentSection() {
     <section className="w-full bg-bg-cream px-8 py-24">
       <div className="max-w-[1216px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* ── Left Column: Heading + Service Cards ── */}
+          {/*  Left Column: Heading + Service Cards  */}
           <div className="flex flex-col gap-8 lg:max-w-[576px] w-full">
             <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
               An Extension of Your
@@ -69,7 +69,7 @@ function ServicesContentSection() {
             </div>
           </div>
 
-          {/* ── Right Column: Image + Dark Card ── */}
+          {/*  Right Column: Image + Dark Card  */}
           <div className="flex flex-col gap-8 flex-1">
             {/* Image */}
             <div className="relative w-full overflow-hidden h-[324px] rounded-2xl shadow-xl">
@@ -82,7 +82,7 @@ function ServicesContentSection() {
               />
             </div>
 
-            {/* Dark Card — "The Micro Academy Difference" */}
+            {/* Dark Card  "The Micro Academy Difference" */}
             <div className="relative overflow-hidden bg-primary rounded-2xl p-10 shadow-lg">
               <h4 className="text-2xl leading-8 text-white mb-4 font-manrope font-normal">
                 The Micro Academy Difference
@@ -101,44 +101,48 @@ function ServicesContentSection() {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    3. OPEN POSITIONS TABLE SECTION
-   ═══════════════════════════════════════════════════════════ */
+    */
 const positions = [
   {
-    title: 'Sr. Service Desk Analyst',
-    department: 'Infrastructure Operations',
-    location: 'Hyderabad, India',
-    type: 'Full-Time' as const,
+    title: "Sr. Service Desk Analyst",
+    department: "Infrastructure Operations",
+    location: "Hyderabad, India",
+    type: "Full-Time" as const,
   },
   {
-    title: 'Senior Technical Recruiter',
-    department: 'Talent Acquisition',
-    location: 'Remote / Bangalore',
-    type: 'Full-Time' as const,
+    title: "Senior Technical Recruiter",
+    department: "Talent Acquisition",
+    location: "Remote / Bangalore",
+    type: "Full-Time" as const,
   },
   {
-    title: 'Fullstack Developer (Node/React)',
-    department: 'Engineering',
-    location: 'Pune, India',
-    type: 'Contract' as const,
+    title: "Fullstack Developer (Node/React)",
+    department: "Engineering",
+    location: "Pune, India",
+    type: "Contract" as const,
   },
   {
-    title: 'HR Operations Specialist',
-    department: 'Human Resources',
-    location: 'Mumbai, India',
-    type: 'Full-Time' as const,
+    title: "HR Operations Specialist",
+    department: "Human Resources",
+    location: "Mumbai, India",
+    type: "Full-Time" as const,
   },
 ];
 
 const typeStyles = {
-  'Full-Time': 'bg-status-full-time-bg text-status-full-time-text',
-  Contract: 'bg-status-contract-bg text-status-contract-text',
+  "Full-Time": "bg-status-full-time-bg text-status-full-time-text",
+  Contract: "bg-status-contract-bg text-status-contract-text",
 };
 
-const TABLE_GRID_COLUMNS = '2.5fr 1.8fr 1.5fr 1fr 1fr';
+const TABLE_GRID_COLUMNS = "2.5fr 1.8fr 1.5fr 1fr 1fr";
 
-function PositionsTableSection({ onApply }: { onApply: (position: string) => void }) {
+function PositionsTableSection({
+  onApply,
+}: {
+  onApply: (position: string) => void;
+}) {
   return (
     <section className="w-full bg-bg-cream-alt py-24 px-8">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
@@ -149,7 +153,8 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
               Open Opportunities
             </h2>
             <p className="text-base leading-6 text-text-muted-alt font-manrope">
-              Join the ranks of leading global firms through our curated selection process.
+              Join the ranks of leading global firms through our curated
+              selection process.
             </p>
           </div>
 
@@ -169,17 +174,17 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
             className="hidden md:grid min-w-[900px]"
             style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
           >
-            {['POSITION ROLE', 'DEPARTMENT', 'LOCATION', 'TYPE', 'ACTION'].map(
+            {["POSITION ROLE", "DEPARTMENT", "LOCATION", "TYPE", "ACTION"].map(
               (header, i) => (
                 <div
                   key={header}
-                  className={`py-4 px-8 ${i === 4 ? 'text-right' : 'text-left'}`}
+                  className={`py-4 px-8 ${i === 4 ? "text-right" : "text-left"}`}
                 >
                   <span className="text-sm leading-5 uppercase tracking-[1.4px] text-text-muted-alt font-inter font-semibold">
                     {header}
                   </span>
                 </div>
-              )
+              ),
             )}
           </div>
 
@@ -214,7 +219,9 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
 
                 {/* Status */}
                 <div className="py-6 px-8">
-                  <span className={`inline-flex items-center px-3 py-1 text-xs font-bold rounded-lg font-manrope ${typeStyles[pos.type]}`}>
+                  <span
+                    className={`inline-flex items-center px-3 py-1 text-xs font-bold rounded-lg font-manrope ${typeStyles[pos.type]}`}
+                  >
                     {pos.type}
                   </span>
                 </div>
@@ -237,9 +244,9 @@ function PositionsTableSection({ onApply }: { onApply: (position: string) => voi
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    4. APPLICATION FORM MODAL
-   ══════════════════════════════════════════════════════════════ */
+    */
 function ApplicationFormModal({
   isOpen,
   onClose,
@@ -250,57 +257,64 @@ function ApplicationFormModal({
   selectedPosition: string;
 }) {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
     position: selectedPosition,
-    message: '',
+    message: "",
   });
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
 
   // Sync selectedPosition when modal opens
   useEffect(() => {
     if (isOpen) {
-      setFormData((prev) => ({ ...prev, position: selectedPosition }));
-      // Trigger entrance animation
-      requestAnimationFrame(() => setIsAnimating(true));
+      // Defer the state updates to avoid "setState in effect" warning
+      // and ensure they happen after the current render cycle.
+      const timer = setTimeout(() => {
+        setFormData((prev) => ({ ...prev, position: selectedPosition }));
+        setIsAnimating(true);
+      }, 0);
+      return () => clearTimeout(timer);
     } else {
-      setIsAnimating(false);
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [isOpen, selectedPosition]);
 
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   // Close on Escape key
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     },
-    [onClose]
+    [onClose],
   );
 
   useEffect(() => {
     if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener("keydown", handleKeyDown);
     }
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handleKeyDown]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    alert('Application submitted successfully!');
+    alert("Application submitted successfully!");
     onClose();
   };
 
@@ -325,7 +339,9 @@ function ApplicationFormModal({
       <div
         className="relative w-full max-h-[95vh] overflow-hidden transition-all duration-300 ease-out max-w-[1100px] mx-4 bg-bg-dark-alt rounded-3xl shadow-2xl"
         style={{
-          transform: isAnimating ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.97)',
+          transform: isAnimating
+            ? "translateY(0) scale(1)"
+            : "translateY(40px) scale(0.97)",
           opacity: isAnimating ? 1 : 0,
         }}
       >
@@ -340,7 +356,7 @@ function ApplicationFormModal({
         {/* Content */}
         <div className="p-5 lg:p-7">
           <div className="flex flex-col lg:flex-row gap-7 items-start">
-            {/* ── Left: Info Column ── */}
+            {/*  Left: Info Column  */}
             <div className="flex flex-col gap-4 w-full lg:max-w-[360px] lg:pt-2">
               <h2 className="text-white text-2xl sm:text-3xl font-bold font-manrope">
                 Submit Your
@@ -395,12 +411,9 @@ function ApplicationFormModal({
               </div>
             </div>
 
-            {/* ── Right: Form Card ── */}
+            {/*  Right: Form Card  */}
             <div className="flex-1 w-full bg-bg-cream-alt rounded-xl p-5 lg:p-6 lg:pb-7 shadow-2xl border border-white/10">
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-3"
-              >
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 {/* Row: First + Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="flex flex-col gap-1">
@@ -503,7 +516,7 @@ function ApplicationFormModal({
                     />
                     <Upload className="w-5 h-4 text-text-muted-alt" />
                     <p className="text-xs font-medium leading-4 text-text-muted-alt font-manrope">
-                      {fileName || 'Click to upload or drag and drop'}
+                      {fileName || "Click to upload or drag and drop"}
                     </p>
                     <p className="text-[10px] leading-3 opacity-70 text-text-muted-nav font-manrope">
                       PDF, DOC up to 10MB
@@ -542,50 +555,27 @@ function ApplicationFormModal({
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   EXPORT — Full Page Composition
-   ═══════════════════════════════════════════════════════════ */
+/* 
+   EXPORT  Full Page Composition
+    */
 export default function RecruitmentPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState('');
+  const [selectedPosition, setSelectedPosition] = useState("");
 
   const handleApply = (position: string) => {
     setSelectedPosition(position);
     setIsModalOpen(true);
   };
 
-  const recruitmentData = capabilitiesData.items.find(item => item.id === 'recruitment');
+  const recruitmentData = capabilitiesData.items.find(
+    (item) => item.id === "recruitment",
+  );
 
   return (
     <div className="w-full overflow-hidden pt-0">
-      {recruitmentData && <HomeTemplate heroContent={recruitmentData.heroData} />}
-      <ServicesContentSection />
-      <PositionsTableSection onApply={handleApply} />
-      <ApplicationFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        selectedPosition={selectedPosition}
-      />
-    </div>
-  );
-}
-�═════════════════════════
-   EXPORT — Full Page Composition
-   ═══════════════════════════════════════════════════════════ */
-export default function RecruitmentPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState('');
-
-  const handleApply = (position: string) => {
-    setSelectedPosition(position);
-    setIsModalOpen(true);
-  };
-
-  const recruitmentData = capabilitiesData.items.find(item => item.id === 'recruitment');
-
-  return (
-    <div className="w-full overflow-hidden" style={{ paddingTop: '0px' }}>
-      {recruitmentData && <HomeTemplate heroContent={recruitmentData.heroData} />}
+      {recruitmentData && (
+        <HomeTemplate heroContent={recruitmentData.heroData} />
+      )}
       <ServicesContentSection />
       <PositionsTableSection onApply={handleApply} />
       <ApplicationFormModal

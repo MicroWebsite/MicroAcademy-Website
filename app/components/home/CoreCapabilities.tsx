@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { capabilitiesData } from "@/data/capabalitiesData";
 
 interface CoreCapabilitiesProps {
-  showAll?: boolean;   // false = Home, true = Services
+  showAll?: boolean; // false = Home, true = Services
 }
 
 // ─── Train & Hire Card (White) ─────────────────────────────────────
@@ -17,14 +17,25 @@ const TrainHireCard: React.FC<{
   ctaHref: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref }) => (
   <div className="relative rounded-3xl bg-white p-8 lg:p-10 flex flex-col h-full shadow-[0_4px_25px_rgb(180,175,150,0.15)] overflow-hidden">
-    <div className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-bg-card-alt" aria-hidden />
+    <div
+      className="absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full bg-bg-card-alt"
+      aria-hidden
+    />
 
     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-      <Image src={icon} alt="Train & Hire" width={28} height={28} className="text-text-link" />
+      <Image
+        src={icon}
+        alt="Train & Hire"
+        width={28}
+        height={28}
+        className="text-text-link"
+      />
     </div>
 
     <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
-    <p className="text-gray-600 text-[15px] leading-relaxed flex-1">{description}</p>
+    <p className="text-gray-600 text-[15px] leading-relaxed flex-1">
+      {description}
+    </p>
 
     <Link
       href={ctaHref}
@@ -45,7 +56,10 @@ const HighlightedCard: React.FC<{
   image?: string;
 }> = ({ icon, title, description, ctaLabel, ctaHref, image }) => (
   <div className="relative rounded-3xl bg-bg-cream p-8 lg:p-10 overflow-hidden h-full flex flex-col">
-    <div className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-bg-decor" aria-hidden />
+    <div
+      className="absolute -bottom-12.5 -right-12.5 w-48 h-48 rounded-full bg-bg-decor"
+      aria-hidden
+    />
 
     {image && (
       <div className="absolute -right-10 top-60 bottom-0 w-[32%] overflow-hidden">
@@ -61,11 +75,19 @@ const HighlightedCard: React.FC<{
 
     <div className="pr-0 lg:pr-[45%] relative z-10 flex flex-col h-full">
       <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-        <Image src={icon} alt={`${title} Icon`} width={28} height={28} className="w-12 h-12" />
+        <Image
+          src={icon}
+          alt={`${title} Icon`}
+          width={28}
+          height={28}
+          className="w-12 h-12"
+        />
       </div>
 
       <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600 text-[15px] leading-relaxed flex-1">{description}</p>
+      <p className="text-gray-600 text-[15px] leading-relaxed flex-1">
+        {description}
+      </p>
 
       <Link
         href={ctaHref}
@@ -88,16 +110,27 @@ const CorporateTrainingCard: React.FC<{
   images?: string[];
 }> = ({ icon, title, description, ctaLabel, ctaHref, images }) => (
   <div className="relative rounded-3xl bg-bg-cream p-8 lg:p-10 overflow-hidden">
-    <div className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-bg-decor" aria-hidden />
+    <div
+      className="absolute -bottom-12.5 -right-12.5 w-44 h-44 rounded-full bg-bg-decor"
+      aria-hidden
+    />
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <div className="inline-flex items-center justify-center mb-6 ">
-          <Image src={icon} alt="Corporate Training Icon" width={28} height={28} className="w-10 h-10" />
+          <Image
+            src={icon}
+            alt="Corporate Training Icon"
+            width={28}
+            height={28}
+            className="w-10 h-10"
+          />
         </div>
 
         <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-        <p className="text-gray-600 text-[15px] leading-relaxed">{description}</p>
+        <p className="text-gray-600 text-[15px] leading-relaxed">
+          {description}
+        </p>
 
         <Link
           href={ctaHref}
@@ -115,7 +148,12 @@ const CorporateTrainingCard: React.FC<{
               key={i}
               className={`relative aspect-4/3 rounded-2xl overflow-hidden shadow-lg ${i === 0 ? "lg:-translate-y-4" : "lg:translate-y-4"}`}
             >
-              <Image src={src} alt={`Training ${i + 1}`} fill className="object-cover" />
+              <Image
+                src={src}
+                alt={`Training ${i + 1}`}
+                fill
+                className="object-cover"
+              />
             </div>
           ))}
         </div>
@@ -125,7 +163,9 @@ const CorporateTrainingCard: React.FC<{
 );
 
 // ─── Main Component ─────────────────────────────────────────────
-const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({ showAll = false }) => {
+const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({
+  showAll = false,
+}) => {
   const { sectionTag, heading, items } = capabilitiesData;
 
   const trainHire = items.find((i) => i.id === "train-hire");
@@ -151,7 +191,9 @@ const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({ showAll = false }) 
           <>
             {/* First Row: 2 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              {trainHire && <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />}
+              {trainHire && (
+                <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />
+              )}
               {recruitment && (
                 <HighlightedCard
                   {...recruitment}
@@ -179,7 +221,9 @@ const CoreCapabilities: React.FC<CoreCapabilitiesProps> = ({ showAll = false }) 
         {showAll && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* First Row */}
-            {trainHire && <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />}
+            {trainHire && (
+              <TrainHireCard {...trainHire} icon="/assets/Overlay.svg" />
+            )}
 
             {recruitment && (
               <HighlightedCard

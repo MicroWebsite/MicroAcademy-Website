@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { servicesHeroData } from '@/app/data/servicesHeroData';
+import Image from "next/image";
+import Link from "next/link";
+import { servicesHeroData } from "@/app/data/servicesHeroData";
 
 export default function ServicesHero() {
   const { badge, title, description, ctaLabel, ctaHref, image, stat } =
@@ -9,10 +9,8 @@ export default function ServicesHero() {
   return (
     <section className="w-full bg-bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-8">
-
         {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
-
           {/* Badge */}
           <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.18em] uppercase">
             {badge}
@@ -44,7 +42,6 @@ export default function ServicesHero() {
         {/* ── Right: Image + Stat Card ── */}
         <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
           <div className="relative w-full max-w-120">
-
             {/* Image */}
             {image?.src && image?.alt && (
               <>
@@ -75,9 +72,7 @@ export default function ServicesHero() {
             )}
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-

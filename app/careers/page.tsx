@@ -6,17 +6,18 @@ import OpenPositions from "../components/careers/OpenPositions";
 import LifeAtAcedemy from "../components/careers/LifeAtAcedemy";
 
 export const metadata: Metadata = {
-    title: "Career | MicroAcademy",
-    description: "Bridge the talent gap with our integrated training and recruitment solutions.",
+  title: "Career | MicroAcademy",
+  description:
+    "Bridge the talent gap with our integrated training and recruitment solutions.",
 };
 
 export default function Career() {
-    return (
-        <div className="w-full">
-            <HomeTemplate heroContent={careerHeroSection} />
-            <MicroAdvantage />
-            <OpenPositions />
-            <LifeAtAcedemy />
-        </div>
-    );
+  return (
+    <div className="w-full">
+      <HomeTemplate heroContent={careerHeroSection} />
+      <MicroAdvantage />
+      <OpenPositions />
+      <LifeAtAcedemy />
+    </div>
+  );
 }

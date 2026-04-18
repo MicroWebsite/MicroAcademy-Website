@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import {
   Code2,
@@ -51,16 +52,24 @@ function TechLogosGrid() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-          {techCategories.map((tech) => (
-            <div
+          {techCategories.map((tech, i) => (
+            <motion.div
               key={tech.label}
-              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border/15 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              whileHover={{
+                y: -5,
+                transition: { type: "spring", stiffness: 400, damping: 25 },
+              }}
+              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border/15 rounded-xl hover:shadow-lg transition-all duration-300 cursor-default"
             >
               <div className="text-primary">{tech.icon}</div>
               <span className="text-center text-sm leading-5 font-bold text-text-dark font-manrope tracking-[-0.35px]">
                 {tech.label}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -116,8 +125,15 @@ function MethodologySection() {
 
           {/* Feature Items */}
           <div className="flex flex-col gap-8">
-            {methodologyFeatures.map((feat) => (
-              <div key={feat.title} className="flex items-start gap-6">
+            {methodologyFeatures.map((feat, i) => (
+              <motion.div
+                key={feat.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                className="flex items-start gap-6"
+              >
                 {/* Icon Circle */}
                 <div className="flex items-center justify-center shrink-0 w-12 h-12 bg-secondary-muted rounded-full">
                   <div className="text-text-olive">{feat.icon}</div>
@@ -132,7 +148,7 @@ function MethodologySection() {
                     {feat.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -141,7 +157,13 @@ function MethodologySection() {
         <div className="flex-1 relative w-full min-h-[656px]">
           {/* Top Row: 2 images side by side */}
           <div className="flex gap-4 pt-12">
-            <div className="relative overflow-hidden w-[320px] h-[320px] rounded-2xl shadow-xl">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden w-[320px] h-[320px] rounded-2xl shadow-xl"
+            >
               <Image
                 src="/assets/service/training-lab-1.png"
                 alt="Training lab environment"
@@ -149,8 +171,14 @@ function MethodologySection() {
                 className="object-cover"
                 sizes="320px"
               />
-            </div>
-            <div className="relative overflow-hidden w-[320px] h-[320px] mt-6 rounded-2xl shadow-xl">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative overflow-hidden w-[320px] h-[320px] mt-6 rounded-2xl shadow-xl"
+            >
               <Image
                 src="/assets/service/training-lab-2.png"
                 alt="Hands-on workshop"
@@ -158,11 +186,17 @@ function MethodologySection() {
                 className="object-cover"
                 sizes="320px"
               />
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom: Full-width image */}
-          <div className="relative overflow-hidden mt-4 w-full max-w-[656px] h-[320px] rounded-2xl shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative overflow-hidden mt-4 w-full max-w-[656px] h-[320px] rounded-2xl shadow-xl"
+          >
             <Image
               src="/assets/service/training-facility.png"
               alt="Training facility overview"
@@ -170,7 +204,7 @@ function MethodologySection() {
               className="object-cover"
               sizes="656px"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

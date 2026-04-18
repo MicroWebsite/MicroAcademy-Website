@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Briefcase, Clock, Shield, TrendingUp } from "lucide-react";
 import { contractBenefits } from "@/app/data/contractHiringPageData";
 
@@ -28,8 +29,16 @@ export default function BenefitsSection() {
             const Icon = iconByType[benefit.icon];
 
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="flex flex-col items-start gap-4 p-8 rounded-2xl transition-all hover:shadow-lg bg-bg-cream-alt border border-border/40"
               >
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-2 bg-primary/10 text-primary">
@@ -41,7 +50,7 @@ export default function BenefitsSection() {
                 <p className="text-base leading-6 text-text-muted-alt font-manrope">
                   {benefit.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Briefcase, Cpu, Shield, Target, Users2, Zap } from "lucide-react";
 import { contractDomains } from "@/app/data/contractHiringPageData";
 
@@ -29,8 +30,12 @@ export default function DomainsSection() {
             const Icon = iconByType[domain.icon];
 
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="flex items-center gap-3 p-5 rounded-lg border border-border-alt bg-bg-cream-alt"
               >
                 <div className="text-primary">
@@ -39,7 +44,7 @@ export default function DomainsSection() {
                 <span className="text-left text-sm font-semibold text-text-dark font-manrope">
                   {domain.name}
                 </span>
-              </div>
+              </motion.div>
             );
           })}
         </div>

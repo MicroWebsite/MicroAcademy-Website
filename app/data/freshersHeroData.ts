@@ -7,7 +7,7 @@ export const freshersHeroData: HeroProps = {
   description:
     "At Micro Academy we conduct fresher drive throughout the year. We would like to invite fresh graduates to come in for the drives, get your dream job and secure a challenging position in a reputable Organisation.",
   image: {
-    src: "/assets/career/office-space.png",
+    src: "/assets/headers/freshers.png",
     alt: "Micro Academy Freshers Recruitment Drive",
   },
 };

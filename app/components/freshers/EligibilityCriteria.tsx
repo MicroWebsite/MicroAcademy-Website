@@ -10,7 +10,6 @@ const CalendarIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
     <line x1="16" y1="2" x2="16" y2="6" />
@@ -29,7 +28,6 @@ const GraduationIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
     <path d="M6 12v5c3 3 9 3 12 0v-5" />
@@ -46,7 +44,6 @@ const ChartIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <path d="M12 20V10" />
     <path d="M18 20V4" />
@@ -64,7 +61,6 @@ const ClockIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <circle cx="12" cy="12" r="10" />
     <polyline points="12 6 12 12 16 14" />
@@ -81,7 +77,6 @@ const MessageIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
   </svg>
@@ -97,7 +92,6 @@ const FlashIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-primary"
   >
     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
   </svg>
@@ -164,28 +158,35 @@ export default function EligibilityCriteria({ criteria }: Props) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="bg-bg-cream-light rounded-3xl p-8 lg:p-12 border border-border shadow-sm h-full"
+      className="w-full"
     >
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-1.5 h-8 bg-primary rounded-full" />
-        <h2 className="text-3xl font-bold text-text-dark">
+      <div className="flex items-center gap-4 mb-10 lg:mb-12 transition-all duration-300">
+        <div className="w-1 h-8 lg:w-1.5 lg:h-10 bg-primary rounded-full" />
+        <h2 className="text-2xl lg:text-4xl font-extrabold text-text-dark tracking-tight">
           Eligibility Criteria
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 md:gap-y-12">
         {items.map((item, idx) => (
-          <motion.div key={idx} variants={itemVariants} className="flex gap-4">
-            <div className="shrink-0 w-10 h-10 rounded-xl bg-white border border-border flex items-center justify-center shadow-sm">
-              <item.icon />
+          <motion.div
+            key={idx}
+            variants={itemVariants}
+            className="flex items-start gap-4 lg:gap-6 group hover:translate-x-2 transition-transform duration-300"
+          >
+            <div className="shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl bg-bg-cream-light border border-border flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+              <span className="text-primary group-hover:text-white transition-colors duration-300">
+                <item.icon />
+              </span>
             </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            <div className="flex flex-col gap-1 lg:gap-1.5 flex-1">
+              <span className="text-[10px] font-extrabold tracking-[0.2em] text-primary/70 uppercase">
                 {item.label}
               </span>
-              <p className="text-text-dark text-base font-medium">
+              <p className="text-text-dark text-base lg:text-lg font-semibold leading-snug">
                 {item.value}
               </p>
+              <div className="h-[1px] w-full bg-linear-to-r from-border to-transparent mt-2" />
             </div>
           </motion.div>
         ))}

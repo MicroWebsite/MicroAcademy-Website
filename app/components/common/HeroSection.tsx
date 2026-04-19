@@ -39,9 +39,10 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
             </h1>
           </div>
 
-          <p className="text-base text-text-body leading-relaxed max-w-120">
-            {description}
-          </p>
+          <div
+            className="text-base text-text-body leading-relaxed max-w-120"
+            dangerouslySetInnerHTML={{ __html: description || "" }}
+          />
 
           <div className="flex flex-wrap items-center gap-4 mt-2">
             {primaryCTA?.href && primaryCTA?.label && (

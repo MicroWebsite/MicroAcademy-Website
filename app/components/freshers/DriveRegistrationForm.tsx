@@ -24,17 +24,17 @@ export default function DriveRegistrationForm({
   } = useDriveRegistrationForm(domainTitle);
 
   return (
-    <div className="bg-white relative overflow-hidden rounded-[2.5rem] p-10 lg:p-14 shadow-[0_10px_60px_rgba(0,0,0,0.08)]">
+    <div className="bg-white relative overflow-hidden rounded-[2.5rem] p-8 sm:p-10 lg:p-14 shadow-[0_10px_60px_rgba(0,0,0,0.08)] border border-border">
       <div className="absolute top-0 right-0 w-48 h-48 bg-bg-cream-light rounded-full -mr-20 -mt-20 z-0" />
 
       <div className="relative z-10">
-        <div className="text-center max-w-md mx-auto mb-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-text-dark mb-4">
-            Submit Your Application
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-4">
+            Begin Your Career Journey
           </h2>
           <p className="text-highlight-muted text-sm leading-relaxed font-medium">
-            Complete the form below with your professional profile for immediate
-            consideration.
+            Fill out the registration form below to participate in the{" "}
+            {domainTitle}.
           </p>
         </div>
 

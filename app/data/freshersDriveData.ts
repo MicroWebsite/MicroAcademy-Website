@@ -70,4 +70,27 @@ export const freshersDrives: DriveDomain[] = [
       "Road between Urban Ladder and Paramount Hotel on the Intermediate Ring Road",
     contact: "Phone/WhatsApp: 9980876288Email: referrals@Microacademy.net",
   },
+  {
+    id: "backend-developer",
+    title: "Testing Fresher Jobs",
+    image:
+      "http://168.144.70.136/sites/default/files/2026-04/6585cea39ae01230757b9f31_QuantumCloud.webp",
+    description:
+      "Opportunity for 2023 batch pass outs to join as Backend Developers in high-growth environments.",
+    domain: "Backend",
+    salary: "4 LPA",
+    location: "Bangalore, Chennai and Pune",
+    designation: "Backend Developer",
+    selection_process: "Online Aptitude, Communication and HR Round.",
+    training: "Final selected candidates will undergo intensive training.",
+    eligibility:
+      "<p>2023 batch of BE/B.Tech/MCA/MS/M.Sc. Minimum aggregate of 60% & above (UG/PG). CSE, IT, ECE, EEE, Mechanical, Instrumentation, Telecommunication, Civil Engineering and other Circuit Branches only. Flexible to locations, shifts and domains.</p>",
+    notes:
+      "<p>All educational certificates (10th, 12th and Graduation) are required. Consolidated mark sheets, provisional and degree certificates are mandatory.</p>",
+    venue:
+      "Micro Academy India Private Limited#189, Amar Jyothi Layout, Domlur Ring Road, Domlur, Bangalore - 560071",
+    landmark:
+      "Road between Urban Ladder and Paramount Hotel on the Intermediate Ring Road",
+    contact: "Phone/WhatsApp: 9980876288Email: referrals@Microacademy.net",
+  },
 ];

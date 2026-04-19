@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { MapPin, Phone, Landmark } from "lucide-react";
 
 interface DriveVenueCardProps {
   venue: string;
@@ -14,29 +14,37 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
   landmark,
 }) => {
   return (
-    <div className="bg-bg-dark text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden h-full flex flex-col">
-      <div className="relative z-10 flex flex-col gap-8 h-full">
-        <span className="px-5 py-2 border border-white/20 text-[10px] font-bold tracking-[0.2em] uppercase rounded-xl self-start bg-white/5 text-white">
-          Drive Venue
-        </span>
+    <div className="bg-[#1b1c19]/90 backdrop-blur-xl text-white p-8 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+      <div className="relative z-10 flex flex-col gap-6">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-sm">
+            <MapPin className="text-secondary w-5 h-5" />
+          </div>
+          <h2 className="text-xl font-bold text-white tracking-tight">
+            Drive Venue
+          </h2>
+        </div>
 
         {/* Location Section */}
-        <div className="flex flex-col gap-3">
-          <h4 className="text-[#A39631] text-xl font-bold tracking-tight uppercase">
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-extrabold tracking-widest text-secondary/60 uppercase">
             Location
-          </h4>
+          </span>
           <div
-            className="text-gray-300 text-base font-medium leading-relaxed"
+            className="text-gray-300 text-sm font-medium leading-relaxed"
             dangerouslySetInnerHTML={{ __html: venue }}
           />
         </div>
 
         {/* Contact Section */}
-        <div className="flex flex-col gap-3">
-          <h4 className="text-[#A39631] text-xl font-bold tracking-tight uppercase">
-            Contact
-          </h4>
-          <div className="text-gray-300 text-base font-medium leading-relaxed">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <Phone className="w-3 h-3 text-secondary/60" />
+            <span className="text-[10px] font-extrabold tracking-widest text-secondary/60 uppercase">
+              Contact Details
+            </span>
+          </div>
+          <div className="text-gray-300 text-sm font-medium leading-relaxed">
             {contact ? (
               <div
                 className="prose prose-invert prose-sm"
@@ -54,19 +62,21 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
 
         {/* Landmark Section */}
         {landmark && (
-          <div className="flex flex-col gap-3">
-            <h4 className="text-[#A39631] text-xl font-bold tracking-tight uppercase">
-              Landmark
-            </h4>
-            <p className="text-gray-400 text-sm italic leading-relaxed">
+          <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
+            <div className="flex items-center gap-2">
+              <Landmark className="w-3 h-3 text-secondary/60" />
+              <span className="text-[10px] font-extrabold tracking-widest text-secondary/60 uppercase">
+                Landmark
+              </span>
+            </div>
+            <p className="text-gray-400 text-xs italic leading-relaxed">
               &quot;{landmark}&quot;
             </p>
           </div>
         )}
       </div>
-      {/* Decorative gradients */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[80px]" />
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/10 rounded-full blur-[60px]" />
+      {/* Subtle decorative elements */}
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-[60px]" />
     </div>
   );
 };

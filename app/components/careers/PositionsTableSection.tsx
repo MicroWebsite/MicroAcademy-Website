@@ -17,17 +17,14 @@ export default function PositionsTableSection({
   return (
     <div className="w-full">
       {/* Table Container */}
-      <div className="w-full overflow-x-auto py-4">
+      <div className="w-full overflow-x-auto py-4 md:overflow-visible">
         {/* Header Row */}
         <div
           className="hidden md:grid min-w-[900px]"
           style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
         >
           {careerTableHeaders.map((header, i) => (
-            <div
-              key={header}
-              className={`py-4 px-8 ${i === 4 ? "text-right" : "text-left"}`}
-            >
+            <div key={header} className="py-4 px-8 text-center">
               <span className="text-sm leading-5 uppercase tracking-[1.4px] text-text-muted-alt font-inter font-semibold">
                 {header}
               </span>
@@ -36,7 +33,7 @@ export default function PositionsTableSection({
         </div>
 
         {/* Body Rows */}
-        <div className="flex flex-col gap-4 min-w-[900px]">
+        <div className="flex flex-col gap-4 md:min-w-[900px]">
           {jobs.map((pos, index) => (
             <motion.div
               key={pos.id}
@@ -44,19 +41,25 @@ export default function PositionsTableSection({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="grid items-center bg-bg-input-row min-h-[76px] rounded-lg overflow-hidden transition-all hover:bg-bg-cream"
+              className="flex flex-col md:grid md:items-center bg-bg-input-row md:min-h-[76px] rounded-lg overflow-hidden transition-all hover:bg-bg-cream"
               style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
             >
               {/* Job ID */}
-              <div className="py-6 pr-8 pl-7 border-l-4 border-primary">
+              <div className="py-4 md:py-6 pr-8 pl-7 border-l-4 border-primary flex justify-between md:block md:text-center items-center">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {careerTableHeaders[0]}
+                </span>
                 <span className="text-lg leading-7 font-bold text-text-dark font-manrope">
                   {pos.jobId}
                 </span>
               </div>
 
               {/* Job Title */}
-              <div className="py-6 px-8">
-                <div className="flex items-center gap-2">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between md:block items-center bg-white/50 md:bg-transparent md:text-center">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {careerTableHeaders[1]}
+                </span>
+                <div className="flex md:justify-center items-center gap-2">
                   <span className="text-base leading-[22px] font-bold text-text-dark font-manrope">
                     {pos.title}
                   </span>
@@ -69,21 +72,27 @@ export default function PositionsTableSection({
               </div>
 
               {/* Location */}
-              <div className="py-6 px-8">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between md:block md:text-center items-center">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {careerTableHeaders[2]}
+                </span>
                 <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
                   {pos.location}
                 </span>
               </div>
 
               {/* Education */}
-              <div className="py-6 px-8">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between md:block items-center bg-white/50 md:bg-transparent md:text-center">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {careerTableHeaders[3]}
+                </span>
                 <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
                   {pos.education}
                 </span>
               </div>
 
               {/* Action */}
-              <div className="py-6 px-8 text-right">
+              <div className="py-6 px-7 md:px-8 text-center border-l-4 border-transparent md:border-none">
                 <button
                   onClick={() => onApply(pos)}
                   className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer border-none font-manrope whitespace-nowrap active:scale-[0.98]"

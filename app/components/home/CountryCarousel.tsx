@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { countriesData } from "@/app/data/countriesData";
@@ -26,19 +26,31 @@ export default function CountriesCarousel() {
       ? countriesData
       : countriesData.filter((c) => c.region === activeRegion);
 
-  const visibleCount = 6;
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    const updateCount = () => {
+      if (window.innerWidth < 640) setVisibleCount(2);
+      else if (window.innerWidth < 1024) setVisibleCount(4);
+      else setVisibleCount(6);
+    };
+    updateCount();
+    window.addEventListener("resize", updateCount);
+    return () => window.removeEventListener("resize", updateCount);
+  }, []);
+
   const pageCount = Math.ceil(filtered.length / visibleCount);
   const [page, setPage] = useState(0);
 
   return (
-    <section className="w-full bg-bg-cream py-20 px-8">
+    <section className="w-full bg-bg-cream py-16 md:py-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
+        <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
           Global Reach
         </p>
 
-        <div className="flex items-end justify-between mb-10">
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight max-w-3xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4 md:gap-0">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight max-w-3xl">
             Countries We Have Taught In
           </h2>
 
@@ -87,7 +99,7 @@ export default function CountriesCarousel() {
           {/* Carousel Track */}
           <div
             ref={trackRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
+            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth pb-4"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {filtered.map((country, i) => (
@@ -96,7 +108,9 @@ export default function CountriesCarousel() {
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="relative shrink-0 cursor-pointer"
-                style={{ minWidth: `calc(${100 / visibleCount}% - 20px)` }}
+                style={{
+                  minWidth: `calc(${100 / visibleCount}% - ${((visibleCount - 1) * 24) / visibleCount}px)`,
+                }}
               >
                 {/* Flag Card */}
                 <div className="relative w-full aspect-3/2 rounded-lg overflow-hidden shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105 origin-center">

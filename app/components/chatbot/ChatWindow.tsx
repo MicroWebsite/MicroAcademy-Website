@@ -33,7 +33,7 @@ export default function ChatWindow({
 }: ChatWindowProps) {
   return (
     <div
-      className={`fixed bottom-24 right-10 z-[9999] w-[370px] max-w-[calc(100vw-2.5rem)] transition-all duration-300 ease-out origin-bottom-right ${
+      className={`fixed bottom-20 right-5 md:bottom-24 md:right-10 z-[9999] w-[370px] max-w-[calc(100vw-2.5rem)] transition-all duration-300 ease-out origin-bottom-right ${
         isOpen
           ? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
           : "scale-90 opacity-0 translate-y-4 pointer-events-none"

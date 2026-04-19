@@ -80,24 +80,30 @@ export default function JobDetails({ details }: JobDetailsProps) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="bg-bg-cream-light rounded-3xl p-8 lg:p-12 border border-border shadow-sm h-full"
+      className="bg-white/40 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl"
     >
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-1.5 h-8 bg-primary rounded-full" />
-        <h2 className="text-3xl font-bold text-text-dark">Job Details</h2>
+      <div className="flex items-center gap-3 mb-8">
+        <div className="w-1 h-6 bg-primary rounded-full" />
+        <h2 className="text-xl font-bold text-text-dark tracking-tight">
+          Job Snapshot
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12 mb-12">
+      <div className="flex flex-col gap-6">
         {items.map((item, idx) => (
-          <motion.div key={idx} variants={itemVariants} className="flex gap-4">
-            <div className="shrink-0 w-10 h-10 rounded-xl bg-white border border-border flex items-center justify-center shadow-sm">
+          <motion.div
+            key={idx}
+            variants={itemVariants}
+            className="flex items-start gap-4 group"
+          >
+            <div className="shrink-0 w-10 h-10 rounded-xl bg-white/80 border border-border flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
               <item.icon className="text-primary w-5 h-5" />
             </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            <div className="flex flex-col pt-0.5">
+              <span className="text-[10px] font-extrabold tracking-widest text-primary/60 uppercase">
                 {item.label}
               </span>
-              <p className="text-text-dark text-base font-medium">
+              <p className="text-text-dark text-sm font-semibold mt-0.5">
                 {item.value}
               </p>
             </div>

@@ -24,7 +24,7 @@ export default function PositionsTableSection({
           className="hidden md:grid min-w-[900px]"
           style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
         >
-          {careerTableHeaders.map((header, i) => (
+          {careerTableHeaders.map((header) => (
             <div key={header} className="py-4 px-8 text-center">
               <span className="text-sm leading-5 uppercase tracking-[1.4px] text-text-muted-alt font-inter font-semibold">
                 {header}

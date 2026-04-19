@@ -56,7 +56,7 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
           className="hidden md:grid min-w-[900px]"
           style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
         >
-          {tableHeaders.map((header, i) => (
+          {tableHeaders.map((header) => (
             <div
               key={header}
               className="py-4 px-8 flex md:justify-start items-center"

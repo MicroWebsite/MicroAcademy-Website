@@ -77,77 +77,71 @@ export default function DriveDetailPage({
   };
 
   return (
-    <main className="min-h-screen bg-[#FDFCF7] overflow-hidden">
-      {/* Detail Hero */}
+    <main className="min-h-screen bg-[#FDFCF7]">
       <HomeTemplate heroContent={driveHeroData} />
+      <section className="py-12 lg:py-20 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
+          <div className="flex-1 flex flex-col gap-12 lg:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <OfficialNoteCard
+                notes={drive.notes}
+                description={drive.description}
+              />
+            </motion.div>
 
-      {/* Main Drive Info Section - Row 1 */}
-      <section className="py-20 px-6 bg-[#FDFCF7]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="lg:col-span-2"
-          >
-            <JobDetails details={drive} />
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col gap-8"
-          >
-            <OfficialNoteCard
-              notes={drive.notes}
-              description={drive.description}
-            />
-          </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ delay: 0.1 }}
+            >
+              <EligibilityCriteria criteria={drive.eligibility} />
+            </motion.div>
+          </div>
+          <aside className="lg:w-1/3 flex flex-col gap-8">
+            <div className="lg:sticky lg:top-24 flex flex-col gap-8">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+              >
+                <JobDetails details={drive} />
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.3 }}
+              >
+                <DriveVenueCard
+                  venue={drive.venue}
+                  contact={drive.contact}
+                  landmark={drive.landmark}
+                />
+              </motion.div>
+            </div>
+          </aside>
         </div>
       </section>
-
-      {/* Main Drive Info Section - Row 2 */}
-      <section className="pb-20 px-6 bg-[#FDFCF7]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="lg:col-span-2"
-          >
-            <EligibilityCriteria criteria={drive.eligibility} />
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col gap-8"
-          >
-            <DriveVenueCard
-              venue={drive.venue}
-              contact={drive.contact}
-              landmark={drive.landmark}
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Registration Form Section */}
       <motion.section
         id="register"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="py-24 px-6 bg-bg-cream-light border-t border-border"
+        className="py-16 lg:py-32 px-6 bg-bg-cream border-t border-border"
       >
-        <div className="max-w-3xl mx-auto flex flex-col gap-12">
+        <div className="max-w-3xl mx-auto">
           <DriveRegistrationForm domainTitle={drive.title} />
         </div>
       </motion.section>

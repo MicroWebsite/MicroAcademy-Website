@@ -53,12 +53,7 @@ function YearCounter({ year, active }: { year: string; active: boolean }) {
 
 // ─── Sub-component: single milestone card ───────────────────────────────────
 
-interface MilestoneCardProps {
-  milestone: TimelineMilestone;
-  index: number;
-}
-
-function MilestoneCard({ milestone, index }: MilestoneCardProps) {
+function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
   const isLeft = milestone.side === "left";
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -275,12 +270,8 @@ export default function ThirtyYearGenesis() {
 
           {/* Milestones */}
           <div className="flex flex-col gap-0 md:gap-0 pl-7 md:pl-0">
-            {timelineMilestones.map((milestone, index) => (
-              <MilestoneCard
-                key={milestone.year}
-                milestone={milestone}
-                index={index}
-              />
+            {timelineMilestones.map((milestone) => (
+              <MilestoneCard key={milestone.year} milestone={milestone} />
             ))}
           </div>
         </div>

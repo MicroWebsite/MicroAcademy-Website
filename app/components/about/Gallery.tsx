@@ -170,21 +170,16 @@ const GalleryCard: React.FC<{
   );
 };
 
-type CellDef = {
-  gridColumn: string;
-  gridRow: string;
-};
-
-const CELLS: CellDef[] = [
-  { gridColumn: "1", gridRow: "1 / span 2" }, // 1 – tall left
-  { gridColumn: "2", gridRow: "1" }, // 2
-  { gridColumn: "3", gridRow: "1" }, // 3
-  { gridColumn: "4", gridRow: "1 / span 2" }, // 4 – tall right
-  { gridColumn: "2", gridRow: "2" }, // 5
-  { gridColumn: "3", gridRow: "2" }, // 6
-  { gridColumn: "1", gridRow: "3" }, // 7
-  { gridColumn: "2 / span 2", gridRow: "3" }, // 8 – wide centre
-  { gridColumn: "4", gridRow: "3" }, // 9
+const CELLS = [
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-2 row-span-1 md:col-span-2 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
 ];
 
 const Gallery: React.FC = () => {
@@ -201,7 +196,6 @@ const Gallery: React.FC = () => {
             id: `${item.id}-${idx}`,
             src: imgUrl,
             alt: `Gallery Image ${item.id}`,
-            category: "Training",
           })),
         );
         setImages(allImages.slice(0, 9));
@@ -244,14 +238,7 @@ const Gallery: React.FC = () => {
       </motion.div>
 
       <motion.div
-        style={{
-          maxWidth: "1152px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridTemplateRows: "220px 220px 220px",
-          gap: "10px",
-        }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-2.5 auto-rows-[120px] md:auto-rows-[220px] grid-flow-dense max-w-6xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -260,14 +247,7 @@ const Gallery: React.FC = () => {
         {images.map((image: GalleryImage, index: number) => {
           const cell = CELLS[index % CELLS.length];
           return (
-            <motion.div
-              key={image.id}
-              variants={itemVariants}
-              style={{
-                gridColumn: cell.gridColumn,
-                gridRow: cell.gridRow,
-              }}
-            >
+            <motion.div key={image.id} variants={itemVariants} className={cell}>
               <GalleryCard
                 image={image}
                 index={index}

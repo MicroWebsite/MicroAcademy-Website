@@ -41,7 +41,15 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
 
   return (
     <div className="w-full">
-      <div className="w-full overflow-x-auto py-4">
+      <div className="w-full overflow-x-auto py-4 md:overflow-visible">
+        <style jsx>{`
+          @media (max-width: 767px) {
+            .grid {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        `}</style>
         {/* Header Row */}
         <div
           className="hidden md:grid min-w-[900px]"
@@ -50,9 +58,9 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
           {tableHeaders.map((header, i) => (
             <div
               key={header}
-              className={`py-4 px-8 ${i === 4 ? "text-right" : "text-left"}`}
+              className="py-4 px-8 flex md:justify-start items-center"
             >
-              <span className="text-sm leading-5 uppercase tracking-[1.4px] text-text-muted-alt font-inter font-semibold">
+              <span className="text-sm leading-5 uppercase tracking-[1.4px] text-text-muted-alt font-inter font-semibold text-left">
                 {header}
               </span>
             </div>
@@ -60,23 +68,32 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
         </div>
 
         {/* Body Rows */}
-        <div className="flex flex-col gap-4 min-w-[900px]">
+        <div className="flex flex-col gap-4 md:min-w-[900px]">
           {jobs.map((pos, idx) => (
             <div
               key={pos.job_id || idx}
-              className="grid items-center bg-bg-input-row min-h-[76px] rounded-lg overflow-hidden transition-all hover:bg-bg-cream"
-              style={{ gridTemplateColumns: TABLE_GRID_COLUMNS }}
+              className="flex flex-col md:grid md:items-center bg-bg-input-row md:min-h-[76px] rounded-lg overflow-hidden transition-all hover:bg-bg-cream"
+              style={{
+                gridTemplateColumns:
+                  "var(--grid-cols, " + TABLE_GRID_COLUMNS + ")",
+              }}
             >
               {/* Job ID */}
-              <div className="py-6 pr-8 pl-7 border-l-4 border-primary">
+              <div className="py-4 md:py-6 pr-8 pl-7 border-l-4 border-primary flex justify-between items-start gap-4 md:block md:text-left">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {tableHeaders[0]}
+                </span>
                 <span className="text-lg leading-7 font-bold text-text-dark font-manrope">
                   {pos.job_id || pos.jobId}
                 </span>
               </div>
 
               {/* Job Title */}
-              <div className="py-6 px-8">
-                <div className="flex items-center gap-2">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between items-start gap-4 md:block bg-white/50 md:bg-transparent md:text-left">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {tableHeaders[1]}
+                </span>
+                <div className="flex md:justify-start items-center gap-2">
                   <span className="text-base leading-[22px] font-bold text-text-dark font-manrope">
                     {pos.title}
                   </span>
@@ -84,21 +101,27 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
               </div>
 
               {/* Location */}
-              <div className="py-6 px-8">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between items-start gap-4 md:block md:text-left">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {tableHeaders[2]}
+                </span>
                 <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
                   {pos.location}
                 </span>
               </div>
 
               {/* Education */}
-              <div className="py-6 px-8">
-                <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
+              <div className="py-4 md:py-6 px-7 md:px-8 border-l-4 border-transparent md:border-none flex justify-between items-start gap-4 md:block bg-white/50 md:bg-transparent md:text-left">
+                <span className="md:hidden text-xs font-bold uppercase text-primary tracking-wider">
+                  {tableHeaders[3]}
+                </span>
+                <span className="text-base leading-[22px] text-text-muted-alt font-manrope text-right">
                   {pos.education}
                 </span>
               </div>
 
               {/* Action */}
-              <div className="py-6 px-8 text-right">
+              <div className="py-6 px-7 md:px-8 text-right md:text-left border-l-4 border-transparent md:border-none">
                 {pos.apply_link ? (
                   <a
                     href={pos.apply_link}

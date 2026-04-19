@@ -4,6 +4,7 @@ import {
   TABLE_GRID_COLUMNS,
   JobPosition,
 } from "@/app/data/openPositionsData";
+import { stripHtml } from "@/app/utils";
 
 type PositionsTableSectionProps = {
   jobs: JobPosition[];
@@ -87,7 +88,7 @@ export default function PositionsTableSection({
                   {careerTableHeaders[3]}
                 </span>
                 <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
-                  {pos.education}
+                  {stripHtml(pos.education)}
                 </span>
               </div>
 

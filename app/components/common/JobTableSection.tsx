@@ -1,5 +1,6 @@
 import React from "react";
 import { JobPosition } from "@/app/types/drupal";
+import { stripHtml } from "@/app/utils";
 
 export const TABLE_GRID_COLUMNS = "1.2fr 2fr 1.5fr 3fr 1fr";
 export const tableHeaders = [
@@ -116,7 +117,7 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
                   {tableHeaders[3]}
                 </span>
                 <span className="text-base leading-[22px] text-text-muted-alt font-manrope text-right">
-                  {pos.education}
+                  {stripHtml(pos.education)}
                 </span>
               </div>
 

@@ -5,6 +5,7 @@ import {
   contractTableHeaders,
   TABLE_GRID_COLUMNS,
 } from "@/app/data/contractHiringPageData";
+import { stripHtml } from "@/app/utils";
 
 type PositionsTableSectionProps = {
   onApply: (position: ContractPosition) => void;
@@ -80,7 +81,7 @@ export default function PositionsTableSection({
                 </div>
                 <div className="py-6 px-8">
                   <span className="text-base leading-[22px] text-text-muted-alt font-manrope">
-                    {pos.education}
+                    {stripHtml(pos.education)}
                   </span>
                 </div>
                 <div className="py-6 px-8 text-right">

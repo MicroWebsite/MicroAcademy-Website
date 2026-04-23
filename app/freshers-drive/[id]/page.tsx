@@ -101,7 +101,7 @@ export default function DriveDetailPage({
               variants={fadeInUp}
               transition={{ delay: 0.1 }}
             >
-              <EligibilityCriteria criteria={drive.eligibility} />
+              <EligibilityCriteria drive={drive} />
             </motion.div>
           </div>
           <aside className="lg:w-1/3 flex flex-col gap-8">

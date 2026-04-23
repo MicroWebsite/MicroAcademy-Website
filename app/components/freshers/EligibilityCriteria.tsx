@@ -97,13 +97,12 @@ const FlashIcon = () => (
   </svg>
 );
 
-import { crt } from "@/app/utils/helper/criteria";
+import { FresherDrive } from "@/app/types/drupal";
+import { motion, Variants } from "framer-motion";
 
 interface Props {
-  criteria: string;
+  drive: FresherDrive;
 }
-
-import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -123,33 +122,38 @@ const itemVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
 };
 
-export default function EligibilityCriteria({ criteria }: Props) {
-  // Normalize criteria using the crt helper
-  const normalized = crt(criteria);
-
+export default function EligibilityCriteria({ drive }: Props) {
   const items = [
     {
       label: "ACADEMIC YEAR",
-      value: normalized.academicYear,
+      value: drive.academic_year || "Not specified",
       icon: CalendarIcon,
     },
     {
       label: "DEGREE REQUIREMENT",
-      value: normalized.degreeRequirement,
+      value: drive.degree_requirement || "Not specified",
       icon: GraduationIcon,
     },
     {
       label: "MINIMUM AGGREGATE",
-      value: normalized.minimumAggregate,
+      value: drive.minimum_aggregate || "Not specified",
       icon: ChartIcon,
     },
-    { label: "EDUCATION GAP", value: normalized.educationGap, icon: ClockIcon },
+    {
+      label: "EDUCATION GAP",
+      value: drive.education_gap || "Not specified",
+      icon: ClockIcon,
+    },
     {
       label: "CORE COMPETENCY",
-      value: normalized.coreCompetency,
+      value: drive.core_competency || "Not specified",
       icon: MessageIcon,
     },
-    { label: "FLEXIBILITY", value: normalized.flexibility, icon: FlashIcon },
+    {
+      label: "FLEXIBILITY",
+      value: drive.flexibility || "Not specified",
+      icon: FlashIcon,
+    },
   ];
 
   return (

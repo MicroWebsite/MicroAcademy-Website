@@ -5,6 +5,7 @@ import { capabilitiesData } from "@/app/data/capabalitiesData";
 import ProcessSection from "./train-and-hire/ProcessSection";
 import WhySection from "./train-and-hire/WhySection";
 import TestimonialSection from "./train-and-hire/TestimonialSection";
+import CTASection from "../common/CTASection";
 
 export default function TrainAndHirePage() {
   const trainAndHireData = capabilitiesData.items.find(
@@ -19,6 +20,12 @@ export default function TrainAndHirePage() {
       <ProcessSection />
       <WhySection />
       <TestimonialSection />
+      <CTASection
+        title="Ready to Build Your Dream Team?"
+        description="Partner with us to train and hire top talent custom-built for your organization's unique needs. Start transforming your workforce today."
+        buttonText="Get Started Today"
+        buttonHref="/contact"
+      />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
-import { fetchContractHiring } from "@/app/services/drupalApi";
+import { fetchContractHiring } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
 import BenefitsSection from "./contract-hiring/BenefitsSection";
 import JobTableSection from "../common/JobTableSection";

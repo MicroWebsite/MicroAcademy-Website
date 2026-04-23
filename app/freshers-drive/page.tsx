@@ -7,7 +7,7 @@ import { freshersHeroData } from "../data/freshersHeroData";
 import StandardHighlightCards from "../components/freshers/StandardHighlightCards";
 import DomainCard from "../components/freshers/DomainCard";
 import Link from "next/link";
-import { fetchFresherDrives } from "@/app/services/drupalApi";
+import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
 
 export default function FreshersDrive() {

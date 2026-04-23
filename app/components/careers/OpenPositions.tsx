@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import JobTableSection from "../common/JobTableSection";
 import ApplicationFormModal from "./ApplicationFormModal";
-import { fetchCareers } from "@/app/services/drupalApi";
+import { fetchCareers } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
 
 const OpenPositions: React.FC = () => {

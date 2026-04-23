@@ -13,7 +13,7 @@ export const recruitmentServiceCards: RecruitmentServiceCard[] = [
   },
   {
     icon: "users",
-    title: "Lateral Hiring Expertise",
+    title: "Recruitment Expertise",
     description:
       "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.",
   },

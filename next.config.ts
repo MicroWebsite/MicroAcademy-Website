@@ -35,10 +35,12 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
+    const strapiUrl =
+      process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337";
     return [
       {
         source: "/uploads/:path*",
-        destination: "http://127.0.0.1:1337/uploads/:path*",
+        destination: `${strapiUrl}/uploads/:path*`,
       },
     ];
   },

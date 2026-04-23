@@ -1,27 +1,27 @@
-import drupalApi from "../lib/axios";
+import strapiApi from "../lib/strapi";
 import { GalleryItem, JobPosition, FresherDrive } from "../types/drupal";
 
 export const fetchGallery = async (): Promise<GalleryItem[]> => {
-  const response = await drupalApi.get<GalleryItem[]>("/api/gallery");
+  const response = await strapiApi.get<GalleryItem[]>("/api/galleries");
   return response.data;
 };
 
 export const fetchCareers = async (): Promise<JobPosition[]> => {
-  const response = await drupalApi.get<JobPosition[]>("/api/careers");
+  const response = await strapiApi.get<JobPosition[]>("/api/careers");
   return response.data;
 };
 
 export const fetchLateralHiring = async (): Promise<JobPosition[]> => {
-  const response = await drupalApi.get<JobPosition[]>("/api/lateral-hiring");
+  const response = await strapiApi.get<JobPosition[]>("/api/lateral-hirings");
   return response.data;
 };
 
 export const fetchContractHiring = async (): Promise<JobPosition[]> => {
-  const response = await drupalApi.get<JobPosition[]>("/api/contract-hiring");
+  const response = await strapiApi.get<JobPosition[]>("/api/contract-hirings");
   return response.data;
 };
 
 export const fetchFresherDrives = async (): Promise<FresherDrive[]> => {
-  const response = await drupalApi.get<FresherDrive[]>("/api/fresher-drive");
+  const response = await strapiApi.get<FresherDrive[]>("/api/fresher-drives");
   return response.data;
 };

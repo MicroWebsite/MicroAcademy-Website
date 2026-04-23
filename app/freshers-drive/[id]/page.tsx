@@ -8,7 +8,7 @@ import OfficialNoteCard from "@/app/components/freshers/OfficialNoteCard";
 import DriveVenueCard from "@/app/components/freshers/DriveVenueCard";
 import DriveRegistrationForm from "@/app/components/freshers/DriveRegistrationForm";
 import HomeTemplate from "@/app/components/common/HeroSection";
-import { fetchFresherDrives } from "@/app/services/drupalApi";
+import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
 
 import { motion, Variants } from "framer-motion";

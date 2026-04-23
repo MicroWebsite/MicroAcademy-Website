@@ -25,7 +25,12 @@ export interface FresherDrive {
   designation: string;
   selection_process: string;
   training: string;
-  eligibility: string;
+  academic_year: string;
+  degree_requirement: string;
+  minimum_aggregate: string;
+  education_gap: string;
+  core_competency: string;
+  flexibility: string;
   notes: string;
   venue: string;
   landmark: string;

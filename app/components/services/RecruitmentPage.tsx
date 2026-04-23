@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
-import { fetchLateralHiring } from "@/app/services/strapiApi";
+import { fetchRecruitment } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
 import ServicesContentSection from "./recruitment/ServicesContentSection";
 import JobTableSection from "../common/JobTableSection";
@@ -19,10 +19,10 @@ export default function RecruitmentPage() {
   useEffect(() => {
     const loadJobs = async () => {
       try {
-        const data = await fetchLateralHiring();
+        const data = await fetchRecruitment();
         setJobs(data);
       } catch (error) {
-        console.error("Failed to fetch lateral hiring data:", error);
+        console.error("Failed to fetch recruitment data:", error);
       } finally {
         setLoading(false);
       }

@@ -11,8 +11,8 @@ export const fetchCareers = async (): Promise<JobPosition[]> => {
   return response.data;
 };
 
-export const fetchLateralHiring = async (): Promise<JobPosition[]> => {
-  const response = await strapiApi.get<JobPosition[]>("/api/lateral-hirings");
+export const fetchRecruitment = async (): Promise<JobPosition[]> => {
+  const response = await strapiApi.get<JobPosition[]>("/api/recruitments");
   return response.data;
 };
 

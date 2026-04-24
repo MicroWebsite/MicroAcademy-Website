@@ -123,23 +123,12 @@ const JobTableSection: React.FC<JobTableSectionProps> = ({
 
               {/* Action */}
               <div className="py-6 px-7 md:px-8 text-right md:text-left border-l-4 border-transparent md:border-none">
-                {pos.apply_link ? (
-                  <a
-                    href={pos.apply_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all font-manrope whitespace-nowrap active:scale-[0.98]"
-                  >
-                    Apply Now
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => onApply(pos)}
-                    className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer border-none font-manrope whitespace-nowrap active:scale-[0.98]"
-                  >
-                    Apply Now
-                  </button>
-                )}
+                <button
+                  onClick={() => onApply(pos)}
+                  className="inline-flex items-center px-6 py-2 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer border-none font-manrope whitespace-nowrap active:scale-[0.98]"
+                >
+                  Apply Now
+                </button>
               </div>
             </div>
           ))}

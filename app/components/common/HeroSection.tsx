@@ -13,6 +13,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
     badge,
     titleLine1,
     titleAccent,
+    titleAccentPrefix,
     description,
     primaryCTA,
     secondaryCTA,
@@ -34,8 +35,11 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-dark leading-[1.1] tracking-tight">
               {titleLine1}
             </h1>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary leading-[1.1] tracking-tight">
-              {titleAccent}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+              {titleAccentPrefix && (
+                <span className="text-text-dark">{titleAccentPrefix} </span>
+              )}
+              <span className="text-primary">{titleAccent}</span>
             </h1>
           </div>
 

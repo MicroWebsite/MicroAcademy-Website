@@ -10,7 +10,6 @@ export interface JobPosition {
   title: string;
   location: string;
   education: string;
-  apply_link: string;
   experience?: string;
   type?: string;
 }

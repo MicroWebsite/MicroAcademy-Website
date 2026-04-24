@@ -49,16 +49,15 @@ export default function DriveDetailPage({
     notFound();
   }
 
-  const [titleLine1, titleAccent] = drive.title.includes("For")
-    ? [
-        drive.title.split("For")[0].trim(),
-        `For ${drive.title.split("For")[1].trim()}`,
-      ]
-    : [drive.title, ""];
+  const forMatch = drive.title.match(/(.*)\s+(for)\s+(.*)/i);
+  const [titleLine1, titleAccentPrefix, titleAccent] = forMatch
+    ? [forMatch[1].trim(), forMatch[2].trim(), forMatch[3].trim()]
+    : [drive.title, "", ""];
 
   const driveHeroData = {
     badge: "Selection Drive 2026",
     titleLine1,
+    titleAccentPrefix,
     titleAccent,
     description: drive.description,
     image: {
@@ -105,7 +104,7 @@ export default function DriveDetailPage({
             </motion.div>
           </div>
           <aside className="lg:w-1/3 flex flex-col gap-8">
-            <div className="lg:sticky lg:top-24 flex flex-col gap-8">
+            <div className="flex flex-col gap-8">
               <motion.div
                 initial="hidden"
                 whileInView="visible"

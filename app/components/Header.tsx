@@ -42,7 +42,10 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 h-full">
+        <nav
+          className="hidden md:flex items-center gap-8 h-full"
+          aria-label="Main navigation"
+        >
           {navLinks.map((link) => {
             // For Services we could check pathname but let's keep it simple
             const isActive =
@@ -57,6 +60,8 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
+                    aria-haspopup="true"
+                    aria-expanded="false"
                     className={`relative flex items-center gap-1 text-base font-bold transition-colors pb-1 ${
                       isActive
                         ? "text-text-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-text-accent"
@@ -64,7 +69,10 @@ export default function Header() {
                     }`}
                   >
                     {link.label}
-                    <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform" />
+                    <ChevronDown
+                      className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform"
+                      aria-hidden="true"
+                    />
                   </Link>
 
                   {/* Dropdown Menu */}
@@ -118,7 +126,8 @@ export default function Header() {
           <button
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
           >
             <span
               className={`block w-5 h-0.5 bg-text-dark transition-transform duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -134,7 +143,10 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-bg-header-mobile border-t border-border px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50">
+        <nav
+          className="md:hidden bg-bg-header-mobile border-t border-border px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50"
+          aria-label="Mobile navigation"
+        >
           {navLinks.map((link) => {
             const isActive =
               pathname === link.href ||
@@ -156,6 +168,12 @@ export default function Header() {
                     </Link>
                     <button
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      aria-expanded={mobileServicesOpen}
+                      aria-label={
+                        mobileServicesOpen
+                          ? "Collapse services"
+                          : "Expand services"
+                      }
                       className="px-2 py-2 flex items-center justify-center shrink-0"
                     >
                       <ChevronDown
@@ -211,7 +229,7 @@ export default function Header() {
               className="h-14 w-auto object-contain mix-blend-multiply"
             />
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

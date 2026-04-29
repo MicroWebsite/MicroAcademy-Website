@@ -16,14 +16,101 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.microacademy.net";
+
 export const metadata: Metadata = {
-  title: "MicroAcademy - The Future of Workforce Intelligence",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "MicroAcademy - The Future of Workforce Intelligence",
+    template: "%s | MicroAcademy",
+  },
   description:
     "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+  keywords: [
+    "MicroAcademy",
+    "workforce intelligence",
+    "recruitment",
+    "contract hiring",
+    "corporate training",
+    "train and hire",
+    "talent ecosystem",
+    "Bangalore",
+    "India",
+    "ISO 9001",
+  ],
+  authors: [{ name: "Micro Academy Private Limited" }],
+  creator: "Micro Academy Private Limited",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    siteName: "MicroAcademy",
+    title: "MicroAcademy - The Future of Workforce Intelligence",
+    description:
+      "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+    images: [
+      {
+        url: "/assets/headers/Homepage.png",
+        width: 1200,
+        height: 630,
+        alt: "MicroAcademy - Workforce Intelligence",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MicroAcademy - The Future of Workforce Intelligence",
+    description:
+      "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+    images: ["/assets/headers/Homepage.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 import { ToastProvider } from "./context/ToastContext";
 import Chatbot from "./components/Chatbot";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Micro Academy Private Limited",
+  alternateName: "MicroAcademy",
+  url: siteUrl,
+  logo: `${siteUrl}/assets/common/microacademy-logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91-080-25358182",
+    contactType: "customer service",
+    areaServed: "IN",
+    availableLanguage: "English",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "#189, Amar Jyothi Layout, Domlur Ring Road",
+    addressLocality: "Bangalore",
+    postalCode: "560071",
+    addressCountry: "IN",
+  },
+  sameAs: [
+    "https://instagram.com/microacademy",
+    "https://facebook.com/microacademy",
+    "https://linkedin.com/company/microacademy",
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -34,12 +121,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
-      <body
-        className="min-h-full flex flex-col bg-white text-gray-900"
-        suppressHydrationWarning
-      >
+      <body className="min-h-full flex flex-col bg-white text-gray-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ToastProvider>
           <Header />
           <main className="flex-1">{children}</main>

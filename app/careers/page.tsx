@@ -5,9 +5,12 @@ import MicroAdvantage from "../components/careers/MicroAdvantage";
 import OpenPositions from "../components/careers/OpenPositions";
 
 export const metadata: Metadata = {
-  title: "Career | MicroAcademy",
+  title: "Careers",
   description:
     "Bridge the talent gap with our integrated training and recruitment solutions.",
+  alternates: {
+    canonical: "/careers",
+  },
 };
 
 export default function Career() {

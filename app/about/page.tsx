@@ -7,9 +7,12 @@ import Gallery from "../components/about/Gallery";
 import ThirtyYearGenesis from "../components/about/Thirtyyeargenesis";
 
 export const metadata: Metadata = {
-  title: "About Us | MicroAcademy",
+  title: "About Us",
   description:
     "Learn more about MicroAcademy's mission, vision, and approach to workforce transformation.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

@@ -33,6 +33,8 @@ export default function ChatWindow({
 }: ChatWindowProps) {
   return (
     <div
+      role="dialog"
+      aria-label="Chat with MicroBot"
       className={`fixed bottom-20 right-5 md:bottom-24 md:right-10 z-[9999] w-[370px] max-w-[calc(100vw-2.5rem)] transition-all duration-300 ease-out origin-bottom-right ${
         isOpen
           ? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
@@ -113,6 +115,9 @@ export default function ChatWindow({
         </div>
 
         <div
+          role="log"
+          aria-live="polite"
+          aria-label="Chat messages"
           className="flex-1 overflow-y-auto p-4 space-y-4 bg-bg-cream-alt scroll-smooth"
           style={{
             scrollbarWidth: "thin",
@@ -144,7 +149,11 @@ export default function ChatWindow({
           ))}
 
           {isTyping && (
-            <div className="flex justify-start">
+            <div
+              className="flex justify-start"
+              role="status"
+              aria-label="MicroBot is typing"
+            >
               <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-border-light">
                 <div className="flex gap-1.5 items-center">
                   <span
@@ -196,6 +205,7 @@ export default function ChatWindow({
             value={inputValue}
             onChange={(e) => onInputChange(e.target.value)}
             placeholder="Type your message..."
+            aria-label="Type your message"
             className="flex-1 px-4 py-2.5 rounded-full bg-bg-cream border border-border text-sm text-text-dark placeholder-text-label-input outline-none focus:border-primary focus:ring-2 focus:ring-secondary/30 transition-all"
           />
           <button

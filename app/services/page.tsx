@@ -4,9 +4,12 @@ import CoreCapabilities from "../components/home/CoreCapabilities";
 import { servicesHeroData } from "../data/servicesHeroData";
 
 export const metadata: Metadata = {
-  title: "Services | MicroAcademy",
+  title: "Services",
   description:
     "Explore our comprehensive suite of talent development and organizational transformation services.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

@@ -7,6 +7,7 @@ import { ChatMessage } from "@/app/types/chatbot";
 import ChatWindow from "./chatbot/ChatWindow";
 import ChatToggleButton from "./chatbot/ChatToggleButton";
 import GreetingTooltip from "./chatbot/GreetingTooltip";
+import useStrapiData from "./chatbot/useStrapiData";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const strapiData = useStrapiData();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,36 +43,39 @@ export default function Chatbot() {
     }
   }, [isOpen]);
 
-  const sendMessage = useCallback((text: string) => {
-    if (!text.trim()) return;
+  const sendMessage = useCallback(
+    (text: string) => {
+      if (!text.trim()) return;
 
-    const trimmedText = text.trim();
-    const userMsg: ChatMessage = {
-      id: `user-${Date.now()}`,
-      text: trimmedText,
-      sender: "user",
-      timestamp: new Date(),
-    };
+      const trimmedText = text.trim();
+      const userMsg: ChatMessage = {
+        id: `user-${Date.now()}`,
+        text: trimmedText,
+        sender: "user",
+        timestamp: new Date(),
+      };
 
-    setMessages((prev) => [...prev, userMsg]);
-    setInputValue("");
-    setIsTyping(true);
+      setMessages((prev) => [...prev, userMsg]);
+      setInputValue("");
+      setIsTyping(true);
 
-    setTimeout(
-      () => {
-        const botReply: ChatMessage = {
-          id: `bot-${Date.now()}`,
-          text: generateBotResponse(trimmedText),
-          sender: "bot",
-          timestamp: new Date(),
-        };
+      setTimeout(
+        () => {
+          const botReply: ChatMessage = {
+            id: `bot-${Date.now()}`,
+            text: generateBotResponse(trimmedText, strapiData),
+            sender: "bot",
+            timestamp: new Date(),
+          };
 
-        setMessages((prev) => [...prev, botReply]);
-        setIsTyping(false);
-      },
-      800 + Math.random() * 700,
-    );
-  }, []);
+          setMessages((prev) => [...prev, botReply]);
+          setIsTyping(false);
+        },
+        800 + Math.random() * 700,
+      );
+    },
+    [strapiData],
+  );
 
   const handleSubmit = useCallback(
     (e: FormEvent) => {
@@ -98,26 +103,6 @@ export default function Chatbot() {
       <ChatToggleButton isOpen={isOpen} onToggle={() => setIsOpen(!isOpen)} />
 
       {!isOpen && <GreetingTooltip />}
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes fade-in-up {
-          0% {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.4s ease-out forwards;
-        }
-      `,
-        }}
-      />
     </>
   );
 }

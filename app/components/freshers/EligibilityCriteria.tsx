@@ -97,13 +97,12 @@ const FlashIcon = () => (
   </svg>
 );
 
-import { crt } from "@/app/utils/helper/criteria";
+import { FresherDrive } from "@/app/types/drupal";
+import { motion, Variants } from "framer-motion";
 
 interface Props {
-  criteria: string;
+  drive: FresherDrive;
 }
-
-import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -123,33 +122,38 @@ const itemVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
 };
 
-export default function EligibilityCriteria({ criteria }: Props) {
-  // Normalize criteria using the crt helper
-  const normalized = crt(criteria);
-
+export default function EligibilityCriteria({ drive }: Props) {
   const items = [
     {
       label: "ACADEMIC YEAR",
-      value: normalized.academicYear,
+      value: drive.academic_year || "Not specified",
       icon: CalendarIcon,
     },
     {
       label: "DEGREE REQUIREMENT",
-      value: normalized.degreeRequirement,
+      value: drive.degree_requirement || "Not specified",
       icon: GraduationIcon,
     },
     {
       label: "MINIMUM AGGREGATE",
-      value: normalized.minimumAggregate,
+      value: drive.minimum_aggregate || "Not specified",
       icon: ChartIcon,
     },
-    { label: "EDUCATION GAP", value: normalized.educationGap, icon: ClockIcon },
+    {
+      label: "EDUCATION GAP",
+      value: drive.education_gap || "Not specified",
+      icon: ClockIcon,
+    },
     {
       label: "CORE COMPETENCY",
-      value: normalized.coreCompetency,
+      value: drive.core_competency || "Not specified",
       icon: MessageIcon,
     },
-    { label: "FLEXIBILITY", value: normalized.flexibility, icon: FlashIcon },
+    {
+      label: "FLEXIBILITY",
+      value: drive.flexibility || "Not specified",
+      icon: FlashIcon,
+    },
   ];
 
   return (
@@ -158,32 +162,32 @@ export default function EligibilityCriteria({ criteria }: Props) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="w-full"
+      className="bg-white/40 backdrop-blur-md rounded-[2rem] p-6 lg:p-10 border border-white/20 shadow-xl"
     >
-      <div className="flex items-center gap-4 mb-10 lg:mb-12 transition-all duration-300">
+      <div className="flex items-center gap-4 mb-10 transition-all duration-300">
         <div className="w-1 h-8 lg:w-1.5 lg:h-10 bg-primary rounded-full" />
-        <h2 className="text-2xl lg:text-4xl font-extrabold text-text-dark tracking-tight">
+        <h2 className="text-2xl lg:text-3xl font-extrabold text-text-dark tracking-tight">
           Eligibility Criteria
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 md:gap-y-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-8 lg:gap-y-10">
         {items.map((item, idx) => (
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="flex items-start gap-4 lg:gap-6 group hover:translate-x-2 transition-transform duration-300"
+            className="flex items-start gap-4 group transition-transform duration-300"
           >
-            <div className="shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl bg-bg-cream-light border border-border flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+            <div className="shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-bg-cream-light border border-border flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:border-primary transition-all duration-300">
               <span className="text-primary group-hover:text-white transition-colors duration-300">
                 <item.icon />
               </span>
             </div>
-            <div className="flex flex-col gap-1 lg:gap-1.5 flex-1">
+            <div className="flex flex-col gap-1 flex-1">
               <span className="text-[10px] font-extrabold tracking-[0.2em] text-primary/70 uppercase">
                 {item.label}
               </span>
-              <p className="text-text-dark text-base lg:text-lg font-semibold leading-snug">
+              <p className="text-text-dark text-base font-semibold leading-snug">
                 {item.value}
               </p>
               <div className="h-[1px] w-full bg-linear-to-r from-border to-transparent mt-2" />

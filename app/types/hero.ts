@@ -3,6 +3,7 @@ export interface HeroProps {
   titleLine1?: string;
   titleLine2?: string;
   titleAccent?: string;
+  titleAccentPrefix?: string;
   description?: string;
   primaryCTA?: { label: string; href: string } | undefined;
   secondaryCTA?: { label: string; href: string };

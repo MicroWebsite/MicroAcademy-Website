@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { fetchGallery } from "@/app/services/drupalApi";
+import { fetchGallery } from "@/app/services/strapiApi";
 
 interface GalleryImage {
   id: number | string;

@@ -50,20 +50,24 @@ export default function CountriesCarousel() {
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4 md:gap-0">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight max-w-3xl">
+          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight max-w-3xl">
             Countries We Have Taught In
           </h2>
 
           {/* Region Filter */}
-          <div className="flex justify-center">
+          <div className="flex justify-end">
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen((o) => !o)}
+                aria-expanded={dropdownOpen}
+                aria-haspopup="listbox"
+                aria-label="Filter by region"
                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors shadow-sm"
               >
                 {activeRegion}
                 <ChevronDown
                   size={14}
+                  aria-hidden="true"
                   className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
@@ -162,6 +166,8 @@ export default function CountriesCarousel() {
                     ? "w-6 h-2 bg-primary"
                     : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
                 }`}
+                aria-label={`Go to page ${i + 1}`}
+                aria-current={i === page ? "true" : undefined}
               />
             ))}
           </div>

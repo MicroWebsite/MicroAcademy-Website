@@ -4,6 +4,8 @@ import React from "react";
 
 import { Info } from "lucide-react";
 
+import { linkify } from "@/app/utils/helper/linkify";
+
 interface OfficialNoteCardProps {
   notes?: string;
   description?: string;
@@ -13,6 +15,8 @@ const OfficialNoteCard: React.FC<OfficialNoteCardProps> = ({
   notes,
   description,
 }) => {
+  const content = linkify(notes || description || "");
+
   return (
     <div className="bg-[#1b1c19] text-white p-6 lg:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden group border border-white/5">
       {/* Visual Accent */}
@@ -35,8 +39,9 @@ const OfficialNoteCard: React.FC<OfficialNoteCardProps> = ({
 
         <div
           className="prose prose-invert prose-base lg:prose-lg leading-relaxed text-gray-300 max-w-none
-          prose-p:mb-4 prose-strong:text-secondary prose-ul:list-disc prose-li:marker:text-primary"
-          dangerouslySetInnerHTML={{ __html: notes || description || "" }}
+          prose-p:mb-4 prose-strong:text-secondary prose-ul:list-disc prose-li:marker:text-primary
+          [&_a]:text-secondary hover:[&_a]:text-secondary-dark [&_a]:font-bold [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-secondary/50 transition-all"
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
 

@@ -44,17 +44,17 @@ export default function JobDetails({ details }: JobDetailsProps) {
   const items = [
     {
       label: "Domain",
-      value: details.domain,
+      value: details.domain || "Not specified",
       icon: Target,
     },
     {
       label: "Salary",
-      value: details.salary,
+      value: details.salary || "Not specified",
       icon: Banknote,
     },
     {
       label: "Location",
-      value: details.location,
+      value: details.location || "Not specified",
       icon: MapPin,
     },
     {
@@ -64,12 +64,12 @@ export default function JobDetails({ details }: JobDetailsProps) {
     },
     {
       label: "Selection Process",
-      value: details.selection_process,
+      value: details.selection_process || "Not specified",
       icon: Settings,
     },
     {
       label: "Training",
-      value: details.training,
+      value: details.training || "Not specified",
       icon: GraduationCap,
     },
   ];
@@ -80,7 +80,7 @@ export default function JobDetails({ details }: JobDetailsProps) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="bg-white/40 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl"
+      className="bg-white/40 backdrop-blur-md rounded-[2rem] p-6 lg:p-10 border border-white/20 shadow-xl"
     >
       <div className="flex items-center gap-3 mb-8">
         <div className="w-1 h-6 bg-primary rounded-full" />

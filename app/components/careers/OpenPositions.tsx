@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import JobTableSection from "../common/JobTableSection";
 import ApplicationFormModal from "./ApplicationFormModal";
-import { fetchCareers } from "@/app/services/drupalApi";
+import NoJobsCTA from "../common/NoJobsCTA";
+import { fetchCareers } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
 
 const OpenPositions: React.FC = () => {
@@ -33,7 +34,15 @@ const OpenPositions: React.FC = () => {
   };
 
   if (!loading && jobs.length === 0) {
-    return null;
+    return (
+      <NoJobsCTA
+        title="We're Always Looking for"
+        titleAccent="Great Talent"
+        description="There are no open positions right now, but we're always eager to connect with passionate individuals. Send us your resume and we'll reach out when the right opportunity comes along."
+        primaryCTA={{ label: "Send Your Resume", href: "/contact" }}
+        secondaryCTA={{ label: "Explore Services", href: "/services" }}
+      />
+    );
   }
 
   return (

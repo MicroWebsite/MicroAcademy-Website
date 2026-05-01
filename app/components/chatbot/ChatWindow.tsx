@@ -1,6 +1,7 @@
 import { FormEvent, RefObject } from "react";
 import { quickActions } from "./data";
 import { ChatMessage } from "@/app/types/chatbot";
+import LinkifiedText from "./LinkifiedText";
 
 type ChatWindowProps = {
   isOpen: boolean;
@@ -139,7 +140,7 @@ export default function ChatWindow({
                       : "bg-white text-text-dark rounded-2xl rounded-bl-md shadow-sm border border-border-light"
                   }`}
                 >
-                  {msg.text}
+                  <LinkifiedText text={msg.text} />
                 </div>
                 <span className="text-[10px] text-text-label px-1 font-medium">
                   {formatTime(msg.timestamp)}

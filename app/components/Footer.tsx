@@ -18,17 +18,17 @@ const legalLinks = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/microacademy",
+    href: "https://www.instagram.com/microacademydomlur/",
     icon: "insta",
   },
   {
     label: "Facebook",
-    href: "https://facebook.com/microacademy",
+    href: "https://www.facebook.com/microacademy.domlur.75",
     icon: "facebook",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/company/microacademy",
+    href: "https://www.linkedin.com/company/micro-academy-i-.pvt.ltd/",
     icon: "linkedin",
   },
 ];

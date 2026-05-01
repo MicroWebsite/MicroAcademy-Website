@@ -106,9 +106,9 @@ const jsonLd = {
     addressCountry: "IN",
   },
   sameAs: [
-    "https://instagram.com/microacademy",
-    "https://facebook.com/microacademy",
-    "https://linkedin.com/company/microacademy",
+    "https://www.instagram.com/microacademydomlur/",
+    "https://www.facebook.com/microacademy.domlur.75",
+    "https://www.linkedin.com/company/micro-academy-i-.pvt.ltd/",
   ],
 };
 

@@ -7,6 +7,7 @@ import { JobPosition } from "@/app/types/drupal";
 import ServicesContentSection from "./recruitment/ServicesContentSection";
 import JobTableSection from "../common/JobTableSection";
 import ApplicationFormModal from "./recruitment/ApplicationFormModal";
+import CTASection from "../common/CTASection";
 
 export default function RecruitmentPage() {
   const [jobs, setJobs] = useState<JobPosition[]>([]);
@@ -56,6 +57,13 @@ export default function RecruitmentPage() {
             loading={loading}
           />
         </div>
+      )}
+      {jobs.length === 0 && !loading && (
+        <CTASection
+          title="Looking for Top Talent?"
+          description="Streamline your hiring process with our expert recruitment solutions. We help you find the perfect match for your organization's culture and technical needs."
+          buttonText="Hire Now"
+        />
       )}
       <ApplicationFormModal
         isOpen={isModalOpen}

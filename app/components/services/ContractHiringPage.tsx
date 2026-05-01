@@ -8,7 +8,7 @@ import BenefitsSection from "./contract-hiring/BenefitsSection";
 import JobTableSection from "../common/JobTableSection";
 import ProcessSection from "./contract-hiring/ProcessSection";
 import DomainsSection from "./contract-hiring/DomainsSection";
-import CTASection from "./contract-hiring/CTASection";
+import CTASection from "../common/CTASection";
 import ApplicationFormModal from "./contract-hiring/ApplicationFormModal";
 
 export default function ContractHiringPage() {
@@ -62,7 +62,13 @@ export default function ContractHiringPage() {
       )}
       <ProcessSection />
       <DomainsSection />
-      <CTASection />
+      {jobs.length === 0 && !loading && (
+        <CTASection
+          title="Ready to Augment Your Team?"
+          description="Connect with our talent architects today and get access to the industry’s best contract professionals tailored for your immediate project needs."
+          buttonText="Request Talent Now"
+        />
+      )}
       <ApplicationFormModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
+import CTASection from "../common/CTASection";
 
 const techCategories = [
   { icon: <Code2 className="w-[30px] h-[18px]" />, label: "Java / .NET" },
@@ -231,6 +232,11 @@ export default function CorporateTrainingPage() {
       )}
       <TechLogosGrid />
       <MethodologySection />
+      <CTASection
+        title="Empower Your Workforce"
+        description="Elevate your team's skills with our industry-leading corporate training programs. We offer customized learning paths to drive innovation and efficiency."
+        buttonText="Enquire Now"
+      />
     </div>
   );
 }

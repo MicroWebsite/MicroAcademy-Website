@@ -649,8 +649,9 @@ export function generateBotResponse(
         .join("\n");
 
       if (strapiData.recruitment.length > 4) {
-        response += `\n\n...and ${strapiData.recruitment.length - 4} more on our Recruitment page!`;
+        response += `\n\n...and ${strapiData.recruitment.length - 4} more!`;
       }
+      response += `\n\nVisit our Recruitment page for full details and to apply!`;
     }
 
     return response;
@@ -667,10 +668,11 @@ export function generateBotResponse(
         .join("\n");
 
       if (strapiData.contractHiring.length > 4) {
-        response += `\n\n...and ${strapiData.contractHiring.length - 4} more on our Contract Hiring page!`;
+        response += `\n\n...and ${strapiData.contractHiring.length - 4} more!`;
       }
+      response += `\n\nVisit our Contract Hiring page to see all available roles!`;
     } else if (strapiData?.isLoaded) {
-      response += `\n\n(No active contract openings at the moment, but you can check our Contract Hiring page for updates!)`;
+      response += `\n\n(No active contract openings at the moment, but you can visit our Contract Hiring page for future updates!)`;
     }
 
     return response;

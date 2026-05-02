@@ -13,7 +13,6 @@ const LINK_MAPPINGS: Record<string, string> = {
   "train and hire page": "/services/train-and-hire",
   "train & hire page": "/services/train-and-hire",
   "corporate training page": "/services/corporate-training",
-  "corporate training": "/services/corporate-training",
   "contact page": "/contact",
   "about page": "/about",
   "careers and services pages": "/services",
@@ -21,76 +20,82 @@ const LINK_MAPPINGS: Record<string, string> = {
   "our services": "/services",
   "contact us": "/contact",
   "about us": "/about",
-  "about microacademy": "/about",
   "freshers drive": "/freshers-drive",
-  "direct careers": "/careers",
-  "recruitment roles": "/services/recruitment",
-  "contract positions": "/services/contract-hiring",
-  careers: "/careers",
-  recruitment: "/services/recruitment",
-  "recruitment services": "/services/recruitment",
-  "contract hiring": "/services/contract-hiring",
-  "contract hiring services": "/services/contract-hiring",
-  "contract to hire": "/services/contract-hiring",
-  "contract to hire services": "/services/contract-hiring",
   "train and hire": "/services/train-and-hire",
-  "train and hire services": "/services/train-and-hire",
   "train & hire": "/services/train-and-hire",
+  "recruitment services": "/services/recruitment",
+  "contract to hire": "/services/contract-hiring",
+  "corporate training": "/services/corporate-training",
 };
 
 export default function LinkifiedText({ text }: LinkifiedTextProps) {
-  // Regex for URLs and our specific labels
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-
-  // For the labels, we'll do a case-insensitive search
-  // We want to sort them by length descending to match longer phrases first
+  // We only want to linkify specific phrases starting with "visit", "go to", "our", etc.
   const labels = Object.keys(LINK_MAPPINGS).sort((a, b) => b.length - a.length);
   const labelRegexPart = labels
     .map((l) => l.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("|");
+
+  // Mandatory prefix to fulfill "visit this or like that" requirement.
+  // We allow multiple prefix words like "visit our" or "go to the".
   const combinedRegex = new RegExp(
-    `(${urlRegex.source})|(${labelRegexPart})`,
+    `((?:(?:visit|go to|check out|view|our|the|click|see|on|this)\\s+)+)(${labelRegexPart})`,
     "gi",
   );
 
+  // Since we have capturing groups, split will include them in the result array
   const parts = text.split(combinedRegex);
 
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (!part) return null;
+  // When splitting with 2 capturing groups, each match generates:
+  // [text_before, prefix, keyword, ...]
+  // So we need to iterate carefully.
 
-        // Check if part is a URL
-        if (part.match(urlRegex)) {
-          return (
-            <a
-              key={i}
-              href={part}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary font-bold underline hover:text-primary-light transition-colors"
-            >
-              {part}
-            </a>
-          );
-        }
+  const elements = [];
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    if (part === undefined) continue;
 
-        // Check if part matches a label
-        const lowerPart = part.toLowerCase();
-        if (LINK_MAPPINGS[lowerPart]) {
-          return (
+    // The way split works with multiple capturing groups:
+    // parts[i] = non-matched text
+    // parts[i+1] = prefix (group 1)
+    // parts[i+2] = keyword (group 2)
+
+    // Check if this is the start of a match (every 3 elements)
+    if (i % 3 === 0) {
+      if (part) elements.push(<span key={i}>{part}</span>);
+    } else if (i % 3 === 1) {
+      // This is the prefix. The NEXT element is the keyword.
+      const prefix = part || "";
+      const keyword = parts[i + 1] || "";
+
+      if (keyword) {
+        const lowerKeyword = keyword.toLowerCase();
+        const href = LINK_MAPPINGS[lowerKeyword];
+
+        if (href) {
+          elements.push(
             <Link
               key={i}
-              href={LINK_MAPPINGS[lowerPart]}
+              href={href}
               className="text-primary font-bold underline hover:text-primary-light transition-colors"
             >
-              {part}
-            </Link>
+              {prefix}
+              {keyword}
+            </Link>,
+          );
+        } else {
+          // Should not happen if regex matches labels, but for safety:
+          elements.push(
+            <span key={i}>
+              {prefix}
+              {keyword}
+            </span>,
           );
         }
+        // Skip the keyword element since we processed it
+        i++;
+      }
+    }
+  }
 
-        return <span key={i}>{part}</span>;
-      })}
-    </>
-  );
+  return <>{elements}</>;
 }

@@ -140,7 +140,11 @@ export default function ChatWindow({
                       : "bg-white text-text-dark rounded-2xl rounded-bl-md shadow-sm border border-border-light"
                   }`}
                 >
-                  <LinkifiedText text={msg.text} />
+                  {msg.sender === "user" ? (
+                    msg.text
+                  ) : (
+                    <LinkifiedText text={msg.text} />
+                  )}
                 </div>
                 <span className="text-[10px] text-text-label px-1 font-medium">
                   {formatTime(msg.timestamp)}

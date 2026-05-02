@@ -14,10 +14,10 @@ export default function PrivacyPolicy() {
     <div className="w-full bg-white dark:bg-[#0a0a0a] pt-12 pb-24 px-6 sm:px-12 lg:px-24 text-black dark:text-white mt-2">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a192f] dark:text-white">
+          <h1 className="text-4xl md:text-5xl font-bold font-manrope tracking-tight text-text-dark dark:text-white">
             Privacy Policy
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-text-muted-alt font-manrope dark:text-gray-400">
             Last Updated:{" "}
             {new Date().toLocaleDateString("en-US", {
               month: "long",
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
 
         <div className="max-w-none space-y-6 text-gray-700 dark:text-gray-300">
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               1. Introduction
             </h2>
             <p>
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               2. Information We Collect
             </h2>
             <ul className="list-disc pl-6 space-y-2">
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               3. How We Use Your Information
             </h2>
             <p>We use the collected information for various purposes:</p>
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               4. Data Sharing and Disclosure
             </h2>
             <p>
@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               5. Data Security
             </h2>
             <p>
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               6. Your Rights
             </h2>
             <p>
@@ -111,7 +111,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#0a192f] dark:text-white mt-8 mb-4">
+            <h2 className="text-2xl font-bold font-manrope text-text-dark dark:text-white mt-8 mb-4">
               7. Contact Us
             </h2>
             <p>

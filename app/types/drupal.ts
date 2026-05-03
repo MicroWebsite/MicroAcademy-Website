@@ -1,5 +1,6 @@
 export interface GalleryItem {
   id: number;
+  title: string;
   images: string[];
 }
 

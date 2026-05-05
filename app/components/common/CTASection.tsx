@@ -51,20 +51,20 @@ export default function CTASection({
           className={`absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -left-10 -bottom-10 md:-left-20 md:-bottom-20 blur-[32px] rounded-full z-0 ${styles.glow}`}
         />
 
-        <div className="relative z-10 flex flex-col items-start gap-6">
+        <div className="relative z-10 flex flex-col items-start md:items-center gap-6">
           <h2
-            className={`text-left text-xl sm:text-2xl md:text-3xl font-bold font-manrope ${styles.title}`}
+            className={`text-left md:text-center text-xl sm:text-2xl md:text-3xl font-bold font-manrope ${styles.title}`}
           >
             {title}
           </h2>
           <div className="max-w-[800px]">
             <p
-              className={`text-left text-base md:text-lg leading-7 md:leading-8 font-manrope ${styles.description}`}
+              className={`text-left md:text-center text-base md:text-lg leading-7 md:leading-8 font-manrope ${styles.description}`}
             >
               {description}
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 pt-4 w-full">
+          <div className="flex flex-wrap justify-start md:justify-center gap-4 pt-4 w-full">
             <Link
               href={buttonHref}
               className={`w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] ${styles.button}`}

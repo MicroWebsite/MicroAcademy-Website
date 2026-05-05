@@ -109,6 +109,7 @@ const jsonLd = {
     "https://www.instagram.com/microacademydomlur/",
     "https://www.facebook.com/microacademy.domlur.75",
     "https://www.linkedin.com/company/micro-academy-i-.pvt.ltd/",
+    "https://twitter.com/",
   ],
 };
 

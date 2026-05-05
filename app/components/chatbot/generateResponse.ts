@@ -208,9 +208,9 @@ const fresherKeywords = [
   "walk in",
 ];
 
-const careerKeywords = [
-  "career",
-  "careers",
+const careerSpecificKeywords = ["career", "careers"];
+
+const genericJobKeywords = [
   "job",
   "jobs",
   "opening",
@@ -481,7 +481,8 @@ export function generateBotResponse(
 
     if (
       matchedSkill &&
-      (matchesAny(lower, careerKeywords) ||
+      (matchesAny(lower, careerSpecificKeywords) ||
+        matchesAny(lower, genericJobKeywords) ||
         matchesAny(lower, [
           "any",
           "looking",
@@ -521,7 +522,72 @@ export function generateBotResponse(
     return botResponses["🎓 Freshers Drive"];
   }
 
-  if (matchesAny(lower, careerKeywords)) {
+  if (matchesAny(lower, recruitmentKeywords)) {
+    let response =
+      "🎯 Our Recruitment Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle recruitment support\n\nWe find the candidate best suited for your organization and job role.";
+
+    if (strapiData?.isLoaded && strapiData.recruitment.length > 0) {
+      response += `\n\n📋 Current recruitment openings:\n\n`;
+      response += strapiData.recruitment
+        .slice(0, 5)
+        .map(
+          (j) =>
+            `• ${j.title} — ${j.location}${j.experience ? ` (${j.experience})` : ""}`,
+        )
+        .join("\n");
+
+      if (strapiData.recruitment.length > 5) {
+        response += `\n\n...and ${strapiData.recruitment.length - 5} more!`;
+      }
+      response += `\n\n🔗 Visit our Recruitment page for full details and to apply!`;
+    }
+
+    return response;
+  }
+
+  if (matchesAny(lower, contractKeywords)) {
+    let response =
+      "📝 Contract to Hire:\n\nMicroAcademy sources candidates who join on our payroll for the contract period. The client can directly hire the resource during or after the contract.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
+
+    if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
+      response += `\n\n📋 Current contract positions:\n\n`;
+      response += strapiData.contractHiring
+        .slice(0, 5)
+        .map(
+          (j) =>
+            `• ${j.title} — ${j.location}${j.experience ? ` (${j.experience})` : ""}`,
+        )
+        .join("\n");
+
+      if (strapiData.contractHiring.length > 5) {
+        response += `\n\n...and ${strapiData.contractHiring.length - 5} more!`;
+      }
+      response += `\n\n🔗 Visit our Contract Hiring page to see all available roles!`;
+    } else if (strapiData?.isLoaded) {
+      response += `\n\n(No active contract openings at the moment, but you can visit our Contract Hiring page for future updates!)`;
+    }
+
+    return response;
+  }
+
+  if (matchesAny(lower, careerSpecificKeywords)) {
+    if (strapiData?.isLoaded) {
+      if (strapiData.careers.length > 0) {
+        return formatJobList(
+          strapiData.careers,
+          "internal career openings",
+          5,
+          "🔗 Visit our Careers page for more details.",
+        );
+      }
+
+      return "No internal career openings at the moment. 😔\n\nBut we're always looking for great talent! You can send your resume to info@microacademy.net to be considered for future roles.";
+    }
+
+    return botResponses["💼 Career Openings"];
+  }
+
+  if (matchesAny(lower, genericJobKeywords)) {
     if (strapiData?.isLoaded) {
       const parts: string[] = [];
 
@@ -529,8 +595,8 @@ export function generateBotResponse(
         parts.push(
           formatJobList(
             strapiData.careers,
-            "career openings",
-            5,
+            "internal career openings",
+            3,
             "🔗 Visit our Careers page for more details.",
           ),
         );
@@ -541,7 +607,7 @@ export function generateBotResponse(
           formatJobList(
             strapiData.recruitment,
             "recruitment positions",
-            5,
+            3,
             "🔗 Visit our Recruitment page for more details.",
           ),
         );
@@ -552,14 +618,17 @@ export function generateBotResponse(
           formatJobList(
             strapiData.contractHiring,
             "contract positions",
-            5,
+            3,
             "🔗 Visit our Contract Hiring page for more details.",
           ),
         );
       }
 
       if (parts.length > 0) {
-        return parts.join("\n\n────────────────\n\n");
+        return (
+          "Here are our current job openings across all categories:\n\n" +
+          parts.join("\n\n────────────────\n\n")
+        );
       }
 
       return "No open positions at the moment. 😔\n\nBut we're always looking for great talent! You can check our job pages (Careers, Recruitment, Contract Hiring, or Freshers Drive) for the latest updates, or send your resume to info@microacademy.net!";
@@ -573,7 +642,8 @@ export function generateBotResponse(
 
     if (
       matchedCity &&
-      (matchesAny(lower, careerKeywords) ||
+      (matchesAny(lower, careerSpecificKeywords) ||
+        matchesAny(lower, genericJobKeywords) ||
         matchesAny(lower, [
           "any",
           "available",
@@ -636,46 +706,6 @@ export function generateBotResponse(
     }
 
     return "We have opportunities across all experience levels. Check our Careers and Recruitment pages for current openings!";
-  }
-  if (matchesAny(lower, recruitmentKeywords)) {
-    let response =
-      "🎯 Our Recruitment Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle recruitment support\n\nWe find the candidate best suited for your organization and job role.";
-
-    if (strapiData?.isLoaded && strapiData.recruitment.length > 0) {
-      response += `\n\n📋 Current recruitment openings:\n\n`;
-      response += strapiData.recruitment
-        .slice(0, 4)
-        .map((j) => `• ${j.title} — ${j.location}`)
-        .join("\n");
-
-      if (strapiData.recruitment.length > 4) {
-        response += `\n\n...and ${strapiData.recruitment.length - 4} more!`;
-      }
-      response += `\n\nVisit our Recruitment page for full details and to apply!`;
-    }
-
-    return response;
-  }
-  if (matchesAny(lower, contractKeywords)) {
-    let response =
-      "📝 Contract to Hire:\n\nMicroAcademy sources candidates who join on our payroll for the contract period. The client can directly hire the resource during or after the contract.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
-
-    if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
-      response += `\n\n📋 Current contract positions:\n\n`;
-      response += strapiData.contractHiring
-        .slice(0, 4)
-        .map((j) => `• ${j.title} — ${j.location}`)
-        .join("\n");
-
-      if (strapiData.contractHiring.length > 4) {
-        response += `\n\n...and ${strapiData.contractHiring.length - 4} more!`;
-      }
-      response += `\n\nVisit our Contract Hiring page to see all available roles!`;
-    } else if (strapiData?.isLoaded) {
-      response += `\n\n(No active contract openings at the moment, but you can visit our Contract Hiring page for future updates!)`;
-    }
-
-    return response;
   }
   if (matchesAny(lower, trainHireKeywords)) {
     return "🎓 Train and Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals:\n\n1️⃣ Precision Selection — Rigorous assessments, top 5% candidates\n2️⃣ Customized Training — Tailored to your tech stack & culture\n3️⃣ Seamless Hiring — Friction-less transition with full onboarding support\n\n✅ Benefits:\n• Zero hiring risk\n• Industry-ready talent from day one\n• Scalable — 5 to 500 professionals\n• 60% faster onboarding\n\nVisit our Train & Hire page or contact us to get started!";

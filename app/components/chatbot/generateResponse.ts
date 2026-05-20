@@ -591,13 +591,17 @@ export function generateBotResponse(
     if (strapiData?.isLoaded) {
       const parts: string[] = [];
 
-      if (strapiData.careers.length > 0) {
+      if (strapiData.fresherDrives.length > 0) {
         parts.push(
           formatJobList(
-            strapiData.careers,
-            "internal career openings",
+            strapiData.fresherDrives.map((d) => ({
+              title: d.title,
+              location: d.location,
+              education: d.degree_requirement || "",
+            })),
+            "freshers drives",
             3,
-            "🔗 Visit our Careers page for more details.",
+            "🔗 Visit our Freshers Drive page for more details.",
           ),
         );
       }
@@ -620,6 +624,17 @@ export function generateBotResponse(
             "contract positions",
             3,
             "🔗 Visit our Contract Hiring page for more details.",
+          ),
+        );
+      }
+
+      if (strapiData.careers.length > 0) {
+        parts.push(
+          formatJobList(
+            strapiData.careers,
+            "internal career openings",
+            3,
+            "🔗 Visit our Careers page for more details.",
           ),
         );
       }

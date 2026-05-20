@@ -1,4 +1,4 @@
-import { appendSheetValues } from "@/app/backend/shared/googleSheets";
+import { appendSheetValues } from "@/app/backend/shared/microsoftExcel";
 import { getSmtpContext } from "@/app/backend/shared/smtp";
 import { getIndiaTimestamp } from "@/app/backend/shared/time";
 import { buildContactEmailHtml } from "@/app/backend/templates/contactEmailTemplate";
@@ -10,13 +10,9 @@ async function appendContactToSheet(data: {
   message: string;
   timestamp: string;
 }) {
-  const res = await appendSheetValues("Contact", [
+  await appendSheetValues("Contact", [
     [data.fullName, data.email, data.phone, data.message, data.timestamp],
   ]);
-
-  if (res.status !== 200) {
-    throw new Error(`Failed to append row to Google Sheet: ${res.statusText}`);
-  }
 }
 
 async function sendContactEmail(data: {
@@ -53,8 +49,8 @@ export async function processContactSubmission(input: {
   try {
     await appendContactToSheet({ ...input, timestamp });
   } catch (sheetErr) {
-    console.error("Google Sheets error:", sheetErr);
-    errors.push("Google Sheets logging failed");
+    console.error("Excel error:", sheetErr);
+    errors.push("Excel logging failed");
   }
 
   try {

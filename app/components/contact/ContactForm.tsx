@@ -44,7 +44,7 @@ export default function ContactForm() {
           name="phone"
           label="Phone Number"
           type="tel"
-          placeholder="000 000 0000"
+          placeholder="+91 00000 00000"
           value={formData.phone}
           error={errors.phone}
           onChange={handleChange}

@@ -8,14 +8,10 @@ import { linkify } from "@/app/utils/helper/linkify";
 
 interface OfficialNoteCardProps {
   notes?: string;
-  description?: string;
 }
 
-const OfficialNoteCard: React.FC<OfficialNoteCardProps> = ({
-  notes,
-  description,
-}) => {
-  const content = linkify(notes || description || "");
+const OfficialNoteCard: React.FC<OfficialNoteCardProps> = ({ notes }) => {
+  const content = linkify(notes || "");
 
   return (
     <div className="bg-[#1b1c19] text-white p-6 lg:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden group border border-white/5">

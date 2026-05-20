@@ -8,9 +8,9 @@ export default function WhoareweSection() {
   const { heading, paragraphs, images } = whoAreWeData;
 
   return (
-    <section className="w-full bg-white py-16 lg:py-20 px-6 lg:px-8">
+    <section className="w-full bg-white pt-16 pb-8 lg:py-20 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
           {/* Left Content */}
           <div className="flex-1 lg:max-w-[45%]">
             <motion.div
@@ -68,7 +68,7 @@ export default function WhoareweSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative aspect-4/5 mt-10 rounded-3xl overflow-hidden shadow-xl"
+                className="relative aspect-4/5 md:mt-10 mt-0 rounded-3xl overflow-hidden shadow-xl"
               >
                 <Image
                   src={images[1].src}

@@ -53,7 +53,7 @@ export function buildFreshersDriveEmailHtml(data: {
 
                     <!-- Details Grid -->
                     <h2 style="color: #1B1C19; font-size: 18px; font-weight: 700; margin: 0 0 20px 0;">Candidate Information</h2>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 40px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td style="padding: 12px 0; border-bottom: 1px solid #EEEEEE;">
                           <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">FULL NAME</div>
@@ -79,7 +79,7 @@ export function buildFreshersDriveEmailHtml(data: {
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                           <td>
-                            <strong>Submitted At:</strong> ${data.timestamp}<br>
+                            <strong>Date & Time:</strong> ${data.timestamp}<br>
                             <strong>Documents:</strong> ${
                               data.hasResume
                                 ? "📎 Resume Attached"

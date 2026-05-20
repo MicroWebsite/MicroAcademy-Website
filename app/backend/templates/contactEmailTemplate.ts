@@ -32,7 +32,7 @@ export function buildContactEmailHtml(data: {
                         </td>
                         <td align="right" valign="top">
                           <div style="background-color: #FBE426; color: #6A5F00; padding: 8px 16px; border-radius: 100px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">
-                            INQUIRY
+                            ENQUIRY
                           </div>
                         </td>
                       </tr>
@@ -44,8 +44,7 @@ export function buildContactEmailHtml(data: {
                 <tr>
                   <td style="padding: 48px 40px;">
                     <!-- Details Grid -->
-                    <h2 style="color: #1B1C19; font-size: 18px; font-weight: 700; margin: 0 0 20px 0;">Sender Information</h2>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 40px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td style="padding: 12px 0; border-bottom: 1px solid #EEEEEE;">
                           <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">FULL NAME</div>
@@ -59,25 +58,25 @@ export function buildContactEmailHtml(data: {
                         </td>
                       </tr>
                       <tr>
-                        <td style="padding: 18px 0;">
+                        <td style="padding: 18px 0; border-bottom: 1px solid #EEEEEE;">
                           <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">PHONE NUMBER</div>
                           <div style="color: #1B1C19; font-size: 15px; font-weight: 600;">${data.phone}</div>
                         </td>
                       </tr>
+                      <tr>
+                        <td style="padding: 18px 0;">
+                          <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">MESSAGE CONTENT</div>
+                          <div style="color: #1B1C19; font-size: 15px; font-weight: 600; line-height: 1.6;">${data.message || "No message provided."}</div>
+                        </td>
+                      </tr>
                     </table>
-
-                    <!-- Statement Block -->
-                    <h3 style="color: #1B1C19; font-size: 16px; font-weight: 700; margin: 0 0 16px 0;">Message Content</h3>
-                    <div style="padding: 24px; background-color: #F8F8F8; border-radius: 16px; color: #444; font-size: 15px; line-height: 1.6; font-style: italic;">
-                      "${data.message || "No message provided."}"
-                    </div>
 
                     <!-- Footer Info -->
                     <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #EEEEEE; font-size: 12px; color: #888; line-height: 1.8;">
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                           <td>
-                            <strong>Timestamp:</strong> ${data.timestamp}
+                            <strong>Date & Time:</strong> ${data.timestamp}
                           </td>
                           <td align="right" valign="bottom">
                             <span style="color: #6A5F00; font-weight: 700;">MicroAcademy Portal</span>

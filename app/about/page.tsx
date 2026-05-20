@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="w-full">
+    <div className="relative w-full">
       <HomeTemplate heroContent={aboutHeroData} />
       <WhoareweSection />
       <ThirtyYearGenesis />

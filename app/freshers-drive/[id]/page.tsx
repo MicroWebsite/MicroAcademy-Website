@@ -12,6 +12,7 @@ import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
 
 import { motion, Variants } from "framer-motion";
+import { linkify } from "@/app/utils/helper/linkify";
 
 export default function DriveDetailPage({
   params,
@@ -59,7 +60,7 @@ export default function DriveDetailPage({
     titleLine1,
     titleAccentPrefix,
     titleAccent,
-    description: drive.description,
+    description: linkify(drive.description || ""),
     image: {
       src: drive.image || "/assets/freshers/Workshop.svg",
       alt: drive.title,
@@ -87,10 +88,7 @@ export default function DriveDetailPage({
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <OfficialNoteCard
-                notes={drive.notes}
-                description={drive.description}
-              />
+              <OfficialNoteCard notes={drive.notes} />
             </motion.div>
 
             <motion.div

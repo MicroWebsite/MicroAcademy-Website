@@ -117,7 +117,7 @@ export function useDriveRegistrationForm(domainTitle: string) {
       }
 
       setStatus("success");
-      showToast("Your application has been submitted successfully!", "success");
+      showToast("Registration submitted successfully!", "success");
       setFormData(initialFormData);
       setResume(null);
       setTimeout(() => setStatus("idle"), 5000);

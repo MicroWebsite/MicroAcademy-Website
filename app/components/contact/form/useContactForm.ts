@@ -75,10 +75,7 @@ export function useContactForm() {
       }
 
       setStatus("success");
-      showToast(
-        "Message sent successfully! We'll get back to you soon.",
-        "success",
-      );
+      showToast("Message sent successfully!", "success");
       setFormData(initialFormData);
       setTimeout(() => setStatus("idle"), 5000);
     } catch (err: unknown) {

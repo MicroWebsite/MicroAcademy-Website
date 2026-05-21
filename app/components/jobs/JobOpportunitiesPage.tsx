@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import HomeTemplate from "../common/HeroSection";
-import JobTableSection from "../common/JobTableSection";
+import JobCardSection from "../common/JobCardSection";
 import NoJobsCTA from "../common/NoJobsCTA";
 import ApplicationJourneySection from "./ApplicationJourneySection";
 import RecruitmentApplicationFormModal from "../services/recruitment/ApplicationFormModal";
@@ -71,7 +71,7 @@ export default function JobOpportunitiesPage() {
   return (
     <main className="w-full overflow-hidden">
       <HomeTemplate heroContent={jobOpportunitiesHeroData} />
-
+      <ApplicationJourneySection />
       {isNoJobsInBothCategories ? (
         <section className="py-16 bg-bg-cream">
           <NoJobsCTA
@@ -84,49 +84,35 @@ export default function JobOpportunitiesPage() {
         </section>
       ) : (
         <>
-          <section className="py-16 bg-bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-text-dark mb-8">
-                Full-Time Jobs
-              </h2>
-              {isNoFullTimeJobs ? (
-                <NoJobsCTA
-                  title="No Full-Time Jobs"
-                  titleAccent="Right Now"
-                  description="There are currently no active full-time openings. You can still explore contract opportunities below or reach out to us."
-                  primaryCTA={{ label: "Contact Us", href: "/contact" }}
-                />
-              ) : (
-                <JobTableSection
+          {!isNoFullTimeJobs && (
+            <section className="py-16 bg-bg-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-text-dark mb-8">
+                  Full-Time Jobs
+                </h2>
+                <JobCardSection
                   jobs={fullTimeJobs}
                   onApply={handleApplyForFullTimeJob}
                   loading={loadingFullTimeJobs}
                 />
-              )}
-            </div>
-          </section>
-          <ApplicationJourneySection />
-          <section className="py-16 bg-bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-text-dark mb-8">
-                Contract Jobs
-              </h2>
-              {isNoContractJobs ? (
-                <NoJobsCTA
-                  title="No Contract Jobs"
-                  titleAccent="Right Now"
-                  description="There are currently no active contract openings. You can still explore full-time opportunities above or contact us for upcoming requirements."
-                  primaryCTA={{ label: "Contact Us", href: "/contact" }}
-                />
-              ) : (
-                <JobTableSection
+              </div>
+            </section>
+          )}
+
+          {!isNoContractJobs && (
+            <section className="py-16 bg-bg-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-text-dark mb-8">
+                  Contract Jobs
+                </h2>
+                <JobCardSection
                   jobs={contractJobs}
                   onApply={handleApplyForContractJob}
                   loading={loadingContractJobs}
                 />
-              )}
-            </div>
-          </section>
+              </div>
+            </section>
+          )}
         </>
       )}
 

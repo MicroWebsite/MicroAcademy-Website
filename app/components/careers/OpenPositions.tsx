@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import JobTableSection from "../common/JobTableSection";
+import JobCardSection from "../common/JobCardSection";
 import ApplicationFormModal from "./ApplicationFormModal";
 import NoJobsCTA from "../common/NoJobsCTA";
 import { fetchCareers } from "@/app/services/strapiApi";
@@ -46,7 +46,7 @@ const OpenPositions: React.FC = () => {
   }
 
   return (
-    <section className="w-full bg-bg-white pb-10 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-bg-white pt-12 pb-24 md:pt-8 md:pb-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
@@ -59,7 +59,7 @@ const OpenPositions: React.FC = () => {
             </p>
           </div>
         </div>
-        <JobTableSection jobs={jobs} onApply={handleApply} loading={loading} />
+        <JobCardSection jobs={jobs} onApply={handleApply} loading={loading} />
       </div>
 
       <ApplicationFormModal

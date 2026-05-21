@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { microAdvantageData } from "@/app/data/microAdvantageData";
+import { careerAdvantageData } from "@/app/data/careerAdvantageData";
 import { TrendingUp, Gem, Globe } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -12,7 +12,7 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const MicroAdvantage: React.FC = () => {
-  const { sectionTag, heading, items } = microAdvantageData;
+  const { sectionTag, heading, items } = careerAdvantageData;
 
   return (
     <section className="w-full bg-white py-20 px-4 sm:px-6 lg:px-8">

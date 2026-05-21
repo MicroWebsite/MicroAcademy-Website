@@ -7,28 +7,35 @@ export interface AdvantageItem {
 
 export const microAdvantageData = {
   sectionTag: "THE MICRO ADVANTAGE",
-  heading: "Why Join Us",
+  heading: "Our Core Value Adds",
   items: [
     {
-      id: "professional-growth",
-      icon: "/assets/career/career1.svg", // replace with your actual icon
-      title: "Professional Growth",
+      id: "lms",
+      icon: "/assets/career/career1.svg", // Using existing icons for now, replace internally if needed
+      title: "Learning Management System",
       description:
-        "Continuous learning paths designed for senior mastery and executive leadership. We don't just fill roles; we build careers.",
+        "Comprehensive tracking with batch-wise/individual reports, reference materials, assignment scheduling, and rigorous assessments.",
     },
     {
-      id: "premium-benefits",
+      id: "assessment-support",
       icon: "/assets/career/career2.svg",
-      title: "Premium Benefits",
+      title: "Support via Assessment",
       description:
-        "Comprehensive healthcare, performance bonuses, and wellness programs designed for high-performance lifestyles.",
+        "Knowledge and software-based assessments alongside technical presentations, daily assignments, case studies, and capstone projects.",
     },
     {
-      id: "global-impact",
+      id: "technical-labs",
       icon: "/assets/career/career3.svg",
-      title: "Global Impact",
+      title: "Technical Lab Support",
       description:
-        "Work on projects that influence global markets and professional standards across multiple industries.",
+        "Dedicated technical labs available to candidates both during and after training hours to ensure hands-on mastery.",
+    },
+    {
+      id: "counselling",
+      icon: "/assets/career/career1.svg",
+      title: "Counselling and Guidance",
+      description:
+        "Continuous performance monitoring with timely corrective actions and expert guidance provided throughout the training lifecycle.",
     },
   ],
 };

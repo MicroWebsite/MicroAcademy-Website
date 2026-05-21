@@ -1,5 +1,12 @@
 export type TrainAndHireStep = {
-  icon: "users" | "bookOpen" | "handshake";
+  icon:
+    | "users"
+    | "bookOpen"
+    | "handshake"
+    | "search"
+    | "filter"
+    | "checkCircle"
+    | "briefcase";
   title: string;
   description: string;
   highlighted: boolean;
@@ -7,24 +14,38 @@ export type TrainAndHireStep = {
 
 export const trainAndHireSteps: TrainAndHireStep[] = [
   {
-    icon: "users",
-    title: "Precision Selection",
+    icon: "search",
+    title: "Sourcing",
     description:
-      "We identify raw potential through rigorous cognitive and cultural assessments, selecting only the top 5% of candidates.",
+      "Candidates are strategically sourced and shortlisted based strictly on your precise technical and cultural criteria.",
     highlighted: false,
   },
   {
-    icon: "bookOpen",
-    title: "Customized Training",
+    icon: "filter",
+    title: "Pre-Selection",
     description:
-      "Tailored curriculum designed around your tech stack, domain expertise, and company culture for maximum impact.",
+      "A rigorous pre-selection by your team, encompassing aptitude, technical capability, and HR round evaluations.",
     highlighted: true,
   },
   {
-    icon: "handshake",
-    title: "Seamless Hiring",
+    icon: "bookOpen",
+    title: "Training",
     description:
-      "A friction-less transition from academy to enterprise, with full administrative and onboarding support.",
+      "Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to your business needs.",
+    highlighted: false,
+  },
+  {
+    icon: "checkCircle",
+    title: "Assessment",
+    description:
+      "Comprehensive final assessment conducted by your team to validate readiness before formal induction.",
+    highlighted: true,
+  },
+  {
+    icon: "briefcase",
+    title: "Job Placement",
+    description:
+      "Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire (C2H) basis.",
     highlighted: false,
   },
 ];

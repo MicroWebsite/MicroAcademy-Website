@@ -3,6 +3,7 @@
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import ProcessSection from "./train-and-hire/ProcessSection";
+import MicroAdvantage from "./train-and-hire/MicroAdvantage";
 import WhySection from "./train-and-hire/WhySection";
 import LMSSection from "./train-and-hire/LMSSection";
 import TestimonialSection from "./train-and-hire/TestimonialSection";
@@ -21,6 +22,7 @@ export default function TrainAndHirePage() {
       <ProcessSection />
       <WhySection />
       <LMSSection />
+      <MicroAdvantage />
       <TestimonialSection />
       <CTASection
         title="Ready to Build Your Dream Team?"

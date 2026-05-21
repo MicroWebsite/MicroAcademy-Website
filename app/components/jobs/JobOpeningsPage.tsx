@@ -12,9 +12,9 @@ import {
   fetchContractHiring,
 } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
-import { jobOpportunitiesHeroData } from "@/app/data/jobOpportunitiesHeroData";
+import { jobOpeningsHeroData } from "@/app/data/jobOpeningsHeroData";
 
-export default function JobOpportunitiesPage() {
+export default function JobOpeningsPage() {
   const [fullTimeJobs, setFullTimeJobs] = useState<JobPosition[]>([]);
   const [contractJobs, setContractJobs] = useState<JobPosition[]>([]);
   const [loadingFullTimeJobs, setLoadingFullTimeJobs] = useState(true);
@@ -70,12 +70,12 @@ export default function JobOpportunitiesPage() {
 
   return (
     <main className="w-full overflow-hidden">
-      <HomeTemplate heroContent={jobOpportunitiesHeroData} />
+      <HomeTemplate heroContent={jobOpeningsHeroData} />
       <ApplicationJourneySection />
       {isNoJobsInBothCategories ? (
         <section className="py-16 bg-bg-cream">
           <NoJobsCTA
-            title="No Job Opportunities"
+            title="No Job Openings"
             titleAccent="Currently Available"
             description="We do not have active full-time or contract openings at the moment. Please check back soon or contact us to get notified when new roles are published."
             primaryCTA={{ label: "Contact Us", href: "/contact" }}

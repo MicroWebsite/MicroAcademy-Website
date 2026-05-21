@@ -20,8 +20,8 @@ const navLinks = [
     ],
   },
   {
-    label: "Job Opportunities",
-    href: "/job-opportunities",
+    label: "Job Openings",
+    href: "/job-openings",
     subLinks: [{ label: "Fresher Drive", href: "/freshers-drive" }],
   },
   { label: "Careers", href: "/careers" },

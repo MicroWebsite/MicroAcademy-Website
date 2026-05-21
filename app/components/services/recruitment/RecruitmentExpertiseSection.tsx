@@ -2,8 +2,16 @@
 
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { BriefcaseBusiness } from "lucide-react";
+import { Crown, Code2, Layers, Award, Cpu } from "lucide-react";
 import { recruitmentExpertiseGroups } from "@/app/data/recruitmentInsightsData";
+
+const iconMap = {
+  crown: Crown,
+  code2: Code2,
+  layers: Layers,
+  award: Award,
+  cpu: Cpu,
+} as const;
 
 export default function RecruitmentExpertiseSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -75,37 +83,40 @@ export default function RecruitmentExpertiseSection() {
           ref={scrollRef}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          {recruitmentExpertiseGroups.map((group, index) => (
-            <motion.div
-              key={group.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.06 }}
-              className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-[360px] lg:w-[380px] snap-center"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                  <BriefcaseBusiness className="w-5 h-5 text-text-badge" />
-                </span>
-                <h3 className="text-lg font-bold text-text-dark font-manrope leading-tight">
-                  {group.title}
-                </h3>
-              </div>
+          {recruitmentExpertiseGroups.map((group, index) => {
+            const Icon = iconMap[group.icon];
+            return (
+              <motion.div
+                key={group.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-[360px] lg:w-[380px] snap-center"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-text-badge" />
+                  </span>
+                  <h3 className="text-lg font-bold text-text-dark font-manrope leading-tight">
+                    {group.title}
+                  </h3>
+                </div>
 
-              <ul className="space-y-2">
-                {group.roles.map((role) => (
-                  <li
-                    key={role}
-                    className="text-sm text-text-muted-alt leading-6 flex items-start gap-2"
-                  >
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                    <span>{role}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <ul className="space-y-2">
+                  {group.roles.map((role) => (
+                    <li
+                      key={role}
+                      className="text-sm text-text-muted-alt leading-6 flex items-start gap-2"
+                    >
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      <span>{role}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

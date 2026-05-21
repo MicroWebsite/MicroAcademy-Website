@@ -24,7 +24,7 @@ export default function BenefitsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {contractBenefits.map((benefit, i) => {
             const Icon = iconByType[benefit.icon];
 
@@ -35,15 +35,18 @@ export default function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-[24px] p-8 pb-10 shadow-[0px_10px_40px_-10px_rgba(0,0,0,0.06)] h-full flex flex-col items-start transition-shadow hover:shadow-[0px_10px_40px_-5px_rgba(0,0,0,0.1)]"
+                className="bg-white rounded-[20px] p-8 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.04)] h-full flex flex-col items-start"
               >
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-[#fde047]">
-                  <Icon className="w-5 h-5 text-gray-900" strokeWidth={2.5} />
+                <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center mb-6 bg-[#fde047]">
+                  <Icon
+                    className="w-[22px] h-[22px] text-gray-900"
+                    strokeWidth={1.5}
+                  />
                 </div>
-                <h3 className="text-[20px] leading-tight font-bold text-[#111827] mb-4 font-manrope pr-2">
+                <h3 className="text-[22px] leading-[1.3] font-bold text-[#0f172a] mb-4 font-manrope">
                   {benefit.title}
                 </h3>
-                <p className="text-[14px] text-[#4B5563] leading-relaxed font-manrope">
+                <p className="text-[15px] text-[#64748b] leading-[1.65] font-manrope">
                   {benefit.description}
                 </p>
               </motion.div>

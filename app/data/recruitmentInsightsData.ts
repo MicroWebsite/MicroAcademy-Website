@@ -1,11 +1,13 @@
 export type RecruitmentExpertiseGroup = {
   title: string;
+  icon: "crown" | "code2" | "layers" | "award" | "cpu";
   roles: string[];
 };
 
 export const recruitmentExpertiseGroups: RecruitmentExpertiseGroup[] = [
   {
     title: "Management and Leadership Positions",
+    icon: "crown",
     roles: [
       "IT Director",
       "Chief Technology Officer (CTO)",
@@ -16,10 +18,12 @@ export const recruitmentExpertiseGroups: RecruitmentExpertiseGroup[] = [
   },
   {
     title: "Level 1 and 2 Tech Roles",
+    icon: "code2",
     roles: ["Entry-Level Developer", "IT Support Specialist"],
   },
   {
     title: "Mid-Level (L3) Positions",
+    icon: "layers",
     roles: [
       "Software Developer",
       "System Administrator",
@@ -29,6 +33,7 @@ export const recruitmentExpertiseGroups: RecruitmentExpertiseGroup[] = [
   },
   {
     title: "Senior-Level Positions",
+    icon: "award",
     roles: [
       "Senior Software / Systems Engineer",
       "Domain Specialist (ERP / CRM / Database)",
@@ -38,6 +43,7 @@ export const recruitmentExpertiseGroups: RecruitmentExpertiseGroup[] = [
   },
   {
     title: "Specialized Positions",
+    icon: "cpu",
     roles: [
       "Data Scientist",
       "Cybersecurity Specialist",

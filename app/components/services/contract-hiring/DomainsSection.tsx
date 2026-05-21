@@ -13,7 +13,7 @@ const iconByType = {
 
 export default function DomainsSection() {
   return (
-    <section className="w-full bg-bg-cream px-8 py-24">
+    <section className="w-full bg-white px-8 py-24">
       <div className="max-w-[1000px] mx-auto flex flex-col gap-12 items-center text-center">
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">

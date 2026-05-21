@@ -23,6 +23,7 @@ export default function RecruitmentPage() {
         title="Looking for Top Talent?"
         description="Streamline your hiring process with our expert recruitment solutions. We help you find the perfect match for your organization's culture and technical needs."
         buttonText="Hire Now"
+        variant="hero"
       />
     </div>
   );

@@ -4,6 +4,7 @@ import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import ProcessSection from "./train-and-hire/ProcessSection";
 import WhySection from "./train-and-hire/WhySection";
+import LMSSection from "./train-and-hire/LMSSection";
 import TestimonialSection from "./train-and-hire/TestimonialSection";
 import CTASection from "../common/CTASection";
 
@@ -19,6 +20,7 @@ export default function TrainAndHirePage() {
       )}
       <ProcessSection />
       <WhySection />
+      <LMSSection />
       <TestimonialSection />
       <CTASection
         title="Ready to Build Your Dream Team?"

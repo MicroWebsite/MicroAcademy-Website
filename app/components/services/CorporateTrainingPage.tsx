@@ -8,33 +8,35 @@ import {
   Cloud,
   Shield,
   GitBranch,
-  Server,
   Database,
-  Users2,
-  Car,
   Wrench,
-  Lock,
   TestTube2,
   BarChart3,
   Award,
   Building2,
+  Brain,
+  Cpu,
+  Sparkles,
+  Bot,
+  Network,
+  Monitor,
 } from "lucide-react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import CTASection from "../common/CTASection";
 
 const techCategories = [
-  { icon: <Code2 className="w-[30px] h-[18px]" />, label: "Java / .NET" },
-  { icon: <Cloud className="w-[33px] h-6" />, label: "Cloud Computing" },
-  { icon: <Shield className="w-6 h-[30px]" />, label: "Security" },
-  { icon: <GitBranch className="w-[30px] h-[27px]" />, label: "DevOps" },
-  { icon: <Server className="w-7 h-7" />, label: "IT Infrastructure" },
-  { icon: <Database className="w-7 h-7" />, label: "ERP Tools" },
-  { icon: <Users2 className="w-9 h-[34px]" />, label: "CRM Systems" },
-  { icon: <Car className="w-7 h-6" />, label: "Automotive Tech" },
-  { icon: <Wrench className="w-7 h-[30px]" />, label: "Service Now" },
-  { icon: <Lock className="w-[31px] h-[31px]" />, label: "Internet Security" },
-  { icon: <TestTube2 className="w-[30px] h-[23px]" />, label: "QA & Testing" },
+  { icon: <Code2 className="w-7 h-7" />, label: "Java / .NET" },
+  { icon: <Cloud className="w-7 h-7" />, label: "Cloud Computing" },
+  { icon: <Network className="w-7 h-7" />, label: "Cybersecurity" },
+  { icon: <GitBranch className="w-7 h-7" />, label: "DevOps" },
+  { icon: <Monitor className="w-7 h-7" />, label: "System Admin" },
+  { icon: <Database className="w-7 h-7" />, label: "Data Engineering" },
+  { icon: <Brain className="w-7 h-7" />, label: "MLOps" },
+  { icon: <Sparkles className="w-7 h-7" />, label: "Generative AI" },
+  { icon: <Wrench className="w-7 h-7" />, label: "Service Now" },
+  { icon: <Cpu className="w-7 h-7" />, label: "AIOps" },
+  { icon: <Bot className="w-7 h-7" />, label: "Automation & Robotics" },
   { icon: <BarChart3 className="w-7 h-7" />, label: "Data Science" },
 ];
 
@@ -231,6 +233,7 @@ export default function CorporateTrainingPage() {
         <HomeTemplate heroContent={corporateTrainingData.heroData} />
       )}
       <TechLogosGrid />
+
       <MethodologySection />
       <CTASection
         title="Empower Your Workforce"

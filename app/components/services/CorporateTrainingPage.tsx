@@ -6,11 +6,9 @@ import Image from "next/image";
 import {
   Code2,
   Cloud,
-  Shield,
   GitBranch,
   Database,
   Wrench,
-  TestTube2,
   BarChart3,
   Award,
   Building2,

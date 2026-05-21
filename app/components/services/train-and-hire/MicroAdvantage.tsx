@@ -129,7 +129,6 @@ export default function MicroAdvantage() {
         <div className="grid gap-5 lg:hidden">
           {items.map((item, i) => {
             const Icon = iconMap[item.id] || Target;
-            const accent = valueAccents[i % valueAccents.length];
 
             return (
               <motion.div

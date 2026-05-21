@@ -90,7 +90,7 @@ const OurClients: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-4"
+          className="mb-4 text-center"
         >
           <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
             {sectionTag}
@@ -100,15 +100,13 @@ const OurClients: React.FC = () => {
           </h2>
         </motion.div>
 
-        {/* Framing Container with Gold Accent Inner Box */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-black/5 p-4 sm:p-6 md:p-8"
         >
-          <div className="border-2 border-secondary/70 rounded-2xl p-4 sm:p-6 md:p-10 bg-bg-cream-light/30">
+          <div className="rounded-2xl py-4 bg-bg-cream-light/30">
             {/* Logos Grid */}
             <motion.div
               variants={containerVariants}

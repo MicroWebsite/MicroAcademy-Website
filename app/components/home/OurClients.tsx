@@ -52,7 +52,7 @@ const ClientLogoCard: React.FC<{ client: Client; isSlider?: boolean }> = ({
         borderColor: "var(--primary-light)",
         transition: { type: "spring", stiffness: 400, damping: 20 },
       }}
-      className="relative w-full bg-white rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.015)] border border-border-light flex items-center justify-center aspect-[4/3] overflow-hidden transition-all duration-300 select-none group cursor-pointer"
+      className="relative w-full bg-white rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.015)] border border-border-light flex items-center justify-center aspect-4/3 overflow-hidden transition-all duration-300 select-none group cursor-pointer"
     >
       {/* Light accent hover background splash */}
       <div className="absolute inset-0 bg-primary/1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -173,7 +173,7 @@ const OurClients: React.FC = () => {
                   handlePrev();
                 }
               }}
-              animate={{ x: `-${currentIndex * (100 / visibleCount)}%` }}
+              animate={{ x: `-${safeIndex * (100 / visibleCount)}%` }}
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
               {clients.map((client) => (
@@ -181,7 +181,7 @@ const OurClients: React.FC = () => {
                   key={client.id}
                   className="w-full sm:w-1/2 shrink-0 flex justify-center px-3 sm:px-4"
                 >
-                  <div className="w-full max-w-[240px] sm:max-w-[280px]">
+                  <div className="w-full max-w-60 sm:max-w-70">
                     <ClientLogoCard client={client} isSlider={true} />
                   </div>
                 </div>
@@ -208,13 +208,13 @@ const OurClients: React.FC = () => {
           </button>
 
           {/* Paginated Indicator Dots */}
-          <div className="flex justify-center flex-wrap gap-1.5 mt-4 max-w-[280px] sm:max-w-[400px] mx-auto">
+          <div className="flex justify-center flex-wrap gap-1.5 mt-4 max-w-70 sm:max-w-100 mx-auto">
             {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === idx ? "w-4 bg-primary" : "w-1.5 bg-gray-300"
+                  safeIndex === idx ? "w-4 bg-primary" : "w-1.5 bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

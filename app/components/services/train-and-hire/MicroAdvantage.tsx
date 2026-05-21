@@ -60,7 +60,7 @@ export default function MicroAdvantage() {
 
         <div className="hidden lg:block relative pt-10 pb-10">
           <svg
-            className="absolute inset-x-0 top-8 h-[360px] w-full pointer-events-none"
+            className="absolute inset-x-0 top-4 h-[360px] w-full pointer-events-none"
             viewBox="0 0 1180 360"
             fill="none"
           >
@@ -104,19 +104,19 @@ export default function MicroAdvantage() {
                   <div className="relative flex flex-col items-center">
                     <div
                       className={`absolute left-1/2 -translate-x-1/2 ${
-                        isTop ? "-top-6" : "-bottom-6"
-                      } h-36 w-36 rounded-full border-2 border-dashed ${accent.ring} bg-transparent`}
+                        isTop ? "-top-4" : "-bottom-4"
+                      } h-24 w-24 rounded-full border-2 border-dashed ${accent.ring} bg-transparent`}
                     />
-                    <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[#ffd43b] shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-                      <Icon className="h-7 w-7 text-[#111111]" />
+                    <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#ffd43b] shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:scale-105 transition-transform duration-200">
+                      <Icon className="h-5 w-5 text-[#111111]" />
                     </div>
                   </div>
 
-                  <div className="mt-7 max-w-[210px]">
-                    <h3 className="text-[28px] font-extrabold leading-[1.05] text-[#111111] tracking-[-0.03em]">
+                  <div className="mt-5 max-w-[210px]">
+                    <h3 className="text-xl font-bold leading-snug text-[#111111] tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-[15px] leading-[1.7] text-[#666666]">
+                    <p className="mt-3 text-sm leading-[1.6] text-[#666666]">
                       {item.description}
                     </p>
                   </div>
@@ -141,14 +141,14 @@ export default function MicroAdvantage() {
                 className="rounded-3xl bg-white border border-border p-6 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#ffd43b] text-[#111111] shadow-md">
-                    <Icon className="h-6 w-6" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#ffd43b] text-[#111111] shadow-sm">
+                    <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 leading-snug">
+                    <h3 className="text-base font-bold text-gray-900 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                    <p className="mt-2 text-xs leading-relaxed text-gray-600">
                       {item.description}
                     </p>
                   </div>

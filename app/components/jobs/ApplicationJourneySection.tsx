@@ -112,8 +112,8 @@ export default function ApplicationJourneySection() {
                   {isTop && (
                     <div className="group mb-5 w-full">
                       <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300">
-                        <span className="w-10 h-10 rounded-xl bg-secondary/20 inline-flex items-center justify-center mb-3">
-                          <Icon className="w-5 h-5 text-primary" />
+                        <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
+                          <Icon className="w-5 h-5 text-black" />
                         </span>
                         <h3 className="text-sm font-bold text-text-dark mb-1.5 uppercase tracking-wide">
                           {step.title}
@@ -135,8 +135,8 @@ export default function ApplicationJourneySection() {
                   {!isTop && (
                     <div className="group mt-0 w-full">
                       <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300">
-                        <span className="w-10 h-10 rounded-xl bg-secondary/20 inline-flex items-center justify-center mb-3">
-                          <Icon className="w-5 h-5 text-primary" />
+                        <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
+                          <Icon className="w-5 h-5 text-black" />
                         </span>
                         <h3 className="text-sm font-bold text-text-dark mb-1.5 uppercase tracking-wide">
                           {step.title}
@@ -178,8 +178,8 @@ export default function ApplicationJourneySection() {
 
                   {/* Card */}
                   <div className="flex-1 bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light">
-                    <span className="w-10 h-10 rounded-xl bg-secondary/20 inline-flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
+                      <Icon className="w-5 h-5 text-black" />
                     </span>
                     <h3 className="text-base font-bold text-text-dark mb-1.5">
                       {step.title}

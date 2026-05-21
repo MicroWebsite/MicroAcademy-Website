@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { trainAndHireSteps } from "@/app/data/trainAndHirePageData";
 import {
@@ -24,51 +24,6 @@ const iconByType = {
 } as const;
 
 export default function ProcessSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let interval: NodeJS.Timeout;
-
-    const startAutoScroll = () => {
-      interval = setInterval(() => {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-
-        // If at the end, jump back to start
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          // Scroll smoothly by the width of one item
-          const firstChild = scrollContainer.children[0] as HTMLElement;
-          const scrollAmount = firstChild ? firstChild.clientWidth + 24 : 350; // 24 is roughly the gap
-          scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-      }, 3000); // 3 seconds interval
-    };
-
-    const stopAutoScroll = () => clearInterval(interval);
-
-    startAutoScroll();
-
-    // Pause auto-scroll on hover or touch
-    scrollContainer.addEventListener("mouseenter", stopAutoScroll);
-    scrollContainer.addEventListener("mouseleave", startAutoScroll);
-    scrollContainer.addEventListener("touchstart", stopAutoScroll, {
-      passive: true,
-    });
-    scrollContainer.addEventListener("touchend", startAutoScroll);
-
-    return () => {
-      stopAutoScroll();
-      scrollContainer.removeEventListener("mouseenter", stopAutoScroll);
-      scrollContainer.removeEventListener("mouseleave", startAutoScroll);
-      scrollContainer.removeEventListener("touchstart", stopAutoScroll);
-      scrollContainer.removeEventListener("touchend", startAutoScroll);
-    };
-  }, []);
-
   return (
     <section className="w-full bg-white py-24">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-16">
@@ -91,53 +46,100 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        >
+        <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 lg:gap-6 w-full min-h-[580px] mt-12 md:mt-0">
           {trainAndHireSteps.map((step, i) => {
             const Icon = iconByType[step.icon];
+            const isTopCard = i % 2 === 0;
 
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative flex flex-col items-start gap-4 rounded-3xl overflow-hidden p-10 shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto shrink-0 w-[85vw] md:w-[360px] snap-center ${
+            const StyledCard = () => (
+              <div
+                className={`flex flex-col items-start justify-center p-5 lg:p-7 rounded-[2rem] shadow-[0px_8px_30px_-10px_rgba(0,0,0,0.08)] w-full min-h-[220px] transition-all duration-300 relative z-10 ${
                   step.highlighted
-                    ? "bg-linear-to-r from-primary to-secondary min-h-[336px]"
-                    : "bg-bg-cream-alt min-h-[320px]"
+                    ? "bg-linear-to-br from-primary to-secondary text-white"
+                    : "bg-white text-text-dark"
                 }`}
               >
-                <div
-                  className={`flex items-center justify-center rounded-2xl ${
-                    step.highlighted
-                      ? "w-[58.8px] h-[58.8px] bg-white/20 text-white"
-                      : "w-[56px] h-[56px] bg-primary/10 text-primary"
+                <Icon
+                  className={`w-8 h-8 lg:w-9 lg:h-9 mb-4 ${
+                    step.highlighted ? "text-white" : "text-primary"
                   }`}
-                >
-                  <Icon className="w-6 h-6" />
-                </div>
-
-                <div className="pt-4">
-                  <h3
-                    className={`text-2xl leading-8 font-manrope font-normal ${
-                      step.highlighted ? "text-white" : "text-text-dark"
-                    }`}
-                  >
-                    {step.title}
-                  </h3>
-                </div>
-
+                />
+                <h3 className="text-[13px] lg:text-[15px] font-bold uppercase tracking-wider mb-2 font-manrope">
+                  {step.title}
+                </h3>
                 <p
-                  className={`text-base leading-[26px] font-manrope ${
+                  className={`text-[11px] lg:text-[12px] leading-relaxed line-clamp-4 ${
                     step.highlighted ? "text-white/90" : "text-text-muted-alt"
                   }`}
                 >
                   {step.description}
                 </p>
+              </div>
+            );
+
+            const NumberNode = () => (
+              <div className="relative flex items-center justify-center w-20 h-20 z-10">
+                <div
+                  className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-primary/40 animate-spin"
+                  style={{ animationDuration: "10s" }}
+                />
+                <div
+                  className={`w-12 h-12 rounded-full border-[1.5px] border-primary flex items-center justify-center text-lg font-bold font-manrope transition-colors duration-300 ${
+                    step.highlighted
+                      ? "bg-primary text-white"
+                      : "bg-white text-primary"
+                  }`}
+                >
+                  0{i + 1}
+                </div>
+              </div>
+            );
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: isTopCard ? -20 : 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative flex-1 w-full md:w-auto h-auto md:h-[520px] flex flex-col justify-between items-center z-10"
+              >
+                {/* SVG Connecting Line for Desktop */}
+                {i < trainAndHireSteps.length - 1 && (
+                  <svg
+                    viewBox="0 0 100 520"
+                    className="hidden md:block absolute top-0 left-1/2 w-full h-[520px] z-[-1] pointer-events-none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d={
+                        isTopCard
+                          ? "M 0 110 C 50 110, 50 410, 100 410"
+                          : "M 0 410 C 50 410, 50 110, 100 110"
+                      }
+                      stroke="#E5E7EB"
+                      strokeWidth="2"
+                      vectorEffect="non-scaling-stroke"
+                      fill="none"
+                    />
+                  </svg>
+                )}
+
+                {/* Mobile specific layout (stacks nicely) */}
+                <div className="md:hidden flex w-full gap-4 items-center mb-6 pl-4 pr-4">
+                  <NumberNode />
+                  <StyledCard />
+                </div>
+
+                {/* Desktop Top Half */}
+                <div className="hidden md:flex flex-1 w-full items-start justify-center pb-2 lg:pb-4">
+                  {isTopCard ? <StyledCard /> : <NumberNode />}
+                </div>
+
+                {/* Desktop Bottom Half */}
+                <div className="hidden md:flex flex-1 w-full items-end justify-center pt-2 lg:pt-4">
+                  {isTopCard ? <NumberNode /> : <StyledCard />}
+                </div>
               </motion.div>
             );
           })}

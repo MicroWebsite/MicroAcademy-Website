@@ -24,7 +24,7 @@ export default function BenefitsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
           {contractBenefits.map((benefit, i) => {
             const Icon = iconByType[benefit.icon];
 
@@ -35,19 +35,15 @@ export default function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 25 },
-                }}
-                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
+                className="bg-white rounded-[24px] p-8 pb-10 shadow-[0px_10px_40px_-10px_rgba(0,0,0,0.06)] h-full flex flex-col items-start transition-shadow hover:shadow-[0px_10px_40px_-5px_rgba(0,0,0,0.1)]"
               >
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-7 h-7 text-text-badge" />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-[#fde047]">
+                  <Icon className="w-5 h-5 text-gray-900" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-manrope">
+                <h3 className="text-[20px] leading-tight font-bold text-[#111827] mb-4 font-manrope pr-2">
                   {benefit.title}
                 </h3>
-                <p className="text-base text-gray-600 leading-relaxed font-manrope">
+                <p className="text-[14px] text-[#4B5563] leading-relaxed font-manrope">
                   {benefit.description}
                 </p>
               </motion.div>

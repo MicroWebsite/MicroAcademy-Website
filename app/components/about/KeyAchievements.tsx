@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const KeyAchievements: React.FC = () => {
   return (
-    <section className="w-full bg-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="w-full bg-bg-cream py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-[1280px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

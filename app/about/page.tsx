@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import HomeTemplate from "@/app/components/common/HeroSection";
 import WhoareweSection from "@/app/components/about/WhoareweSection";
 import { aboutHeroData } from "@/app/data/aboutHeroData";
-import MissionVision from "../components/about/MissionVision";
 import Gallery from "../components/about/Gallery";
 import ThirtyYearGenesis from "../components/about/Thirtyyeargenesis";
 import KeyAchievements from "../components/about/KeyAchievements";
@@ -23,7 +22,6 @@ export default function AboutPage() {
       <WhoareweSection />
       <KeyAchievements />
       <ThirtyYearGenesis />
-      <MissionVision />
       <Gallery />
     </div>
   );

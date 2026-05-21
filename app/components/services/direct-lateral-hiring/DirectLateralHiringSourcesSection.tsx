@@ -8,7 +8,7 @@ import {
 export default function DirectLateralHiringSourcesSection() {
   return (
     <section className="w-full bg-white px-8 py-24">
-      <div className="max-w-[1216px] mx-auto flex flex-col gap-10">
+      <div className="max-w-304 mx-auto flex flex-col gap-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

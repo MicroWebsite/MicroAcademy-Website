@@ -113,7 +113,7 @@ export default function ApplicationFormFields({
         <label className="text-[10px] font-bold uppercase tracking-[1px] text-text-muted-alt font-inter">
           Resume Upload
         </label>
-        <label className="flex flex-col items-center justify-center gap-1 py-6 px-4 cursor-pointer transition-colors bg-bg-input-row border-2 border-dashed border-border-soft rounded-lg min-h-[140px]">
+        <label className="flex flex-col items-center justify-center gap-1 py-6 px-4 cursor-pointer transition-colors bg-bg-input-row border-2 border-dashed border-border-soft rounded-lg min-h-35">
           <input
             type="file"
             accept=".pdf,.doc,.docx"
@@ -148,7 +148,7 @@ export default function ApplicationFormFields({
           placeholder="Briefly describe your career objectives..."
           value={formData.message}
           onChange={(e) => onChange("message", e.target.value)}
-          className="w-full px-3 py-2 text-sm outline-none resize-none bg-bg-input rounded-lg min-h-[64px] leading-5 text-text-dark font-manrope font-normal"
+          className="w-full px-3 py-2 text-sm outline-none resize-none bg-bg-input rounded-lg min-h-16 leading-5 text-text-dark font-manrope font-normal"
         />
       </div>
 

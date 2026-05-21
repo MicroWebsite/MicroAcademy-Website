@@ -10,7 +10,7 @@ export default function ChatToggleButton({
   return (
     <button
       onClick={onToggle}
-      className={`fixed bottom-5 right-5 z-[9999] w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 group ${
+      className={`fixed bottom-5 right-5 z-9999 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 group ${
         isOpen
           ? "bg-bg-dark hover:bg-bg-dark-card-hover rotate-0"
           : "bg-primary bg-linear-to-br from-primary to-primary-light"

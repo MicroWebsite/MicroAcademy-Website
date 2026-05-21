@@ -1,7 +1,7 @@
 import { HeroProps } from "../types/hero";
 
 export const heroData: HeroProps = {
-  badge: "Workforce Transformation",
+  badge: "Facilitating the future with Expertise",
   titleLine1: "The Future of Workforce Intelligence,",
   titleLine2: "",
   titleAccent: "Curated.",

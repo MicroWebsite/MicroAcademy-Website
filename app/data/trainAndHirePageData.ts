@@ -57,19 +57,24 @@ export type WhyPoint = {
 
 export const trainAndHireWhyPoints: WhyPoint[] = [
   {
-    title: "Zero Financial Burden During Training",
+    title: "Maximizing Cost Benefits",
     description:
-      "Drastically reduce your capital expenditure. You incur absolutely zero employee costs during the entire training and up-skilling phase.",
+      "Mitigate capital risk with zero employee costs during training. We handle recruitment and up-skilling, eliminating early attrition overheads.",
   },
   {
-    title: "Zero Attrition Risk",
+    title: "Hiring & Training Flexibility",
     description:
-      "Mitigate the massive risk of candidate drop-offs. Only pre-vetted, committed individuals who successfully meet your expectations post-training are onboarded.",
+      "Offer customized and certified trainings under one roof. Hire candidates directly post-training or transition them smoothly via Contract-to-Hire (C2H).",
   },
   {
-    title: "Necessity-Driven & Standardized Deployment",
+    title: "Necessity-Driven Standardization",
     description:
-      "Scale Level 1 resources in niche, hard-to-get skills quickly. Our standardized training guarantees uniform capability across all your global locations.",
+      "Standardize training curriculum across global locations. Only candidates meeting your strict post-training evaluation criteria are recruited.",
+  },
+  {
+    title: "Seamless Enterprise Scalability",
+    description:
+      "Ramp up large delivery cohorts quickly in niche, hard-to-get skills. Deploy level 1 resources ready to perform from day one.",
   },
 ];
 

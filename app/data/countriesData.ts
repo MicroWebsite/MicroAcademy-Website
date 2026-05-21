@@ -49,6 +49,12 @@ export const countriesData: Country[] = [
     image: "/assets/home/countries/Singapore_flag.png",
     region: "Asia",
   },
+  {
+    name: "Philippines",
+    label: "Active Programs",
+    image: "/assets/home/countries/Philippines_flag.png",
+    region: "Asia",
+  },
 
   // Africa
   {

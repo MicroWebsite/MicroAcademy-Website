@@ -18,59 +18,130 @@ import {
   Bot,
   Network,
   Monitor,
+  Users,
+  Check,
 } from "lucide-react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import CTASection from "../common/CTASection";
 
-const techCategories = [
-  { icon: <Code2 className="w-7 h-7" />, label: "Java / .NET" },
-  { icon: <Cloud className="w-7 h-7" />, label: "Cloud Computing" },
-  { icon: <Network className="w-7 h-7" />, label: "Cybersecurity" },
-  { icon: <GitBranch className="w-7 h-7" />, label: "DevOps" },
-  { icon: <Monitor className="w-7 h-7" />, label: "System Admin" },
-  { icon: <Database className="w-7 h-7" />, label: "Data Engineering" },
-  { icon: <Brain className="w-7 h-7" />, label: "MLOps" },
-  { icon: <Sparkles className="w-7 h-7" />, label: "Generative AI" },
-  { icon: <Wrench className="w-7 h-7" />, label: "Service Now" },
-  { icon: <Cpu className="w-7 h-7" />, label: "AIOps" },
-  { icon: <Bot className="w-7 h-7" />, label: "Automation & Robotics" },
-  { icon: <BarChart3 className="w-7 h-7" />, label: "Data Science" },
+const trainingTracks = [
+  {
+    id: "sys-admin",
+    category: "System Administration",
+    icon: <Monitor className="w-7 h-7" />,
+    description:
+      "Enterprise server environments, administration, and virtualization.",
+    items: [
+      "Windows & Linux Server Administration",
+      "IBM Mainframe / IBM i Administration",
+      "Networking & Virtualization",
+      "Database Administration",
+      "Storage & Backup",
+    ],
+  },
+  {
+    id: "app-dev",
+    category: "Application Development",
+    icon: <Code2 className="w-7 h-7" />,
+    description:
+      "Full-stack development, modern web architectures, and automation testing.",
+    items: [
+      "Java Full Stack",
+      "Dot net",
+      "Angular JS",
+      "Testing",
+      "Web Technologies",
+      "Middleware",
+    ],
+  },
+  {
+    id: "soft-skills",
+    category: "Soft Skills",
+    icon: <Users className="w-7 h-7" />,
+    description:
+      "Professional development, agility, and interpersonal collaboration.",
+    items: [
+      "Critical thinking & Problem Solving",
+      "Agility & Adaptability",
+      "Leadership & Project Management",
+      "Cross Cultural Collaboration",
+    ],
+  },
+  {
+    id: "niche-tech",
+    category: "Niche Technologies",
+    icon: <Cpu className="w-7 h-7" />,
+    description:
+      "Cutting-edge artificial intelligence, data science, and advanced tech stacks.",
+    items: [
+      "AI Transformation for Business & IT Leaders",
+      "AI / ML / Gen AI Tech Stack",
+      "Data Science & Analytics",
+      "Network & Cybersecurity",
+      "Automation & Robotics",
+    ],
+  },
 ];
 
 function TechLogosGrid() {
   return (
     <section className="w-full bg-white px-8 py-24">
-      <div className="max-w-[1344px] mx-auto flex flex-col gap-20">
+      <div className="max-w-[1344px] mx-auto flex flex-col gap-16">
         {/* Header */}
-        <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope tracking-[-0.9px]">
-            Technology Domains We Master
+        <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-dark font-manrope tracking-[-0.9px]">
+            Trainings Conducted
           </h2>
-          <p className="text-base leading-6 text-text-muted-alt font-inter font-normal tracking-[0.4px]">
-            Comprehensive training across enterprise technology stacks
+          <p className="text-base leading-6 text-text-muted-alt font-manrope font-normal">
+            With 3 decades of experience in the Learning and Development space,
+            we conduct tailored technology and professional training across 4
+            core domains.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-          {techCategories.map((tech, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {trainingTracks.map((track, i) => (
             <motion.div
-              key={tech.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={track.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{
-                y: -5,
+                y: -6,
                 transition: { type: "spring", stiffness: 400, damping: 25 },
               }}
-              className="flex flex-col justify-center items-center gap-4 p-8 bg-white border border-border rounded-xl hover:shadow-lg transition-all duration-300 cursor-default"
+              className="flex flex-col bg-white border border-border rounded-3xl p-8 hover:shadow-xl hover:border-primary/20 transition-all duration-300 cursor-default group"
             >
-              <div className="text-primary">{tech.icon}</div>
-              <span className="text-center text-sm leading-5 font-bold text-text-dark font-manrope tracking-[-0.35px]">
-                {tech.label}
-              </span>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-secondary text-primary group-hover:scale-110 transition-transform duration-300">
+                  {track.icon}
+                </div>
+                <h3 className="text-xl font-bold text-text-dark font-manrope tracking-tight leading-tight">
+                  {track.category}
+                </h3>
+              </div>
+
+              <p className="text-sm text-text-muted-alt font-manrope mb-6 leading-relaxed">
+                {track.description}
+              </p>
+
+              <div className="w-full h-px bg-border mb-6" />
+
+              <ul className="flex flex-col gap-4 mt-auto">
+                {track.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-secondary shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-text-badge font-bold" />
+                    </span>
+                    <span className="text-sm font-medium text-text-muted-alt font-manrope leading-tight">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

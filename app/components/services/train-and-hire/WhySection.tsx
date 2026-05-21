@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { trainAndHireWhyPoints } from "@/app/data/trainAndHirePageData";
-import { ShieldCheck, GraduationCap, Users } from "lucide-react";
+import { ShieldCheck, GraduationCap, Users, TrendingUp } from "lucide-react";
 
-const whyIcons = [ShieldCheck, GraduationCap, Users];
+const whyIcons = [ShieldCheck, GraduationCap, Users, TrendingUp];
 
 export default function WhySection() {
   return (

@@ -3,6 +3,7 @@ import CoreCapabilities from "./components/home/CoreCapabilities";
 import CountriesCarousel from "./components/home/CountryCarousel";
 import HeroSection from "@/app/components/common/HeroSection";
 import StatsSection from "./components/home/StatsSection";
+import OurClients from "./components/home/OurClients";
 import { heroData } from "./data/heroData";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function Home() {
       <HeroSection heroContent={heroData} />
       <StatsSection />
       <CoreCapabilities />
+      <OurClients />
       <CountriesCarousel />
     </div>
   );

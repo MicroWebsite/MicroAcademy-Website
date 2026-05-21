@@ -1,8 +1,55 @@
+"use client";
+
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { BriefcaseBusiness } from "lucide-react";
 import { recruitmentExpertiseGroups } from "@/app/data/recruitmentInsightsData";
 
 export default function RecruitmentExpertiseSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let interval: NodeJS.Timeout;
+
+    const startAutoScroll = () => {
+      interval = setInterval(() => {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+
+        // If at the end, jump back to start
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Scroll smoothly by the width of one item
+          const firstChild = scrollContainer.children[0] as HTMLElement;
+          const scrollAmount = firstChild ? firstChild.clientWidth + 24 : 350; // 24 is gap
+          scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }, 3000); // 3 seconds interval
+    };
+
+    const stopAutoScroll = () => clearInterval(interval);
+
+    startAutoScroll();
+
+    scrollContainer.addEventListener("mouseenter", stopAutoScroll);
+    scrollContainer.addEventListener("mouseleave", startAutoScroll);
+    scrollContainer.addEventListener("touchstart", stopAutoScroll, {
+      passive: true,
+    });
+    scrollContainer.addEventListener("touchend", startAutoScroll);
+
+    return () => {
+      stopAutoScroll();
+      scrollContainer.removeEventListener("mouseenter", stopAutoScroll);
+      scrollContainer.removeEventListener("mouseleave", startAutoScroll);
+      scrollContainer.removeEventListener("touchstart", stopAutoScroll);
+      scrollContainer.removeEventListener("touchend", startAutoScroll);
+    };
+  }, []);
+
   return (
     <section className="w-full bg-bg-cream px-8 py-24">
       <div className="max-w-[1216px] mx-auto">
@@ -24,7 +71,10 @@ export default function RecruitmentExpertiseSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
           {recruitmentExpertiseGroups.map((group, index) => (
             <motion.div
               key={group.title}
@@ -32,7 +82,7 @@ export default function RecruitmentExpertiseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.06 }}
-              className="bg-white rounded-2xl p-6 shadow-md"
+              className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-[360px] lg:w-[380px] snap-center"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">

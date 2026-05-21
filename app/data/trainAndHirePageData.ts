@@ -57,19 +57,19 @@ export type WhyPoint = {
 
 export const trainAndHireWhyPoints: WhyPoint[] = [
   {
-    title: "Zero Hiring Risk",
+    title: "Zero Financial Burden During Training",
     description:
-      "Pre-trained, pre-assessed talent eliminates the uncertainty of traditional recruitment and reduces onboarding time by 60%.",
+      "Drastically reduce your capital expenditure. You incur absolutely zero employee costs during the entire training and up-skilling phase.",
   },
   {
-    title: "Industry-Ready Talent",
+    title: "Zero Attrition Risk",
     description:
-      "Our graduates arrive equipped with the exact technical and soft skills your projects demand, from day one on the job.",
+      "Mitigate the massive risk of candidate drop-offs. Only pre-vetted, committed individuals who successfully meet your expectations post-training are onboarded.",
   },
   {
-    title: "Scalable Workforce",
+    title: "Necessity-Driven & Standardized Deployment",
     description:
-      "Whether you need 5 or 500 professionals, our pipeline adapts to meet your growth trajectory without compromising quality.",
+      "Scale Level 1 resources in niche, hard-to-get skills quickly. Our standardized training guarantees uniform capability across all your global locations.",
   },
 ];
 

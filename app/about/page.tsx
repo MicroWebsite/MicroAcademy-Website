@@ -5,6 +5,7 @@ import { aboutHeroData } from "@/app/data/aboutHeroData";
 import MissionVision from "../components/about/MissionVision";
 import Gallery from "../components/about/Gallery";
 import ThirtyYearGenesis from "../components/about/Thirtyyeargenesis";
+import KeyAchievements from "../components/about/KeyAchievements";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -20,6 +21,7 @@ export default function AboutPage() {
     <div className="relative w-full">
       <HomeTemplate heroContent={aboutHeroData} />
       <WhoareweSection />
+      <KeyAchievements />
       <ThirtyYearGenesis />
       <MissionVision />
       <Gallery />

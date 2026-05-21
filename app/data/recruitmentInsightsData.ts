@@ -80,6 +80,11 @@ export const recruitmentSources: RecruitmentSource[] = [
     description:
       "Structured internal search workflows to quickly map profile-to-role alignment for urgent demands.",
   },
+  {
+    title: "Social Media & Networking",
+    description:
+      "Proactive engagement across professional networks and tech communities to attract high-quality passive candidates.",
+  },
 ];
 
 export const recruitmentAdvantages: string[] = [

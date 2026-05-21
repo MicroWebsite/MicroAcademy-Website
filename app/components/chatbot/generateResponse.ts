@@ -588,7 +588,7 @@ export function generateBotResponse(
       return "No internal career openings at the moment. 😔\n\nBut we're always looking for great talent! You can send your resume to info@microacademy.net to be considered for future roles.";
     }
 
-    return botResponses["💼 Career Openings"];
+    return botResponses["💼 Job Openings"];
   }
 
   if (matchesAny(lower, genericJobKeywords)) {
@@ -653,7 +653,7 @@ export function generateBotResponse(
       return "No open positions at the moment. 😔\n\nBut we're always looking for great talent! You can check our job pages (Careers, Direct/lateral Hiring, Contract Hiring, or Freshers Drive) for the latest updates, or send your resume to info@microacademy.net!";
     }
 
-    return botResponses["💼 Career Openings"];
+    return botResponses["💼 Job Openings"];
   }
 
   if (strapiData?.isLoaded) {

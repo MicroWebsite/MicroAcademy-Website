@@ -16,7 +16,7 @@ export const directLateralHiringServiceCards: DirectLateralHiringServiceCard[] =
       icon: "briefcase",
       title: "Contract to Hire",
       description:
-        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy’s payroll for the contract period. The client can directly hire the contracted resource during or after the contract period.",
+        "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the recruitment and talent market, identifying and securing leaders who align with your long-term vision.",
     },
   ];
 

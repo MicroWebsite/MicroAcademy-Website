@@ -60,7 +60,7 @@ export default function DirectLateralHiringExpertiseSection() {
 
   return (
     <section className="w-full bg-bg-cream px-8 py-24">
-      <div className="max-w-[1216px] mx-auto">
+      <div className="max-w-304 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function DirectLateralHiringExpertiseSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-[360px] lg:w-[380px] snap-center"
+                className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-90 lg:w-95 snap-center"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">

@@ -4,7 +4,7 @@ import DirectLateralHiringPage from "../../components/services/DirectLateralHiri
 export const metadata: Metadata = {
   title: "Direct/lateral Hiring",
   description:
-    "Strategic talent architecture — precision hiring pipelines connecting exceptional professionals with visionary organizations.",
+    "Strategic talent architecture and recruitment — precision hiring pipelines connecting exceptional professionals with visionary organizations.",
   alternates: {
     canonical: "/services/direct-lateral-hiring",
   },

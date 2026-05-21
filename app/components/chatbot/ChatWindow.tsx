@@ -36,13 +36,13 @@ export default function ChatWindow({
     <div
       role="dialog"
       aria-label="Chat with MicroBot"
-      className={`fixed bottom-20 right-5 md:bottom-24 md:right-10 z-[9999] w-[370px] max-w-[calc(100vw-2.5rem)] transition-all duration-300 ease-out origin-bottom-right ${
+      className={`fixed bottom-20 right-5 md:bottom-24 md:right-10 z-9999 w-92.5 max-w-[calc(100vw-2.5rem)] transition-all duration-300 ease-out origin-bottom-right ${
         isOpen
           ? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
           : "scale-90 opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <div className="flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-border bg-white h-[520px] max-h-[70vh]">
+      <div className="flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-border bg-white h-130 max-h-[70vh]">
         <div className="relative flex items-center gap-3 px-5 py-4 bg-linear-to-r from-primary to-primary-light">
           <div
             className="absolute inset-0 opacity-10"

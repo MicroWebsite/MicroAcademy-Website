@@ -1,7 +1,6 @@
 export const quickActions = [
   "📋 Our Services",
-  "🎓 Freshers Drive",
-  "💼 Career Openings",
+  "💼 Job Openings",
   "📞 Contact Info",
   "🏢 About Us",
   "📄 How to Apply",
@@ -14,7 +13,7 @@ export const botResponses: Record<string, string> = {
   "🎓 Freshers Drive":
     "We regularly conduct Freshers Drives for new graduates! 🎓\n\nOur drives include:\n• Domain-specific hiring\n• Training + placement\n• Selection process with interviews & assessments\n\nAsk me about current drives or visit our Freshers Drive page for details!",
 
-  "💼 Career Openings":
+  "💼 Job Openings":
     "We have multiple career tracks:\n\n🔹 Direct Careers — Full-time positions at MicroAcademy\n🔹 Direct/lateral Hiring — Positions at our client companies\n🔹 Contract Positions — Project-based opportunities\n\nAsk me about specific roles, locations, or skills and I'll search our openings!",
 
   "📞 Contact Info":

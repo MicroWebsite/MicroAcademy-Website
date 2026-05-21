@@ -40,7 +40,7 @@ export default function StandardHighlightCards() {
           </h2>
           <p className="text-text-muted text-lg leading-relaxed">
             We bridge the gap between academic learning and industry
-            requirements with our unique hiring philosophy.
+            requirements with our unique recruitment philosophy.
           </p>
         </motion.div>
 

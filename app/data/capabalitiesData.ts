@@ -53,7 +53,7 @@ export const capabilitiesData: {
       icon: "direct-lateral-hiring",
       title: "Direct/lateral Hiring",
       description:
-        "With the help of a strong technical team, we are in a position to cater to all your IT requirements and help find the candidate best suited for your organization and job role.",
+        "With the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.",
       ctaLabel: "Explore Direct/lateral Hiring",
       ctaHref: "/services/direct-lateral-hiring",
       highlighted: true,
@@ -62,7 +62,7 @@ export const capabilitiesData: {
         titleLine1: "Strategic Talent",
         titleAccent: "Architecture",
         description:
-          "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level headhunting.",
+          "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
         // primaryCTA: { label: "Explore Services", href: "/contact" },
         // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {

@@ -20,7 +20,7 @@ export const botResponses: Record<string, string> = {
     "📍 #189, Amar Jyothi Layout, Domlur Ring Road, Bangalore - 560071\n📞 +91 080-25358182 / 25359192\n📧 info@microacademy.net\n🌐 www.microacademy.net\n\nYou can also reach us through the Contact page on our website!",
 
   "🏢 About Us":
-    "Micro Academy is a 30+ year veteran in workforce intelligence and IT training. 🏢\n\n📊 30+ Years of Experience\n📚 3500+ Trainings Delivered\n👥 25000+ People Trained\n🌍 30+ Global Clients\n\n🎯 Mission: To empower global organizations by curating elite, future-ready digital talent.\n👁️ Vision: To be the definitive global standard for workforce intelligence.\n\nWant to know more about our history or values?",
+    "Micro Academy is a premier IT training and L&D organization established in 1995. 🏢\n\n📊 30+ Years of L&D Excellence\n🚀 Pioneered Train & Hire Since 2005\n🌍 Conducted training across 20+ countries (including South East Asia, Middle East, Africa, and Eastern Europe)\n👥 25,000+ Candidates Trained & Deployed\n🏅 ISO 9001:2015 Certified\n⚖️ 100% Statutory Compliant (GST, ESI, PF, PT, Shops & Establishments)\n\n🎯 Mission: To empower global organizations by curating elite, future-ready digital talent.\n👁️ Vision: To be the definitive global standard for workforce intelligence.\n\nWant to know more about our history or values?",
 
   "📄 How to Apply":
     "Here's how you can apply:\n\n1️⃣ Browse open positions on our Careers, Direct/lateral Hiring, or Contract Hiring pages\n2️⃣ Click 'Apply' on any role that matches your profile\n3️⃣ Fill out the application form with your details\n4️⃣ Our team will review and reach out!\n\n📧 You can also email your resume to info@microacademy.net\n📞 Or call us at +91 080-25358182",

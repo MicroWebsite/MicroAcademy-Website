@@ -116,11 +116,11 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
 
         {/* Title */}
         <h3
-          className="
-            text-sm sm:text-base font-semibold text-[#1a1a0e] mb-1.5
+          className={`
+            text-sm sm:text-base font-semibold mb-1.5
             tracking-wide uppercase transition-colors duration-500
-            ${isActive ? 'text-[#1a1a0e]' : 'text-[#6a6a50]'}
-          "
+            ${isActive ? "text-[#1a1a0e]" : "text-[#6a6a50]"}
+          `}
           style={{
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: "0.06em",
@@ -131,10 +131,10 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
 
         {/* Description */}
         <p
-          className="
+          className={`
             text-xs sm:text-sm text-[#4a4a3a] leading-relaxed max-w-xs
-            ${isLeft ? 'md:ml-auto' : ''}
-          "
+            ${isLeft ? "md:ml-auto" : ""}
+          `}
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {milestone.description}

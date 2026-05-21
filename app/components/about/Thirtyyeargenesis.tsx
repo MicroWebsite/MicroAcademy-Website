@@ -196,7 +196,7 @@ export default function ThirtyYearGenesis() {
       ref={containerRef}
       className="
         relative min-h-screen w-full overflow-hidden
-        bg-white py-24 px-4 sm:px-8
+        bg-bg-cream py-24 px-4 sm:px-8
       "
     >
       {/* Subtle grain texture overlay */}

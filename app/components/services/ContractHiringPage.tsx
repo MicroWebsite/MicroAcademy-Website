@@ -23,7 +23,6 @@ export default function ContractHiringPage() {
         title="Ready to Augment Your Team?"
         description="Connect with our talent architects today and get access to the industry's best contract professionals tailored for your immediate project needs."
         buttonText="Request Talent Now"
-        variant="hero"
       />
     </div>
   );

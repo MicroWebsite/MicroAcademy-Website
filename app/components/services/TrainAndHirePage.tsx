@@ -29,7 +29,6 @@ export default function TrainAndHirePage() {
         description="Partner with us to train and hire top talent custom-built for your organization's unique needs. Start transforming your workforce today."
         buttonText="Get Started Today"
         buttonHref="/contact"
-        variant="hero"
       />
     </div>
   );

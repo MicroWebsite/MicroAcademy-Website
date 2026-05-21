@@ -42,16 +42,16 @@ export default function Header() {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/assets/common/microacademy-logo.png"
-            alt="MicroAcademy"
-            width={300}
-            height={200}
+            alt="MicroAcademy Logo"
+            width={220}
+            height={120}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-14 md:h-16 w-auto object-contain"
           />
         </Link>
 
         <nav
-          className="hidden md:flex items-center gap-8 h-full"
+          className="hidden lg:flex items-center gap-8 h-full"
           aria-label="Main navigation"
         >
           {navLinks.map((link) => {
@@ -116,10 +116,10 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-6 shrink-0">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
+            className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
           >
             Contact us
           </Link>
@@ -129,11 +129,11 @@ export default function Header() {
             alt="TÜV SÜD ISO 9001 Certified"
             width={100}
             height={100}
-            className="hidden md:block h-12 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
+            className="hidden lg:block h-12 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
           />
 
           <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+            className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
             onClick={() => {
               setMenuOpen((prev) => !prev);
               if (menuOpen) {
@@ -158,7 +158,7 @@ export default function Header() {
 
       {menuOpen && (
         <nav
-          className="md:hidden bg-bg-header-mobile border-t border-border px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50"
+          className="lg:hidden bg-bg-header-mobile border-t border-border px-6 py-4 flex flex-col border-b shadow-md absolute w-full left-0 z-50"
           aria-label="Mobile navigation"
         >
           {navLinks.map((link) => {

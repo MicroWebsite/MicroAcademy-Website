@@ -33,7 +33,7 @@ const socialLinks = [
   },
   {
     label: "Twitter",
-    href: "https://twitter.com/",
+    href: "https://x.com/academy_micro",
     icon: "twitter",
   },
 ];
@@ -48,15 +48,16 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer className="w-full bg-bg-cream border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row justify-between items-start gap-12">
         {/* Logo & Address */}
         <div className="flex flex-col gap-4 items-start text-left font-['Inter']">
           <Image
             src="/assets/common/microacademy-logo.png"
             alt="MicroAcademy Logo"
-            width={120}
-            height={60}
-            className="h-12 w-auto object-contain mb-2"
+            width={220}
+            height={120}
+            priority
+            className="h-16 lg:h-20 w-auto object-contain"
           />
           <span className="text-base font-bold tracking-[0.2em] uppercase text-text-dark">
             Micro Academy
@@ -192,7 +193,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col lg:flex-row items-center justify-between gap-4">
           <p className="text-xs font-medium text-text-subtle text-center sm:text-left">
             © 2026 Micro Academy. Curating the future of workforce intelligence.
           </p>

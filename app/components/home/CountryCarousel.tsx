@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -19,12 +19,47 @@ export default function CountriesCarousel() {
     center: [55, 12] as [number, number],
   });
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
     }, 0);
     return () => clearTimeout(timer);
   }, []);
+
+  const scrollToLongitude = (longitude: number) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+
+      if (scrollWidth > clientWidth) {
+        // Map longitude to percentage of scrollWidth
+        // Mercator X is linear with longitude: -180 is 0%, 180 is 100%
+        const xPercent = (longitude + 180) / 360;
+        const targetX = xPercent * scrollWidth;
+        const targetScrollLeft = targetX - clientWidth / 2;
+
+        container.scrollTo({
+          left: Math.max(
+            0,
+            Math.min(scrollWidth - clientWidth, targetScrollLeft),
+          ),
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (mounted) {
+      const scrollTimer = setTimeout(() => {
+        scrollToLongitude(55); // Center longitude for "All Regions"
+      }, 150);
+      return () => clearTimeout(scrollTimer);
+    }
+  }, [mounted]);
 
   const handleRegionClick = (
     name: string,
@@ -33,6 +68,10 @@ export default function CountriesCarousel() {
   ) => {
     setActiveRegion(name);
     setMapConfig({ scale, center });
+    // Auto-scroll the container to center the selected region's longitude
+    setTimeout(() => {
+      scrollToLongitude(center[0]);
+    }, 50);
   };
 
   const matchCountry = (
@@ -71,7 +110,7 @@ export default function CountriesCarousel() {
           <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-8">
             Our Geographic Coverage
           </h2>
-          <div className="w-full aspect-2000/857 bg-gray-200/50 rounded-2xl animate-pulse" />
+          <div className="w-full aspect-[2000/857] bg-gray-200/50 rounded-2xl animate-pulse" />
         </div>
       </section>
     );
@@ -80,7 +119,7 @@ export default function CountriesCarousel() {
   return (
     <section className="w-full bg-white py-16 md:py-20 px-4 md:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
           <div>
             <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
               Global Reach
@@ -89,12 +128,13 @@ export default function CountriesCarousel() {
               Our Geographic Coverage
             </h2>
           </div>
-          <div className="flex flex-wrap gap-2 md:justify-end">
+          {/* Horizontally scrolling pill navigation on mobile/tablet for neat single-row display */}
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none lg:justify-end w-full lg:w-auto -mx-4 px-4 lg:mx-0 lg:px-0">
             {regions.map(({ name, scale, center }) => (
               <button
                 key={name}
                 onClick={() => handleRegionClick(name, scale, center)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
                   activeRegion === name
                     ? "bg-gray-900 text-white shadow-md scale-105"
                     : "bg-white border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
@@ -106,8 +146,12 @@ export default function CountriesCarousel() {
           </div>
         </div>
 
-        <div className="w-full overflow-x-auto scrollbar-none pb-4">
-          <div className="min-w-250 lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 p-4 shadow-sm">
+        {/* Scrollable Container with custom size constraints to prevent squishing */}
+        <div
+          ref={scrollContainerRef}
+          className="w-full overflow-x-auto scrollbar-none pb-4"
+        >
+          <div className="min-w-[950px] md:min-w-[1150px] lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 p-4 shadow-sm">
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{
@@ -243,6 +287,12 @@ export default function CountriesCarousel() {
               })}
             </ComposableMap>
           </div>
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-gray-500 lg:hidden">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-ping" />
+          <span>Swipe left or right to explore geographic coverage map</span>
         </div>
       </div>
     </section>

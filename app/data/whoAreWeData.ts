@@ -10,9 +10,9 @@ export interface WhoAreWeData {
 export const whoAreWeData: WhoAreWeData = {
   heading: "Who We Are",
   paragraphs: [
-    "Established as a Corporate Training Organization in 1995, Micro Academy has been a frontrunner in launching and delivering Train and Hire engagements since 2005. Over our three-decade history, we have trained and deployed over 25,000 candidates across more than a dozen locations in India.",
-    "As a trusted training partner for multiple leading IT multinationals both in India and abroad, we hold a large pool of highly experienced and diversified Subject Matter Experts (SMEs). This enables us to design and execute flexible, tailor-made training programs in on-demand and niche technologies.",
-    "Our operations are backed by strong global experience, having conducted training in over 20 countries in South East Asia, the Middle East, Africa, and Eastern Europe. We maintain strict compliance, being ISO 9001:2015 certified and fully registered with all statutory requirements such as GST, ESI, PF, Professional Tax, and Shops & Establishments.",
+    "Founded in 1995 as a Corporate Training Organization, Micro Academy pioneered Train & Hire engagements in 2005. We have since trained and deployed over 25,000 candidates across 12+ locations in India, bridging the gap between talent and enterprise readiness.",
+    "As a trusted L&D partner for leading IT multinationals, we hold a diverse pool of Subject Matter Experts (SMEs). This enables us to source, design, and deliver custom training in niche technologies within a turnaround time of less than a week.",
+    "With a footprint spanning 20+ countries across South East Asia, the Middle East, Africa, and Eastern Europe, we are ISO 9001:2015 certified and fully compliant with all statutory regulations (GST, ESI, PF, PT, Shops & Establishments).",
   ],
   images: [
     {

@@ -7,16 +7,16 @@ export type DirectLateralHiringServiceCard = {
 export const directLateralHiringServiceCards: DirectLateralHiringServiceCard[] =
   [
     {
-      icon: "briefcase",
-      title: "Contractual Hiring Services",
+      icon: "users",
+      title: "Permanent Hire",
       description:
-        "Micro Academy provides agile, specialized staffing solutions for project-based requirements. We handle the complexities of short-term expert placement, ensuring your operations never miss a beat.",
+        "Based on client requirements, Micro Academy will source the right candidate for the role, ensuring a perfect professional and organizational fit.",
     },
     {
-      icon: "users",
-      title: "Direct/lateral Hiring Expertise",
+      icon: "briefcase",
+      title: "Contract to Hire",
       description:
-        "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.",
+        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy’s payroll for the contract period. The client can directly hire the contracted resource during or after the contract period.",
     },
   ];
 

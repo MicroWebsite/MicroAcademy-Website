@@ -18,7 +18,7 @@ export const directLateralHiringExpertiseGroups: DirectLateralHiringExpertiseGro
       ],
     },
     {
-      title: "Level 1 and 2 Tech Roles",
+      title: "Level 1 , 2 Positions (Tech Roles)",
       icon: "code2",
       roles: ["Entry-Level Developer", "IT Support Specialist"],
     },
@@ -27,17 +27,15 @@ export const directLateralHiringExpertiseGroups: DirectLateralHiringExpertiseGro
       icon: "layers",
       roles: [
         "Software Developer",
-        "System Administrator",
-        "Network Engineer",
-        "Database Administrator",
+        "System Administrator / Network Engineer / Database Administrator",
+        "Business Analyst / Project Manager",
       ],
     },
     {
       title: "Senior-Level Positions",
       icon: "award",
       roles: [
-        "Senior Software / Systems Engineer",
-        "Domain Specialist (ERP / CRM / Database)",
+        "Senior Software / Systems Engineer / Domain Specialist – ERP / CRM / Database",
         "IT Manager / Program Manager / Solution Architect",
         "Quality and Compliance Managers",
       ],
@@ -65,22 +63,22 @@ export const directLateralHiringSources: DirectLateralHiringSource[] = [
   {
     title: "Major Hiring Portals",
     description:
-      "Access to all major hiring platforms to keep pipelines active across multiple skill bands.",
+      "Have access to all the major hiring portals to keep pipelines active across multiple skill bands.",
   },
   {
     title: "Advisory Recommendations",
     description:
-      "Guidance from leadership advisors with 30+ years of IT experience to recommend role-fit candidates.",
+      "For most of our leadership talent requirements, we have a panel of advisors from leading IT services companies who were in leadership positions with over 30 years of experience, who identify, recommend, and guide the right candidates.",
   },
   {
     title: "Associate Referrals",
     description:
-      "Strong referral network from candidates sourced, trained, and placed by us since 1995.",
+      "References from the large pool of candidates whom we have sourced, trained, and placed since 1995, who are at different levels in various multinationals.",
   },
   {
     title: "Voluntary Applicants",
     description:
-      "Steady inflow of direct applications built through long-standing industry presence and trust.",
+      "Having been in the industry for close to 3 decades, we receive many voluntary applications.",
   },
   {
     title: "Internal Searches",
@@ -95,9 +93,9 @@ export const directLateralHiringSources: DirectLateralHiringSource[] = [
 ];
 
 export const directLateralHiringAdvantages: string[] = [
-  "3 decades in the IT industry",
-  "Multiple sourcing channels",
-  "Hiring flexibility: Permanent Hire, C2H, and T2H",
-  "Strong technical knowledge to understand client requirements",
-  "Timely supply of resources across levels",
+  "3 decades in the IT Industry",
+  "Multiple Sourcing channels",
+  "Hiring Flexibility with multiple hiring models: Permanent Hire, Contract to Hire (C2H), Train to Hire (T2H)",
+  "Strong Technical Knowledge to help better understanding of client requirement",
+  "Timely supply of resources at all levels",
 ];

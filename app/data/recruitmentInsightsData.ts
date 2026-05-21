@@ -1,0 +1,91 @@
+export type RecruitmentExpertiseGroup = {
+  title: string;
+  roles: string[];
+};
+
+export const recruitmentExpertiseGroups: RecruitmentExpertiseGroup[] = [
+  {
+    title: "Management and Leadership Positions",
+    roles: [
+      "IT Director",
+      "Chief Technology Officer (CTO)",
+      "Chief Information Security Officer (CISO)",
+      "Site / DC Head",
+      "Head of Finance / Legal / Facilities",
+    ],
+  },
+  {
+    title: "Level 1 and 2 Tech Roles",
+    roles: ["Entry-Level Developer", "IT Support Specialist"],
+  },
+  {
+    title: "Mid-Level (L3) Positions",
+    roles: [
+      "Software Developer",
+      "System Administrator",
+      "Network Engineer",
+      "Database Administrator",
+    ],
+  },
+  {
+    title: "Senior-Level Positions",
+    roles: [
+      "Senior Software / Systems Engineer",
+      "Domain Specialist (ERP / CRM / Database)",
+      "IT Manager / Program Manager / Solution Architect",
+      "Quality and Compliance Managers",
+    ],
+  },
+  {
+    title: "Specialized Positions",
+    roles: [
+      "Data Scientist",
+      "Cybersecurity Specialist",
+      "Cloud Engineer",
+      "DevOps Engineer",
+      "Blockchain Specialist",
+      "Web3 Engineer",
+    ],
+  },
+];
+
+export type RecruitmentSource = {
+  title: string;
+  description: string;
+};
+
+export const recruitmentSources: RecruitmentSource[] = [
+  {
+    title: "Major Hiring Portals",
+    description:
+      "Access to all major hiring platforms to keep pipelines active across multiple skill bands.",
+  },
+  {
+    title: "Advisory Recommendations",
+    description:
+      "Guidance from leadership advisors with 30+ years of IT experience to recommend role-fit candidates.",
+  },
+  {
+    title: "Associate Referrals",
+    description:
+      "Strong referral network from candidates sourced, trained, and placed by us since 1995.",
+  },
+  {
+    title: "Voluntary Applicants",
+    description:
+      "Steady inflow of direct applications built through long-standing industry presence and trust.",
+  },
+  {
+    title: "Internal Searches",
+    description:
+      "Structured internal search workflows to quickly map profile-to-role alignment for urgent demands.",
+  },
+];
+
+export const recruitmentAdvantages: string[] = [
+  "3 decades in the IT industry",
+  "Multiple sourcing channels",
+  "Hiring flexibility: Permanent Hire, C2H, and T2H",
+  "Strong technical knowledge to understand client requirements",
+  "Timely supply of resources across levels",
+];

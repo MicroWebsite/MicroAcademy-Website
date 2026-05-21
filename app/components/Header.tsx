@@ -19,14 +19,22 @@ const navLinks = [
       { label: "Corporate Training", href: "/services/corporate-training" },
     ],
   },
-  { label: "Freshers drive", href: "/freshers-drive" },
+  {
+    label: "Job Opportunities",
+    href: "/job-opportunities",
+    subLinks: [{ label: "Fresher Drive", href: "/freshers-drive" }],
+  },
   { label: "Careers", href: "/careers" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<
+    Record<string, boolean>
+  >({});
   const pathname = usePathname();
+  const isPathActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className="w-full bg-bg-header border-b border-border relative z-50">
@@ -47,10 +55,11 @@ export default function Header() {
           aria-label="Main navigation"
         >
           {navLinks.map((link) => {
-            // For Services we could check pathname but let's keep it simple
             const isActive =
-              pathname === link.href ||
-              (link.subLinks && pathname.startsWith("/services"));
+              isPathActive(link.href) ||
+              Boolean(
+                link.subLinks?.some((subLink) => isPathActive(subLink.href)),
+              );
 
             if (link.subLinks) {
               return (
@@ -76,7 +85,7 @@ export default function Header() {
                   </Link>
 
                   {/* Dropdown Menu */}
-                  <div className="absolute top-full left-0 min-w-[220px] bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
+                  <div className="absolute top-full left-0 min-w-55 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
                     {link.subLinks.map((subLink) => (
                       <Link
                         key={subLink.href}
@@ -125,7 +134,12 @@ export default function Header() {
 
           <button
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              setMenuOpen((prev) => !prev);
+              if (menuOpen) {
+                setMobileDropdownOpen({});
+              }
+            }}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -149,10 +163,14 @@ export default function Header() {
         >
           {navLinks.map((link) => {
             const isActive =
-              pathname === link.href ||
-              (link.subLinks && pathname.startsWith("/services"));
+              isPathActive(link.href) ||
+              Boolean(
+                link.subLinks?.some((subLink) => isPathActive(subLink.href)),
+              );
 
             if (link.subLinks) {
+              const isDropdownOpen = Boolean(mobileDropdownOpen[link.href]);
+
               return (
                 <div
                   key={link.href}
@@ -162,27 +180,32 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className={`text-sm font-medium py-2 flex-grow ${isActive ? "text-text-accent" : "text-text-muted-alt"}`}
+                      className={`text-sm font-medium py-2 grow ${isActive ? "text-text-accent" : "text-text-muted-alt"}`}
                     >
                       {link.label}
                     </Link>
                     <button
-                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      aria-expanded={mobileServicesOpen}
+                      onClick={() =>
+                        setMobileDropdownOpen((prev) => ({
+                          ...prev,
+                          [link.href]: !prev[link.href],
+                        }))
+                      }
+                      aria-expanded={isDropdownOpen}
                       aria-label={
-                        mobileServicesOpen
-                          ? "Collapse services"
-                          : "Expand services"
+                        isDropdownOpen
+                          ? `Collapse ${link.label}`
+                          : `Expand ${link.label}`
                       }
                       className="px-2 py-2 flex items-center justify-center shrink-0"
                     >
                       <ChevronDown
-                        className={`w-5 h-5 transition-transform text-text-muted-alt ${mobileServicesOpen ? "rotate-180" : ""}`}
+                        className={`w-5 h-5 transition-transform text-text-muted-alt ${isDropdownOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                   </div>
 
-                  {mobileServicesOpen && (
+                  {isDropdownOpen && (
                     <div className="flex flex-col gap-1 mt-1">
                       {link.subLinks.map((subLink) => (
                         <Link

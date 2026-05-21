@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Crown, Code2, Layers, Award, Cpu } from "lucide-react";
 import { directLateralHiringExpertiseGroups } from "@/app/data/directLateralHiringInsightsData";
@@ -15,108 +15,136 @@ const iconMap = {
 
 export default function DirectLateralHiringExpertiseSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1);
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let interval: NodeJS.Timeout;
-
-    const startAutoScroll = () => {
-      interval = setInterval(() => {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-
-        // If at the end, jump back to start
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          // Scroll smoothly by the width of one item
-          const firstChild = scrollContainer.children[0] as HTMLElement;
-          const scrollAmount = firstChild ? firstChild.clientWidth + 24 : 350; // 24 is gap
-          scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-      }, 3000); // 3 seconds interval
+    const updateCardsPerView = () => {
+      if (window.innerWidth >= 1024) setCardsPerView(3);
+      else if (window.innerWidth >= 640) setCardsPerView(2);
+      else setCardsPerView(1);
     };
 
-    const stopAutoScroll = () => clearInterval(interval);
-
-    startAutoScroll();
-
-    scrollContainer.addEventListener("mouseenter", stopAutoScroll);
-    scrollContainer.addEventListener("mouseleave", startAutoScroll);
-    scrollContainer.addEventListener("touchstart", stopAutoScroll, {
-      passive: true,
-    });
-    scrollContainer.addEventListener("touchend", startAutoScroll);
-
-    return () => {
-      stopAutoScroll();
-      scrollContainer.removeEventListener("mouseenter", stopAutoScroll);
-      scrollContainer.removeEventListener("mouseleave", startAutoScroll);
-      scrollContainer.removeEventListener("touchstart", stopAutoScroll);
-      scrollContainer.removeEventListener("touchend", startAutoScroll);
-    };
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
+  const totalCards = directLateralHiringExpertiseGroups.length;
+  const totalSlides = Math.max(1, totalCards - cardsPerView + 1);
+
+  const scrollToSlide = (index: number) => {
+    if (!scrollRef.current) return;
+    const cardGap = 16; // gap-4 = 1rem = 16px
+    const container = scrollRef.current;
+    const containerWidth = container.clientWidth;
+    const cardWidth = containerWidth / cardsPerView;
+    const scrollPosition = index * (cardWidth + cardGap);
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % totalSlides;
+        scrollToSlide(next);
+        return next;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [totalSlides]);
+
   return (
-    <section className="w-full bg-bg-cream px-8 py-24">
-      <div className="max-w-304 mx-auto">
+    <section className="w-full bg-bg-cream px-6 py-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-8"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-text-muted-alt mb-3">
             Direct/lateral Hiring Strength
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-dark font-manrope">
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             Areas of Expertise
           </h2>
-          <p className="text-text-muted-alt mt-4 max-w-3xl mx-auto">
+          <p className="text-sm text-text-muted-alt mt-3 max-w-2xl mx-auto">
             Specialized hiring support from entry-level technical roles to
             leadership positions across core and emerging IT domains.
           </p>
         </motion.div>
 
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        >
-          {directLateralHiringExpertiseGroups.map((group, index) => {
-            const Icon = iconMap[group.icon];
-            return (
-              <motion.div
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-6 shadow-md shrink-0 w-[85vw] md:w-90 lg:w-95 snap-center"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-text-badge" />
-                  </span>
-                  <h3 className="text-lg font-bold text-text-dark font-manrope leading-tight">
-                    {group.title}
-                  </h3>
-                </div>
+        <div className="flex flex-col gap-6">
+          <div
+            ref={scrollRef}
+            className="overflow-x-auto scrollbar-none snap-x snap-mandatory"
+          >
+            <div className="flex gap-4">
+              {directLateralHiringExpertiseGroups.map((group, index) => {
+                const Icon = iconMap[group.icon];
+                return (
+                  <motion.div
+                    key={group.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.06 }}
+                    className="flex-shrink-0 snap-start bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+                    style={{
+                      width: `calc((100% - ${16 * (cardsPerView - 1)}px) / ${cardsPerView})`,
+                      minWidth: 0,
+                    }}
+                  >
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <span className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-text-badge" />
+                      </span>
+                      <h3 className="text-sm font-bold text-text-dark font-manrope leading-tight">
+                        {group.title}
+                      </h3>
+                    </div>
 
-                <ul className="space-y-2">
-                  {group.roles.map((role) => (
-                    <li
-                      key={role}
-                      className="text-sm text-text-muted-alt leading-6 flex items-start gap-2"
-                    >
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <span>{role}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+                    <ul className="space-y-1.5">
+                      {group.roles.map((role) => (
+                        <li
+                          key={role}
+                          className="text-xs text-text-muted-alt leading-5 flex items-start gap-1.5"
+                        >
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
+                          <span>{role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="flex justify-center gap-2">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => {
+                  scrollToSlide(index);
+                  setActiveIndex(index);
+                }}
+                className={`h-2 rounded-full transition-all ${
+                  index === activeIndex
+                    ? "bg-primary w-6"
+                    : "bg-gray-300 w-2 hover:bg-gray-400"
+                }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

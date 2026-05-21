@@ -54,7 +54,7 @@ export const capabilitiesData: {
       title: "Direct / Lateral Hire",
       description:
         "With the help of a strong technical team, we are in a position to cater to all your IT requirements and help find the candidate best suited for your organization and job role.",
-      ctaLabel: "Explore Recruitment Services",
+      ctaLabel: "Explore Direct / Lateral Hire",
       ctaHref: "/services/recruitment",
       highlighted: true,
       heroData: {

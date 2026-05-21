@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import RecruitmentPage from "../../components/services/RecruitmentPage";
 
 export const metadata: Metadata = {
-  title: "Recruitment Services",
+  title: "Direct / Lateral Hire",
   description:
     "Strategic talent architecture — precision recruitment pipelines connecting exceptional professionals with visionary organizations.",
   alternates: {

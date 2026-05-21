@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 interface NoJobsCTAProps {
   title?: string;
@@ -19,37 +20,42 @@ export default function NoJobsCTA({
   secondaryCTA,
 }: NoJobsCTAProps) {
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
+    <section className="w-full bg-white px-4 md:px-8 py-12 md:py-16">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="bg-gradient-to-br from-bg-muted via-bg-cream to-bg-muted rounded-[2rem] md:rounded-[3rem] p-8 lg:p-24 text-center shadow-[0_20px_80px_rgba(0,0,0,0.04)] ring-1 ring-black/5 relative overflow-hidden group"
+        className="relative max-w-304 mx-auto rounded-3xl md:rounded-4xl overflow-hidden p-8 md:p-16 bg-cta-card-bg shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto group"
       >
         {/* Decorative glows */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/40 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />
+        <div className="absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -right-10 -top-10 md:-right-20 md:-top-20 blur-[32px] rounded-full z-0 bg-primary/10" />
+        <div className="absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -left-10 -bottom-10 md:-left-20 md:-bottom-20 blur-[32px] rounded-full z-0 bg-primary/10" />
 
-        <div className="relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-text-dark mb-6 md:mb-8 tracking-tight leading-[1.15]">
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold font-manrope text-text-dark">
             {title} <span className="text-primary">{titleAccent}</span>
           </h2>
-          <p className="text-text-muted text-lg lg:text-xl leading-relaxed mb-12 max-w-2xl mx-auto font-medium">
-            {description}
-          </p>
+          <div className="max-w-200">
+            <p className="text-center text-base md:text-lg leading-7 md:leading-8 font-manrope text-text-muted-alt">
+              {description}
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 sm:mb-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
             <Link
               href={primaryCTA.href}
-              className="w-full sm:w-auto px-8 lg:px-12 py-4 lg:py-5 bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-base font-bold rounded-full hover:brightness-110 transition-all shadow-xl shadow-primary/10 hover:-translate-y-1 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] text-white bg-linear-to-r from-primary to-btn-grad-end-alt shadow-lg hover:shadow-xl"
             >
               {primaryCTA.label}
+              <span className="w-5 h-5 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
             </Link>
             {secondaryCTA && (
               <Link
                 href={secondaryCTA.href}
-                className="w-full sm:w-auto px-8 lg:px-12 py-4 lg:py-5 bg-white/50 backdrop-blur-sm text-text-dark text-base font-bold rounded-full border border-black/10 hover:bg-white transition-all hover:-translate-y-1 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] bg-white/50 backdrop-blur-sm text-text-dark border border-black/10 hover:bg-white"
               >
                 {secondaryCTA.label}
               </Link>
@@ -57,6 +63,6 @@ export default function NoJobsCTA({
           </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

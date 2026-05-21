@@ -60,15 +60,16 @@ const ClientLogoCard: React.FC<{ client: Client }> = ({ client }) => {
             alt={`${client.name} logo`}
             fill
             sizes="(max-w-640px) 40vw, (max-w-1024px) 25vw, 15vw"
-            className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+            className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
             onError={() => setImageError(true)}
+            unoptimized
           />
         ) : (
           <div className="flex flex-col items-center justify-center text-center">
             <span className="text-lg md:text-2xl font-black text-primary/80 tracking-tight leading-none font-sans mb-1 transition-transform duration-300 group-hover:scale-110">
               {getTypographicStyle(client.id, client.name)}
             </span>
-            <span className="text-[9px] font-bold text-text-gold-alt/70 uppercase tracking-[0.1em] group-hover:text-primary transition-colors duration-300">
+            <span className="text-[9px] font-bold text-text-gold-alt/70 uppercase tracking-widest group-hover:text-primary transition-colors duration-300">
               {client.name}
             </span>
           </div>

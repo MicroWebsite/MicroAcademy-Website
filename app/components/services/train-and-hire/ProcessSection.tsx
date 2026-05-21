@@ -26,9 +26,9 @@ const iconByType = {
 export default function ProcessSection() {
   return (
     <section className="w-full bg-white py-24">
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-16">
+      <div className="max-w-7xl mx-auto px-8 flex flex-col gap-16">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
-          <div className="flex flex-col gap-4 max-w-[672px]">
+          <div className="flex flex-col gap-4 max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
               The Architectural Blueprint
             </h2>
@@ -46,14 +46,14 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 lg:gap-6 w-full min-h-[580px] mt-12 md:mt-0">
+        <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 lg:gap-6 w-full min-h-145 mt-12 md:mt-0">
           {trainAndHireSteps.map((step, i) => {
             const Icon = iconByType[step.icon];
             const isTopCard = i % 2 === 0;
 
             const StyledCard = () => (
               <div
-                className={`flex flex-col items-start justify-center p-5 lg:p-7 rounded-[2rem] shadow-[0px_8px_30px_-10px_rgba(0,0,0,0.08)] w-full min-h-[220px] transition-all duration-300 relative z-10 ${
+                className={`flex flex-col items-start justify-center p-5 lg:p-7 rounded-4xl shadow-[0px_8px_30px_-10px_rgba(0,0,0,0.08)] w-full min-h-55 transition-all duration-300 relative z-10 ${
                   step.highlighted
                     ? "bg-linear-to-br from-primary to-secondary text-white"
                     : "bg-white text-text-dark"
@@ -102,13 +102,13 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex-1 w-full md:w-auto h-auto md:h-[520px] flex flex-col justify-between items-center z-10"
+                className="relative flex-1 w-full md:w-auto h-auto md:h-130 flex flex-col justify-between items-center z-10"
               >
                 {/* SVG Connecting Line for Desktop */}
                 {i < trainAndHireSteps.length - 1 && (
                   <svg
                     viewBox="0 0 100 520"
-                    className="hidden md:block absolute top-0 left-1/2 w-full h-[520px] z-[-1] pointer-events-none"
+                    className="hidden md:block absolute top-0 left-1/2 w-full h-130 z-[-1] pointer-events-none"
                     preserveAspectRatio="none"
                   >
                     <path

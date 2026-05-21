@@ -50,6 +50,7 @@ export default function Header() {
             height={120}
             priority
             className="h-14 md:h-16 w-auto object-contain"
+            unoptimized
           />
         </Link>
 
@@ -133,6 +134,7 @@ export default function Header() {
             width={100}
             height={100}
             className="hidden lg:block h-12 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
+            unoptimized
           />
 
           <button
@@ -253,6 +255,7 @@ export default function Header() {
               width={80}
               height={80}
               className="h-14 w-auto object-contain mix-blend-multiply"
+              unoptimized
             />
           </div>
         </nav>

@@ -38,9 +38,9 @@ export default function TermsAndConditions() {
             </h2>
             <p>
               MicroAcademy provides IT training, skill development, and
-              recruitment solutions. We reserve the right to modify, suspend, or
-              discontinue any part of our services at any time without prior
-              notice.
+              direct/lateral hiring solutions. We reserve the right to modify,
+              suspend, or discontinue any part of our services at any time
+              without prior notice.
             </p>
           </section>
 

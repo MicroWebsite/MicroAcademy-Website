@@ -7,7 +7,9 @@ interface LinkifiedTextProps {
 
 const LINK_MAPPINGS: Record<string, string> = {
   "careers page": "/careers",
-  "recruitment page": "/services/recruitment",
+  "direct/lateral hiring page": "/services/direct-lateral-hiring",
+  "direct-lateral hiring page": "/services/direct-lateral-hiring",
+  "recruitment page": "/services/direct-lateral-hiring",
   "contract hiring page": "/services/contract-hiring",
   "freshers drive page": "/freshers-drive",
   "train and hire page": "/services/train-and-hire",
@@ -23,7 +25,9 @@ const LINK_MAPPINGS: Record<string, string> = {
   "freshers drive": "/freshers-drive",
   "train and hire": "/services/train-and-hire",
   "train & hire": "/services/train-and-hire",
-  "recruitment services": "/services/recruitment",
+  "direct/lateral hiring": "/services/direct-lateral-hiring",
+  "direct-lateral hiring": "/services/direct-lateral-hiring",
+  "recruitment services": "/services/direct-lateral-hiring",
   "contract to hire": "/services/contract-hiring",
   "corporate training": "/services/corporate-training",
 };

@@ -4,7 +4,7 @@ export interface Capability {
   id: string;
   icon:
     | "train-hire"
-    | "recruitment"
+    | "direct-lateral-hiring"
     | "corporate-training"
     | "contract-to-hire";
   title: string;
@@ -49,16 +49,16 @@ export const capabilitiesData: {
       },
     },
     {
-      id: "recruitment",
-      icon: "recruitment",
-      title: "Direct / Lateral Hire",
+      id: "direct-lateral-hiring",
+      icon: "direct-lateral-hiring",
+      title: "Direct/lateral Hiring",
       description:
         "With the help of a strong technical team, we are in a position to cater to all your IT requirements and help find the candidate best suited for your organization and job role.",
-      ctaLabel: "Explore Direct / Lateral Hire",
-      ctaHref: "/services/recruitment",
+      ctaLabel: "Explore Direct/lateral Hiring",
+      ctaHref: "/services/direct-lateral-hiring",
       highlighted: true,
       heroData: {
-        badge: "Recruitment Excellence",
+        badge: "Direct/lateral Hiring Excellence",
         titleLine1: "Strategic Talent",
         titleAccent: "Architecture",
         description:
@@ -67,7 +67,7 @@ export const capabilitiesData: {
         // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
           src: "/assets/headers/Recruitment.png",
-          alt: "Authentic Recruitment Drive Event at Micro Academy",
+          alt: "Authentic Direct/lateral Hiring Drive Event at Micro Academy",
         },
       },
     },

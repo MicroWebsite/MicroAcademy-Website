@@ -7,7 +7,7 @@ import OpenPositions from "../components/careers/OpenPositions";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Bridge the talent gap with our integrated training and recruitment solutions.",
+    "Bridge the talent gap with our integrated training and direct/lateral hiring solutions.",
   alternates: {
     canonical: "/careers",
   },

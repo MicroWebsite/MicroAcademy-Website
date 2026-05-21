@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Crown, Code2, Layers, Award, Cpu } from "lucide-react";
-import { recruitmentExpertiseGroups } from "@/app/data/recruitmentInsightsData";
+import { directLateralHiringExpertiseGroups } from "@/app/data/directLateralHiringInsightsData";
 
 const iconMap = {
   crown: Crown,
@@ -13,7 +13,7 @@ const iconMap = {
   cpu: Cpu,
 } as const;
 
-export default function RecruitmentExpertiseSection() {
+export default function DirectLateralHiringExpertiseSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function RecruitmentExpertiseSection() {
           className="text-center mb-14"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-text-muted-alt mb-3">
-            Recruitment Strength
+            Direct/lateral Hiring Strength
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-dark font-manrope">
             Areas of Expertise
@@ -83,7 +83,7 @@ export default function RecruitmentExpertiseSection() {
           ref={scrollRef}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          {recruitmentExpertiseGroups.map((group, index) => {
+          {directLateralHiringExpertiseGroups.map((group, index) => {
             const Icon = iconMap[group.icon];
             return (
               <motion.div

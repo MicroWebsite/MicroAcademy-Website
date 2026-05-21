@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Briefcase, Users } from "lucide-react";
-import { recruitmentServiceCards } from "@/app/data/recruitmentPageData";
+import { directLateralHiringServiceCards } from "@/app/data/directLateralHiringPageData";
 
 const iconByType = {
   briefcase: Briefcase,
@@ -26,7 +26,7 @@ export default function ServicesContentSection() {
           </motion.h2>
 
           <div className="flex flex-col gap-8">
-            {recruitmentServiceCards.map((card, i) => {
+            {directLateralHiringServiceCards.map((card, i) => {
               const Icon = iconByType[card.icon];
 
               return (

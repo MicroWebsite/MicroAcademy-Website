@@ -5,7 +5,7 @@ export const careerHeroSection: HeroProps = {
   titleLine1: "Build Your Career at",
   titleAccent: "Micro Academy.",
   description:
-    "Join a collective of visionary professionals dedicated to redefining the architectural standards of modern training and recruitment.",
+    "Join a collective of visionary professionals dedicated to redefining the architectural standards of modern training and direct/lateral hiring.",
   image: {
     src: "/assets/headers/Career.png",
     alt: "Future professionals at Micro Academy",

@@ -9,12 +9,14 @@ import {
 } from "@/app/utils/validation";
 import ApplicationFormFields from "./ApplicationFormFields";
 import {
-  RecruitmentFormData,
-  RecruitmentFormErrors,
-  RecruitmentModalProps,
-} from "@/app/types/recruitmentForm";
+  DirectLateralHiringFormData,
+  DirectLateralHiringFormErrors,
+  DirectLateralHiringModalProps,
+} from "@/app/types/directLateralHiringForm";
 
-const getInitialFormData = (positionTitle?: string): RecruitmentFormData => ({
+const getInitialFormData = (
+  positionTitle?: string,
+): DirectLateralHiringFormData => ({
   firstName: "",
   lastName: "",
   email: "",
@@ -27,14 +29,14 @@ export default function ApplicationFormModal({
   isOpen,
   onClose,
   selectedPosition,
-}: RecruitmentModalProps) {
-  const [formData, setFormData] = useState<RecruitmentFormData>(
+}: DirectLateralHiringModalProps) {
+  const [formData, setFormData] = useState<DirectLateralHiringFormData>(
     getInitialFormData(selectedPosition?.title),
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState("");
-  const [errors, setErrors] = useState<RecruitmentFormErrors>({});
+  const [errors, setErrors] = useState<DirectLateralHiringFormErrors>({});
   const [isAnimating, setIsAnimating] = useState(false);
   const { showToast } = useToast();
 
@@ -75,7 +77,10 @@ export default function ApplicationFormModal({
     }
   };
 
-  const handleChange = (field: keyof RecruitmentFormData, value: string) => {
+  const handleChange = (
+    field: keyof DirectLateralHiringFormData,
+    value: string,
+  ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -83,7 +88,7 @@ export default function ApplicationFormModal({
     e.preventDefault();
     setErrors({});
 
-    const newErrors: RecruitmentFormErrors = {};
+    const newErrors: DirectLateralHiringFormErrors = {};
     const firstNameErr = validateRequired(formData.firstName, "First Name");
     const lastNameErr = validateRequired(formData.lastName, "Last Name");
     const emailErr = validateEmail(formData.email);
@@ -109,13 +114,13 @@ export default function ApplicationFormModal({
       formDataToSend.append("email", formData.email);
       formDataToSend.append("phone", formData.phone);
       formDataToSend.append("position", formData.position);
-      formDataToSend.append("type", "full-time");
+      formDataToSend.append("type", "direct-lateral-hiring");
       formDataToSend.append("message", formData.message);
       if (resumeFile) {
         formDataToSend.append("resume", resumeFile);
       }
 
-      const response = await fetch("/api/recruitment", {
+      const response = await fetch("/api/direct-lateral-hiring", {
         method: "POST",
         body: formDataToSend,
       });

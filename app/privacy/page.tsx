@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
               At MicroAcademy, we take your privacy seriously. This Privacy
               Policy explains how we collect, use, disclose, and safeguard your
               information when you visit our website or use our training and
-              recruitment services.
+              direct/lateral hiring services.
             </p>
           </section>
 
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
               We do not sell your personal information to third parties. We may
               share your information with trusted partners (such as hiring
               companies) only with your explicit consent as part of our
-              recruitment and placement services.
+              direct/lateral hiring and placement services.
             </p>
           </section>
 

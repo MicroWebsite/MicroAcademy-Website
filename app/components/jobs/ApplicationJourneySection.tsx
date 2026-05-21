@@ -25,7 +25,7 @@ const steps = [
   {
     title: "Interview Process",
     description:
-      "Our recruitment specialists evaluate your profile and schedule interviews with the team.",
+      "Our hiring specialists evaluate your profile and schedule interviews with the team.",
     icon: UserCheck,
   },
   {

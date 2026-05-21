@@ -79,7 +79,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
 
 const iconMap: Record<string, string> = {
   "train-hire": "/assets/home/trainandhire.svg",
-  recruitment: "/assets/home/re.svg",
+  "direct-lateral-hiring": "/assets/home/re.svg",
   "contract-to-hire": "/assets/home/trainandhire.svg",
   "corporate-training": "/assets/home/co.svg",
 };
@@ -90,8 +90,9 @@ const CoreCapabilities: React.FC = () => {
   const trainingItems = items.filter(
     (item) => item.id === "train-hire" || item.id === "corporate-training",
   );
-  const recruitmentItems = items.filter(
-    (item) => item.id === "recruitment" || item.id === "contract-to-hire",
+  const directLateralHiringItems = items.filter(
+    (item) =>
+      item.id === "direct-lateral-hiring" || item.id === "contract-to-hire",
   );
 
   return (
@@ -130,13 +131,13 @@ const CoreCapabilities: React.FC = () => {
             </div>
           </div>
 
-          {/* Recruitment Area */}
+          {/* Direct/lateral Hiring Area */}
           <div>
             <h3 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-primary/20">
-              Recruitment
+              Direct/lateral Hiring
             </h3>
             <div className="flex flex-col gap-6">
-              {recruitmentItems.map((item, index) => (
+              {directLateralHiringItems.map((item, index) => (
                 <CapabilityCard
                   key={item.id}
                   {...item}

@@ -13,7 +13,10 @@ const navLinks = [
     label: "Services",
     href: "/services",
     subLinks: [
-      { label: "Direct / Lateral Hire", href: "/services/recruitment" },
+      {
+        label: "Direct/lateral Hiring",
+        href: "/services/direct-lateral-hiring",
+      },
       { label: "Contract Hiring", href: "/services/contract-hiring" },
       { label: "Train and Hire", href: "/services/train-and-hire" },
       { label: "Corporate Training", href: "/services/corporate-training" },

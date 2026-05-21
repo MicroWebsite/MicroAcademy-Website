@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { processRecruitmentSubmission } from "@/app/backend/services/recruitmentService";
+import { processDirectLateralHiringSubmission } from "@/app/backend/services/directLateralHiringService";
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    await processRecruitmentSubmission({
+    await processDirectLateralHiringSubmission({
       firstName,
       lastName,
       email,
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Recruitment API error:", error);
+    console.error("Direct/lateral Hiring API error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 },

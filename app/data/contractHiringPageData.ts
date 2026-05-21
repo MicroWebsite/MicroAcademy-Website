@@ -9,7 +9,7 @@ export const contractBenefits: ContractBenefit[] = [
     icon: "clock",
     title: "Rapid Deployment",
     description:
-      "Bypass lengthy recruitment cycles. We provide vetted talent ready to onboard and contribute within 48 to 72 hours.",
+      "Bypass lengthy hiring cycles. We provide vetted talent ready to onboard and contribute within 48 to 72 hours.",
   },
   {
     icon: "trendingUp",

@@ -5,10 +5,10 @@ import HomeTemplate from "../common/HeroSection";
 import JobCardSection from "../common/JobCardSection";
 import NoJobsCTA from "../common/NoJobsCTA";
 import ApplicationJourneySection from "./ApplicationJourneySection";
-import RecruitmentApplicationFormModal from "../services/recruitment/ApplicationFormModal";
+import DirectLateralHiringApplicationFormModal from "../services/direct-lateral-hiring/ApplicationFormModal";
 import ContractApplicationFormModal from "../services/contract-hiring/ApplicationFormModal";
 import {
-  fetchRecruitment,
+  fetchDirectLateralHiring,
   fetchContractHiring,
 } from "@/app/services/strapiApi";
 import { JobPosition } from "@/app/types/drupal";
@@ -30,7 +30,7 @@ export default function JobOpeningsPage() {
   useEffect(() => {
     const loadFullTimeJobs = async () => {
       try {
-        const data = await fetchRecruitment();
+        const data = await fetchDirectLateralHiring();
         setFullTimeJobs(data);
       } catch (error) {
         console.error("Failed to fetch full-time jobs:", error);
@@ -116,7 +116,7 @@ export default function JobOpeningsPage() {
         </>
       )}
 
-      <RecruitmentApplicationFormModal
+      <DirectLateralHiringApplicationFormModal
         isOpen={isFullTimeModalOpen}
         onClose={() => setIsFullTimeModalOpen(false)}
         selectedPosition={selectedFullTimeJob}

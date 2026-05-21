@@ -4,7 +4,7 @@ import { getSmtpContext } from "@/app/backend/shared/smtp";
 import { getIndiaTimestamp } from "@/app/backend/shared/time";
 import { buildJobApplicationEmailHtml } from "@/app/backend/templates/jobApplicationEmailTemplate";
 
-export async function processRecruitmentSubmission(data: {
+export async function processDirectLateralHiringSubmission(data: {
   firstName: string;
   lastName: string;
   email: string;

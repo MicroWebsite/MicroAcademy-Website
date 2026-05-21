@@ -78,7 +78,7 @@ function searchJobs(query: string, jobs: JobPosition[]): JobPosition[] {
 }
 
 function getAllJobs(data: StrapiData): JobPosition[] {
-  return [...data.careers, ...data.recruitment, ...data.contractHiring];
+  return [...data.careers, ...data.directLateralHiring, ...data.contractHiring];
 }
 
 const greetingKeywords = [
@@ -135,7 +135,7 @@ const serviceKeywords = [
   "provide",
 ];
 
-const recruitmentKeywords = [
+const directLateralHiringKeywords = [
   "recruitment",
   "recruiting",
   "headhunt",
@@ -144,6 +144,10 @@ const recruitmentKeywords = [
   "hire for us",
   "find candidate",
   "find talent",
+  "direct-lateral hiring",
+  "lateral hiring",
+  "direct hiring",
+  "direct lateral hiring",
 ];
 
 const contractKeywords = [
@@ -468,7 +472,7 @@ export function generateBotResponse(
     greetingKeywords.some((kw) => matchesWord(lower, kw)) &&
     lower.length < 30
   ) {
-    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Recruitment, Training, etc.)\n• Contact information\n\nJust ask away!";
+    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
   }
   if (matchesAny(lower, thankKeywords)) {
     return "You're welcome! 😊 Is there anything else I can help you with?";
@@ -506,7 +510,7 @@ export function generateBotResponse(
         );
       }
 
-      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages:\n• Careers Page (Direct Roles)\n• Recruitment Page\n• Contract Hiring Page\n• Freshers Drive Page\n\nOr send your resume to info@microacademy.net! 📧`;
+      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages:\n• Careers Page (Direct Roles)\n• Direct/lateral Hiring Page\n• Contract Hiring Page\n• Freshers Drive Page\n\nOr send your resume to info@microacademy.net! 📧`;
     }
   }
 
@@ -522,13 +526,13 @@ export function generateBotResponse(
     return botResponses["🎓 Freshers Drive"];
   }
 
-  if (matchesAny(lower, recruitmentKeywords)) {
+  if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Recruitment Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle recruitment support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 Our Direct/lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
 
-    if (strapiData?.isLoaded && strapiData.recruitment.length > 0) {
-      response += `\n\n📋 Current recruitment openings:\n\n`;
-      response += strapiData.recruitment
+    if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
+      response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;
+      response += strapiData.directLateralHiring
         .slice(0, 5)
         .map(
           (j) =>
@@ -536,10 +540,10 @@ export function generateBotResponse(
         )
         .join("\n");
 
-      if (strapiData.recruitment.length > 5) {
-        response += `\n\n...and ${strapiData.recruitment.length - 5} more!`;
+      if (strapiData.directLateralHiring.length > 5) {
+        response += `\n\n...and ${strapiData.directLateralHiring.length - 5} more!`;
       }
-      response += `\n\n🔗 Visit our Recruitment page for full details and to apply!`;
+      response += `\n\n🔗 Visit our Direct/lateral Hiring page for full details and to apply!`;
     }
 
     return response;
@@ -606,13 +610,13 @@ export function generateBotResponse(
         );
       }
 
-      if (strapiData.recruitment.length > 0) {
+      if (strapiData.directLateralHiring.length > 0) {
         parts.push(
           formatJobList(
-            strapiData.recruitment,
-            "recruitment positions",
+            strapiData.directLateralHiring,
+            "direct/lateral hiring positions",
             3,
-            "🔗 Visit our Recruitment page for more details.",
+            "🔗 Visit our Direct/lateral Hiring page for more details.",
           ),
         );
       }
@@ -646,7 +650,7 @@ export function generateBotResponse(
         );
       }
 
-      return "No open positions at the moment. 😔\n\nBut we're always looking for great talent! You can check our job pages (Careers, Recruitment, Contract Hiring, or Freshers Drive) for the latest updates, or send your resume to info@microacademy.net!";
+      return "No open positions at the moment. 😔\n\nBut we're always looking for great talent! You can check our job pages (Careers, Direct/lateral Hiring, Contract Hiring, or Freshers Drive) for the latest updates, or send your resume to info@microacademy.net!";
     }
 
     return botResponses["💼 Career Openings"];
@@ -685,7 +689,7 @@ export function generateBotResponse(
         return `No job openings in ${matchedCity} right now, but we have freshers drives there!\n\n${formatDriveList(cityDrives)}`;
       }
 
-      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations on our Careers, Recruitment, or Contract Hiring pages. Or send your resume to info@microacademy.net and we'll notify you!`;
+      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations on our Careers, Direct/lateral Hiring, or Contract Hiring pages. Or send your resume to info@microacademy.net and we'll notify you!`;
     }
   }
 
@@ -720,7 +724,7 @@ export function generateBotResponse(
       }
     }
 
-    return "We have opportunities across all experience levels. Check our Careers and Recruitment pages for current openings!";
+    return "We have opportunities across all experience levels. Check our Careers and Direct/lateral Hiring pages for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
     return "🎓 Train and Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals:\n\n1️⃣ Precision Selection — Rigorous assessments, top 5% candidates\n2️⃣ Customized Training — Tailored to your tech stack & culture\n3️⃣ Seamless Hiring — Friction-less transition with full onboarding support\n\n✅ Benefits:\n• Zero hiring risk\n• Industry-ready talent from day one\n• Scalable — 5 to 500 professionals\n• 60% faster onboarding\n\nVisit our Train & Hire page or contact us to get started!";

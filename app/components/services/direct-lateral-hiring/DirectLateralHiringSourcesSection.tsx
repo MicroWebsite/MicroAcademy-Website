@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Network, SearchCheck, Star } from "lucide-react";
 import {
-  recruitmentAdvantages,
-  recruitmentSources,
-} from "@/app/data/recruitmentInsightsData";
+  directLateralHiringAdvantages,
+  directLateralHiringSources,
+} from "@/app/data/directLateralHiringInsightsData";
 
-export default function RecruitmentSourcesSection() {
+export default function DirectLateralHiringSourcesSection() {
   return (
     <section className="w-full bg-white px-8 py-24">
       <div className="max-w-[1216px] mx-auto flex flex-col gap-10">
@@ -19,7 +19,7 @@ export default function RecruitmentSourcesSection() {
             Talent Pipeline
           </p>
           <h2 className="text-3xl font-bold text-text-dark font-manrope mb-3">
-            Our Recruitment Sources
+            Our Direct/lateral Hiring Sources
           </h2>
           <p className="text-text-muted-alt">
             A multi-channel sourcing framework that helps us deliver faster,
@@ -41,7 +41,7 @@ export default function RecruitmentSourcesSection() {
               Micro Academy Advantage
             </h3>
             <ul className="space-y-3">
-              {recruitmentAdvantages.map((item) => (
+              {directLateralHiringAdvantages.map((item) => (
                 <li key={item} className="text-sm leading-6 text-white/90">
                   - {item}
                 </li>
@@ -50,7 +50,7 @@ export default function RecruitmentSourcesSection() {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
-            {recruitmentSources.map((source, index) => (
+            {directLateralHiringSources.map((source, index) => (
               <motion.div
                 key={source.title}
                 initial={{ opacity: 0, y: 16 }}

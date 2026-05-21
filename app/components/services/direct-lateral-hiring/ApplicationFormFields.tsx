@@ -1,17 +1,17 @@
 import { ChangeEvent, FormEvent } from "react";
 import { UploadCloud } from "lucide-react";
 import {
-  RecruitmentFormData,
-  RecruitmentFormErrors,
-} from "@/app/types/recruitmentForm";
+  DirectLateralHiringFormData,
+  DirectLateralHiringFormErrors,
+} from "@/app/types/directLateralHiringForm";
 
 type ApplicationFormFieldsProps = {
-  formData: RecruitmentFormData;
-  errors: RecruitmentFormErrors;
+  formData: DirectLateralHiringFormData;
+  errors: DirectLateralHiringFormErrors;
   fileName: string;
   isSubmitting: boolean;
   onSubmit: (e: FormEvent) => Promise<void>;
-  onChange: (field: keyof RecruitmentFormData, value: string) => void;
+  onChange: (field: keyof DirectLateralHiringFormData, value: string) => void;
   onFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 

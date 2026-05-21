@@ -1,25 +1,26 @@
-export type RecruitmentServiceCard = {
+export type DirectLateralHiringServiceCard = {
   icon: "briefcase" | "users";
   title: string;
   description: string;
 };
 
-export const recruitmentServiceCards: RecruitmentServiceCard[] = [
-  {
-    icon: "briefcase",
-    title: "Contractual Hiring Services",
-    description:
-      "Micro Academy provides agile, specialized staffing solutions for project-based requirements. We handle the complexities of short-term expert placement, ensuring your operations never miss a beat.",
-  },
-  {
-    icon: "users",
-    title: "Recruitment Expertise",
-    description:
-      "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.",
-  },
-];
+export const directLateralHiringServiceCards: DirectLateralHiringServiceCard[] =
+  [
+    {
+      icon: "briefcase",
+      title: "Contractual Hiring Services",
+      description:
+        "Micro Academy provides agile, specialized staffing solutions for project-based requirements. We handle the complexities of short-term expert placement, ensuring your operations never miss a beat.",
+    },
+    {
+      icon: "users",
+      title: "Direct/lateral Hiring Expertise",
+      description:
+        "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the talent market, identifying and securing leaders who align with your long-term vision.",
+    },
+  ];
 
-export type RecruitmentPosition = {
+export type DirectLateralHiringPosition = {
   jobId: string;
   title: string;
   location: string;
@@ -28,7 +29,7 @@ export type RecruitmentPosition = {
   type: "Full-Time";
 };
 
-export const recruitmentPositions: RecruitmentPosition[] = [
+export const directLateralHiringPositions: DirectLateralHiringPosition[] = [
   {
     jobId: "MC006",
     title: "Sr. Service Desk Analyst",
@@ -63,7 +64,7 @@ export const recruitmentPositions: RecruitmentPosition[] = [
   },
 ];
 
-export const recruitmentTableHeaders = [
+export const directLateralHiringTableHeaders = [
   "Job ID",
   "Job Title",
   "Location",

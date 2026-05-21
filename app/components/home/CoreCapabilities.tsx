@@ -134,7 +134,7 @@ const CoreCapabilities: React.FC = () => {
           {/* Direct/lateral Hiring Area */}
           <div>
             <h3 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-primary/20">
-              Recuirement
+              Recruitment
             </h3>
             <div className="flex flex-col gap-6">
               {directLateralHiringItems.map((item, index) => (
@@ -143,7 +143,7 @@ const CoreCapabilities: React.FC = () => {
                   {...item}
                   title={
                     item.id === "direct-lateral-hiring"
-                      ? "Recuirement"
+                      ? "Recruitment"
                       : item.title
                   }
                   icon={iconMap[item.id]}

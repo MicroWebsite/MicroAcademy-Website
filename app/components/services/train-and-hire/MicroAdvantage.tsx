@@ -37,8 +37,8 @@ export default function MicroAdvantage() {
 
   return (
     <section className="w-full bg-[#fbfbfa] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-[1180px] mx-auto flex flex-col gap-10 lg:gap-14">
-        <div className="flex flex-col items-center text-center gap-2 max-w-[760px] mx-auto">
+      <div className="max-w-295 mx-auto flex flex-col gap-10 lg:gap-14">
+        <div className="flex flex-col items-center text-center gap-2 max-w-190 mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function MicroAdvantage() {
 
         <div className="hidden lg:block relative pt-10 pb-10">
           <svg
-            className="absolute inset-x-0 top-4 h-[360px] w-full pointer-events-none"
+            className="absolute inset-x-0 top-4 h-90 w-full pointer-events-none"
             viewBox="0 0 1180 360"
             fill="none"
           >
@@ -112,7 +112,7 @@ export default function MicroAdvantage() {
                     </div>
                   </div>
 
-                  <div className="mt-5 max-w-[210px]">
+                  <div className="mt-5 max-w-52.5">
                     <h3 className="text-xl font-bold leading-snug text-[#111111] tracking-tight">
                       {item.title}
                     </h3>

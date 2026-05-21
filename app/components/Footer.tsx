@@ -58,7 +58,6 @@ export default function Footer() {
             height={120}
             priority
             className="h-16 lg:h-20 w-auto object-contain"
-            unoptimized
           />
           <span className="text-base font-bold tracking-[0.2em] uppercase text-text-dark">
             Micro Academy

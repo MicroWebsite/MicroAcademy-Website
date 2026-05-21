@@ -11,9 +11,9 @@ const iconByType = {
 export default function ServicesContentSection() {
   return (
     <section className="w-full bg-white px-8 py-24">
-      <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16">
+      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-16">
         {/* Left: Content */}
-        <div className="flex flex-col gap-12 lg:max-w-[576px] w-full">
+        <div className="flex flex-col gap-12 lg:max-w-xl w-full">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -64,7 +64,7 @@ export default function ServicesContentSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative w-full overflow-hidden h-[324px] rounded-2xl shadow-xl"
+            className="relative w-full overflow-hidden h-81 rounded-2xl shadow-xl"
           >
             <Image
               src="/assets/service/hr.png"

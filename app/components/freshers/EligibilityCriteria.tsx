@@ -162,7 +162,7 @@ export default function EligibilityCriteria({ drive }: Props) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="bg-white/40 backdrop-blur-md rounded-[2rem] p-6 lg:p-10 border border-white/20 shadow-xl"
+      className="bg-white/40 backdrop-blur-md rounded-4xl p-6 lg:p-10 border border-white/20 shadow-xl"
     >
       <div className="flex items-center gap-4 mb-10 transition-all duration-300">
         <div className="w-1 h-8 lg:w-1.5 lg:h-10 bg-primary rounded-full" />
@@ -190,7 +190,7 @@ export default function EligibilityCriteria({ drive }: Props) {
               <p className="text-text-dark text-base font-semibold leading-snug">
                 {item.value}
               </p>
-              <div className="h-[1px] w-full bg-linear-to-r from-border to-transparent mt-2" />
+              <div className="h-px w-full bg-linear-to-r from-border to-transparent mt-2" />
             </div>
           </motion.div>
         ))}

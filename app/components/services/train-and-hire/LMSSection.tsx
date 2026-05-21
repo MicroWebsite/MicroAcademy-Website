@@ -43,7 +43,7 @@ export default function LMSSection() {
       {/* Dynamic background element for futuristic depth */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1216px] mx-auto">
+      <div className="max-w-304 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-24">
           <motion.p
@@ -78,7 +78,7 @@ export default function LMSSection() {
 
         <div className="flex flex-col lg:flex-row gap-16 items-center justify-between">
           {/* Left Block: Interactive Hub-and-Spoke Visualizer (Desktop only) */}
-          <div className="hidden lg:flex items-center justify-center w-[500px] h-[500px] relative shrink-0">
+          <div className="hidden lg:flex items-center justify-center w-125 h-125 relative shrink-0">
             {/* SVG Connecting Lines with glowing paths */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -134,7 +134,7 @@ export default function LMSSection() {
             </svg>
 
             {/* Central LMS Hub */}
-            <div className="absolute w-36 h-36 rounded-full bg-white border border-gray-100 flex items-center justify-center z-20 shadow-[0_8px_30px_rgb(0,0,0,0.06)] relative group">
+            <div className="absolute w-36 h-36 rounded-full bg-white border border-gray-100 flex items-center justify-center z-20 shadow-[0_8px_30px_rgb(0,0,0,0.06)] group">
               {/* Outer pulsing ring */}
               <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-75" />
               {/* Sub-glowing background */}
@@ -192,7 +192,7 @@ export default function LMSSection() {
           </div>
 
           {/* Right Block: Dynamic Features Details Control Panel */}
-          <div className="flex-1 w-full max-w-lg min-h-[350px] flex flex-col justify-center">
+          <div className="flex-1 w-full max-w-lg min-h-87.5 flex flex-col justify-center">
             {/* Desktop Control Panel Display */}
             <div className="hidden lg:block">
               <AnimatePresence mode="wait">

@@ -13,7 +13,7 @@ export default function TestimonialSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1216px] mx-auto">
+      <div className="relative z-10 max-w-304 mx-auto">
         <TrainAndHireTestimonialsCarousel
           testimonials={trainAndHireTestimonials}
         />

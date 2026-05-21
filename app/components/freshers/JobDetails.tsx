@@ -80,7 +80,7 @@ export default function JobDetails({ details }: JobDetailsProps) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="bg-white/40 backdrop-blur-md rounded-[2rem] p-6 lg:p-10 border border-white/20 shadow-xl"
+      className="bg-white/40 backdrop-blur-md rounded-4xl p-6 lg:p-10 border border-white/20 shadow-xl"
     >
       <div className="flex items-center gap-3 mb-8">
         <div className="w-1 h-6 bg-primary rounded-full" />

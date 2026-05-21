@@ -12,8 +12,8 @@ const iconByType = {
 export default function BenefitsSection() {
   return (
     <section className="w-full bg-white px-8 py-24">
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
-        <div className="flex flex-col items-center text-center gap-4 max-w-[700px] mx-auto">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
+        <div className="flex flex-col items-center text-center gap-4 max-w-175 mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             The Strategic Advantage of Contract Staffing
           </h2>
@@ -37,9 +37,9 @@ export default function BenefitsSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-[20px] p-8 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.04)] h-full flex flex-col items-start"
               >
-                <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center mb-6 bg-[#fde047]">
+                <div className="w-13 h-13 rounded-full flex items-center justify-center mb-6 bg-[#fde047]">
                   <Icon
-                    className="w-[22px] h-[22px] text-gray-900"
+                    className="w-5.5 h-5.5 text-gray-900"
                     strokeWidth={1.5}
                   />
                 </div>

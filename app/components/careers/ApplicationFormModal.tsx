@@ -167,7 +167,7 @@ export default function ApplicationFormModal({
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-h-[95vh] overflow-y-auto transition-all duration-300 ease-out max-w-[640px] bg-bg-cream-alt rounded-3xl shadow-2xl"
+        className="relative w-full max-h-[95vh] overflow-y-auto transition-all duration-300 ease-out max-w-160 bg-bg-cream-alt rounded-3xl shadow-2xl"
         style={{
           transform: isAnimating
             ? "translateY(0) scale(1)"

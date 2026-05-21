@@ -14,7 +14,7 @@ const OfficialNoteCard: React.FC<OfficialNoteCardProps> = ({ notes }) => {
   const content = linkify(notes || "");
 
   return (
-    <div className="bg-[#1b1c19] text-white p-6 lg:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden group border border-white/5">
+    <div className="bg-[#1b1c19] text-white p-6 lg:p-12 rounded-4xl shadow-2xl relative overflow-hidden group border border-white/5">
       {/* Visual Accent */}
       <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary via-secondary to-primary opacity-80" />
 

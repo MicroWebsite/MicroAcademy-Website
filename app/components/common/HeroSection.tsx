@@ -71,7 +71,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
         <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
           <div className="relative w-full max-w-120">
             {/* Decorative background box */}
-            <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-[2rem] bg-secondary-dark/50" />
+            <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-4xl bg-secondary-dark/50" />
 
             {/* Image card */}
             {image?.src && image?.alt && (

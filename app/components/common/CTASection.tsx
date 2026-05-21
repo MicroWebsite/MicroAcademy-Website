@@ -42,7 +42,7 @@ export default function CTASection({
   return (
     <section className={`w-full px-4 md:px-8 py-12 md:py-16 ${styles.section}`}>
       <div
-        className={`relative max-w-[1216px] mx-auto rounded-[24px] md:rounded-[32px] overflow-hidden p-8 md:p-16 isolation-auto ${styles.card}`}
+        className={`relative max-w-304 mx-auto rounded-3xl md:rounded-4xl overflow-hidden p-8 md:p-16 isolation-auto ${styles.card}`}
       >
         <div
           className={`absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -right-10 -top-10 md:-right-20 md:-top-20 blur-[32px] rounded-full z-0 ${styles.glow}`}
@@ -57,7 +57,7 @@ export default function CTASection({
           >
             {title}
           </h2>
-          <div className="max-w-[800px]">
+          <div className="max-w-200">
             <p
               className={`text-left md:text-center text-base md:text-lg leading-7 md:leading-8 font-manrope ${styles.description}`}
             >

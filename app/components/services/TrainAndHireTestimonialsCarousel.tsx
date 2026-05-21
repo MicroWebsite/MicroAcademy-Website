@@ -67,7 +67,7 @@ export default function TrainAndHireTestimonialsCarousel({
       onPointerLeave={() => setIsPaused(false)}
     >
       {/* Testimonial Content Wrapper */}
-      <div className="relative w-full max-w-[896px] mx-auto min-h-[220px] md:min-h-[300px] flex flex-col items-center overflow-hidden pointer-events-auto">
+      <div className="relative w-full max-w-4xl mx-auto min-h-55 md:min-h-75 flex flex-col items-center overflow-hidden pointer-events-auto">
         {/* Quote Icon */}
         <div className="mb-8 flex justify-center">
           <svg
@@ -110,14 +110,14 @@ export default function TrainAndHireTestimonialsCarousel({
             onPointerEnter={() => setIsPaused(true)}
           >
             {/* Quote Text */}
-            <p className="text-text-heading text-center text-lg sm:text-2xl md:text-[36px] leading-7 sm:leading-9 md:leading-[40px] max-w-[896px] font-manrope font-light">
+            <p className="text-text-heading text-center text-lg sm:text-2xl md:text-4xl leading-7 sm:leading-9 md:leading-10 max-w-4xl font-manrope font-light">
               &quot;{active.quote}&quot;
             </p>
 
             {/* Author Info */}
             <div className="mt-8 md:mt-12 flex items-center gap-3 md:gap-4">
               {/* Avatar with gold border */}
-              <div className="w-[48px] h-[48px] md:w-[64px] md:h-[64px] rounded-full border-2 border-primary p-[3px] md:p-[4px] shrink-0">
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-primary p-0.75 md:p-1 shrink-0">
                 <div className="relative w-full h-full rounded-full overflow-hidden">
                   <Image
                     src={active.avatar}

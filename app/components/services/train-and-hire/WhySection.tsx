@@ -8,8 +8,8 @@ const whyIcons = [ShieldCheck, GraduationCap, Users, TrendingUp];
 export default function WhySection() {
   return (
     <section className="w-full bg-bg-cream px-8">
-      <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-[768px] py-24">
-        <div className="relative flex gap-4 shrink-0 w-[568px] max-w-full h-[512px]">
+      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-192 py-24">
+        <div className="relative flex gap-4 shrink-0 w-142 max-w-full h-128">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export default function WhySection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-4 flex-1 pt-12"
           >
-            <div className="relative rounded-2xl overflow-hidden h-[256px]">
+            <div className="relative rounded-2xl overflow-hidden h-64">
               <Image
                 src="/assets/service/classroom-active.jpg"
                 alt="Original training session at Micro Academy"
@@ -26,7 +26,7 @@ export default function WhySection() {
                 sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
-            <div className="relative rounded-2xl overflow-hidden h-[192px]">
+            <div className="relative rounded-2xl overflow-hidden h-48">
               <Image
                 src="/assets/service/team-collaboration-2.jpg"
                 alt="Authentic team collaboration"
@@ -44,7 +44,7 @@ export default function WhySection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col gap-4 flex-1 pb-12"
           >
-            <div className="relative rounded-2xl overflow-hidden h-[192px]">
+            <div className="relative rounded-2xl overflow-hidden h-48">
               <Image
                 src="/assets/about/office-lobby.jpg"
                 alt="Micro Academy Bangalore Office Lobby"
@@ -53,7 +53,7 @@ export default function WhySection() {
                 sizes="(max-width: 768px) 100vw, 276px"
               />
             </div>
-            <div className="relative rounded-2xl overflow-hidden h-[256px]">
+            <div className="relative rounded-2xl overflow-hidden h-64">
               <Image
                 src="/assets/service/team-outdoor.jpg"
                 alt="Team celebration and outdoor collaboration"

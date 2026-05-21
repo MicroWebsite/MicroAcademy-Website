@@ -25,10 +25,8 @@ export default function DomainCard({ id, title, image }: DomainCardProps) {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="p-6 flex flex-col flex-grow items-center text-center gap-5">
-        <h3 className="text-lg font-bold text-text-dark min-h-[3rem]">
-          {title}
-        </h3>
+      <div className="p-6 flex flex-col grow items-center text-center gap-5">
+        <h3 className="text-lg font-bold text-text-dark min-h-12">{title}</h3>
         <Link
           href={`/freshers-drive/${id}`}
           className="px-6 py-2.5 rounded-lg ring-1 ring-border text-text-dark text-sm font-semibold hover:bg-linear-to-r hover:from-btn-grad-start hover:to-btn-grad-end hover:text-white hover:ring-0 transition-all shadow-sm active:scale-95"

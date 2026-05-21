@@ -54,7 +54,7 @@ const MicroAdvantage: React.FC = () => {
                 duration: 0.6,
                 ease: [0.22, 1, 0.36, 1] as const,
               }}
-              className="relative w-[320px] h-80 rounded-full bg-linear-to-br from-[#776c02] via-[#a3930b] to-[#d4c114] shadow-[0_20px_50px_rgba(119,108,2,0.25)] flex flex-col items-center justify-center text-center z-10"
+              className="relative w-80 h-80 rounded-full bg-linear-to-br from-[#776c02] via-[#a3930b] to-[#d4c114] shadow-[0_20px_50px_rgba(119,108,2,0.25)] flex flex-col items-center justify-center text-center z-10"
             >
               <span className="text-white/80 text-[11px] font-bold tracking-[0.2em] uppercase mb-2">
                 The Micro Advantage

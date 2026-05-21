@@ -110,7 +110,7 @@ export default function CountriesCarousel() {
           <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-8">
             Our Geographic Coverage
           </h2>
-          <div className="w-full aspect-[2000/857] bg-gray-200/50 rounded-2xl animate-pulse" />
+          <div className="w-full aspect-2000/857 bg-gray-200/50 rounded-2xl animate-pulse" />
         </div>
       </section>
     );
@@ -151,7 +151,7 @@ export default function CountriesCarousel() {
           ref={scrollContainerRef}
           className="w-full overflow-x-auto scrollbar-none pb-4"
         >
-          <div className="min-w-[950px] md:min-w-[1150px] lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 p-4 shadow-sm">
+          <div className="min-w-237.5 md:min-w-287.5 lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 p-4 shadow-sm">
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{

@@ -25,7 +25,7 @@ export default function ResumeUploadField({
         onDragOver={(e) => e.preventDefault()}
         onDragLeave={(e) => e.preventDefault()}
         onDrop={onDrop}
-        className={`w-full border-2 border-dashed rounded-[1.5rem] p-12 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${
+        className={`w-full border-2 border-dashed rounded-3xl p-12 flex flex-col items-center justify-center gap-4 cursor-pointer transition-all ${
           error
             ? "border-red-500 bg-red-50"
             : "border-border hover:border-primary bg-transparent"

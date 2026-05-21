@@ -143,7 +143,7 @@ const CoreCapabilities: React.FC = () => {
                   {...item}
                   title={
                     item.id === "direct-lateral-hiring"
-                      ? "Recruitment"
+                      ? "Direct/Lateral Hiring"
                       : item.title
                   }
                   icon={iconMap[item.id]}

@@ -13,8 +13,8 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const KeyAchievements: React.FC = () => {
   return (
-    <section className="w-full bg-bg-cream py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto">
+    <section className="w-full bg-bg-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ const KeyAchievements: React.FC = () => {
               {/* Subtle background decoration */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
 
-              <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center mb-6 bg-linear-to-br from-primary to-secondary shadow-md relative z-10">
+              <div className="w-15 h-15 rounded-2xl flex items-center justify-center mb-6 bg-linear-to-br from-primary to-secondary shadow-md relative z-10">
                 {iconMap[item.icon]}
               </div>
 

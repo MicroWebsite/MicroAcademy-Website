@@ -6,9 +6,6 @@ import {
   TimelineMilestone,
   timelineMilestones,
 } from "@/app/data/timelineMilestones";
-
-// ─── Sub-components for Odometer Effect ─────────────────────────────────────
-
 function DigitRoller({ digit, active }: { digit: string; active: boolean }) {
   const num = parseInt(digit);
   if (isNaN(num)) return <span>{digit}</span>;
@@ -51,44 +48,32 @@ function YearCounter({ year, active }: { year: string; active: boolean }) {
   );
 }
 
-// ─── Sub-component: single milestone card ───────────────────────────────────
-
 function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
   const isLeft = milestone.side === "left";
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Individual scroll progress for each card to handle proximity activation
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "center center", "end start"],
   });
-
-  // Opacity: 0 (at bottom) -> 1 (at center) -> 0.3 (at top)
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 1, 0.4]);
-  // Scale: 0.9 -> 1 -> 0.9
   const scale = useTransform(
     scrollYProgress,
     [0, 0.4, 0.5, 0.6, 1],
     [0.9, 0.95, 1, 0.95, 0.9],
   );
-  // Slide effect: Subtle shift based on position
   const x = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [isLeft ? -50 : 50, 0, isLeft ? -20 : 20],
   );
 
-  // Detect when active based on scroll (using state for the odometer)
   const [isActive, setIsActive] = React.useState(false);
-
-  // Update active state based on scrollYProgress reaching the center
   React.useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       if (latest >= 0.48 && latest <= 0.6) {
         setIsActive(true);
       } else if (latest < 0.2 || latest > 0.8) {
-        // Option to reset if we want it to roll again when re-scrolling
-        // setIsActive(false);
       }
     });
   }, [scrollYProgress]);
@@ -102,7 +87,6 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
         ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}
       `}
     >
-      {/* ── Text block ── */}
       <motion.div
         style={{ opacity, scale, x }}
         className={`
@@ -111,10 +95,7 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
           ${isLeft ? "md:text-right md:pr-10" : "md:text-left md:pl-10"}
         `}
       >
-        {/* Year with Odometer Effect triggered by proximity */}
         <YearCounter year={milestone.year} active={isActive} />
-
-        {/* Title */}
         <h3
           className={`
             text-sm sm:text-base font-semibold mb-1.5
@@ -156,8 +137,6 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
           "
         />
       </div>
-
-      {/* Mobile-only dot */}
       <div className="flex md:hidden items-center gap-3 -mt-1 relative z-10">
         <div
           className={`w-2.5 h-2.5 rounded-full shrink-0 transition-colors duration-500 ${isActive ? "bg-[#8a7a1a]" : "bg-gray-300"}`}
@@ -169,14 +148,10 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
           Milestone
         </span>
       </div>
-
-      {/* Spacer on the opposite side (desktop only) */}
       <div className="hidden md:block md:w-[calc(50%-2rem)]" />
     </div>
   );
 }
-
-// ─── Main component ──────────────────────────────────────────────────────────
 
 export default function ThirtyYearGenesis() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -244,7 +219,7 @@ export default function ThirtyYearGenesis() {
           <div
             className="
               hidden md:block
-              absolute left-1/2 top-0 bottom-0 w-[2px]
+              absolute left-1/2 top-0 bottom-0 w-0.5
               bg-gray-200/50 -translate-x-1/2 overflow-hidden
             "
           >
@@ -258,7 +233,7 @@ export default function ThirtyYearGenesis() {
           <div
             className="
               block md:hidden
-              absolute left-[5px] top-0 bottom-0 w-[2px]
+              absolute left-1.25 top-0 bottom-0 w-0.5
               bg-gray-200/50 overflow-hidden
             "
           >

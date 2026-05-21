@@ -20,8 +20,8 @@ export default function AboutPage() {
     <div className="relative w-full">
       <HomeTemplate heroContent={aboutHeroData} />
       <WhoareweSection />
-      <KeyAchievements />
       <ThirtyYearGenesis />
+      <KeyAchievements />
       <Gallery />
     </div>
   );

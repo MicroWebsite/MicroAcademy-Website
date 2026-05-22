@@ -9,7 +9,7 @@ export const jobOpeningsHeroData: HeroProps = {
   primaryCTA: { label: "Contact Us", href: "/contact" },
   secondaryCTA: { label: "Explore Services", href: "/services" },
   image: {
-    src: "/assets/headers/Recruitment.png",
-    alt: "Micro Academy recruitment and hiring support",
+    src: "/assets/headers/Career.png",
+    alt: "Micro Academy Career and hiring support",
   },
 };

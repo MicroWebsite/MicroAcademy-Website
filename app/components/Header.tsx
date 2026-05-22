@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import {
+  fetchNavigationItems,
+  NavigationItem,
+  NavigationSubLink,
+} from "@/app/services/strapiApi";
 
-const navLinks = [
+const STATIC_NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/about" },
   {
@@ -30,11 +35,26 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [navLinks, setNavLinks] = useState<NavigationItem[]>(STATIC_NAV_LINKS);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<
     Record<string, boolean>
   >({});
   const pathname = usePathname();
+
+  useEffect(() => {
+    const loadNavigation = async () => {
+      try {
+        const data = await fetchNavigationItems();
+        if (data && data.length > 0) {
+          setNavLinks(data);
+        }
+      } catch (err) {
+        console.error("Failed to load navigation items from Strapi:", err);
+      }
+    };
+    loadNavigation();
+  }, []);
   const isPathActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
@@ -61,7 +81,9 @@ export default function Header() {
             const isActive =
               isPathActive(link.href) ||
               Boolean(
-                link.subLinks?.some((subLink) => isPathActive(subLink.href)),
+                link.subLinks?.some((subLink: NavigationSubLink) =>
+                  isPathActive(subLink.href),
+                ),
               );
 
             if (link.subLinks) {
@@ -89,7 +111,7 @@ export default function Header() {
 
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 min-w-55 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
-                    {link.subLinks.map((subLink) => (
+                    {link.subLinks.map((subLink: NavigationSubLink) => (
                       <Link
                         key={subLink.href}
                         href={subLink.href}
@@ -169,7 +191,9 @@ export default function Header() {
             const isActive =
               isPathActive(link.href) ||
               Boolean(
-                link.subLinks?.some((subLink) => isPathActive(subLink.href)),
+                link.subLinks?.some((subLink: NavigationSubLink) =>
+                  isPathActive(subLink.href),
+                ),
               );
 
             if (link.subLinks) {
@@ -211,7 +235,7 @@ export default function Header() {
 
                   {isDropdownOpen && (
                     <div className="flex flex-col gap-1 mt-1">
-                      {link.subLinks.map((subLink) => (
+                      {link.subLinks.map((subLink: NavigationSubLink) => (
                         <Link
                           key={subLink.href}
                           href={subLink.href}

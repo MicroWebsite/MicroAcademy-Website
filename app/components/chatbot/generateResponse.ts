@@ -824,7 +824,12 @@ export function generateBotResponse(
       if (matchesAny(lower, ["salary", "ctc", "package", "pay"])) {
         return `💰 Compensation for **${matchedJob.title}** is commensurate with experience and skills.\n\nApply now to discuss with our recruitment team!`;
       }
-      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our Careers page to submit your application!`;
+      const isInternal = strapiData.careers.some(
+        (c) =>
+          (c.job_id || c.jobId) === (matchedJob.job_id || matchedJob.jobId),
+      );
+      const applyPage = isInternal ? "Careers page" : "Recruitments page";
+      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our ${applyPage} to submit your application!`;
     }
   }
   if (strapiData?.isLoaded) {
@@ -853,11 +858,11 @@ export function generateBotResponse(
           matches,
           `"${matchedSkill}" related openings`,
           5,
-          "🔗 Visit our Careers and Services pages for full details!",
+          "🔗 Visit our Careers page or see our Recruitments page for full details!",
         );
       }
 
-      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages:\n• Careers Page (Direct Roles)\n• Direct/lateral Hiring Page\n• Contract Hiring Page\n• Freshers Drive Page\n\nOr send your resume to info@microacademy.net! 📧`;
+      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages: visit our Careers page (for internal roles), see our Recruitments page (for direct & contract client roles), or check out our Freshers Drive page (for entry-level drives).\n\nOr send your resume to info@microacademy.net! 📧`;
     }
   }
 
@@ -890,7 +895,7 @@ export function generateBotResponse(
       if (strapiData.directLateralHiring.length > 5) {
         response += `\n\n...and ${strapiData.directLateralHiring.length - 5} more!`;
       }
-      response += `\n\n🔗 Visit our Direct/lateral Hiring page for full details and to apply!`;
+      response += `\n\n🔗 Visit our Recruitments page for full details and to apply!`;
     }
 
     return response;
@@ -913,9 +918,9 @@ export function generateBotResponse(
       if (strapiData.contractHiring.length > 5) {
         response += `\n\n...and ${strapiData.contractHiring.length - 5} more!`;
       }
-      response += `\n\n🔗 Visit our Contract Hiring page to see all available roles!`;
+      response += `\n\n🔗 Visit our Recruitments page to see all available roles!`;
     } else if (strapiData?.isLoaded) {
-      response += `\n\n(No active contract openings at the moment, but you can visit our Contract Hiring page for future updates!)`;
+      response += `\n\n(No active contract openings at the moment, but you can visit our Recruitments page for future updates!)`;
     }
 
     return response;
@@ -949,7 +954,7 @@ export function generateBotResponse(
           ? directJobs.map((j) => `• ${j.title}`).join("\n")
           : "No active openings at the moment.";
       parts.push(
-        `💼 **Full Time**\n${directList}\n\nVisit our direct/lateral hiring page to see full details!`,
+        `💼 **Full Time**\n${directList}\n\nVisit our Recruitments page to see full details!`,
       );
 
       // 2. Contract (contractHiring)
@@ -959,7 +964,7 @@ export function generateBotResponse(
           ? contractJobs.map((j) => `• ${j.title}`).join("\n")
           : "No active openings at the moment.";
       parts.push(
-        `📝 **Contract**\n${contractList}\n\nVisit our Contract Hiring page to see full details!`,
+        `📝 **Contract**\n${contractList}\n\nVisit our Recruitments page to see full details!`,
       );
 
       // 3. Freshers Drive (fresherDrives)
@@ -1024,7 +1029,7 @@ export function generateBotResponse(
         return `No job openings in ${matchedCity} right now, but we have freshers drives there!\n\n${formatDriveList(cityDrives)}`;
       }
 
-      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations on our Careers, Direct/lateral Hiring, or Contract Hiring pages. Or send your resume to info@microacademy.net and we'll notify you!`;
+      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations: visit our Careers page, see our Recruitments page, or check out our Freshers Drive page. Or send your resume to info@microacademy.net and we'll notify you!`;
     }
   }
 
@@ -1038,9 +1043,9 @@ export function generateBotResponse(
       lower.includes("trainee")
     ) {
       if (strapiData.fresherDrives.length > 0) {
-        return `Great news for freshers! 🎓\n\n${formatDriveList(strapiData.fresherDrives)}\n\nAlso check our Careers page for entry-level positions.`;
+        return `Great news for freshers! 🎓\n\n${formatDriveList(strapiData.fresherDrives)}\n\nAlso visit our Careers page for entry-level positions.`;
       }
-      return "For freshers, we regularly conduct Freshers Drives with training + placement. Check our Freshers Drive page for upcoming drives!";
+      return "For freshers, we regularly conduct Freshers Drives with training + placement. Visit our Freshers Drive page for upcoming drives!";
     }
 
     if (allJobs.length > 0) {
@@ -1059,7 +1064,7 @@ export function generateBotResponse(
       }
     }
 
-    return "We have opportunities across all experience levels. Check our Careers and Direct/lateral Hiring pages for current openings!";
+    return "We have opportunities across all experience levels. You can check out our Careers page, visit our Recruitments page, or see our Freshers Drive page for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
     return "🎓 Train & Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals. Our value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire (C2H)\n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
@@ -1119,7 +1124,7 @@ export function generateBotResponse(
       return response;
     }
 
-    return "📋 Eligibility varies by role:\n\n• Freshers Drives: Typically BE/BTech/MCA with min aggregate\n• Career Roles: Relevant degree + experience\n• Contract Roles: Specific tech expertise required\n\nVisit our job listings for detailed requirements, or ask me about a specific role!";
+    return "📋 Eligibility varies by role:\n\n• Freshers Drives: Typically BE/BTech/MCA with min aggregate\n• Career Roles: Relevant degree + experience\n• Contract Roles: Specific tech expertise required\n\nVisit our Job Openings page for detailed requirements, or ask me about a specific role!";
   }
   if (matchesAny(lower, salaryKeywords)) {
     if (strapiData?.isLoaded && strapiData.fresherDrives.length > 0) {
@@ -1129,7 +1134,7 @@ export function generateBotResponse(
         const lines = drivesWithSalary.map(
           (d) => `• **${d.title}**: ${d.salary}`,
         );
-        return `💰 **Salary Packages for current Fresher Drives:**\n\n${lines.join("\n")}\n\nFor internal or client lateral hiring roles, packages are discussed during interviews. Visit our Careers page for more details!`;
+        return `💰 **Salary Packages for current Fresher Drives:**\n\n${lines.join("\n")}\n\nFor internal or client lateral hiring roles, packages are discussed during interviews. Visit our Careers page or see our Recruitments page for more details!`;
       }
     }
 

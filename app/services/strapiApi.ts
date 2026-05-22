@@ -27,3 +27,38 @@ export const fetchFresherDrives = async (): Promise<FresherDrive[]> => {
   const response = await strapiApi.get<FresherDrive[]>("/api/fresher-drives");
   return response.data;
 };
+
+export interface AnnouncementData {
+  badgeText?: string;
+  text: string;
+  linkText?: string;
+  linkUrl?: string;
+  isActive: boolean;
+}
+
+export interface NavigationSubLink {
+  label: string;
+  href: string;
+}
+
+export interface NavigationItem {
+  id?: number;
+  label: string;
+  href: string;
+  order?: number;
+  subLinks?: NavigationSubLink[] | null;
+}
+
+export const fetchAnnouncement = async (): Promise<AnnouncementData | null> => {
+  const response = await strapiApi.get<AnnouncementData | null>(
+    "/api/announcement",
+  );
+  return response.data;
+};
+
+export const fetchNavigationItems = async (): Promise<NavigationItem[]> => {
+  const response = await strapiApi.get<NavigationItem[]>(
+    "/api/navigation-items",
+  );
+  return response.data;
+};

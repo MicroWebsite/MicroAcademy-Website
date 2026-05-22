@@ -4,6 +4,7 @@ import CountriesCarousel from "./components/home/CountryCarousel";
 import HeroSection from "@/app/components/common/HeroSection";
 import StatsSection from "./components/home/StatsSection";
 import OurClients from "./components/home/OurClients";
+import AnnouncementRunner from "./components/common/AnnouncementRunner";
 import { heroData } from "./data/heroData";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="w-full bg-bg-cream overflow-hidden">
+      <AnnouncementRunner />
       <HeroSection heroContent={heroData} />
       <StatsSection />
       <CoreCapabilities />

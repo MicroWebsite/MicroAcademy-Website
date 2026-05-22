@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { clientsData, Client } from "@/app/data/clientsData";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -106,6 +105,15 @@ const OurClients: React.FC = () => {
   // Derive a safe index that is always within bounds — no effect needed
   const safeIndex = Math.min(currentIndex, maxIndex);
 
+  // Auto-play effect to automatically cycle through client logos
+  useEffect(() => {
+    if (maxIndex === 0) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [maxIndex, currentIndex]);
+
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
   };
@@ -158,7 +166,7 @@ const OurClients: React.FC = () => {
         </div>
 
         {/* Mobile & Tablet Swipeable Slider (shows 1 logo on mobile, 2 logos on tablet) */}
-        <div className="lg:hidden relative max-w-sm sm:max-w-2xl mx-auto px-10 sm:px-12">
+        <div className="lg:hidden relative max-w-sm sm:max-w-2xl mx-auto px-4">
           <div className="overflow-hidden w-full py-4">
             <motion.div
               className="flex cursor-grab active:cursor-grabbing"
@@ -188,24 +196,6 @@ const OurClients: React.FC = () => {
               ))}
             </motion.div>
           </div>
-
-          {/* Left Arrow Button */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 sm:-left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-md border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-95 transition-all cursor-pointer z-10"
-            aria-label="Previous client"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={handleNext}
-            className="absolute right-0 sm:-right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-md border border-gray-200 text-gray-700 hover:bg-gray-50 active:scale-95 transition-all cursor-pointer z-10"
-            aria-label="Next client"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
 
           {/* Paginated Indicator Dots */}
           <div className="flex justify-center flex-wrap gap-1.5 mt-4 max-w-70 sm:max-w-100 mx-auto">

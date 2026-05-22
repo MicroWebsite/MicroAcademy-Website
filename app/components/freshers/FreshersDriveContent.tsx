@@ -33,7 +33,7 @@ export default function FreshersDriveContent() {
       <main className="min-h-screen">
         <HomeTemplate heroContent={freshersHeroData} />
         <StandardHighlightCards />
-        <section id="active-domains" className="py-24 bg-bg-cream">
+        <section id="active-domains" className="py-12 md:py-16 bg-bg-cream">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex justify-center py-20">
               <div
@@ -67,14 +67,14 @@ export default function FreshersDriveContent() {
       <HomeTemplate heroContent={freshersHeroData} />
       <StandardHighlightCards />
 
-      <section id="active-domains" className="py-24 bg-bg-cream">
+      <section id="active-domains" className="py-12 md:py-16 bg-bg-cream">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto mb-16"
+            className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
           >
             <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
               Career Pathways

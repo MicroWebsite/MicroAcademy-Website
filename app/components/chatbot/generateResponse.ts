@@ -2,6 +2,14 @@ import { botResponses } from "./data";
 import { StrapiData } from "@/app/types/chatbot";
 import { JobPosition, FresherDrive } from "@/app/types/drupal";
 
+// Enriched Static Data Imports
+import { clientsData } from "@/app/data/clientsData";
+import { countriesData } from "@/app/data/countriesData";
+import { timelineMilestones } from "@/app/data/timelineMilestones";
+import { keyAchievementsData } from "@/app/data/keyAchievementsData";
+import { microAdvantageData } from "@/app/data/microAdvantageData";
+
+// Helper to find a fresher drive in the user query
 function matchesAny(text: string, keywords: string[]): boolean {
   return keywords.some((kw) => text.includes(kw));
 }
@@ -12,6 +20,99 @@ function matchesWord(text: string, keyword: string): boolean {
     return new RegExp(`\\b${escaped}\\b`, "i").test(text);
   }
   return text.includes(keyword);
+}
+
+// Helper to find a fresher drive in the user query
+function findMatchedDrive(
+  query: string,
+  drives: FresherDrive[],
+): FresherDrive | null {
+  if (drives.length === 0) return null;
+
+  // 1. Keyword match in title, designation, or domain
+  for (const drive of drives) {
+    const title = drive.title.toLowerCase();
+    const designation = (drive.designation || "").toLowerCase();
+    const domain = (drive.domain || "").toLowerCase();
+
+    const titleWords = title.split(/\s+/).filter((w) => w.length > 3);
+    const hasWordMatch = titleWords.some((word) => query.includes(word));
+
+    if (
+      (domain && query.includes(domain)) ||
+      (designation && query.includes(designation)) ||
+      hasWordMatch ||
+      query.includes(title)
+    ) {
+      return drive;
+    }
+  }
+
+  // 2. Fallback: if there is only 1 drive, and query asks for specific drive fields and is not generic
+  if (
+    drives.length === 1 &&
+    matchesAny(query, [
+      "venue",
+      "landmark",
+      "selection",
+      "process",
+      "contact",
+      "notes",
+      "criteria",
+      "academic",
+      "aggregate",
+      "gap",
+    ]) &&
+    !matchesAny(query, ["openings", "careers", "jobs", "vacancies"])
+  ) {
+    return drives[0];
+  }
+
+  return null;
+}
+
+// Helper to find a job position in the user query
+function findMatchedJob(
+  query: string,
+  jobs: JobPosition[],
+): JobPosition | null {
+  if (jobs.length === 0) return null;
+
+  // If the query is generic, do not match a specific job
+  if (matchesAny(query, ["openings", "careers", "jobs", "vacancies"])) {
+    return null;
+  }
+
+  for (const job of jobs) {
+    const title = job.title.toLowerCase();
+    const jobId = (job.job_id || job.jobId || "").toLowerCase();
+
+    if (jobId && query.includes(jobId)) {
+      return job;
+    }
+    if (query.includes(title)) {
+      return job;
+    }
+
+    const titleWords = title
+      .split(/\s+/)
+      .filter(
+        (w) =>
+          w.length > 3 &&
+          w !== "developer" &&
+          w !== "engineer" &&
+          w !== "lead" &&
+          w !== "manager" &&
+          w !== "analyst",
+      );
+    if (
+      titleWords.length > 0 &&
+      titleWords.some((word) => query.includes(word))
+    ) {
+      return job;
+    }
+  }
+  return null;
 }
 
 function formatJobList(
@@ -460,6 +561,126 @@ const whyJoinKeywords = [
   "career growth",
 ];
 
+const clientKeywords = [
+  "client",
+  "clients",
+  "partner",
+  "partners",
+  "customer",
+  "customers",
+  "companies you work with",
+  "work with",
+  "who are your clients",
+  "which companies",
+  "company list",
+];
+
+const globalKeywords = [
+  "global",
+  "countries",
+  "operate",
+  "presence",
+  "locations",
+  "geography",
+  "international",
+  "regions",
+  "world",
+  "map",
+  "where are you located",
+  "where do you operate",
+];
+
+const milestoneKeywords = [
+  "milestones",
+  "timeline",
+  "history",
+  "founded",
+  "genesis",
+  "established",
+  "years",
+  "how long have you",
+  "when was micro",
+  "thirty-year",
+  "30 years",
+];
+
+const achievementKeywords = [
+  "achievements",
+  "key achievements",
+  "diversity",
+  "captive",
+  "ramp up",
+  "ramp-up",
+  "scale",
+];
+
+const microAdvantageKeywords = [
+  "micro advantage",
+  "value add",
+  "advantage",
+  "why should we choose",
+  "why choose micro",
+  "lms",
+  "learning management system",
+  "guidance",
+  "lab support",
+  "technical lab",
+  "sme",
+];
+
+const trainHireStepsKeywords = [
+  "train and hire step",
+  "train & hire step",
+  "hiring step",
+  "hiring steps",
+  "train and hire process",
+  "train & hire process",
+  "sourcing",
+  "pre-selection",
+  "placement step",
+];
+
+const lmsKeywords = [
+  "lms feature",
+  "lms features",
+  "learning management system feature",
+  "individual reports",
+  "assignments",
+  "capstone",
+  "milestone assessment",
+  "session scheduling",
+];
+
+const contractProcessKeywords = [
+  "contract hiring benefit",
+  "contract hiring process",
+  "contract hiring step",
+  "contract process",
+  "contract step",
+  "contracting process",
+  "profile sourcing",
+  "curation",
+  "client interview",
+  "rapid onboarding",
+  "elastic scalability",
+  "compliance & payroll",
+  "niche expertise on demand",
+];
+
+const directLateralProcessKeywords = [
+  "lateral hiring process",
+  "lateral hiring source",
+  "permanent hire",
+  "talent expertise",
+  "leadership position",
+  "mid-level position",
+  "senior-level position",
+  "hiring channels",
+  "sourcing channel",
+  "associate referral",
+  "advisory recommendation",
+];
+
 export function generateBotResponse(
   userMessage: string,
   strapiData?: StrapiData,
@@ -479,6 +700,132 @@ export function generateBotResponse(
   }
   if (matchesAny(lower, goodbyeKeywords) && lower.length < 30) {
     return "Goodbye! 👋 Thanks for chatting with MicroBot. Feel free to come back anytime. Have a great day!";
+  }
+
+  // Enriched Static Section Intents
+  if (matchesAny(lower, clientKeywords)) {
+    return `🤝 **Valued Partners & Clients**\n\nMicroAcademy is a trusted partner for leading IT multinationals globally. A few of our valued clients include:\n\n${clientsData.clients.map((c) => `• **${c.name}**`).join("\n")}\n\nWe collaborate closely with these organizations to source elite digital talent and deliver custom L&D programs.`;
+  }
+
+  if (matchesAny(lower, globalKeywords)) {
+    const asian = countriesData
+      .filter((c) => c.region === "Asia")
+      .map((c) => c.name)
+      .join(", ");
+    const me = countriesData
+      .filter((c) => c.region === "Middle East")
+      .map((c) => c.name)
+      .join(", ");
+    const african = countriesData
+      .filter((c) => c.region === "Africa")
+      .map((c) => c.name)
+      .join(", ");
+    const european = countriesData
+      .filter((c) => c.region === "Europe")
+      .map((c) => c.name)
+      .join(", ");
+
+    return `🌍 **Our Global Footprint**\n\nMicroAcademy has a strong footprint spanning **20+ countries** across several key global regions:\n\n🔹 **Asia:** ${asian}\n🔹 **Middle East:** ${me}\n🔹 **Africa:** ${african}\n🔹 **Europe:** ${european}\n\nWe deliver enterprise-grade L&D programs and talent acquisition solutions across these global markets.`;
+  }
+
+  if (matchesAny(lower, milestoneKeywords)) {
+    const list = timelineMilestones
+      .map((m) => `• **${m.year} — ${m.title}**: ${m.description}`)
+      .join("\n\n");
+    return `📜 **A Thirty-Year Genesis & History**\n\nMicroAcademy was established in 1995. Here are the major milestones that have shaped our legacy:\n\n${list}\n\nVisit our About page to learn more about our journey!`;
+  }
+
+  if (matchesAny(lower, achievementKeywords)) {
+    const achievementsList = keyAchievementsData
+      .map((a) => `🏆 **${a.title}**\n${a.description}`)
+      .join("\n\n");
+    return `🚀 **Key Achievements**\n\nOver our 30-year journey, MicroAcademy has achieved major benchmarks in the IT talent space:\n\n${achievementsList}\n\nWe are committed to delivering swift scale and strategic alignment.`;
+  }
+
+  if (matchesAny(lower, microAdvantageKeywords)) {
+    const itemsList = microAdvantageData.items
+      .map((item) => `✨ **${item.title}**\n${item.description}`)
+      .join("\n\n");
+    return `🌟 **The Micro Advantage**\n\nHere are the core value adds that make MicroAcademy a definitive standard for workforce intelligence:\n\n${itemsList}\n\nThese capabilities enable us to curate elite, future-ready digital talent for top global firms.`;
+  }
+
+  if (matchesAny(lower, trainHireStepsKeywords)) {
+    return `🎓 **Train & Hire Process Steps**\n\nWe follow a rigorous 5-step methodology to ensure candidates are enterprise-ready:\n\n1️⃣ **Sourcing:** Candidates are strategically sourced and shortlisted based strictly on your precise technical and cultural criteria.\n2️⃣ **Pre-Selection:** A rigorous pre-selection by your team, encompassing aptitude, technical capability, and HR round evaluations.\n3️⃣ **Training:** Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to your business needs.\n4️⃣ **Assessment:** Comprehensive final assessment conducted by your team to validate readiness before formal induction.\n5️⃣ **Job Placement:** Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire (C2H) basis.\n\nVisit our Train & Hire page to learn more!`;
+  }
+
+  if (matchesAny(lower, lmsKeywords)) {
+    return `💻 **Our Learning Management System (LMS) Features**\n\nOur LMS provides comprehensive tracking and structured learning:\n\n📊 **Batchwise & Individual Reports:** Granular performance analytics covering sprints, module proficiencies, capstone assessments, and attendance.\n📖 **Reference Material:** Persistent repository with high-fidelity PDFs, custom guides, and developer video lectures accessible 24/7.\n💻 **Assignments & Capstones:** Daily industry-standard coding tasks, multi-layered real-world case studies, and full-stack projects.\n🎓 **Milestone Assessments:** Automated unit tests, comprehensive knowledge-based diagnostic exams, and technical interviews.\n🗓️ **Session Scheduling:** Seamless coordinating of live classes, tech cohort check-ins, and individual assessments.\n\nVisit our Train & Hire page to see it in action!`;
+  }
+
+  if (matchesAny(lower, contractProcessKeywords)) {
+    return `📝 **Contract Hiring Benefits & Process**\n\n✅ **Key Benefits:**\n• **Rapid Deployment:** Bypass lengthy hiring cycles (onboard within 48-72 hours).\n• **Elastic Scalability:** Scale teams up/down based on project demands without overhead liabilities.\n• **Compliance & Payroll:** We handle all statutory compliances, payroll, and legal formalities.\n• **Niche Expertise:** Access highly specialized skills for short-term critical projects.\n\n🔄 **Our 4-Step Contracting Process:**\n1️⃣ **Requirement Analysis:** We understand your technical stack, timeline, and resource gaps.\n2️⃣ **Profile Sourcing & Curation:** We identify and pre-screen candidates from our ready talent pool.\n3️⃣ **Client Interview:** You interview a curated shortlist of top-tier professionals.\n4️⃣ **Rapid Onboarding:** We manage all paperwork and logistics for seamless integration.\n\nVisit our Contract Hiring page for more details!`;
+  }
+
+  if (matchesAny(lower, directLateralProcessKeywords)) {
+    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/lateral Hiring page for full details!`;
+  }
+
+  // Dynamic Strapi Data Lookups (Fresher Drives and Job Positions)
+  if (strapiData?.isLoaded) {
+    // 1. Specific Fresher Drive Lookup
+    const matchedDrive = findMatchedDrive(lower, strapiData.fresherDrives);
+    if (matchedDrive) {
+      if (matchesAny(lower, salaryKeywords)) {
+        return `💰 **Salary package for the ${matchedDrive.title}** drive:\n${matchedDrive.salary}\n\nVisit our Freshers Drive page to register!`;
+      }
+      if (
+        matchesAny(lower, ["venue", "address", "location", "landmark", "where"])
+      ) {
+        return `📍 **Venue & Location details for ${matchedDrive.title}**:\n• **Location:** ${matchedDrive.location}\n• **Venue:** ${matchedDrive.venue}\n• **Landmark:** ${matchedDrive.landmark || "N/A"}\n\nVisit our Freshers Drive page to view on map and register!`;
+      }
+      if (
+        matchesAny(lower, [
+          "selection",
+          "process",
+          "round",
+          "interview",
+          "test",
+        ])
+      ) {
+        return `📝 **Selection Process for ${matchedDrive.title}**:\n${matchedDrive.selection_process}\n\nVisit our Freshers Drive page to learn more!`;
+      }
+      if (matchesAny(lower, eligibilityKeywords)) {
+        return `🎓 **Eligibility Criteria for ${matchedDrive.title}**:\n• **Degree Requirement:** ${matchedDrive.degree_requirement || "BE/BTech/MCA/Graduates"}\n• **Minimum Aggregate:** ${matchedDrive.minimum_aggregate || "60%"}\n• **Academic Year:** ${matchedDrive.academic_year || "2024/2025"}\n• **Education Gap:** ${matchedDrive.education_gap || "No gaps allowed"}\n\nVisit our Freshers Drive page for full prerequisites!`;
+      }
+      if (matchesAny(lower, contactKeywords)) {
+        return `📞 **Contact Information for ${matchedDrive.title}**:\n${matchedDrive.contact}\n\nFor queries, call the above numbers or visit our Contact page!`;
+      }
+      if (lower.includes("training")) {
+        return `📚 **Training details for ${matchedDrive.title}**:\n${matchedDrive.training}\n\nVisit our Freshers Drive page for full registration.`;
+      }
+      if (lower.includes("note")) {
+        return `ℹ️ **Additional Notes for ${matchedDrive.title}**:\n${matchedDrive.notes}`;
+      }
+
+      // Default response when a drive is matched but no specific field was requested
+      return `🎓 **${matchedDrive.title}**\n\nHere are the details for this Freshers Drive:\n• 💼 **Designation:** ${matchedDrive.designation} (Domain: ${matchedDrive.domain})\n• 💰 **Salary Package:** ${matchedDrive.salary}\n• 📍 **Location:** ${matchedDrive.location}\n• 🏫 **Venue:** ${matchedDrive.venue}\n• 🎓 **Eligibility:** Degree: ${matchedDrive.degree_requirement} | Aggregate: ${matchedDrive.minimum_aggregate} | Year: ${matchedDrive.academic_year}\n• 📝 **Selection Process:** ${matchedDrive.selection_process}\n• 📞 **Contact:** ${matchedDrive.contact}\n\nVisit our Freshers Drive page to register!`;
+    }
+
+    // 2. Specific Job Position Lookup
+    const allJobs = getAllJobs(strapiData);
+    const matchedJob = findMatchedJob(lower, allJobs);
+    if (matchedJob) {
+      if (matchesAny(lower, ["location", "where"])) {
+        return `📍 The position **${matchedJob.title}** is located in **${matchedJob.location}**.`;
+      }
+      if (matchesAny(lower, ["education", "qualification", "degree"])) {
+        return `🎓 Educational requirements for **${matchedJob.title}**:\n• ${matchedJob.education}`;
+      }
+      if (
+        matchesAny(lower, ["experience", "yoe", "senior", "junior", "years"])
+      ) {
+        return `⏳ Experience requirement for **${matchedJob.title}**:\n• ${matchedJob.experience || "Not specified"}`;
+      }
+      if (matchesAny(lower, ["salary", "ctc", "package", "pay"])) {
+        return `💰 Compensation for **${matchedJob.title}** is commensurate with experience and skills.\n\nApply now to discuss with our recruitment team!`;
+      }
+      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our Careers page to submit your application!`;
+    }
   }
   if (strapiData?.isLoaded) {
     const matchedSkill = techSkillKeywords.find((kw) => matchesWord(lower, kw));
@@ -595,62 +942,50 @@ export function generateBotResponse(
     if (strapiData?.isLoaded) {
       const parts: string[] = [];
 
-      if (strapiData.fresherDrives.length > 0) {
-        parts.push(
-          formatJobList(
-            strapiData.fresherDrives.map((d) => ({
-              title: d.title,
-              location: d.location,
-              education: d.degree_requirement || "",
-            })),
-            "freshers drives",
-            3,
-            "🔗 Visit our Freshers Drive page for more details.",
-          ),
-        );
-      }
+      // 1. Full Time (directLateralHiring)
+      const directJobs = strapiData.directLateralHiring || [];
+      const directList =
+        directJobs.length > 0
+          ? directJobs.map((j) => `• ${j.title}`).join("\n")
+          : "No active openings at the moment.";
+      parts.push(
+        `💼 **Full Time**\n${directList}\n\nVisit our direct/lateral hiring page to see full details!`,
+      );
 
-      if (strapiData.directLateralHiring.length > 0) {
-        parts.push(
-          formatJobList(
-            strapiData.directLateralHiring,
-            "direct/lateral hiring positions",
-            3,
-            "🔗 Visit our Direct/lateral Hiring page for more details.",
-          ),
-        );
-      }
+      // 2. Contract (contractHiring)
+      const contractJobs = strapiData.contractHiring || [];
+      const contractList =
+        contractJobs.length > 0
+          ? contractJobs.map((j) => `• ${j.title}`).join("\n")
+          : "No active openings at the moment.";
+      parts.push(
+        `📝 **Contract**\n${contractList}\n\nVisit our Contract Hiring page to see full details!`,
+      );
 
-      if (strapiData.contractHiring.length > 0) {
-        parts.push(
-          formatJobList(
-            strapiData.contractHiring,
-            "contract positions",
-            3,
-            "🔗 Visit our Contract Hiring page for more details.",
-          ),
-        );
-      }
+      // 3. Freshers Drive (fresherDrives)
+      const drives = strapiData.fresherDrives || [];
+      const drivesList =
+        drives.length > 0
+          ? drives.map((d) => `• ${d.title}`).join("\n")
+          : "No active openings at the moment.";
+      parts.push(
+        `🎓 **Freshers Drive**\n${drivesList}\n\nVisit our Freshers Drive page to see full details!`,
+      );
 
-      if (strapiData.careers.length > 0) {
-        parts.push(
-          formatJobList(
-            strapiData.careers,
-            "internal career openings",
-            3,
-            "🔗 Visit our Careers page for more details.",
-          ),
-        );
-      }
+      // 4. Careers (careers)
+      const careerJobs = strapiData.careers || [];
+      const careerList =
+        careerJobs.length > 0
+          ? careerJobs.map((j) => `• ${j.title}`).join("\n")
+          : "No active openings at the moment.";
+      parts.push(
+        `🏢 **Careers**\n${careerList}\n\nVisit our Careers page to see full details!`,
+      );
 
-      if (parts.length > 0) {
-        return (
-          "Here are our current job openings across all categories:\n\n" +
-          parts.join("\n\n────────────────\n\n")
-        );
-      }
-
-      return "No open positions at the moment. 😔\n\nBut we're always looking for great talent! You can check our job pages (Careers, Direct/lateral Hiring, Contract Hiring, or Freshers Drive) for the latest updates, or send your resume to info@microacademy.net!";
+      return (
+        "Here are the available job vacancies by category:\n\n" +
+        parts.join("\n\n────────────────\n\n")
+      );
     }
 
     return botResponses["💼 Job Openings"];
@@ -765,18 +1100,22 @@ export function generateBotResponse(
   }
   if (matchesAny(lower, eligibilityKeywords)) {
     if (strapiData?.isLoaded && strapiData.fresherDrives.length > 0) {
-      const drive = strapiData.fresherDrives[0];
       let response =
-        "📋 Eligibility typically varies by role. Here's a sample from our latest fresher drive:\n\n";
-      if (drive.degree_requirement)
-        response += `🎓 Degree: ${drive.degree_requirement}\n`;
-      if (drive.minimum_aggregate)
-        response += `📊 Min Aggregate: ${drive.minimum_aggregate}\n`;
-      if (drive.education_gap)
-        response += `📅 Education Gap: ${drive.education_gap}\n`;
-      if (drive.academic_year)
-        response += `🗓️ Academic Year: ${drive.academic_year}\n`;
-      response += `\nFor specific role requirements, visit the relevant job listing page or ask me about a specific position!`;
+        "📋 **Eligibility Criteria for our current Freshers Drives:**\n\n";
+      strapiData.fresherDrives.forEach((drive) => {
+        response += `🎓 **${drive.title}**:\n`;
+        if (drive.degree_requirement)
+          response += `  • **Degree:** ${drive.degree_requirement}\n`;
+        if (drive.minimum_aggregate)
+          response += `  • **Min Aggregate:** ${drive.minimum_aggregate}\n`;
+        if (drive.academic_year)
+          response += `  • **Academic Year:** ${drive.academic_year}\n`;
+        if (drive.education_gap)
+          response += `  • **Education Gap:** ${drive.education_gap}\n`;
+        response += "\n";
+      });
+      response +=
+        "Visit our Freshers Drive page for full registration instructions!";
       return response;
     }
 
@@ -787,10 +1126,10 @@ export function generateBotResponse(
       const drivesWithSalary = strapiData.fresherDrives.filter((d) => d.salary);
 
       if (drivesWithSalary.length > 0) {
-        const lines = drivesWithSalary
-          .slice(0, 3)
-          .map((d) => `• ${d.title}: ${d.salary}`);
-        return `💰 Here are packages from our current fresher drives:\n\n${lines.join("\n")}\n\nFor specific role packages, please contact us at info@microacademy.net or call +91 080-25358182.`;
+        const lines = drivesWithSalary.map(
+          (d) => `• **${d.title}**: ${d.salary}`,
+        );
+        return `💰 **Salary Packages for current Fresher Drives:**\n\n${lines.join("\n")}\n\nFor internal or client lateral hiring roles, packages are discussed during interviews. Visit our Careers page for more details!`;
       }
     }
 

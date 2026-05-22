@@ -20,7 +20,7 @@ export default function NoJobsCTA({
   secondaryCTA,
 }: NoJobsCTAProps) {
   return (
-    <section className="w-full bg-white px-4 md:px-8 py-12 md:py-16">
+    <section className="w-full bg-white px-4 md:px-8 pt-4 pb-12 md:pt-6 md:pb-16">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

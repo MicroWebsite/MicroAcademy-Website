@@ -115,7 +115,6 @@ const GalleryCard: React.FC<{
       onMouseLeave={() => setHovered(false)}
       onClick={onClick}
     >
-      {/* Background Image with Zoom animation */}
       <motion.div
         className="absolute inset-0"
         animate={{ scale: hovered ? 1.08 : 1 }}
@@ -130,13 +129,8 @@ const GalleryCard: React.FC<{
           priority={index < 4}
         />
       </motion.div>
-
-      {/* Decorative Gold Inset Border Ring on Hover */}
       <div className="absolute inset-0 border border-transparent group-hover:border-secondary/35 rounded-2xl transition-all duration-500 z-10 pointer-events-none m-2" />
-
-      {/* Premium Glassmorphic Caption Card */}
       <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-5 z-20 bg-black/0 backdrop-blur-none group-hover:bg-black/30 group-hover:backdrop-blur-[2px] transition-all duration-300">
-        {/* Top of Card: Category Badge & Zoom Indicator */}
         <div className="flex justify-between items-start w-full">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 md:py-1 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] bg-secondary/20 text-secondary border border-secondary/30 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
@@ -146,8 +140,6 @@ const GalleryCard: React.FC<{
             <Maximize2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
           </div>
         </div>
-
-        {/* Bottom of Card: Typography & Interactive Icon Link */}
         <div className="space-y-1.5 md:space-y-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
           {image.caption && (
             <h3 className="text-white text-sm md:text-base font-semibold tracking-wide leading-tight drop-shadow-md line-clamp-2">
@@ -166,7 +158,6 @@ const GalleryCard: React.FC<{
   );
 };
 
-// Compact Grid positions sequence for 12 items (perfectly packing columns on mobile 2-col and desktop 4-col)
 const GRID_POSITIONS = [
   "col-span-2 row-span-2 md:col-span-2 md:row-span-2", // Row 1 & 2
   "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
@@ -205,7 +196,7 @@ const Gallery: React.FC = () => {
         }
 
         if (allImages.length === 0) {
-          setImages(DEFAULT_IMAGES);
+          setImages([]);
         } else if (allImages.length < 12) {
           const filled = [
             ...allImages,
@@ -273,6 +264,10 @@ const Gallery: React.FC = () => {
     );
   }
 
+  if (images.length === 0) {
+    return null;
+  }
+
   return (
     <section className="px-4 md:px-0 py-16 bg-bg-cream">
       <motion.div
@@ -312,8 +307,6 @@ const Gallery: React.FC = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Lightbox Modal */}
       <AnimatePresence>
         {activeImageIndex !== null && (
           <motion.div
@@ -323,7 +316,6 @@ const Gallery: React.FC = () => {
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl select-none"
             onClick={handleClose}
           >
-            {/* Close Button */}
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 md:top-6 md:right-6 p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white backdrop-blur-md transition-all duration-300 z-50 cursor-pointer"
@@ -331,10 +323,7 @@ const Gallery: React.FC = () => {
             >
               <X className="w-5 h-5 md:w-6 md:h-6" />
             </button>
-
-            {/* Main Lightbox Content Area */}
             <div className="relative w-full max-w-5xl px-4 md:px-12 flex items-center justify-center">
-              {/* Prev Button */}
               <button
                 onClick={handlePrev}
                 className="absolute left-2 md:left-6 p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white backdrop-blur-md transition-all duration-300 z-50 cursor-pointer"
@@ -342,8 +331,6 @@ const Gallery: React.FC = () => {
               >
                 <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
               </button>
-
-              {/* Active Image Wrapper */}
               <motion.div
                 key={activeImageIndex}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -351,7 +338,7 @@ const Gallery: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 className="relative w-full h-[55vh] md:h-[70vh] rounded-2xl overflow-hidden shadow-2xl"
-                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+                onClick={(e) => e.stopPropagation()}
               >
                 <Image
                   src={images[activeImageIndex].src}
@@ -362,8 +349,6 @@ const Gallery: React.FC = () => {
                   priority
                 />
               </motion.div>
-
-              {/* Next Button */}
               <button
                 onClick={handleNext}
                 className="absolute right-2 md:right-6 p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white backdrop-blur-md transition-all duration-300 z-50 cursor-pointer"
@@ -372,8 +357,6 @@ const Gallery: React.FC = () => {
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
               </button>
             </div>
-
-            {/* Bottom Caption and Index Indicator */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

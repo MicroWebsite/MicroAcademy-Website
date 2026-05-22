@@ -5,6 +5,22 @@ interface LinkifiedTextProps {
   text: string;
 }
 
+function renderTextWithBold(text: string, keyPrefix: string | number) {
+  if (!text) return null;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, idx) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+      const boldText = part.slice(2, -2);
+      return (
+        <strong key={`${keyPrefix}-${idx}`} className="font-bold">
+          {boldText}
+        </strong>
+      );
+    }
+    return <span key={`${keyPrefix}-${idx}`}>{part}</span>;
+  });
+}
+
 const LINK_MAPPINGS: Record<string, string> = {
   "careers page": "/careers",
   "direct/lateral hiring page": "/services/direct-lateral-hiring",
@@ -33,39 +49,25 @@ const LINK_MAPPINGS: Record<string, string> = {
 };
 
 export default function LinkifiedText({ text }: LinkifiedTextProps) {
-  // We only want to linkify specific phrases starting with "visit", "go to", "our", etc.
   const labels = Object.keys(LINK_MAPPINGS).sort((a, b) => b.length - a.length);
   const labelRegexPart = labels
     .map((l) => l.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("|");
 
-  // Mandatory prefix to fulfill "visit this or like that" requirement.
-  // We allow multiple prefix words like "visit our" or "go to the".
   const combinedRegex = new RegExp(
     `((?:(?:visit|go to|check out|view|our|the|click|see|on|this)\\s+)+)(${labelRegexPart})`,
     "gi",
   );
-
-  // Since we have capturing groups, split will include them in the result array
   const parts = text.split(combinedRegex);
-
-  // When splitting with 2 capturing groups, each match generates:
-  // [text_before, prefix, keyword, ...]
-  // So we need to iterate carefully.
 
   const elements = [];
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i];
     if (part === undefined) continue;
-
-    // The way split works with multiple capturing groups:
-    // parts[i] = non-matched text
-    // parts[i+1] = prefix (group 1)
-    // parts[i+2] = keyword (group 2)
-
-    // Check if this is the start of a match (every 3 elements)
     if (i % 3 === 0) {
-      if (part) elements.push(<span key={i}>{part}</span>);
+      if (part) {
+        elements.push(<span key={i}>{renderTextWithBold(part, i)}</span>);
+      }
     } else if (i % 3 === 1) {
       // This is the prefix. The NEXT element is the keyword.
       const prefix = part || "";

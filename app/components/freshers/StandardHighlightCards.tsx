@@ -26,14 +26,14 @@ const highlightModels = [
 
 export default function StandardHighlightCards() {
   return (
-    <section className="bg-white py-24 px-6 overflow-hidden">
+    <section className="bg-white py-12 md:py-16 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-text-dark mb-6">
             Our Drive Highlights

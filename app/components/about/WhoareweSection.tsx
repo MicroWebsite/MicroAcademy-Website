@@ -58,6 +58,7 @@ export default function WhoareweSection() {
                   alt={images[0].alt}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority
                 />
               </motion.div>
@@ -75,6 +76,7 @@ export default function WhoareweSection() {
                   alt={images[1].alt}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </motion.div>
             </div>

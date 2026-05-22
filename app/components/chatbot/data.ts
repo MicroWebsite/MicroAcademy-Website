@@ -14,7 +14,7 @@ export const botResponses: Record<string, string> = {
     "We regularly conduct Freshers Drives for new graduates! 🎓\n\nOur drives include:\n• Domain-specific hiring\n• Training + placement\n• Selection process with interviews & assessments\n\nAsk me about current drives or visit our Freshers Drive page for details!",
 
   "💼 Job Openings":
-    "We have multiple career tracks:\n\n🔹 Direct Careers — Full-time positions at MicroAcademy\n🔹 Direct/lateral Hiring — Positions at our client companies\n🔹 Contract Positions — Project-based opportunities\n\nAsk me about specific roles, locations, or skills and I'll search our openings!",
+    "Here are the available job vacancy categories. Visit the pages below to see full details:\n\n💼 **Full Time** — Positions at our client companies\n👉 Visit our direct/lateral hiring page to see full details!\n\n📝 **Contract** — Project-based opportunities\n👉 Visit our Contract Hiring page to see full details!\n\n🎓 **Freshers Drive** — Entry-level drives for fresh graduates\n👉 Visit our Freshers Drive page to see full details!\n\n🏢 **Careers** — Internal positions at MicroAcademy\n👉 Visit our Careers page to see full details!",
 
   "📞 Contact Info":
     "📍 #189, Amar Jyothi Layout, Domlur Ring Road, Bangalore - 560071\n📞 +91 080-25358182 / 25359192\n📧 info@microacademy.net\n🌐 www.microacademy.net\n\nYou can also reach us through the Contact page on our website!",

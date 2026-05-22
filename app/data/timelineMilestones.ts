@@ -29,7 +29,7 @@ export const timelineMilestones: TimelineMilestone[] = [
   },
   {
     year: "2008",
-    title: "Direct/lateral Hiring & Contract Hiring",
+    title: "Direct/Lateral Hiring & Contract Hiring",
     description:
       "Expanded full-lifecycle talent capabilities, launching specialized direct/lateral hiring and agile contract staffing solutions to close high-end engineering gaps.",
     side: "right",

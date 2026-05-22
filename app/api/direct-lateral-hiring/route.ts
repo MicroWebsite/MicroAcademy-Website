@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Direct/lateral Hiring API error:", error);
+    console.error("Direct/Lateral Hiring API error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 },

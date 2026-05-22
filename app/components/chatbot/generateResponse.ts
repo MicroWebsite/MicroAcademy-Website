@@ -693,7 +693,7 @@ export function generateBotResponse(
     greetingKeywords.some((kw) => matchesWord(lower, kw)) &&
     lower.length < 30
   ) {
-    return "Hello! 😊 Welcome to Micro Academy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
+    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/Lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
   }
   if (matchesAny(lower, thankKeywords)) {
     return "You're welcome! 😊 Is there anything else I can help you with?";
@@ -762,7 +762,7 @@ export function generateBotResponse(
   }
 
   if (matchesAny(lower, directLateralProcessKeywords)) {
-    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/lateral Hiring page for full details!`;
+    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/Lateral Hiring page for full details!`;
   }
 
   // Dynamic Strapi Data Lookups (Fresher Drives and Job Positions)
@@ -880,7 +880,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Direct/lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 Our Direct/Lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
 
     if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
       response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;

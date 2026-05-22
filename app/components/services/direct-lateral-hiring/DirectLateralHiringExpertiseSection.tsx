@@ -69,7 +69,7 @@ export default function DirectLateralHiringExpertiseSection() {
           className="text-center mb-8"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-text-muted-alt mb-3">
-            Direct/lateral Hiring Strength
+            Direct/Lateral Hiring Strength
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
             Areas of Expertise

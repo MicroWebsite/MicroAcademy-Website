@@ -51,14 +51,14 @@ export const capabilitiesData: {
     {
       id: "direct-lateral-hiring",
       icon: "direct-lateral-hiring",
-      title: "Direct/lateral Hiring",
+      title: "Direct/Lateral Hiring",
       description:
         "With the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.",
-      ctaLabel: "Explore Direct/lateral Hiring",
+      ctaLabel: "Explore Direct/Lateral Hiring",
       ctaHref: "/services/direct-lateral-hiring",
       highlighted: true,
       heroData: {
-        badge: "Direct/lateral Hiring Excellence",
+        badge: "Direct/Lateral Hiring Excellence",
         titleLine1: "Strategic Talent",
         titleAccent: "Architecture",
         description:
@@ -67,7 +67,7 @@ export const capabilitiesData: {
         // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
           src: "/assets/headers/Recruitment.png",
-          alt: "Authentic Direct/lateral Hiring Drive Event at Micro Academy",
+          alt: "Authentic Direct/Lateral Hiring Drive Event at Micro Academy",
         },
       },
     },

@@ -19,7 +19,7 @@ const STATIC_NAV_LINKS = [
     href: "/services",
     subLinks: [
       {
-        label: "Direct/lateral Hiring",
+        label: "Direct/Lateral Hiring",
         href: "/services/direct-lateral-hiring",
       },
       { label: "Contract Hiring", href: "/services/contract-hiring" },

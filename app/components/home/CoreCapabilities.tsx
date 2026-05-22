@@ -131,7 +131,7 @@ const CoreCapabilities: React.FC = () => {
             </div>
           </div>
 
-          {/* Direct/lateral Hiring Area */}
+          {/* Direct/Lateral Hiring Area */}
           <div>
             <h3 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-primary/20">
               Recruitment

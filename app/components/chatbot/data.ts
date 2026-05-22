@@ -8,7 +8,7 @@ export const quickActions = [
 
 export const botResponses: Record<string, string> = {
   "📋 Our Services":
-    "We offer 4 core services:\n\n1. Direct/lateral Hiring\n2. Contract to Hire\n3. Train and Hire\n4. Corporate Training\n\nWhich one would you like to know more about?",
+    "We offer 4 core services:\n\n1. Direct/Lateral Hiring\n2. Contract to Hire\n3. Train and Hire\n4. Corporate Training\n\nWhich one would you like to know more about?",
 
   "🎓 Freshers Drive":
     "We regularly conduct Freshers Drives for new graduates! 🎓\n\nOur drives include:\n• Domain-specific hiring\n• Training + placement\n• Selection process with interviews & assessments\n\nAsk me about current drives or visit our Freshers Drive page for details!",

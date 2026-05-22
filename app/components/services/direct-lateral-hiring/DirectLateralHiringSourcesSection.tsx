@@ -19,7 +19,7 @@ export default function DirectLateralHiringSourcesSection() {
             Talent Pipeline
           </p>
           <h2 className="text-3xl font-bold text-text-dark font-manrope mb-3">
-            Our Direct/lateral Hiring Sources
+            Our Direct/Lateral Hiring Sources
           </h2>
           <p className="text-text-muted-alt">
             A multi-channel sourcing framework that helps us deliver faster,

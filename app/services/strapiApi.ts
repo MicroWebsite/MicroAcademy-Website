@@ -55,10 +55,3 @@ export const fetchAnnouncement = async (): Promise<AnnouncementData | null> => {
   );
   return response.data;
 };
-
-export const fetchNavigationItems = async (): Promise<NavigationItem[]> => {
-  const response = await strapiApi.get<NavigationItem[]>(
-    "/api/navigation-items",
-  );
-  return response.data;
-};

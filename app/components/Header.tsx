@@ -1,15 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import {
-  fetchNavigationItems,
-  NavigationItem,
-  NavigationSubLink,
-} from "@/app/services/strapiApi";
+import { NavigationSubLink } from "@/app/services/strapiApi";
 
 const STATIC_NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -35,28 +31,16 @@ const STATIC_NAV_LINKS = [
 ];
 
 export default function Header() {
-  const [navLinks, setNavLinks] = useState<NavigationItem[]>(STATIC_NAV_LINKS);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<
     Record<string, boolean>
   >({});
   const pathname = usePathname();
 
-  useEffect(() => {
-    const loadNavigation = async () => {
-      try {
-        const data = await fetchNavigationItems();
-        if (data && data.length > 0) {
-          setNavLinks(data);
-        }
-      } catch (err) {
-        console.error("Failed to load navigation items from Strapi:", err);
-      }
-    };
-    loadNavigation();
-  }, []);
   const isPathActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
+
+  const navLinks = STATIC_NAV_LINKS;
 
   return (
     <header className="w-full bg-bg-header border-b border-border relative z-50">

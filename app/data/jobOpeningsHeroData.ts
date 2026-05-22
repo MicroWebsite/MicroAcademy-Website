@@ -1,9 +1,9 @@
 import { HeroProps } from "../types/hero";
 
 export const jobOpeningsHeroData: HeroProps = {
-  badge: "Premium Opportunities",
-  titleLine1: "Explore Roles in",
-  titleAccent: "Global IT Ecosystems.",
+  badge: "Career Openings",
+  titleLine1: "Explore Current",
+  titleAccent: "Job Openings",
   description:
     "Discover active positions curated by Micro Academy for leading global enterprises. Find the ideal role where your training and skills translate directly into enterprise excellence.",
   primaryCTA: { label: "Contact Us", href: "/contact" },

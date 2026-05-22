@@ -1,9 +1,9 @@
 import { HeroProps } from "../types/hero";
 
 export const freshersHeroData: HeroProps = {
-  badge: "Empowering Next-Gen Talent",
+  badge: "Recruitment 2026",
   titleLine1: "Freshers Recruitment",
-  titleAccent: "Drives.",
+  titleAccent: "Drive 2026",
   description:
     "We bridge the gap between academic graduates and enterprise success. Through our year-round fresher recruitment drives and intensive technical training, we prepare candidates for their dream roles in global companies.",
   image: {

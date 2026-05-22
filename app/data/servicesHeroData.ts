@@ -1,6 +1,6 @@
 export const servicesHeroData = {
-  badge: "Custom Talent Ecosystems",
-  title: "Premium Training & Hiring Services",
+  badge: "Expertise & Legacy",
+  title: "Services",
   description:
     "We design high-performance talent ecosystems for global enterprises through a full suite of bespoke technical training, direct/lateral hiring, and agile contract staffing solutions.",
   ctaLabel: "Partner With Us",

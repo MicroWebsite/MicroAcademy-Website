@@ -1,10 +1,10 @@
 import { HeroProps } from "../types/hero";
 
 export const heroData: HeroProps = {
-  badge: "Bridging Potential & Enterprise Excellence",
-  titleLine1: "IT Training &",
+  badge: "Facilitating the future with Expertise",
+  titleLine1: "The Future of Workforce Intelligence,",
   titleLine2: "",
-  titleAccent: "Strategic Hiring.",
+  titleAccent: "Curated.",
   description:
     "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems through specialized training and recruitment.",
   primaryCTA: { label: "Contact Us", href: "/contact" },

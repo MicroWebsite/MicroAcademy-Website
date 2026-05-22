@@ -85,7 +85,7 @@ export const capabilitiesData: {
         titleLine1: "Contract",
         titleAccent: "Hiring Solutions",
         description:
-          "Scale your workforce dynamically with our pre-vetted, enterprise-ready contract professionals. Navigate project peaks and specialized skill gaps with zero long-term commitment.",
+          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, bridging urgent skill gaps while minimizing attrition risks.",
         // primaryCTA: { label: "Hire Contractors", href: "/contact" },
         // secondaryCTA: { label: "Browse Roles", href: "/services" },
         image: {

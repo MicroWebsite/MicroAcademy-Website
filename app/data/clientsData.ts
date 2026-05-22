@@ -22,7 +22,6 @@ export const clientsData: ClientsSectionData = {
       logo: "/assets/home/fidelity.svg",
     },
     { id: "allstate", name: "Allstate", logo: "/assets/home/allstate.svg" },
-    { id: "kpmg", name: "KPMG", logo: "/assets/home/kpmg.svg" },
     { id: "capgemini", name: "Capgemini", logo: "/assets/home/capgemini.svg" },
     {
       id: "hitachi",
@@ -31,7 +30,6 @@ export const clientsData: ClientsSectionData = {
     },
     { id: "lnt", name: "L&T Infotech", logo: "/assets/home/landt.svg" },
     { id: "emc", name: "EMC²", logo: "/assets/home/emc.svg" },
-    { id: "dell", name: "Dell", logo: "/assets/home/dell.svg" },
     { id: "dxc", name: "DXC Technology", logo: "/assets/home/dxc.svg" },
     { id: "birlasoft", name: "Birlasoft", logo: "/assets/home/birla.svg" },
     { id: "cgi", name: "CGI", logo: "/assets/home/cgi.svg" },
@@ -40,6 +38,5 @@ export const clientsData: ClientsSectionData = {
       name: "Tech Mahindra",
       logo: "/assets/home/techmahindra.svg",
     },
-    { id: "cognizant", name: "Cognizant", logo: "/assets/home/cognizant.svg" },
   ],
 };

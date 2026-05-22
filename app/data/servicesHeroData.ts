@@ -1,8 +1,8 @@
 export const servicesHeroData = {
-  badge: "Expertise & Legacy",
-  title: "Services",
+  badge: "Custom Talent Ecosystems",
+  title: "Premium Training & Hiring Services",
   description:
-    "With over two decades of technical training excellence, Micro Academy bridges the gap between potential and performance through bespoke direct/lateral recruitment, hiring, and organizational learning strategies.",
+    "We design high-performance talent ecosystems for global enterprises through a full suite of bespoke technical training, direct/lateral hiring, and agile contract staffing solutions.",
   ctaLabel: "Partner With Us",
   ctaHref: "/contact",
   image: {

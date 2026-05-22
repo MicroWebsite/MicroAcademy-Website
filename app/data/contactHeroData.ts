@@ -1,11 +1,11 @@
 import { HeroProps } from "../types/hero";
 
 export const contactHeroData: HeroProps = {
-  badge: "Get in Touch",
-  titleLine1: "Let's Start a",
-  titleAccent: "Conversation.",
+  badge: "Partner With Us",
+  titleLine1: "Design Your",
+  titleAccent: "Talent Ecosystem.",
   description:
-    "For any enquiries, please complete the form below and we'll be in contact as soon as possible. We'll be more than happy to help.",
+    "Reach out to discuss your custom technical training curriculum, direct/lateral recruitment needs, or to scale your workforce through our strategic hiring programs.",
   image: {
     src: "/assets/headers/Contact.png",
     alt: "Micro Academy Bangalore Office - Domlur Entrance",

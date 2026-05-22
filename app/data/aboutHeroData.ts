@@ -1,11 +1,11 @@
 import { HeroProps } from "@/app/types/hero";
 
 export const aboutHeroData: HeroProps = {
-  badge: "The Digital Curator",
-  titleLine1: "Architecting",
-  titleAccent: "Talent Legacies.",
+  badge: "Our Heritage & Purpose",
+  titleLine1: "Bridging Potential in",
+  titleAccent: "IT Training & Recruitment.",
   description:
-    "We bridge the gap between human potential and enterprise excellence through curated intelligence and strategic workforce evolution.",
+    "For over two decades, Micro Academy has served as a strategic partner to global enterprises, designing high-performance talent ecosystems through premium technical training and placement.",
   image: {
     src: "/assets/headers/aboutus.png",
     alt: "Micro Academy Technical Training Lab",

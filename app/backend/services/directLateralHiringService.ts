@@ -39,7 +39,7 @@ export async function processDirectLateralHiringSubmission(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"MicroAcademy Careers" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Careers" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
     subject: `[${data.type.toUpperCase()}] Application: ${data.position} - ${data.firstName} ${data.lastName}`,

@@ -64,7 +64,7 @@ export default function Header() {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/assets/common/microacademy-logo.png"
-            alt="MicroAcademy Logo"
+            alt="Micro Academy Logo"
             width={220}
             height={120}
             priority

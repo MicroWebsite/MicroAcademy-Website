@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | MicroAcademy",
-  description: "Privacy policy and data handling practices for MicroAcademy.",
+  title: "Privacy Policy | Micro Academy",
+  description: "Privacy policy and data handling practices for Micro Academy.",
   alternates: {
     canonical: "/privacy",
   },
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
               1. Introduction
             </h2>
             <p>
-              At MicroAcademy, we take your privacy seriously. This Privacy
+              At Micro Academy, we take your privacy seriously. This Privacy
               Policy explains how we collect, use, disclose, and safeguard your
               information when you visit our website or use our training and
               direct/lateral hiring services.

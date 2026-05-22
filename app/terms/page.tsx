@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | MicroAcademy",
-  description: "Terms and conditions for using MicroAcademy services.",
+  title: "Terms & Conditions | Micro Academy",
+  description: "Terms and conditions for using Micro Academy services.",
   alternates: {
     canonical: "/terms",
   },
@@ -25,7 +25,7 @@ export default function TermsAndConditions() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing and using the MicroAcademy website and services, you
+              By accessing and using the Micro Academy website and services, you
               agree to be bound by these Terms and Conditions. If you do not
               agree with any part of these terms, please do not use our
               services.
@@ -37,7 +37,7 @@ export default function TermsAndConditions() {
               2. Services Description
             </h2>
             <p>
-              MicroAcademy provides IT training, skill development, and
+              Micro Academy provides IT training, skill development, and
               direct/lateral hiring solutions. We reserve the right to modify,
               suspend, or discontinue any part of our services at any time
               without prior notice.
@@ -62,7 +62,7 @@ export default function TermsAndConditions() {
             </h2>
             <p>
               All content, training materials, logos, and intellectual property
-              displayed on this website are the property of MicroAcademy. You
+              displayed on this website are the property of Micro Academy. You
               may not reproduce, distribute, or create derivative works without
               our express written permission.
             </p>
@@ -84,7 +84,7 @@ export default function TermsAndConditions() {
               6. Limitation of Liability
             </h2>
             <p>
-              MicroAcademy shall not be liable for any indirect, incidental,
+              Micro Academy shall not be liable for any indirect, incidental,
               special, consequential, or punitive damages resulting from your
               use of or inability to use our services.
             </p>

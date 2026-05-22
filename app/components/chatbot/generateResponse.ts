@@ -693,7 +693,7 @@ export function generateBotResponse(
     greetingKeywords.some((kw) => matchesWord(lower, kw)) &&
     lower.length < 30
   ) {
-    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
+    return "Hello! 😊 Welcome to Micro Academy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
   }
   if (matchesAny(lower, thankKeywords)) {
     return "You're welcome! 😊 Is there anything else I can help you with?";
@@ -704,7 +704,7 @@ export function generateBotResponse(
 
   // Enriched Static Section Intents
   if (matchesAny(lower, clientKeywords)) {
-    return `🤝 **Valued Partners & Clients**\n\nMicroAcademy is a trusted partner for leading IT multinationals globally. A few of our valued clients include:\n\n${clientsData.clients.map((c) => `• **${c.name}**`).join("\n")}\n\nWe collaborate closely with these organizations to source elite digital talent and deliver custom L&D programs.`;
+    return `🤝 **Valued Partners & Clients**\n\nMicro Academy is a trusted partner for leading IT multinationals globally. A few of our valued clients include:\n\n${clientsData.clients.map((c) => `• **${c.name}**`).join("\n")}\n\nWe collaborate closely with these organizations to source elite digital talent and deliver custom L&D programs.`;
   }
 
   if (matchesAny(lower, globalKeywords)) {
@@ -725,28 +725,28 @@ export function generateBotResponse(
       .map((c) => c.name)
       .join(", ");
 
-    return `🌍 **Our Global Footprint**\n\nMicroAcademy has a strong footprint spanning **20+ countries** across several key global regions:\n\n🔹 **Asia:** ${asian}\n🔹 **Middle East:** ${me}\n🔹 **Africa:** ${african}\n🔹 **Europe:** ${european}\n\nWe deliver enterprise-grade L&D programs and talent acquisition solutions across these global markets.`;
+    return `🌍 **Our Global Footprint**\n\nMicro Academy has a strong footprint spanning **20+ countries** across several key global regions:\n\n🔹 **Asia:** ${asian}\n🔹 **Middle East:** ${me}\n🔹 **Africa:** ${african}\n🔹 **Europe:** ${european}\n\nWe deliver enterprise-grade L&D programs and talent acquisition solutions across these global markets.`;
   }
 
   if (matchesAny(lower, milestoneKeywords)) {
     const list = timelineMilestones
       .map((m) => `• **${m.year} — ${m.title}**: ${m.description}`)
       .join("\n\n");
-    return `📜 **A Thirty-Year Genesis & History**\n\nMicroAcademy was established in 1995. Here are the major milestones that have shaped our legacy:\n\n${list}\n\nVisit our About page to learn more about our journey!`;
+    return `📜 **A Thirty-Year Genesis & History**\n\nMicro Academy was established in 1995. Here are the major milestones that have shaped our legacy:\n\n${list}\n\nVisit our About page to learn more about our journey!`;
   }
 
   if (matchesAny(lower, achievementKeywords)) {
     const achievementsList = keyAchievementsData
       .map((a) => `🏆 **${a.title}**\n${a.description}`)
       .join("\n\n");
-    return `🚀 **Key Achievements**\n\nOver our 30-year journey, MicroAcademy has achieved major benchmarks in the IT talent space:\n\n${achievementsList}\n\nWe are committed to delivering swift scale and strategic alignment.`;
+    return `🚀 **Key Achievements**\n\nOver our 30-year journey, Micro Academy has achieved major benchmarks in the IT talent space:\n\n${achievementsList}\n\nWe are committed to delivering swift scale and strategic alignment.`;
   }
 
   if (matchesAny(lower, microAdvantageKeywords)) {
     const itemsList = microAdvantageData.items
       .map((item) => `✨ **${item.title}**\n${item.description}`)
       .join("\n\n");
-    return `🌟 **The Micro Advantage**\n\nHere are the core value adds that make MicroAcademy a definitive standard for workforce intelligence:\n\n${itemsList}\n\nThese capabilities enable us to curate elite, future-ready digital talent for top global firms.`;
+    return `🌟 **The Micro Advantage**\n\nHere are the core value adds that make Micro Academy a definitive standard for workforce intelligence:\n\n${itemsList}\n\nThese capabilities enable us to curate elite, future-ready digital talent for top global firms.`;
   }
 
   if (matchesAny(lower, trainHireStepsKeywords)) {
@@ -903,7 +903,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, contractKeywords)) {
     let response =
-      "📝 Contract to Hire:\n\nMicroAcademy sources candidates who join on our payroll for the contract period. The client can directly hire the resource during or after the contract.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
+      "📝 Contract to Hire:\n\nMicro Academy sources candidates who join on our payroll for the contract period. The client can directly hire the resource during or after the contract.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
 
     if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
       response += `\n\n📋 Current contract positions:\n\n`;
@@ -1141,7 +1141,7 @@ export function generateBotResponse(
     return "💰 Compensation varies based on role, experience, and skill level.\n\nFor specific salary details:\n📧 Email: info@microacademy.net\n📞 Call: +91 080-25358182\n\nOr apply to a specific position and our team will share the details!";
   }
   if (matchesAny(lower, whyJoinKeywords)) {
-    return "🌟 Why Join MicroAcademy?\n\n📈 Professional Growth — Continuous learning paths for leadership mastery\n🏥 Premium Benefits — Healthcare, performance bonuses & wellness programs\n🌍 Global Impact — Work on projects influencing global markets across 20+ countries\n🏢 30+ Years Legacy — Established in 1995, pioneering in IT L&D and workforce intelligence\n📊 Proven Track Record — 25,000+ professionals trained & deployed, 30+ global clients\n\nJoin us and be part of something bigger!";
+    return "🌟 Why Join Micro Academy?\n\n📈 Professional Growth — Continuous learning paths for leadership mastery\n🏥 Premium Benefits — Healthcare, performance bonuses & wellness programs\n🌍 Global Impact — Work on projects influencing global markets across 20+ countries\n🏢 30+ Years Legacy — Established in 1995, pioneering in IT L&D and workforce intelligence\n📊 Proven Track Record — 25,000+ professionals trained & deployed, 30+ global clients\n\nJoin us and be part of something bigger!";
   }
-  return 'I\'m not sure I understood that. 🤔 Here\'s what I can help with:\n\n• 💼 Job openings & careers\n• 🎓 Freshers drives\n• 📋 Our services\n• 📞 Contact information\n• 🏢 About MicroAcademy\n\nTry asking something like "Show me job openings" or "Any React developer roles?"';
+  return 'I\'m not sure I understood that. 🤔 Here\'s what I can help with:\n\n• 💼 Job openings & careers\n• 🎓 Freshers drives\n• 📋 Our services\n• 📞 Contact information\n• 🏢 About Micro Academy\n\nTry asking something like "Show me job openings" or "Any React developer roles?"';
 }

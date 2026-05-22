@@ -9,7 +9,7 @@ import KeyAchievements from "../components/about/KeyAchievements";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn more about MicroAcademy's mission, vision, and approach to workforce transformation.",
+    "Learn more about Micro Academy's mission, vision, and approach to workforce transformation.",
   alternates: {
     canonical: "/about",
   },

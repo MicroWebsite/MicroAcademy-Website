@@ -95,7 +95,7 @@ export function buildJobApplicationEmailHtml(data: {
                             }
                           </td>
                           <td align="right" valign="bottom">
-                            <span style="color: #6A5F00; font-weight: 700;">MicroAcademy Portal</span>
+                            <span style="color: #6A5F00; font-weight: 700;">Micro Academy Portal</span>
                           </td>
                         </tr>
                       </table>
@@ -106,7 +106,7 @@ export function buildJobApplicationEmailHtml(data: {
                 <!-- Footer Section -->
                 <tr>
                   <td style="background-color: #1B1C19; padding: 24px 40px; text-align: center;">
-                    <p style="color: #ffffff; margin: 0; font-size: 12px; opacity: 0.6;">&copy; ${new Date().getFullYear()} MicroAcademy. All rights reserved.</p>
+                    <p style="color: #ffffff; margin: 0; font-size: 12px; opacity: 0.6;">&copy; ${new Date().getFullYear()} Micro Academy. All rights reserved.</p>
                   </td>
                 </tr>
               </table>

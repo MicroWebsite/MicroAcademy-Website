@@ -8,7 +8,7 @@ import { contactHeroData } from "../data/contactHeroData";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with MicroAcademy. Reach out for enquiries about our corporate training programs, workforce solutions, and more.",
+    "Get in touch with Micro Academy. Reach out for enquiries about our corporate training programs, workforce solutions, and more.",
   alternates: {
     canonical: "/contact",
   },

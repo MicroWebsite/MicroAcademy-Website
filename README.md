@@ -1,7 +1,7 @@
 ---
-# 🚀 MicroAcademy
+# 🚀 Micro Academy
 
-MicroAcademy is a modern, high-performance Next.js application built with cutting-edge technologies and a strong focus on scalability, maintainability, and developer experience.
+Micro Academy is a modern, high-performance Next.js application built with cutting-edge technologies and a strong focus on scalability, maintainability, and developer experience.
 ---
 
 ## ✨ Overview

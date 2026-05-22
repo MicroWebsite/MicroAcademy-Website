@@ -22,13 +22,13 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "MicroAcademy - The Future of Workforce Intelligence",
-    template: "%s | MicroAcademy",
+    default: "Micro Academy - The Future of Workforce Intelligence",
+    template: "%s | Micro Academy",
   },
   description:
-    "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+    "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
   keywords: [
-    "MicroAcademy",
+    "Micro Academy",
     "workforce intelligence",
     "direct-lateral hiring",
     "direct/lateral hiring",
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: siteUrl,
-    siteName: "MicroAcademy",
-    title: "MicroAcademy - The Future of Workforce Intelligence",
+    siteName: "Micro Academy",
+    title: "Micro Academy - The Future of Workforce Intelligence",
     description:
-      "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+      "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
     images: [
       {
         url: "/assets/headers/Homepage.png",
         width: 1200,
         height: 630,
-        alt: "MicroAcademy - Workforce Intelligence",
+        alt: "Micro Academy - Workforce Intelligence",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MicroAcademy - The Future of Workforce Intelligence",
+    title: "Micro Academy - The Future of Workforce Intelligence",
     description:
-      "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+      "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
     images: ["/assets/headers/Homepage.png"],
   },
   robots: {
@@ -93,7 +93,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Micro Academy Private Limited",
-  alternateName: "MicroAcademy",
+  alternateName: "Micro Academy",
   url: siteUrl,
   logo: `${siteUrl}/assets/common/microacademy-logo.png`,
   contactPoint: {

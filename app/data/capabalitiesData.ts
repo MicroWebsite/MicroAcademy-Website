@@ -76,7 +76,7 @@ export const capabilitiesData: {
       icon: "contract-to-hire",
       title: "Contract to Hire",
       description:
-        "MicroAcademy will source the candidates for the client. On selection by the client, the candidates will be on MicroAcademy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
+        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
       ctaLabel: "Explore Contract to Hire",
       ctaHref: "/services/contract-hiring",
       highlighted: false,

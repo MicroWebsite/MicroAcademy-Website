@@ -39,7 +39,7 @@ export async function processCareersSubmission(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"MicroAcademy Careers" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Careers" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
     subject: `New Career Application: ${data.position} - ${data.firstName} ${data.lastName}`,

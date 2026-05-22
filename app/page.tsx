@@ -8,9 +8,9 @@ import AnnouncementRunner from "./components/common/AnnouncementRunner";
 import { heroData } from "./data/heroData";
 
 export const metadata: Metadata = {
-  title: "MicroAcademy - The Future of Workforce Intelligence",
+  title: "Micro Academy - The Future of Workforce Intelligence",
   description:
-    "We bridge the gap between human potential and enterprise excellence. MicroAcademy is your strategic partner in designing high-performance talent ecosystems.",
+    "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
   alternates: {
     canonical: "/",
   },

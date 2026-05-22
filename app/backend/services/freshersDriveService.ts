@@ -37,7 +37,7 @@ export async function processFreshersDriveSubmission(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"MicroAcademy Drive" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Drive" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
     subject: `New Freshers Drive Registration: ${data.domain} - ${data.firstName} ${data.lastName}`,

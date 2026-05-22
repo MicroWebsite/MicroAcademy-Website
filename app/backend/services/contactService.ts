@@ -29,7 +29,7 @@ async function sendContactEmail(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"MicroAcademy Contact" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Contact" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
     subject: `New Message from ${data.fullName} (Contact Form)`,

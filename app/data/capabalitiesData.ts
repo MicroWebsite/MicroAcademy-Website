@@ -66,7 +66,7 @@ export const capabilitiesData: {
         // primaryCTA: { label: "Explore Services", href: "/contact" },
         // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
-          src: "/assets/headers/Recruitment.png",
+          src: "/assets/headers/DirectLateralHiring.png",
           alt: "Authentic Direct/Lateral Hiring Drive Event at Micro Academy",
         },
       },

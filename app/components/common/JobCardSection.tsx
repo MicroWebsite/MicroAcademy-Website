@@ -42,11 +42,11 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
 }) => {
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="flex flex-wrap justify-center gap-6">
         {shimmerCards.map((_, i) => (
           <div
             key={i}
-            className="relative overflow-hidden rounded-2xl bg-bg-input-row p-6 animate-pulse"
+            className="relative overflow-hidden rounded-2xl bg-bg-input-row p-6 animate-pulse w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[360px]"
           >
             <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-linear-to-r from-transparent via-white/40 to-transparent" />
             <div className="h-5 w-20 rounded-full bg-bg-decor mb-5" />
@@ -96,7 +96,7 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
 
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -106,7 +106,7 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
         <motion.div
           key={pos.job_id || pos.jobId || pos.id}
           variants={cardVariants}
-          className="group relative flex flex-col rounded-2xl bg-bg-input-row ring-1 ring-black/4 overflow-hidden transition-all duration-300 hover:ring-primary/30 hover:shadow-[0_8px_40px_rgba(106,95,0,0.08)] hover:-translate-y-1"
+          className="group relative flex flex-col rounded-2xl bg-bg-input-row ring-1 ring-black/4 overflow-hidden transition-all duration-300 hover:ring-primary/30 hover:shadow-[0_8px_40px_rgba(106,95,0,0.08)] hover:-translate-y-1 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[360px]"
         >
           <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-primary to-secondary rounded-l-2xl" />
           <div className="flex flex-col flex-1 p-6 pl-7">

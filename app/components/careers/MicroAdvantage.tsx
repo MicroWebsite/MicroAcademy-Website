@@ -30,7 +30,7 @@ const MicroAdvantage: React.FC = () => {
   const { heading, items } = careerAdvantageData;
 
   return (
-    <section className="w-full bg-white pt-20 pb-12 md:pt-24 md:pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="w-full bg-white pt-16 pb-12 md:pt-20 md:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="hidden lg:flex items-center justify-between gap-12 max-w-5xl mx-auto pt-6 pb-2 relative">
           <div className="relative flex items-center justify-center shrink-0 w-90 h-90 z-10">

@@ -83,11 +83,21 @@ export default function JobOpeningsPage() {
       ) : (
         <>
           {!isNoFullTimeJobs && (
-            <section className="py-16 bg-bg-white">
+            <section className="py-16 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-text-dark mb-8">
-                  Full-Time Jobs
-                </h2>
+                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+                  <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
+                    Direct Hiring
+                  </span>
+                  <h2 className="text-4xl font-bold text-text-dark mb-6">
+                    Full-Time Jobs
+                  </h2>
+                  <p className="text-text-muted leading-relaxed">
+                    Explore our current direct recruitment positions. Review job
+                    roles, locations, and requirements to apply for permanent
+                    vacancies.
+                  </p>
+                </div>
                 <JobCardSection
                   jobs={fullTimeJobs}
                   onApply={handleApplyForFullTimeJob}
@@ -98,11 +108,20 @@ export default function JobOpeningsPage() {
           )}
 
           {!isNoContractJobs && (
-            <section className="py-16 bg-bg-white">
+            <section className="py-16 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-text-dark mb-8">
-                  Contract Jobs
-                </h2>
+                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+                  <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
+                    Contractual Hiring
+                  </span>
+                  <h2 className="text-4xl font-bold text-text-dark mb-6">
+                    Contract Jobs
+                  </h2>
+                  <p className="text-text-muted leading-relaxed">
+                    Browse active contract vacancies. Find flexible projects and
+                    temporary technical assignments matched to your skillset.
+                  </p>
+                </div>
                 <JobCardSection
                   jobs={contractJobs}
                   onApply={handleApplyForContractJob}

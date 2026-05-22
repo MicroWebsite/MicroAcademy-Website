@@ -33,7 +33,7 @@ export default function FreshersDriveContent() {
       <main className="min-h-screen">
         <HomeTemplate heroContent={freshersHeroData} />
         <StandardHighlightCards />
-        <section id="active-domains" className="py-12 md:py-16 bg-bg-cream">
+        <section id="active-domains" className="py-12 md:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex justify-center py-20">
               <div
@@ -67,7 +67,7 @@ export default function FreshersDriveContent() {
       <HomeTemplate heroContent={freshersHeroData} />
       <StandardHighlightCards />
 
-      <section id="active-domains" className="py-12 md:py-16 bg-bg-cream">
+      <section id="active-domains" className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function FreshersDriveContent() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
             {drives.map((drive, index) => (
               <motion.div
                 key={`${drive.title}-${index}`}
@@ -96,7 +96,7 @@ export default function FreshersDriveContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] max-w-sm"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[360px]"
               >
                 <DomainCard
                   id={encodeURIComponent(drive.title)}

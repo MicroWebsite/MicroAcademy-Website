@@ -46,18 +46,20 @@ const OpenPositions: React.FC = () => {
   }
 
   return (
-    <section className="w-full bg-bg-white pt-12 pb-24 md:pt-8 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-white pt-12 pb-16 md:pt-16 md:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-          <div>
-            <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
-              Open Positions
-            </h2>
-            <p className="mt-3 text-lg text-gray-600">
-              Explore opportunities to grow and make an impact.
-            </p>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
+            Join Our Team
+          </span>
+          <h2 className="text-4xl font-bold text-text-dark mb-6">
+            Open Positions
+          </h2>
+          <p className="text-text-muted leading-relaxed">
+            Explore our latest open positions to grow your career, build premium
+            skills, and make a significant impact with us.
+          </p>
         </div>
         <JobCardSection jobs={jobs} onApply={handleApply} loading={loading} />
       </div>

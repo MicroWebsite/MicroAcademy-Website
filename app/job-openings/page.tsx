@@ -1,15 +1,15 @@
 import { Metadata } from "next";
-import JobOpeningsPage from "../components/jobs/JobOpeningsPage";
+import JobOpeningsLanding from "../components/jobs/JobOpeningsLanding";
 
 export const metadata: Metadata = {
   title: "Job Openings",
   description:
-    "Browse current full-time and contract job openings at MicroAcademy and apply directly to roles that match your profile.",
+    "Explore job openings and freshers drives at MicroAcademy. Find recruitment details for full-time/contract roles or register for upcoming freshers placement drives.",
   alternates: {
     canonical: "/job-openings",
   },
 };
 
 export default function JobOpenings() {
-  return <JobOpeningsPage />;
+  return <JobOpeningsLanding />;
 }

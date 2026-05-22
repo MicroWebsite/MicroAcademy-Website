@@ -2,12 +2,12 @@
 
 import { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import EligibilityCriteria from "@/app/components/freshers/EligibilityCriteria";
 import JobDetails from "@/app/components/freshers/JobDetails";
 import OfficialNoteCard from "@/app/components/freshers/OfficialNoteCard";
 import DriveVenueCard from "@/app/components/freshers/DriveVenueCard";
 import DriveRegistrationForm from "@/app/components/freshers/DriveRegistrationForm";
-import HomeTemplate from "@/app/components/common/HeroSection";
 import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
 
@@ -78,7 +78,67 @@ export default function DriveDetailPage({
 
   return (
     <main className="min-h-screen bg-[#FDFCF7]">
-      <HomeTemplate heroContent={driveHeroData} />
+      {/* Compact Detail Hero Section */}
+      <section className="w-full bg-bg-cream overflow-hidden border-b border-border/50">
+        <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-10 min-h-[45vh]">
+          {/* Left Content */}
+          <div className="flex-1 flex flex-col gap-5 lg:max-w-[55%]">
+            <span className="inline-flex self-start items-center px-3 py-1 rounded-full bg-secondary text-text-badge text-[10px] font-extrabold tracking-wider uppercase shadow-xs">
+              {driveHeroData.badge}
+            </span>
+
+            <div className="flex flex-col gap-1.5">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-text-dark leading-tight tracking-tight">
+                {titleLine1}{" "}
+                {titleAccentPrefix && (
+                  <span className="text-text-dark font-extrabold">
+                    {titleAccentPrefix}{" "}
+                  </span>
+                )}
+                {titleAccent && (
+                  <span className="text-primary font-extrabold">
+                    {titleAccent}
+                  </span>
+                )}
+              </h1>
+            </div>
+
+            <div
+              className="text-sm sm:text-base text-text-body leading-relaxed max-w-xl"
+              dangerouslySetInnerHTML={{
+                __html: driveHeroData.description || "",
+              }}
+            />
+          </div>
+
+          {/* Right Image Content */}
+          <div className="flex-1 flex items-center justify-center lg:justify-end w-full lg:max-w-[40%]">
+            <div className="relative w-full max-w-md">
+              {/* Decorative background box (scaled down) */}
+              <div className="absolute -bottom-4 -left-4 h-36 w-36 rounded-3xl bg-secondary-dark/40" />
+
+              {/* Image card (smaller size & landscape aspect ratio) */}
+              {driveHeroData.image?.src && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="relative z-10 rounded-2xl overflow-hidden w-full aspect-[4/3] shadow-md border border-border/20"
+                >
+                  <Image
+                    src={driveHeroData.image.src}
+                    alt={driveHeroData.image.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 24rem"
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="py-12 lg:py-20 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
           <div className="flex-1 flex flex-col gap-12 lg:gap-16">

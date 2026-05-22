@@ -25,7 +25,6 @@ const navLinks = [
   {
     label: "Job Openings",
     href: "/job-openings",
-    subLinks: [{ label: "Fresher Drive", href: "/freshers-drive" }],
   },
   { label: "Careers", href: "/careers" },
 ];

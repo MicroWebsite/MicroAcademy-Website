@@ -29,13 +29,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
     },
     {
-      path: "/freshers-drive",
+      path: "/job-openings/freshers-drive",
       priority: 0.8,
       changeFrequency: "weekly" as const,
     },
     {
       path: "/job-openings",
       priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/job-openings/recruitments",
+      priority: 0.8,
       changeFrequency: "weekly" as const,
     },
     { path: "/careers", priority: 0.8, changeFrequency: "weekly" as const },

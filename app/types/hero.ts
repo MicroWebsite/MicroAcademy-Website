@@ -7,5 +7,5 @@ export interface HeroProps {
   description?: string;
   primaryCTA?: { label: string; href: string } | undefined;
   secondaryCTA?: { label: string; href: string };
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; aspectRatio?: string };
 }

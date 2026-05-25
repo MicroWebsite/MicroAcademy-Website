@@ -109,8 +109,6 @@ export const capabilitiesData: {
         titleAccent: "Architecture",
         description:
           "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
-        // primaryCTA: { label: "Start Your Program", href: "/contact" },
-        // secondaryCTA: { label: "Explore Curriculum", href: "/services" },
         image: {
           src: "/assets/headers/Corporate.png",
           alt: "Corporate Training Facility at Micro Academy Bangalore",

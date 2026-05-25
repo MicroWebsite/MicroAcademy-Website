@@ -26,81 +26,6 @@ const itemVariants: Variants = {
   },
 };
 
-const DEFAULT_IMAGES: GalleryImage[] = [
-  {
-    id: "default-1",
-    src: "/assets/about/classroom-group.jpg",
-    alt: "Classroom Training Group",
-    caption: "Collaborative learning sessions in our main training center.",
-  },
-  {
-    id: "default-2",
-    src: "/assets/about/group-success.jpg",
-    alt: "Graduation and Career Success",
-    caption: "Celebrating workforce readiness and career transitions.",
-  },
-  {
-    id: "default-3",
-    src: "/assets/about/office-lobby.jpg",
-    alt: "Main Office Lobby",
-    caption: "A welcoming environment fostering innovation and growth.",
-  },
-  {
-    id: "default-4",
-    src: "/assets/service/classroom-active.jpg",
-    alt: "Active Technical Workshop",
-    caption: "Interactive tech workshops building real-world expertise.",
-  },
-  {
-    id: "default-5",
-    src: "/assets/service/classroom-session.jpg",
-    alt: "Mentoring & Guidance Session",
-    caption: "Mentors guiding candidates through complex architectures.",
-  },
-  {
-    id: "default-6",
-    src: "/assets/service/office-exterior-2.jpg",
-    alt: "Office Infrastructure",
-    caption: "State-of-the-art facility supporting professional excellence.",
-  },
-  {
-    id: "default-7",
-    src: "/assets/service/team-collaboration-2.jpg",
-    alt: "Team Design Thinking",
-    caption: "Fostering teamwork and design thinking in tech projects.",
-  },
-  {
-    id: "default-8",
-    src: "/assets/service/team-outdoor.jpg",
-    alt: "Outbound Learning Activities",
-    caption: "Building bonds outside the classroom for holistic growth.",
-  },
-  {
-    id: "default-9",
-    src: "/assets/service/training-lab.jpg",
-    alt: "Advanced Hands-on Lab",
-    caption: "Equipped with modern infrastructure for hands-on labs.",
-  },
-  {
-    id: "default-10",
-    src: "/assets/about/classroom-group.jpg",
-    alt: "Technical Session Coding",
-    caption: "Hands-on coding challenges and agile practices.",
-  },
-  {
-    id: "default-11",
-    src: "/assets/about/group-success.jpg",
-    alt: "Alumni Community Meet",
-    caption: "Building a supportive community of professional alumni.",
-  },
-  {
-    id: "default-12",
-    src: "/assets/service/team-collaboration-2.jpg",
-    alt: "Project Presentation Pitch",
-    caption: "Showcasing projects to industry experts and client panels.",
-  },
-];
-
 const GalleryCard: React.FC<{
   image: GalleryImage;
   index: number;
@@ -159,18 +84,18 @@ const GalleryCard: React.FC<{
 };
 
 const GRID_POSITIONS = [
-  "col-span-2 row-span-2 md:col-span-2 md:row-span-2", // Row 1 & 2
+  "col-span-2 row-span-2 md:col-span-2 md:row-span-2",
   "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
   "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
   "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-1", // Row 2 end
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2", // Row 3 & 4 (Desktop height 2)
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-1", // Row 3
   "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-1", // Row 4 start
-  "col-span-2 row-span-1 md:col-span-2 md:row-span-1", // Row 4 end
-  "col-span-2 row-span-1 md:col-span-2 md:row-span-1", // Row 5
-  "col-span-2 row-span-1 md:col-span-2 md:row-span-1", // Row 5 end
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-1 row-span-1 md:col-span-1 md:row-span-1",
+  "col-span-2 row-span-1 md:col-span-2 md:row-span-1",
+  "col-span-2 row-span-1 md:col-span-2 md:row-span-1",
+  "col-span-2 row-span-1 md:col-span-2 md:row-span-1",
 ];
 
 const Gallery: React.FC = () => {
@@ -194,24 +119,10 @@ const Gallery: React.FC = () => {
               })),
           );
         }
-
-        if (allImages.length === 0) {
-          setImages([]);
-        } else if (allImages.length < 12) {
-          const filled = [
-            ...allImages,
-            ...DEFAULT_IMAGES.slice(allImages.length),
-          ];
-          setImages(filled.slice(0, 12));
-        } else {
-          setImages(allImages.slice(0, 12));
-        }
+        setImages(allImages);
       } catch (error) {
-        console.error(
-          "Failed to fetch gallery images, using default images:",
-          error,
-        );
-        setImages(DEFAULT_IMAGES);
+        console.error("Failed to fetch gallery images:", error);
+        setImages([]);
       } finally {
         setLoading(false);
       }

@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
     images: [
       {
-        url: "/assets/headers/Homepage.png",
+        url: "/assets/headers/HomePage.jpg",
         width: 1200,
         height: 630,
         alt: "Micro Academy - Workforce Intelligence",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Micro Academy - The Future of Workforce Intelligence",
     description:
       "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
-    images: ["/assets/headers/Homepage.png"],
+    images: ["/assets/headers/HomePage.jpg"],
   },
   robots: {
     index: true,
@@ -88,6 +88,7 @@ export const metadata: Metadata = {
 
 import { ToastProvider } from "./context/ToastContext";
 import Chatbot from "./components/Chatbot";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -134,6 +135,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ToastProvider>
+          <ScrollToTop />
           <Header />
           <main className="relative flex-1">{children}</main>
           <Footer />

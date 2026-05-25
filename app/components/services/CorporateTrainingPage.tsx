@@ -264,8 +264,8 @@ function MethodologySection() {
               className="relative overflow-hidden w-80 h-80 mt-6 rounded-2xl shadow-xl"
             >
               <Image
-                src="/assets/service/classroom-session.jpg"
-                alt="Original hands-on workshop"
+                src="/assets/headers/HomePage.jpg"
+                alt="Micro Academy Bangalore Office Exterior"
                 fill
                 className="object-cover"
                 sizes="320px"
@@ -282,8 +282,8 @@ function MethodologySection() {
             className="relative overflow-hidden mt-4 w-full max-w-164 h-80 rounded-2xl shadow-xl"
           >
             <Image
-              src="/assets/service/office-exterior-2.jpg"
-              alt="Micro Academy Bangalore Office Exterior"
+              src="/assets/service/classroom-session.jpg"
+              alt="Original hands-on workshop"
               fill
               className="object-cover"
               sizes="656px"

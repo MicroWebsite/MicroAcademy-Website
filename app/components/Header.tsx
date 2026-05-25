@@ -40,19 +40,33 @@ export default function Header() {
   const isPathActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const navLinks = STATIC_NAV_LINKS;
 
   return (
     <header className="w-full bg-bg-header border-b border-border relative z-50">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center shrink-0">
+      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+        <Link
+          href="/"
+          onClick={(e) => handleLinkClick(e, "/")}
+          className="flex items-center shrink-0"
+        >
           <Image
             src="/assets/common/microacademy-logo.png"
             alt="Micro Academy Logo"
             width={220}
             height={120}
             priority
-            className="h-14 md:h-16 w-auto object-contain"
+            className="h-14 md:h-20 w-auto object-contain"
             unoptimized
           />
         </Link>
@@ -78,6 +92,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     aria-haspopup="true"
                     aria-expanded="false"
                     className={`relative flex items-center gap-1 text-base font-bold transition-colors pb-1 ${
@@ -99,6 +114,7 @@ export default function Header() {
                       <Link
                         key={subLink.href}
                         href={subLink.href}
+                        onClick={(e) => handleLinkClick(e, subLink.href)}
                         className={`px-4 py-2.5 text-sm font-semibold hover:bg-bg-header-mobile hover:text-text-accent transition-colors ${pathname === subLink.href ? "text-text-accent bg-bg-header-mobile" : "text-text-dark"}`}
                       >
                         {subLink.label}
@@ -113,6 +129,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className={`relative text-base shrink-0 font-bold transition-colors pb-1 flex items-center ${
                   isActive
                     ? "text-text-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-text-accent"
@@ -128,6 +145,7 @@ export default function Header() {
         <div className="flex items-center gap-6 shrink-0">
           <Link
             href="/contact"
+            onClick={(e) => handleLinkClick(e, "/contact")}
             className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
           >
             Contact us
@@ -191,7 +209,10 @@ export default function Header() {
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}
-                      onClick={() => setMenuOpen(false)}
+                      onClick={(e) => {
+                        setMenuOpen(false);
+                        handleLinkClick(e, link.href);
+                      }}
                       className={`text-sm font-medium py-2 grow ${isActive ? "text-text-accent" : "text-text-muted-alt"}`}
                     >
                       {link.label}
@@ -223,7 +244,10 @@ export default function Header() {
                         <Link
                           key={subLink.href}
                           href={subLink.href}
-                          onClick={() => setMenuOpen(false)}
+                          onClick={(e) => {
+                            setMenuOpen(false);
+                            handleLinkClick(e, subLink.href);
+                          }}
                           className={`text-[13px] py-1.5 font-medium ${pathname === subLink.href ? "text-text-accent font-bold" : "text-text-muted"}`}
                         >
                           {subLink.label}
@@ -239,7 +263,10 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  setMenuOpen(false);
+                  handleLinkClick(e, link.href);
+                }}
                 className={`text-sm font-medium py-3 border-b border-border ${
                   isActive ? "text-text-accent" : "text-text-muted-alt"
                 }`}
@@ -250,7 +277,10 @@ export default function Header() {
           })}
           <Link
             href="/contact"
-            onClick={() => setMenuOpen(false)}
+            onClick={(e) => {
+              setMenuOpen(false);
+              handleLinkClick(e, "/contact");
+            }}
             className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
           >
             Contact us

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -7,7 +10,6 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Job Openings", href: "/job-openings" },
   { label: "Careers", href: "/careers" },
-  // { label: "Contact us", href: "/contact" },
 ];
 
 const legalLinks = [
@@ -46,6 +48,18 @@ const serviceLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="w-full bg-bg-cream border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row justify-between items-start gap-12">
@@ -98,6 +112,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-sm text-text-muted hover:text-text-dark hover:font-medium transition-colors"
                 >
                   {link.label}
@@ -117,6 +132,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-sm text-text-muted hover:text-text-dark hover:font-medium transition-colors"
                 >
                   {link.label}
@@ -202,6 +218,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-[10px] font-bold text-text-muted hover:text-text-dark transition-colors uppercase tracking-widest"
               >
                 {link.label}

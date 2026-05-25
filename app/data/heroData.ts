@@ -10,7 +10,8 @@ export const heroData: HeroProps = {
   primaryCTA: { label: "Contact Us", href: "/contact" },
   secondaryCTA: { label: "Explore Solutions", href: "/services" },
   image: {
-    src: "/assets/service/office-exterior-2.jpg",
+    src: "/assets/headers/HomePage.jpg",
     alt: "Micro Academy Bangalore Office Exterior - Domlur",
+    aspectRatio: "aspect-[4/3]",
   },
 };

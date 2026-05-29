@@ -23,14 +23,11 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
   return (
     <section className="w-full bg-bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8 min-h-[60vh]">
-        {/* ── Left Content ── */}
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
-          {/* Badge */}
           <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.18em] uppercase">
             {badge}
           </span>
 
-          {/* Title */}
           <div className="flex flex-col gap-1">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-dark leading-[1.1] tracking-tight">
               {titleLine1}
@@ -70,16 +67,14 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
 
         <div className="flex-1 flex items-center justify-center w-full lg:max-w-[48%]">
           <div className="relative w-full max-w-120">
-            {/* Decorative background box */}
             <div className="absolute -bottom-6 -left-6 h-48 w-48 rounded-4xl bg-secondary-dark/50" />
 
-            {/* Image card */}
             {image?.src && image?.alt && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className={`relative z-10 rounded-3xl overflow-hidden w-full ${image?.aspectRatio || "aspect-4/5"} shadow-none`}
+                className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none"
               >
                 <Image
                   src={image.src}

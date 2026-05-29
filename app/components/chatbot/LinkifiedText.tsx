@@ -22,8 +22,6 @@ function renderTextWithBold(text: string, keyPrefix: string | number) {
 }
 
 const LINK_MAPPINGS: Record<string, string> = {
-  "careers page": "/careers",
-  careers: "/careers",
   "direct/lateral hiring page": "/services/direct-lateral-hiring",
   "direct-lateral hiring page": "/services/direct-lateral-hiring",
   "direct/lateral hiring service page": "/services/direct-lateral-hiring",
@@ -40,7 +38,6 @@ const LINK_MAPPINGS: Record<string, string> = {
   "corporate training page": "/services/corporate-training",
   "contact page": "/contact",
   "about page": "/about",
-  "careers and services pages": "/services",
   "job openings page": "/job-openings",
   "job openings": "/job-openings",
   "job pages": "/job-openings",
@@ -77,7 +74,6 @@ export default function LinkifiedText({ text }: LinkifiedTextProps) {
         elements.push(<span key={i}>{renderTextWithBold(part, i)}</span>);
       }
     } else if (i % 3 === 1) {
-      // This is the prefix. The NEXT element is the keyword.
       const prefix = part || "";
       const keyword = parts[i + 1] || "";
 
@@ -97,7 +93,6 @@ export default function LinkifiedText({ text }: LinkifiedTextProps) {
             </Link>,
           );
         } else {
-          // Should not happen if regex matches labels, but for safety:
           elements.push(
             <span key={i}>
               {prefix}
@@ -105,7 +100,6 @@ export default function LinkifiedText({ text }: LinkifiedTextProps) {
             </span>,
           );
         }
-        // Skip the keyword element since we processed it
         i++;
       }
     }

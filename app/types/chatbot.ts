@@ -8,7 +8,6 @@ export type ChatMessage = {
 };
 
 export type StrapiData = {
-  careers: JobPosition[];
   directLateralHiring: JobPosition[];
   contractHiring: JobPosition[];
   fresherDrives: FresherDrive[];

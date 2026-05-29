@@ -3,7 +3,7 @@ import { trainAndHireTestimonials } from "@/app/data/trainAndHireTestimonials";
 
 export default function TestimonialSection() {
   return (
-    <section className="relative w-full bg-white overflow-hidden px-4 md:px-8 py-16 md:py-24">
+    <section className="relative w-full bg-white overflow-hidden px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div
         className="absolute inset-0 pointer-events-none opacity-30 z-0"
         style={{

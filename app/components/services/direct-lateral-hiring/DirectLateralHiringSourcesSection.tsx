@@ -4,27 +4,22 @@ import {
   directLateralHiringAdvantages,
   directLateralHiringSources,
 } from "@/app/data/directLateralHiringInsightsData";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 export default function DirectLateralHiringSourcesSection() {
   return (
-    <section className="w-full bg-white px-8 pt-24 pb-12">
-      <div className="max-w-304 mx-auto flex flex-col gap-10">
+    <section className="w-full bg-white px-4 pt-14 pb-10 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-12">
+      <div className="max-w-304 mx-auto flex flex-col gap-8 lg:gap-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-text-muted-alt mb-3">
-            Talent Pipeline
-          </p>
-          <h2 className="text-3xl font-bold text-text-dark font-manrope mb-3">
-            Our Direct/Lateral Hiring Sources
-          </h2>
-          <p className="text-text-muted-alt">
-            A multi-channel sourcing framework that helps us deliver faster,
-            better-matched candidates for diverse hiring needs.
-          </p>
+          <SectionHeader
+            eyebrow="Talent Pipeline"
+            title="Our Direct/Lateral Hiring Sources"
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
@@ -37,7 +32,7 @@ export default function DirectLateralHiringSourcesSection() {
             <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-5">
               <Star className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl font-bold font-manrope mb-4">
+            <h3 className="text-xl font-bold font-manrope mb-3">
               Micro Academy Advantage
             </h3>
             <ul className="space-y-3">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, ShieldCheck, BadgePercent } from "lucide-react";
+import SectionHeader from "../common/SectionHeader";
 
 const highlightModels = [
   {
@@ -33,15 +34,12 @@ export default function StandardHighlightCards() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
+          className="mb-10 md:mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-text-dark mb-6">
-            Our Drive Highlights
-          </h2>
-          <p className="text-text-muted text-lg leading-relaxed">
-            We bridge the gap between academic learning and industry
-            requirements with our unique recruitment philosophy.
-          </p>
+          <SectionHeader
+            eyebrow="Freshers Drive"
+            title="Our Drive Highlights"
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -62,7 +60,7 @@ export default function StandardHighlightCards() {
                 <item.icon size={28} strokeWidth={2} />
               </div>
               <div className="space-y-4">
-                <h3 className="font-bold text-text-dark text-2xl tracking-tight">
+                <h3 className="font-bold text-text-dark text-xl leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-base text-gray-600 leading-relaxed font-normal">

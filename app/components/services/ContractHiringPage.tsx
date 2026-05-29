@@ -2,7 +2,6 @@
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import BenefitsSection from "./contract-hiring/BenefitsSection";
-import ProcessSection from "./contract-hiring/ProcessSection";
 import DomainsSection from "./contract-hiring/DomainsSection";
 import CTASection from "../common/CTASection";
 
@@ -17,7 +16,6 @@ export default function ContractHiringPage() {
         <HomeTemplate heroContent={contractHiringData.heroData} />
       )}
       <BenefitsSection />
-      <ProcessSection />
       <DomainsSection />
       <CTASection
         title="Ready to Augment Your Team?"

@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { fetchGallery } from "@/app/services/strapiApi";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 interface GalleryImage {
   id: number | string;
@@ -130,29 +131,34 @@ const Gallery: React.FC = () => {
     loadImages();
   }, []);
 
-  const handlePrev = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (activeImageIndex === null) return;
-    setActiveImageIndex((prevIndex) => {
-      if (prevIndex === null) return null;
-      return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
-    });
-  };
+  const handlePrev = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (activeImageIndex === null) return;
+      setActiveImageIndex((prevIndex) => {
+        if (prevIndex === null) return null;
+        return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+      });
+    },
+    [activeImageIndex, images.length],
+  );
 
-  const handleNext = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (activeImageIndex === null) return;
-    setActiveImageIndex((prevIndex) => {
-      if (prevIndex === null) return null;
-      return prevIndex === images.length - 1 ? 0 : prevIndex + 1;
-    });
-  };
+  const handleNext = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      if (activeImageIndex === null) return;
+      setActiveImageIndex((prevIndex) => {
+        if (prevIndex === null) return null;
+        return prevIndex === images.length - 1 ? 0 : prevIndex + 1;
+      });
+    },
+    [activeImageIndex, images.length],
+  );
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setActiveImageIndex(null);
-  };
+  }, []);
 
-  // Keyboard accessibility
   useEffect(() => {
     if (activeImageIndex === null) return;
 
@@ -164,8 +170,7 @@ const Gallery: React.FC = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeImageIndex, images.length]);
+  }, [activeImageIndex, handleClose, handleNext, handlePrev]);
 
   if (loading) {
     return (
@@ -180,22 +185,18 @@ const Gallery: React.FC = () => {
   }
 
   return (
-    <section className="px-4 md:px-0 py-16 bg-bg-cream">
+    <section className="bg-white px-4 py-14 sm:py-16 lg:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="mb-10 lg:mb-12"
       >
-        <h2 className="text-4xl font-bold text-text-dark mb-4">Our Gallery</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          A glimpse into our journey, showcasing moments of learning, growth,
-          and success.
-        </p>
+        <SectionHeader eyebrow="Gallery" title="Our Gallery" />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense"
           variants={containerVariants}

@@ -43,7 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: "weekly" as const,
     },
-    { path: "/careers", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 

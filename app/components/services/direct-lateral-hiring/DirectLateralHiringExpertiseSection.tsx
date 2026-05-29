@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Crown, Code2, Layers, Award, Cpu } from "lucide-react";
 import { directLateralHiringExpertiseGroups } from "@/app/data/directLateralHiringInsightsData";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconMap = {
   crown: Crown,
@@ -33,19 +34,22 @@ export default function DirectLateralHiringExpertiseSection() {
   const totalCards = directLateralHiringExpertiseGroups.length;
   const totalSlides = Math.max(1, totalCards - cardsPerView + 1);
 
-  const scrollToSlide = (index: number) => {
-    if (!scrollRef.current) return;
-    const cardGap = 16; // gap-4 = 1rem = 16px
-    const container = scrollRef.current;
-    const containerWidth = container.clientWidth;
-    const cardWidth = containerWidth / cardsPerView;
-    const scrollPosition = index * (cardWidth + cardGap);
+  const scrollToSlide = useCallback(
+    (index: number) => {
+      if (!scrollRef.current) return;
+      const cardGap = 16;
+      const container = scrollRef.current;
+      const containerWidth = container.clientWidth;
+      const cardWidth = containerWidth / cardsPerView;
+      const scrollPosition = index * (cardWidth + cardGap);
 
-    container.scrollTo({
-      left: scrollPosition,
-      behavior: "smooth",
-    });
-  };
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth",
+      });
+    },
+    [cardsPerView],
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,27 +61,21 @@ export default function DirectLateralHiringExpertiseSection() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [totalSlides]);
+  }, [scrollToSlide, totalSlides]);
 
   return (
-    <section className="w-full bg-bg-cream px-6 py-12">
+    <section className="w-full bg-bg-cream px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="mb-8"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-text-muted-alt mb-3">
-            Direct/Lateral Hiring Strength
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
-            Areas of Expertise
-          </h2>
-          <p className="text-sm text-text-muted-alt mt-3 max-w-2xl mx-auto">
-            Specialized hiring support from entry-level technical roles to
-            leadership positions across core and emerging IT domains.
-          </p>
+          <SectionHeader
+            eyebrow="Direct/Lateral Hiring Strength"
+            title="Areas of Expertise"
+          />
         </motion.div>
 
         <div className="flex flex-col gap-6">

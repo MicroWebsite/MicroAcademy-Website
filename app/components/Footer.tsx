@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Job Openings", href: "/job-openings" },
-  { label: "Careers", href: "/careers" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 const legalLinks = [
@@ -63,7 +63,6 @@ export default function Footer() {
   return (
     <footer className="w-full bg-bg-cream border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row justify-between items-start gap-12">
-        {/* Logo & Address */}
         <div className="flex flex-col gap-4 items-start text-left font-['Inter']">
           <Image
             src="/assets/common/microacademy-logo.png"
@@ -102,7 +101,6 @@ export default function Footer() {
           </address>
         </div>
 
-        {/* Quick Links */}
         <div className="flex flex-col gap-5">
           <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
             Quick Links
@@ -122,7 +120,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Our Services (Replaced Legal) */}
         <div className="flex flex-col gap-5">
           <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
             Our Services
@@ -142,7 +139,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Connect with Us */}
         <div className="flex flex-col gap-5">
           <span className="text-sm font-extrabold tracking-widest text-text-dark uppercase">
             Connect with Us

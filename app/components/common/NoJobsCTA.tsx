@@ -28,7 +28,6 @@ export default function NoJobsCTA({
         transition={{ duration: 0.8 }}
         className="relative max-w-304 mx-auto rounded-3xl md:rounded-4xl overflow-hidden p-8 md:p-16 bg-cta-card-bg shadow-[0px_24px_40px_-10px_rgba(26,28,26,0.05)] isolation-auto group"
       >
-        {/* Decorative glows */}
         <div className="absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -right-10 -top-10 md:-right-20 md:-top-20 blur-[32px] rounded-full z-0 bg-primary/10" />
         <div className="absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -left-10 -bottom-10 md:-left-20 md:-bottom-20 blur-[32px] rounded-full z-0 bg-primary/10" />
 

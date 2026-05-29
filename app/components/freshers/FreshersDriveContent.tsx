@@ -7,6 +7,7 @@ import { freshersHeroData } from "../../data/freshersHeroData";
 import StandardHighlightCards from "./StandardHighlightCards";
 import DomainCard from "./DomainCard";
 import NoJobsCTA from "../common/NoJobsCTA";
+import SectionHeader from "../common/SectionHeader";
 import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
 
@@ -74,18 +75,12 @@ export default function FreshersDriveContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
+            className="mb-10 md:mb-12"
           >
-            <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
-              Career Pathways
-            </span>
-            <h2 className="text-4xl font-bold text-text-dark mb-6">
-              Current Active Domains
-            </h2>
-            <p className="text-text-muted leading-relaxed">
-              Select a domain to view eligibility criteria, job roles, and other
-              details about the scheduled upcoming freshers drive.
-            </p>
+            <SectionHeader
+              eyebrow="Career Pathways"
+              title="Current Active Domains"
+            />
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">

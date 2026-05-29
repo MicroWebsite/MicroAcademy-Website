@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import HomeTemplate from "../common/HeroSection";
 import JobCardSection from "../common/JobCardSection";
 import NoJobsCTA from "../common/NoJobsCTA";
+import SectionHeader from "../common/SectionHeader";
 import ApplicationJourneySection from "./ApplicationJourneySection";
 import DirectLateralHiringApplicationFormModal from "../services/direct-lateral-hiring/ApplicationFormModal";
 import ContractApplicationFormModal from "../services/contract-hiring/ApplicationFormModal";
@@ -85,19 +86,11 @@ export default function JobOpeningsPage() {
           {!isNoFullTimeJobs && (
             <section className="py-16 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
-                  <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
-                    Direct Hiring
-                  </span>
-                  <h2 className="text-4xl font-bold text-text-dark mb-6">
-                    Full-Time Jobs
-                  </h2>
-                  <p className="text-text-muted leading-relaxed">
-                    Explore our current direct recruitment positions. Review job
-                    roles, locations, and requirements to apply for permanent
-                    vacancies.
-                  </p>
-                </div>
+                <SectionHeader
+                  eyebrow="Direct Hiring"
+                  title="Full-Time Jobs"
+                  className="mb-10 md:mb-12"
+                />
                 <JobCardSection
                   jobs={fullTimeJobs}
                   onApply={handleApplyForFullTimeJob}
@@ -110,18 +103,11 @@ export default function JobOpeningsPage() {
           {!isNoContractJobs && (
             <section className="py-16 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
-                  <span className="text-[10px] font-extrabold tracking-[0.3em] text-primary uppercase block mb-3">
-                    Contractual Hiring
-                  </span>
-                  <h2 className="text-4xl font-bold text-text-dark mb-6">
-                    Contract Jobs
-                  </h2>
-                  <p className="text-text-muted leading-relaxed">
-                    Browse active contract vacancies. Find flexible projects and
-                    temporary technical assignments matched to your skillset.
-                  </p>
-                </div>
+                <SectionHeader
+                  eyebrow="Contractual Hiring"
+                  title="Contract Jobs"
+                  className="mb-10 md:mb-12"
+                />
                 <JobCardSection
                   jobs={contractJobs}
                   onApply={handleApplyForContractJob}

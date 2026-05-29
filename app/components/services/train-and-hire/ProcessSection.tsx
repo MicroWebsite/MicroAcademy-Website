@@ -12,6 +12,7 @@ import {
   CheckCircle,
   Briefcase,
 } from "lucide-react";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconByType = {
   users: Users,
@@ -25,19 +26,14 @@ const iconByType = {
 
 export default function ProcessSection() {
   return (
-    <section className="w-full bg-white py-24">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col gap-16">
+    <section className="w-full bg-white py-14 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10 lg:gap-12">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
-          <div className="flex flex-col gap-4 max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope">
-              The Architectural Blueprint
-            </h2>
-            <p className="text-lg leading-7 text-text-muted-alt font-manrope">
-              Our five-phase methodology transforms high-potential individuals
-              into enterprise-grade professionals, precisely calibrated to your
-              organizational DNA.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Process"
+            title="The Architectural Blueprint"
+            align="left"
+          />
 
           <div className="flex items-start gap-2 pb-2">
             <div className="w-12 h-1 bg-primary rounded-full" />
@@ -46,7 +42,7 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 lg:gap-6 w-full min-h-145 mt-12 md:mt-0">
+        <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 lg:gap-6 w-full md:min-h-130">
           {trainAndHireSteps.map((step, i) => {
             const Icon = iconByType[step.icon];
             const isTopCard = i % 2 === 0;
@@ -104,7 +100,6 @@ export default function ProcessSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="relative flex-1 w-full md:w-auto h-auto md:h-130 flex flex-col justify-between items-center z-10"
               >
-                {/* SVG Connecting Line for Desktop */}
                 {i < trainAndHireSteps.length - 1 && (
                   <svg
                     viewBox="0 0 100 520"
@@ -125,18 +120,15 @@ export default function ProcessSection() {
                   </svg>
                 )}
 
-                {/* Mobile specific layout (stacks nicely) */}
                 <div className="md:hidden flex w-full gap-4 items-center mb-6 pl-4 pr-4">
                   <NumberNode />
                   <StyledCard />
                 </div>
 
-                {/* Desktop Top Half */}
                 <div className="hidden md:flex flex-1 w-full items-start justify-center pb-2 lg:pb-4">
                   {isTopCard ? <StyledCard /> : <NumberNode />}
                 </div>
 
-                {/* Desktop Bottom Half */}
                 <div className="hidden md:flex flex-1 w-full items-end justify-center pt-2 lg:pt-4">
                   {isTopCard ? <NumberNode /> : <StyledCard />}
                 </div>

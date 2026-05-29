@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const heroContent = {
     badge: servicesHeroData.badge,
     titleLine1: servicesHeroData.title,
-    titleAccent: "", // Or split if needed
+    titleAccent: "",
     description: servicesHeroData.description,
     primaryCTA: {
       label: servicesHeroData.ctaLabel,

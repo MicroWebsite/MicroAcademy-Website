@@ -9,6 +9,7 @@ import {
   Target,
   type LucideIcon,
 } from "lucide-react";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconMap: Record<string, LucideIcon> = {
   lms: BookOpenCheck,
@@ -38,25 +39,13 @@ export default function MicroAdvantage() {
   return (
     <section className="w-full bg-[#fbfbfa] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-295 mx-auto flex flex-col gap-10 lg:gap-14">
-        <div className="flex flex-col items-center text-center gap-2 max-w-190 mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[#8c7b27] text-[11px] font-bold tracking-[0.38em] uppercase"
-          >
-            {sectionTag}
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#111111] leading-[0.95] tracking-[-0.04em]"
-          >
-            {heading}
-          </motion.h2>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <SectionHeader eyebrow={sectionTag} title={heading} />
+        </motion.div>
 
         <div className="hidden lg:block relative pt-10 pb-10">
           <svg

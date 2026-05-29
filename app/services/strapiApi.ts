@@ -6,11 +6,6 @@ export const fetchGallery = async (): Promise<GalleryItem[]> => {
   return response.data;
 };
 
-export const fetchCareers = async (): Promise<JobPosition[]> => {
-  const response = await strapiApi.get<JobPosition[]>("/api/careers");
-  return response.data;
-};
-
 export const fetchDirectLateralHiring = async (): Promise<JobPosition[]> => {
   const response = await strapiApi.get<JobPosition[]>(
     "/api/direct-lateral-hirings",
@@ -29,8 +24,8 @@ export const fetchFresherDrives = async (): Promise<FresherDrive[]> => {
 };
 
 export interface AnnouncementData {
-  badgeText?: string;
-  text: string;
+  headerText: string;
+  descriptionText: string;
   linkText?: string;
   linkUrl?: string;
   isActive: boolean;

@@ -12,7 +12,6 @@ interface DomainCardProps {
 export default function DomainCard({ id, title, image }: DomainCardProps) {
   return (
     <div className="group relative flex flex-col rounded-2xl bg-bg-input-row ring-1 ring-black/4 overflow-hidden transition-all duration-300 hover:ring-primary/30 hover:shadow-[0_8px_40px_rgba(106,95,0,0.08)] hover:-translate-y-1 w-full h-full">
-      {/* Left side gradient accent bar */}
       <div className="absolute top-0 left-0 w-1.5 h-full bg-linear-to-b from-primary to-secondary rounded-l-2xl z-20" />
 
       <div className="relative h-44 overflow-hidden rounded-t-2xl pl-1.5">

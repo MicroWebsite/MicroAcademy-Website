@@ -15,7 +15,6 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
 }) => {
   return (
     <div className="bg-[#1b1c19] text-white p-8 rounded-4xl shadow-2xl relative overflow-hidden group border border-white/5">
-      {/* Visual Accent */}
       <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary via-secondary to-primary opacity-80" />
 
       <div className="relative z-10 flex flex-col gap-6">
@@ -28,7 +27,6 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
           </h2>
         </div>
 
-        {/* Location Section */}
         <div className="flex flex-col gap-2">
           <span className="text-[10px] font-extrabold tracking-widest text-secondary/60 uppercase">
             Location
@@ -38,7 +36,6 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
           </p>
         </div>
 
-        {/* Contact Section */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <Phone className="w-3 h-3 text-secondary/60" />
@@ -51,7 +48,6 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
           </div>
         </div>
 
-        {/* Landmark Section */}
         <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
           <div className="flex items-center gap-2">
             <Landmark className="w-3 h-3 text-secondary/60" />
@@ -64,7 +60,7 @@ const DriveVenueCard: React.FC<DriveVenueCardProps> = ({
           </p>
         </div>
       </div>
-      {/* Background Glows */}
+
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] -ml-32 -mb-32" />
     </div>

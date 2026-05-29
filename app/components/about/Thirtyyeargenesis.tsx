@@ -6,6 +6,7 @@ import {
   TimelineMilestone,
   timelineMilestones,
 } from "@/app/data/timelineMilestones";
+import SectionHeader from "@/app/components/common/SectionHeader";
 function DigitRoller({ digit, active }: { digit: string; active: boolean }) {
   const num = parseInt(digit);
   if (isNaN(num)) return <span>{digit}</span>;
@@ -110,7 +111,6 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
           {milestone.title}
         </h3>
 
-        {/* Description */}
         <p
           className={`
             text-xs sm:text-sm text-[#4a4a3a] leading-relaxed max-w-xs
@@ -122,7 +122,6 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
         </p>
       </motion.div>
 
-      {/* ── Centre dot ── */}
       <div className="hidden md:flex md:w-16 md:flex-col md:items-center md:shrink-0 relative z-10">
         <motion.div
           animate={{
@@ -171,10 +170,9 @@ export default function ThirtyYearGenesis() {
       ref={containerRef}
       className="
         relative min-h-screen w-full overflow-hidden
-        bg-bg-cream py-24 px-4 sm:px-8
+        bg-bg-cream py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20
       "
     >
-      {/* Subtle grain texture overlay */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
@@ -188,34 +186,17 @@ export default function ThirtyYearGenesis() {
       `}</style>
 
       <div className="relative mx-auto max-w-4xl">
-        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-24 text-center"
+          className="mb-12 text-center lg:mb-14"
         >
-          <h2
-            className="
-              text-4xl sm:text-5xl md:text-6xl font-bold text-[#1a1a0e]
-              leading-tight tracking-tight mb-4
-            "
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-          >
-            {timelineHeader.title}
-          </h2>
-          <p
-            className="text-sm sm:text-base text-[#6a6a50] max-w-sm mx-auto"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            {timelineHeader.subtitle}
-          </p>
+          <SectionHeader eyebrow="Our Journey" title={timelineHeader.title} />
         </motion.div>
 
-        {/* ── Timeline ── */}
         <div className="relative">
-          {/* Vertical centre line – desktop */}
           <div
             className="
               hidden md:block
@@ -229,7 +210,6 @@ export default function ThirtyYearGenesis() {
             />
           </div>
 
-          {/* Vertical left border line – mobile */}
           <div
             className="
               block md:hidden
@@ -243,7 +223,6 @@ export default function ThirtyYearGenesis() {
             />
           </div>
 
-          {/* Milestones */}
           <div className="flex flex-col gap-0 md:gap-0 pl-7 md:pl-0">
             {timelineMilestones.map((milestone) => (
               <MilestoneCard key={milestone.year} milestone={milestone} />

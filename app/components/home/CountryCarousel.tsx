@@ -9,6 +9,7 @@ import {
 } from "react-simple-maps";
 import { mapLocations } from "./constants/mapLocations";
 import { regions } from "./constants/regions";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 export default function CountriesCarousel() {
   const [mounted, setMounted] = useState(false);
@@ -35,8 +36,6 @@ export default function CountriesCarousel() {
       const clientWidth = container.clientWidth;
 
       if (scrollWidth > clientWidth) {
-        // Map longitude to percentage of scrollWidth
-        // Mercator X is linear with longitude: -180 is 0%, 180 is 100%
         const xPercent = (longitude + 180) / 360;
         const targetX = xPercent * scrollWidth;
         const targetScrollLeft = targetX - clientWidth / 2;
@@ -55,7 +54,7 @@ export default function CountriesCarousel() {
   useEffect(() => {
     if (mounted) {
       const scrollTimer = setTimeout(() => {
-        scrollToLongitude(55); // Center longitude for "All Regions"
+        scrollToLongitude(55);
       }, 150);
       return () => clearTimeout(scrollTimer);
     }
@@ -68,7 +67,6 @@ export default function CountriesCarousel() {
   ) => {
     setActiveRegion(name);
     setMapConfig({ scale, center });
-    // Auto-scroll the container to center the selected region's longitude
     setTimeout(() => {
       scrollToLongitude(center[0]);
     }, 50);
@@ -102,14 +100,13 @@ export default function CountriesCarousel() {
 
   if (!mounted) {
     return (
-      <section className="w-full bg-white py-16 md:py-20 px-4 md:px-8">
+      <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
-            Global Reach
-          </p>
-          <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-8">
-            Our Geographic Coverage
-          </h2>
+          <SectionHeader
+            eyebrow="Global Reach"
+            title="Our Geographic Coverage"
+            className="mb-8"
+          />
           <div className="w-full aspect-2000/857 bg-gray-200/50 rounded-2xl animate-pulse" />
         </div>
       </section>
@@ -117,18 +114,15 @@ export default function CountriesCarousel() {
   }
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
-          <div>
-            <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-sans">
-              Global Reach
-            </p>
-            <h2 className="text-3xl font-bold text-gray-900 leading-tight">
-              Our Geographic Coverage
-            </h2>
-          </div>
-          {/* Horizontally scrolling pill navigation on mobile/tablet for neat single-row display */}
+          <SectionHeader
+            eyebrow="Global Reach"
+            title="Our Geographic Coverage"
+            align="responsive"
+          />
+
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none lg:justify-end w-full lg:w-auto -mx-4 px-4 lg:mx-0 lg:px-0">
             {regions.map(({ name, scale, center }) => (
               <button
@@ -146,7 +140,6 @@ export default function CountriesCarousel() {
           </div>
         </div>
 
-        {/* Scrollable Container with custom size constraints to prevent squishing */}
         <div
           ref={scrollContainerRef}
           className="w-full overflow-x-auto scrollbar-none pb-4"
@@ -289,7 +282,6 @@ export default function CountriesCarousel() {
           </div>
         </div>
 
-        {/* Mobile Swipe Hint */}
         <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-gray-500 lg:hidden">
           <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-ping" />
           <span>Swipe left or right to explore geographic coverage map</span>

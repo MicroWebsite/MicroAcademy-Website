@@ -4,6 +4,7 @@ import ContactInputField from "./form/ContactInputField";
 import ContactTextareaField from "./form/ContactTextareaField";
 import SubmitButton from "./form/SubmitButton";
 import { useContactForm } from "./form/useContactForm";
+import SectionHeader from "../common/SectionHeader";
 
 export default function ContactForm() {
   const { errors, formData, handleChange, handleSubmit, status } =
@@ -11,9 +12,12 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-dark mb-8">
-        Send a Message
-      </h2>
+      <SectionHeader
+        eyebrow="Contact Form"
+        title="Send a Message"
+        align="left"
+        className="mb-8"
+      />
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

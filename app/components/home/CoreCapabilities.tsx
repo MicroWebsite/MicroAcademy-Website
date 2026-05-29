@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { capabilitiesData } from "@/data/capabalitiesData";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 interface CapabilityCardProps {
   icon: string;
@@ -41,7 +42,6 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         : "bg-white shadow-[0_4px_25px_rgb(180,175,150,0.15)]"
     }`}
   >
-    {/* Diagonal accent — bottom-right */}
     <div
       className={`absolute -bottom-10 -right-7.5 w-40 h-40 rounded-full ${
         highlighted ? "bg-bg-decor" : "bg-bg-card-alt"
@@ -60,7 +60,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         />
       </div>
 
-      <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
+      <h3 className="text-xl font-bold text-text-dark mb-3">{title}</h3>
 
       <p className="text-gray-600 text-[15px] leading-relaxed flex-1">
         {description}
@@ -96,27 +96,21 @@ const CoreCapabilities: React.FC = () => {
   );
 
   return (
-    <section className="w-full bg-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-white py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-10 lg:mb-12"
         >
-          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-text-gold-alt mb-3">
-            {sectionTag}
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-            {heading}
-          </h2>
+          <SectionHeader eyebrow={sectionTag} title={heading} />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
-          {/* Training Area */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8">
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-primary/20">
+            <h3 className="text-xl sm:text-2xl font-bold text-text-dark mb-6 pb-4 border-b-2 border-primary/20">
               Training
             </h3>
             <div className="flex flex-col gap-6">
@@ -131,9 +125,8 @@ const CoreCapabilities: React.FC = () => {
             </div>
           </div>
 
-          {/* Direct/Lateral Hiring Area */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-primary/20">
+            <h3 className="text-xl sm:text-2xl font-bold text-text-dark mb-6 pb-4 border-b-2 border-primary/20">
               Recruitment
             </h3>
             <div className="flex flex-col gap-6">

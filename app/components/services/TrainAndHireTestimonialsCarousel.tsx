@@ -66,9 +66,7 @@ export default function TrainAndHireTestimonialsCarousel({
       onPointerEnter={() => setIsPaused(true)}
       onPointerLeave={() => setIsPaused(false)}
     >
-      {/* Testimonial Content Wrapper */}
       <div className="relative w-full max-w-4xl mx-auto min-h-55 md:min-h-75 flex flex-col items-center overflow-hidden pointer-events-auto">
-        {/* Quote Icon */}
         <div className="mb-8 flex justify-center">
           <svg
             width="43"
@@ -109,14 +107,11 @@ export default function TrainAndHireTestimonialsCarousel({
             }}
             onPointerEnter={() => setIsPaused(true)}
           >
-            {/* Quote Text */}
             <p className="text-text-heading text-center text-lg sm:text-2xl md:text-4xl leading-7 sm:leading-9 md:leading-10 max-w-4xl font-manrope font-light">
               &quot;{active.quote}&quot;
             </p>
 
-            {/* Author Info */}
             <div className="mt-8 md:mt-12 flex items-center gap-3 md:gap-4">
-              {/* Avatar with gold border */}
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-primary p-0.75 md:p-1 shrink-0">
                 <div className="relative w-full h-full rounded-full overflow-hidden">
                   <Image
@@ -129,7 +124,6 @@ export default function TrainAndHireTestimonialsCarousel({
                 </div>
               </div>
 
-              {/* Name & Role */}
               <div className="flex flex-col items-start gap-0.5 md:gap-1">
                 <span className="text-text-dark text-base md:text-xl font-bold leading-6 md:leading-7 font-manrope">
                   {active.name}
@@ -143,10 +137,8 @@ export default function TrainAndHireTestimonialsCarousel({
         </AnimatePresence>
       </div>
 
-      {/* Pagination Dots */}
       <div className="mt-8 md:mt-12 flex items-center justify-center gap-1.5 md:gap-2 max-w-full px-4">
         {testimonials.map((_, index) => {
-          // On mobile with many dots, show a sliding window
           const totalDots = testimonials.length;
           const maxVisible = 7;
           let isVisible = true;

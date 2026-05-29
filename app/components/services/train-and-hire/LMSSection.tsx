@@ -10,6 +10,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { lmsFeatures, LMSFeature } from "@/app/data/trainAndHirePageData";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconMap = {
   BarChart3: BarChart3,
@@ -24,62 +25,34 @@ export default function LMSSection() {
     lmsFeatures[0],
   );
 
-  // Angles and coordinates for the 5 outer nodes on a radius of 170px
-  // Node 0 (Reports): Top (angle -90 deg) -> x = 0, y = -170
-  // Node 1 (Reference Material): Top-Right (angle -18 deg) -> x = 162, y = -53
-  // Node 2 (Assignments): Bottom-Right (angle 54 deg) -> x = 100, y = 138
-  // Node 3 (Assessments): Bottom-Left (angle 126 deg) -> x = -100, y = 138
-  // Node 4 (Scheduling): Top-Left (angle 198 deg) -> x = -162, y = -53
   const coordinates = [
-    { x: 0, y: -170 }, // Reports (top)
-    { x: 162, y: -53 }, // Reference Material
-    { x: 100, y: 138 }, // Assignments
-    { x: -100, y: 138 }, // Assessments
-    { x: -162, y: -53 }, // Scheduling
+    { x: 0, y: -170 },
+    { x: 162, y: -53 },
+    { x: 100, y: 138 },
+    { x: -100, y: 138 },
+    { x: -162, y: -53 },
   ];
 
   return (
-    <section className="relative w-full bg-white py-24 px-4 sm:px-8 border-t border-gray-100 overflow-hidden">
-      {/* Dynamic background element for futuristic depth */}
+    <section className="relative w-full bg-white py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20 border-t border-gray-100 overflow-hidden">
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-304 mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[1.5px] text-primary font-inter mb-3"
-          >
-            Proprietary Infrastructure
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-dark font-manrope tracking-tight max-w-3xl mx-auto leading-tight"
-          >
-            Our Learning Management System
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-text-muted-alt font-manrope max-w-2xl mx-auto"
-          >
-            Empowering talent incubation through an enterprise-grade learning
-            infrastructure featuring automated tracking, persistent resources,
-            and rigorous evaluations.
-          </motion.p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="mb-10 lg:mb-14"
+        >
+          <SectionHeader
+            eyebrow="Proprietary Infrastructure"
+            title="Our Learning Management System"
+          />
+        </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-16 items-center justify-between">
-          {/* Left Block: Interactive Hub-and-Spoke Visualizer (Desktop only) */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center justify-between">
           <div className="hidden lg:flex items-center justify-center w-125 h-125 relative shrink-0">
-            {/* SVG Connecting Lines with glowing paths */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
               viewBox="0 0 500 500"
@@ -94,7 +67,6 @@ export default function LMSSection() {
 
                 return (
                   <g key={feature.id}>
-                    {/* Background line */}
                     <line
                       x1={startX}
                       y1={startY}
@@ -104,7 +76,7 @@ export default function LMSSection() {
                       strokeWidth="3"
                       strokeDasharray="4 4"
                     />
-                    {/* Active glowing overlay line */}
+
                     <motion.line
                       x1={startX}
                       y1={startY}
@@ -133,11 +105,9 @@ export default function LMSSection() {
               })}
             </svg>
 
-            {/* Central LMS Hub */}
             <div className="absolute w-36 h-36 rounded-full bg-white border border-gray-100 flex items-center justify-center z-20 shadow-[0_8px_30px_rgb(0,0,0,0.06)] group">
-              {/* Outer pulsing ring */}
               <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-75" />
-              {/* Sub-glowing background */}
+
               <div className="absolute inset-2 rounded-full bg-radial from-amber-50 to-amber-100/10 opacity-60" />
               <div className="flex flex-col items-center justify-center relative">
                 <span className="text-3xl font-extrabold text-text-dark font-manrope tracking-widest">
@@ -149,14 +119,11 @@ export default function LMSSection() {
               </div>
             </div>
 
-            {/* Radiant Interactive Spokes */}
             {lmsFeatures.map((feature, i) => {
               const coord = coordinates[i];
               const Icon = iconMap[feature.iconName];
               const isActive = activeFeature.id === feature.id;
 
-              // Alternating secondary background colors matching original yellow/black theme
-              // Nodes: 0 (black), 1 (yellow), 2 (black), 3 (black), 4 (yellow)
               const isYellowNode = i === 1 || i === 4;
 
               return (
@@ -191,9 +158,7 @@ export default function LMSSection() {
             })}
           </div>
 
-          {/* Right Block: Dynamic Features Details Control Panel */}
           <div className="flex-1 w-full max-w-lg min-h-87.5 flex flex-col justify-center">
-            {/* Desktop Control Panel Display */}
             <div className="hidden lg:block">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -220,7 +185,7 @@ export default function LMSSection() {
                       <span className="text-xs font-bold uppercase tracking-wider text-primary font-inter">
                         {activeFeature.subtitle}
                       </span>
-                      <h3 className="text-2xl font-extrabold text-text-dark font-manrope mt-0.5">
+                      <h3 className="text-xl font-extrabold text-text-dark font-manrope mt-0.5">
                         {activeFeature.title}
                       </h3>
                     </div>
@@ -242,7 +207,6 @@ export default function LMSSection() {
               </AnimatePresence>
             </div>
 
-            {/* Mobile/Tablet Fallback: Sleek interactive vertical stack */}
             <div className="flex flex-col gap-6 lg:hidden">
               {lmsFeatures.map((feature, i) => {
                 const Icon = iconMap[feature.iconName];

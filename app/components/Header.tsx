@@ -27,7 +27,7 @@ const STATIC_NAV_LINKS = [
     label: "Job Openings",
     href: "/job-openings",
   },
-  { label: "Careers", href: "/careers" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export default function Header() {
@@ -108,7 +108,6 @@ export default function Header() {
                     />
                   </Link>
 
-                  {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 min-w-55 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 z-50">
                     {link.subLinks.map((subLink: NavigationSubLink) => (
                       <Link
@@ -142,21 +141,13 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-6 shrink-0">
-          <Link
-            href="/contact"
-            onClick={(e) => handleLinkClick(e, "/contact")}
-            className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
-          >
-            Contact us
-          </Link>
-
+        <div className="flex items-center gap-4 shrink-0">
           <Image
             src="/assets/common/iso-9001.png"
             alt="TÜV SÜD ISO 9001 Certified"
-            width={100}
-            height={100}
-            className="hidden lg:block h-12 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
+            width={120}
+            height={120}
+            className="h-12 md:h-16 w-auto object-contain mix-blend-multiply transition-transform hover:scale-105"
             unoptimized
           />
 
@@ -275,26 +266,6 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            onClick={(e) => {
-              setMenuOpen(false);
-              handleLinkClick(e, "/contact");
-            }}
-            className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white text-sm font-semibold hover:brightness-110 transition-all font-manrope"
-          >
-            Contact us
-          </Link>
-          <div className="mt-6 flex justify-center">
-            <Image
-              src="/assets/common/iso-9001.png"
-              alt="TÜV SÜD ISO 9001 Certified"
-              width={80}
-              height={80}
-              className="h-14 w-auto object-contain mix-blend-multiply"
-              unoptimized
-            />
-          </div>
         </nav>
       )}
     </header>

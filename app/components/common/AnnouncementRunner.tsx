@@ -2,21 +2,26 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { X, Megaphone } from "lucide-react";
 import { fetchAnnouncement, AnnouncementData } from "@/app/services/strapiApi";
 
 export default function AnnouncementRunner() {
   const [announcement, setAnnouncement] = useState<AnnouncementData | null>(
     null,
   );
+  const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadAnnouncement = async () => {
       try {
         const data = await fetchAnnouncement();
-        if (data && data.isActive && data.text) {
+        if (data && data.isActive && data.headerText) {
           setAnnouncement(data);
+          const hasClosed = sessionStorage.getItem("hasClosedAnnouncement");
+          if (hasClosed !== "true") {
+            setIsOpen(true);
+          }
         }
       } catch (err) {
         console.error("Failed to load announcement from Strapi:", err);
@@ -27,56 +32,78 @@ export default function AnnouncementRunner() {
     loadAnnouncement();
   }, []);
 
-  if (loading || !announcement) {
+  const handleClose = () => {
+    setIsOpen(false);
+    sessionStorage.setItem("hasClosedAnnouncement", "true");
+  };
+
+  if (loading || !announcement || !isOpen) {
     return null;
   }
 
-  const badgeText = announcement.badgeText || "Live Drive";
-  const text = announcement.text;
-  const linkText = announcement.linkText || "For more details click here...";
-  const linkUrl = announcement.linkUrl || "/job-openings";
+  const { headerText, descriptionText, linkText, linkUrl } = announcement;
 
   return (
     <>
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        @keyframes marquee {
-          0% { transform: translateX(100vw); }
-          100% { transform: translateX(-100%); }
-        }
-        .animate-marquee-custom {
-          display: flex;
-          width: max-content;
-          animation: marquee 25s linear infinite;
-        }
-        .animate-marquee-custom:hover {
-          animation-play-state: paused;
-        }
-      `,
+            @keyframes modalFadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes modalSlideUp {
+              from { transform: translateY(20px) scale(0.95); opacity: 0; }
+              to { transform: translateY(0) scale(1); opacity: 1; }
+            }
+            .animate-modal-overlay {
+              animation: modalFadeIn 0.3s ease-out forwards;
+            }
+            .animate-modal-card {
+              animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+          `,
         }}
       />
 
-      <Link
-        href={linkUrl}
-        className="flex items-center h-10 w-full bg-linear-to-r from-primary-dark via-primary to-primary-dark border-b border-primary/20 text-white overflow-hidden hover:brightness-110 active:brightness-95 transition-all duration-300 relative z-30 cursor-pointer"
-        aria-label="Job announcement marquee banner. Click to view job openings."
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-modal-overlay"
+        onClick={handleClose}
       >
-        <div className="relative w-full flex items-center overflow-hidden h-full">
-          <div className="animate-marquee-custom flex items-center gap-4 whitespace-nowrap text-xs md:text-sm font-bold select-none h-full">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm bg-secondary text-text-badge text-[10px] font-extrabold uppercase tracking-wider animate-pulse shadow-sm">
-              <Sparkles className="w-2.5 h-2.5" />
-              {badgeText}
-            </span>
-            <span className="text-white tracking-wide font-semibold">
-              {text}
-            </span>
-            <span className="text-secondary hover:underline underline-offset-2 decoration-secondary font-bold flex items-center gap-1">
-              {linkText} &rarr;
-            </span>
+        <div
+          className="relative w-full max-w-lg bg-white rounded-3xl p-8 md:p-10 shadow-2xl flex flex-col items-center text-center overflow-hidden border border-amber-100 animate-modal-card"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-btn-grad-start to-btn-grad-end" />
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 p-2 text-text-muted hover:text-text-dark hover:bg-bg-header-mobile rounded-full transition-all hover:rotate-90 duration-300 cursor-pointer"
+            aria-label="Close announcement modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-primary-dark mb-6 shadow-xs">
+            <Megaphone className="w-8 h-8 text-primary animate-bounce" />
           </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-text-dark mb-4 leading-tight">
+            {headerText}
+          </h2>
+          {descriptionText && (
+            <p className="text-base text-text-muted mb-8 leading-relaxed max-w-sm">
+              {descriptionText}
+            </p>
+          )}
+          {linkUrl && (
+            <Link
+              href={linkUrl}
+              onClick={handleClose}
+              className="w-full md:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:brightness-110 active:brightness-95 transition-all duration-300 text-sm tracking-wide"
+            >
+              {linkText || "Learn More"}
+            </Link>
+          )}
         </div>
-      </Link>
+      </div>
     </>
   );
 }

@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { trainAndHireWhyPoints } from "@/app/data/trainAndHirePageData";
 import { ShieldCheck, GraduationCap, Users, TrendingUp } from "lucide-react";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const whyIcons = [ShieldCheck, GraduationCap, Users, TrendingUp];
 
 export default function WhySection() {
   return (
-    <section className="w-full bg-bg-cream px-8">
-      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-16 items-center min-h-192 py-24">
-        <div className="relative flex gap-4 shrink-0 w-142 max-w-full h-128">
+    <section className="w-full bg-bg-cream px-4 sm:px-6 lg:px-8">
+      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14 items-center py-14 sm:py-16 lg:py-20">
+        <div className="relative flex gap-4 shrink-0 w-142 max-w-full h-112 md:h-120">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,26 +66,20 @@ export default function WhySection() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col gap-4 flex-1">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-[1.2px] text-primary font-inter"
-          >
-            WHY CHOOSE US
-          </motion.p>
-
-          <motion.h2
+        <div className="flex flex-col gap-8 flex-1">
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope mb-4"
           >
-            Why Micro Academy?
-          </motion.h2>
+            <SectionHeader
+              eyebrow="Why Choose Us"
+              title="Why Micro Academy?"
+              align="left"
+            />
+          </motion.div>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-7">
             {trainAndHireWhyPoints.map((point, i) => {
               const Icon = whyIcons[i];
               return (

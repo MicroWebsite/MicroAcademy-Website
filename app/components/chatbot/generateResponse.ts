@@ -179,7 +179,7 @@ function searchJobs(query: string, jobs: JobPosition[]): JobPosition[] {
 }
 
 function getAllJobs(data: StrapiData): JobPosition[] {
-  return [...data.careers, ...data.directLateralHiring, ...data.contractHiring];
+  return [...data.directLateralHiring, ...data.contractHiring];
 }
 
 const greetingKeywords = [
@@ -693,7 +693,7 @@ export function generateBotResponse(
     greetingKeywords.some((kw) => matchesWord(lower, kw)) &&
     lower.length < 30
   ) {
-    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings & careers\n• Freshers drives & eligibility\n• Our services (Direct/Lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
+    return "Hello! 😊 Welcome to MicroAcademy. I can help you with:\n\n• Current job openings\n• Freshers drives & eligibility\n• Our services (Direct/Lateral Hiring, Training, etc.)\n• Contact information\n\nJust ask away!";
   }
   if (matchesAny(lower, thankKeywords)) {
     return "You're welcome! 😊 Is there anything else I can help you with?";
@@ -824,12 +824,7 @@ export function generateBotResponse(
       if (matchesAny(lower, ["salary", "ctc", "package", "pay"])) {
         return `💰 Compensation for **${matchedJob.title}** is commensurate with experience and skills.\n\nApply now to discuss with our recruitment team!`;
       }
-      const isInternal = strapiData.careers.some(
-        (c) =>
-          (c.job_id || c.jobId) === (matchedJob.job_id || matchedJob.jobId),
-      );
-      const applyPage = isInternal ? "Careers page" : "Recruitments page";
-      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our ${applyPage} to submit your application!`;
+      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our Recruitments page to submit your application!`;
     }
   }
   if (strapiData?.isLoaded) {
@@ -858,11 +853,11 @@ export function generateBotResponse(
           matches,
           `"${matchedSkill}" related openings`,
           5,
-          "🔗 Visit our Careers page or see our Recruitments page for full details!",
+          "🔗 Visit our Recruitments page for full details!",
         );
       }
 
-      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages: visit our Careers page (for internal roles), see our Recruitments page (for direct & contract client roles), or check out our Freshers Drive page (for entry-level drives).\n\nOr send your resume to info@microacademy.net! 📧`;
+      return `We don't have any "${matchedSkill}" specific openings right now. 😔\n\nBut we frequently update our positions! You can check our specific job pages: see our Recruitments page (for direct & contract client roles), or check out our Freshers Drive page (for entry-level drives).\n\nOr send your resume to info@microacademy.net! 📧`;
     }
   }
 
@@ -927,20 +922,7 @@ export function generateBotResponse(
   }
 
   if (matchesAny(lower, careerSpecificKeywords)) {
-    if (strapiData?.isLoaded) {
-      if (strapiData.careers.length > 0) {
-        return formatJobList(
-          strapiData.careers,
-          "internal career openings",
-          5,
-          "🔗 Visit our Careers page for more details.",
-        );
-      }
-
-      return "No internal career openings at the moment. 😔\n\nBut we're always looking for great talent! You can send your resume to info@microacademy.net to be considered for future roles.";
-    }
-
-    return botResponses["💼 Job Openings"];
+    return "Micro Academy doesn't have internal career openings at the moment. 😔\n\nHowever, you can check our client job openings! Visit our Recruitments page or check out our Freshers Drive page for exciting opportunities.";
   }
 
   if (matchesAny(lower, genericJobKeywords)) {
@@ -975,16 +957,6 @@ export function generateBotResponse(
           : "No active openings at the moment.";
       parts.push(
         `🎓 **Freshers Drive**\n${drivesList}\n\nVisit our Freshers Drive page to see full details!`,
-      );
-
-      // 4. Careers (careers)
-      const careerJobs = strapiData.careers || [];
-      const careerList =
-        careerJobs.length > 0
-          ? careerJobs.map((j) => `• ${j.title}`).join("\n")
-          : "No active openings at the moment.";
-      parts.push(
-        `🏢 **Careers**\n${careerList}\n\nVisit our Careers page to see full details!`,
       );
 
       return (
@@ -1029,7 +1001,7 @@ export function generateBotResponse(
         return `No job openings in ${matchedCity} right now, but we have freshers drives there!\n\n${formatDriveList(cityDrives)}`;
       }
 
-      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations: visit our Careers page, see our Recruitments page, or check out our Freshers Drive page. Or send your resume to info@microacademy.net and we'll notify you!`;
+      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations: see our Recruitments page, or check out our Freshers Drive page. Or send your resume to info@microacademy.net and we'll notify you!`;
     }
   }
 
@@ -1043,7 +1015,7 @@ export function generateBotResponse(
       lower.includes("trainee")
     ) {
       if (strapiData.fresherDrives.length > 0) {
-        return `Great news for freshers! 🎓\n\n${formatDriveList(strapiData.fresherDrives)}\n\nAlso visit our Careers page for entry-level positions.`;
+        return `Great news for freshers! 🎓\n\n${formatDriveList(strapiData.fresherDrives)}\n\nAlso visit our Recruitments page for entry-level positions.`;
       }
       return "For freshers, we regularly conduct Freshers Drives with training + placement. Visit our Freshers Drive page for upcoming drives!";
     }
@@ -1064,7 +1036,7 @@ export function generateBotResponse(
       }
     }
 
-    return "We have opportunities across all experience levels. You can check out our Careers page, visit our Recruitments page, or see our Freshers Drive page for current openings!";
+    return "We have opportunities across all experience levels. You can visit our Recruitments page, or see our Freshers Drive page for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
     return "🎓 Train & Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals. Our value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire (C2H)\n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
@@ -1124,7 +1096,7 @@ export function generateBotResponse(
       return response;
     }
 
-    return "📋 Eligibility varies by role:\n\n• Freshers Drives: Typically BE/BTech/MCA with min aggregate\n• Career Roles: Relevant degree + experience\n• Contract Roles: Specific tech expertise required\n\nVisit our Job Openings page for detailed requirements, or ask me about a specific role!";
+    return "📋 Eligibility varies by role:\n\n• Freshers Drives: Typically BE/BTech/MCA with min aggregate\n• Recruitment Roles: Relevant degree + experience\n• Contract Roles: Specific tech expertise required\n\nVisit our Job Openings page for detailed requirements, or ask me about a specific role!";
   }
   if (matchesAny(lower, salaryKeywords)) {
     if (strapiData?.isLoaded && strapiData.fresherDrives.length > 0) {
@@ -1134,7 +1106,7 @@ export function generateBotResponse(
         const lines = drivesWithSalary.map(
           (d) => `• **${d.title}**: ${d.salary}`,
         );
-        return `💰 **Salary Packages for current Fresher Drives:**\n\n${lines.join("\n")}\n\nFor internal or client lateral hiring roles, packages are discussed during interviews. Visit our Careers page or see our Recruitments page for more details!`;
+        return `💰 **Salary Packages for current Fresher Drives:**\n\n${lines.join("\n")}\n\nFor client lateral hiring roles, packages are discussed during interviews. Visit our Recruitments page for more details!`;
       }
     }
 
@@ -1143,5 +1115,5 @@ export function generateBotResponse(
   if (matchesAny(lower, whyJoinKeywords)) {
     return "🌟 Why Join Micro Academy?\n\n📈 Professional Growth — Continuous learning paths for leadership mastery\n🏥 Premium Benefits — Healthcare, performance bonuses & wellness programs\n🌍 Global Impact — Work on projects influencing global markets across 20+ countries\n🏢 30+ Years Legacy — Established in 1995, pioneering in IT L&D and workforce intelligence\n📊 Proven Track Record — 25,000+ professionals trained & deployed, 30+ global clients\n\nJoin us and be part of something bigger!";
   }
-  return 'I\'m not sure I understood that. 🤔 Here\'s what I can help with:\n\n• 💼 Job openings & careers\n• 🎓 Freshers drives\n• 📋 Our services\n• 📞 Contact information\n• 🏢 About Micro Academy\n\nTry asking something like "Show me job openings" or "Any React developer roles?"';
+  return 'I\'m not sure I understood that. 🤔 Here\'s what I can help with:\n\n• 💼 Job openings\n• 🎓 Freshers drives\n• 📋 Our services\n• 📞 Contact information\n• 🏢 About Micro Academy\n\nTry asking something like "Show me job openings" or "Any React developer roles?"';
 }

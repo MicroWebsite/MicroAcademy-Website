@@ -3,14 +3,12 @@
 import { useState, useEffect } from "react";
 import { StrapiData } from "@/app/types/chatbot";
 import {
-  fetchCareers,
   fetchDirectLateralHiring,
   fetchContractHiring,
   fetchFresherDrives,
 } from "@/app/services/strapiApi";
 
 const emptyStrapiData: StrapiData = {
-  careers: [],
   directLateralHiring: [],
   contractHiring: [],
   fresherDrives: [],
@@ -22,16 +20,14 @@ export default function useStrapiData(): StrapiData {
 
   useEffect(() => {
     const loadAll = async () => {
-      const [careers, directLateralHiring, contractHiring, fresherDrives] =
+      const [directLateralHiring, contractHiring, fresherDrives] =
         await Promise.allSettled([
-          fetchCareers(),
           fetchDirectLateralHiring(),
           fetchContractHiring(),
           fetchFresherDrives(),
         ]);
 
       setData({
-        careers: careers.status === "fulfilled" ? careers.value : [],
         directLateralHiring:
           directLateralHiring.status === "fulfilled"
             ? directLateralHiring.value

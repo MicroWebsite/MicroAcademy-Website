@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import HomeTemplate from "@/app/components/common/HeroSection";
-import WhoareweSection from "@/app/components/about/WhoareweSection";
 import { aboutHeroData } from "@/app/data/aboutHeroData";
 import Gallery from "../components/about/Gallery";
 import ThirtyYearGenesis from "../components/about/Thirtyyeargenesis";
@@ -19,9 +18,8 @@ export default function AboutPage() {
   return (
     <div className="relative w-full">
       <HomeTemplate heroContent={aboutHeroData} />
-      <WhoareweSection />
-      <ThirtyYearGenesis />
       <KeyAchievements />
+      <ThirtyYearGenesis />
       <Gallery />
     </div>
   );

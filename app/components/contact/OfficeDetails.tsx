@@ -1,3 +1,5 @@
+import SectionHeader from "@/app/components/common/SectionHeader";
+
 export default function OfficeDetails() {
   const channels = [
     {
@@ -90,10 +92,12 @@ export default function OfficeDetails() {
   ];
 
   return (
-    <div className="flex flex-col gap-8 items-center justify-center text-center lg:items-start lg:text-left py-4">
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-dark">
-        Direct Channels
-      </h2>
+    <div className="flex flex-col gap-7 items-center justify-center text-center lg:items-start lg:text-left py-2">
+      <SectionHeader
+        eyebrow="Contact Details"
+        title="Direct Channels"
+        align="responsive"
+      />
 
       <div className="flex flex-col gap-8 w-full max-w-sm lg:max-w-none">
         {channels.map((ch) => (
@@ -101,11 +105,10 @@ export default function OfficeDetails() {
             key={ch.id}
             className="flex flex-col items-center gap-3 lg:flex-row lg:items-start lg:gap-5 group"
           >
-            {/* Icon badge */}
             <div className="shrink-0 w-12 h-12 rounded-2xl bg-btn-primary text-white flex items-center justify-center shadow-lg shadow-btn-primary/20 group-hover:scale-110 transition-all duration-300">
               {ch.icon}
             </div>
-            {/* Text */}
+
             <div className="flex flex-col gap-1 lg:text-left">
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary">
                 {ch.label}

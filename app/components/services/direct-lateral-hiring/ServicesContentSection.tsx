@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Briefcase, Users } from "lucide-react";
 import { directLateralHiringServiceCards } from "@/app/data/directLateralHiringPageData";
+import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconByType = {
   briefcase: Briefcase,
@@ -10,22 +11,22 @@ const iconByType = {
 
 export default function ServicesContentSection() {
   return (
-    <section className="w-full bg-white px-8 py-24">
-      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-16">
-        {/* Left: Content */}
-        <div className="flex flex-col gap-12 lg:max-w-xl w-full">
-          <motion.h2
+    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="max-w-304 mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14">
+        <div className="flex flex-col gap-8 lg:max-w-xl w-full">
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl font-bold text-text-dark font-manrope"
           >
-            An Extension of Your
-            <br />
-            HR Ecosystem
-          </motion.h2>
+            <SectionHeader
+              eyebrow="Hiring Support"
+              title="An Extension of Your HR Ecosystem"
+              align="left"
+            />
+          </motion.div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             {directLateralHiringServiceCards.map((card, i) => {
               const Icon = iconByType[card.icon];
 
@@ -40,15 +41,15 @@ export default function ServicesContentSection() {
                     y: -5,
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
-                  className="bg-white rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
+                  className="bg-white rounded-2xl p-6 md:p-7 shadow-md hover:shadow-lg transition-all duration-300 group cursor-default"
                 >
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-secondary group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-5 bg-secondary group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-7 h-7 text-text-badge" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-manrope">
+                  <h3 className="text-xl font-bold text-text-dark mb-3 font-manrope">
                     {card.title}
                   </h3>
-                  <p className="text-base text-gray-600 leading-relaxed font-manrope">
+                  <p className="text-base text-text-muted-alt leading-7 font-manrope">
                     {card.description}
                   </p>
                 </motion.div>
@@ -57,8 +58,7 @@ export default function ServicesContentSection() {
           </div>
         </div>
 
-        {/* Right: Featured Card and Box */}
-        <div className="flex flex-col gap-8 flex-1">
+        <div className="flex flex-col gap-6 flex-1">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -84,12 +84,12 @@ export default function ServicesContentSection() {
               y: -5,
               transition: { type: "spring", stiffness: 400, damping: 25 },
             }}
-            className="relative overflow-hidden bg-linear-to-r from-primary to-secondary rounded-2xl p-10 shadow-lg"
+            className="relative overflow-hidden bg-linear-to-r from-primary to-secondary rounded-2xl p-6 sm:p-8 shadow-lg"
           >
-            <h4 className="text-2xl leading-8 text-white mb-4 font-manrope font-normal">
+            <h4 className="text-xl leading-7 text-white mb-3 font-manrope font-bold">
               The Micro Academy Difference
             </h4>
-            <p className="text-base text-white leading-[32px] opacity-90 font-manrope">
+            <p className="text-base text-white leading-7 opacity-90 font-manrope">
               We don&apos;t just fill seats; we architect teams. By functioning
               as a seamless extension of your internal HR department, we inherit
               your culture, your standards, and your ambitions to deliver talent

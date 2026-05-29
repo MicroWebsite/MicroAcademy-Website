@@ -27,17 +27,8 @@ export default function ApplicationFormModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState("");
-  const [isAnimating, setIsAnimating] = useState(false);
+  const isAnimating = isOpen;
   const { showToast } = useToast();
-
-  useEffect(() => {
-    if (isOpen && selectedPosition) {
-      setFormData((prev) => ({ ...prev, position: selectedPosition.title }));
-      setIsAnimating(true);
-    } else {
-      setIsAnimating(false);
-    }
-  }, [isOpen, selectedPosition]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -81,7 +72,10 @@ export default function ApplicationFormModal({
       formDataToSend.append("lastName", formData.lastName);
       formDataToSend.append("email", formData.email);
       formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("position", formData.position);
+      formDataToSend.append(
+        "position",
+        selectedPosition?.title || formData.position,
+      );
       formDataToSend.append("type", "contract");
       formDataToSend.append("message", formData.message);
       if (resumeFile) {

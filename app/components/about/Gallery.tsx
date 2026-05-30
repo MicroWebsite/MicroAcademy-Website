@@ -185,7 +185,7 @@ const Gallery: React.FC = () => {
   }
 
   return (
-    <section className="bg-white px-4 py-14 sm:py-16 lg:py-20">
+    <section className="bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

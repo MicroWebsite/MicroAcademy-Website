@@ -20,7 +20,7 @@ export default function NoJobsCTA({
   secondaryCTA,
 }: NoJobsCTAProps) {
   return (
-    <section className="w-full bg-white px-4 md:px-8 pt-4 pb-12 md:pt-6 md:pb-16">
+    <section className="w-full bg-white px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -32,7 +32,7 @@ export default function NoJobsCTA({
         <div className="absolute pointer-events-none w-48 h-48 md:w-64 md:h-64 -left-10 -bottom-10 md:-left-20 md:-bottom-20 blur-[32px] rounded-full z-0 bg-primary/10" />
 
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold font-manrope text-text-dark">
+          <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-extrabold font-manrope text-text-dark">
             {title} <span className="text-primary">{titleAccent}</span>
           </h2>
           <div className="max-w-200">

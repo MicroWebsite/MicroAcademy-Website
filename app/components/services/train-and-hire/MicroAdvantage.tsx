@@ -37,7 +37,7 @@ export default function MicroAdvantage() {
   const { sectionTag, heading, items } = microAdvantageData;
 
   return (
-    <section className="w-full bg-[#fbfbfa] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="w-full bg-[#fbfbfa] py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
       <div className="max-w-295 mx-auto flex flex-col gap-10 lg:gap-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +102,7 @@ export default function MicroAdvantage() {
                   </div>
 
                   <div className="mt-5 max-w-52.5">
-                    <h3 className="text-xl font-bold leading-snug text-[#111111] tracking-tight">
+                    <h3 className="text-lg lg:text-xl font-bold leading-snug text-[#111111] tracking-tight">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-sm leading-[1.6] text-[#666666]">
@@ -133,7 +133,7 @@ export default function MicroAdvantage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 leading-snug">
+                    <h3 className="text-lg font-bold text-gray-900 leading-snug">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-xs leading-relaxed text-gray-600">

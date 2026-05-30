@@ -14,7 +14,7 @@ const iconByType = {
 
 export default function DomainsSection() {
   return (
-    <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="max-w-250 mx-auto flex flex-col gap-8 lg:gap-10 items-center text-center">
         <SectionHeader
           eyebrow="Tech Domains"

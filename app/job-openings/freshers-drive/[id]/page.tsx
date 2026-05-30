@@ -80,7 +80,7 @@ export default function DriveDetailPage({
     <main className="min-h-screen bg-[#FDFCF7]">
       {/* Compact Detail Hero Section */}
       <section className="w-full bg-bg-cream overflow-hidden border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-10 min-h-[45vh]">
+        <div className="max-w-7xl mx-auto px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-10 min-h-[45vh]">
           {/* Left Content */}
           <div className="flex-1 flex flex-col gap-5 lg:max-w-[55%]">
             <span className="inline-flex self-start items-center px-3 py-1 rounded-full bg-secondary text-text-badge text-[10px] font-extrabold tracking-wider uppercase shadow-xs">
@@ -139,7 +139,7 @@ export default function DriveDetailPage({
           </div>
         </div>
       </section>
-      <section className="py-12 lg:py-20 px-6 lg:px-12 bg-white">
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
           <div className="flex-1 flex flex-col gap-12 lg:gap-16">
             <motion.div
@@ -196,7 +196,7 @@ export default function DriveDetailPage({
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="py-16 lg:py-32 px-6 bg-bg-cream border-t border-border"
+        className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 bg-bg-cream border-t border-border"
       >
         <div className="max-w-3xl mx-auto">
           <DriveRegistrationForm domainTitle={drive.title} />

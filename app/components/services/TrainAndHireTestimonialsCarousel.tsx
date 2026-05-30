@@ -107,7 +107,7 @@ export default function TrainAndHireTestimonialsCarousel({
             }}
             onPointerEnter={() => setIsPaused(true)}
           >
-            <p className="text-text-heading text-center text-lg sm:text-2xl md:text-4xl leading-7 sm:leading-9 md:leading-10 max-w-4xl font-manrope font-light">
+            <p className="text-text-heading text-center text-base sm:text-lg md:text-2xl leading-6 sm:leading-7 md:leading-9 max-w-4xl font-manrope font-light">
               &quot;{active.quote}&quot;
             </p>
 

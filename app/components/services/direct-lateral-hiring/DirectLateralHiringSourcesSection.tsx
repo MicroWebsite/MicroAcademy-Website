@@ -8,7 +8,7 @@ import SectionHeader from "@/app/components/common/SectionHeader";
 
 export default function DirectLateralHiringSourcesSection() {
   return (
-    <section className="w-full bg-white px-4 pt-14 pb-10 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-12">
+    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="max-w-304 mx-auto flex flex-col gap-8 lg:gap-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function DirectLateralHiringSourcesSection() {
             <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-5">
               <Star className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold font-manrope mb-3">
+            <h3 className="text-lg font-bold font-manrope mb-3">
               Micro Academy Advantage
             </h3>
             <ul className="space-y-3">

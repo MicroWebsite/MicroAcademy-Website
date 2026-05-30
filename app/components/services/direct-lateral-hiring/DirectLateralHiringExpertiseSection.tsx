@@ -64,7 +64,7 @@ export default function DirectLateralHiringExpertiseSection() {
   }, [scrollToSlide, totalSlides]);
 
   return (
-    <section className="w-full bg-bg-cream px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="w-full bg-bg-cream px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

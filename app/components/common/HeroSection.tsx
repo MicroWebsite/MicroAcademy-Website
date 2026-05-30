@@ -22,17 +22,17 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
 
   return (
     <section className="w-full bg-bg-cream overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-12 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8 min-h-[60vh]">
+      <div className="max-w-7xl mx-auto px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8 min-h-[60vh]">
         <div className="flex-1 flex flex-col gap-6 lg:max-w-[52%]">
-          <span className="inline-flex self-start items-center px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.18em] uppercase">
+          <span className="inline-flex self-start items-center px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-secondary text-text-badge text-[10px] lg:text-xs font-bold tracking-[0.12em] lg:tracking-[0.18em] uppercase">
             {badge}
           </span>
 
           <div className="flex flex-col gap-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-dark leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-text-dark leading-[1.1] tracking-tight">
               {titleLine1}
             </h1>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
               {titleAccentPrefix && (
                 <span className="text-text-dark">{titleAccentPrefix} </span>
               )}

@@ -34,18 +34,18 @@ export default function JobOpeningsLanding() {
       <div className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-secondary/15 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-light/10 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
         >
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-secondary text-text-badge text-xs font-bold tracking-[0.2em] uppercase mb-4 shadow-xs">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-secondary text-text-badge text-[10px] lg:text-xs font-bold tracking-[0.12em] lg:tracking-[0.2em] uppercase mb-4 shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
             Hiring Pathways
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-dark leading-tight tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-text-dark leading-tight tracking-tight mb-6">
             Choose Your{" "}
             <span className="text-primary relative inline-block">
               Pathway

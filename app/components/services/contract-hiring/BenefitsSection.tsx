@@ -30,17 +30,16 @@ export default function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 md:p-7 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.04)] h-full flex flex-col items-start"
+                className="bg-bg-cream rounded-2xl p-6 md:p-7 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.04)] h-full flex flex-col items-start"
               >
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-5 bg-[#fde047]">
-                  <Icon
-                    className="w-5.5 h-5.5 text-gray-900"
-                    strokeWidth={1.5}
-                  />
+                <div className="flex flex-col items-start gap-4 mb-4 w-full">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-[#fde047] shrink-0">
+                    <Icon className="w-7 h-7 text-gray-900" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-[17px] font-bold text-text-dark font-manrope leading-tight">
+                    {benefit.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl leading-[1.3] font-bold text-text-dark mb-3 font-manrope">
-                  {benefit.title}
-                </h3>
                 <p className="text-[15px] text-text-muted-alt leading-7 font-manrope">
                   {benefit.description}
                 </p>

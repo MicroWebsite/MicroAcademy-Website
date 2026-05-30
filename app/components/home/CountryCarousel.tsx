@@ -8,16 +8,14 @@ import {
   Marker,
 } from "react-simple-maps";
 import { mapLocations } from "./constants/mapLocations";
-import { regions } from "./constants/regions";
 import SectionHeader from "@/app/components/common/SectionHeader";
 
 export default function CountriesCarousel() {
   const [mounted, setMounted] = useState(false);
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
-  const [activeRegion, setActiveRegion] = useState("All Regions");
-  const [mapConfig, setMapConfig] = useState({
-    scale: 230,
-    center: [55, 12] as [number, number],
+  const [mapConfig] = useState({
+    scale: 420,
+    center: [108, 15] as [number, number],
   });
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -54,23 +52,11 @@ export default function CountriesCarousel() {
   useEffect(() => {
     if (mounted) {
       const scrollTimer = setTimeout(() => {
-        scrollToLongitude(55);
+        scrollToLongitude(108);
       }, 150);
       return () => clearTimeout(scrollTimer);
     }
   }, [mounted]);
-
-  const handleRegionClick = (
-    name: string,
-    scale: number,
-    center: [number, number],
-  ) => {
-    setActiveRegion(name);
-    setMapConfig({ scale, center });
-    setTimeout(() => {
-      scrollToLongitude(center[0]);
-    }, 50);
-  };
 
   const matchCountry = (
     geoName: string,
@@ -116,35 +102,19 @@ export default function CountriesCarousel() {
   return (
     <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+        <div className="mb-10">
           <SectionHeader
             eyebrow="Global Reach"
             title="Our Geographic Coverage"
-            align="responsive"
+            align="center"
           />
-
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none lg:justify-end w-full lg:w-auto -mx-4 px-4 lg:mx-0 lg:px-0">
-            {regions.map(({ name, scale, center }) => (
-              <button
-                key={name}
-                onClick={() => handleRegionClick(name, scale, center)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
-                  activeRegion === name
-                    ? "bg-gray-900 text-white shadow-md scale-105"
-                    : "bg-white border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
-                }`}
-              >
-                {name}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div
           ref={scrollContainerRef}
           className="w-full overflow-x-auto scrollbar-none pb-4"
         >
-          <div className="min-w-237.5 md:min-w-287.5 lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 p-4 shadow-sm">
+          <div className="min-w-237.5 md:min-w-287.5 lg:min-w-full relative bg-[#F5F4EE] rounded-2xl border border-gray-200/40 shadow-sm">
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{

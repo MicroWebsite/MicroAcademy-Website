@@ -24,7 +24,7 @@ export default function SectionHeader({
       <p className="font-inter text-xs font-bold uppercase leading-5 tracking-[0.16em] text-primary sm:text-[13px]">
         {eyebrow}
       </p>
-      <h2 className="font-manrope text-3xl font-extrabold leading-[1.15] text-text-dark sm:text-4xl">
+      <h2 className="font-manrope text-2xl font-extrabold leading-[1.15] text-text-dark sm:text-3xl lg:text-4xl">
         {title}
       </h2>
     </div>

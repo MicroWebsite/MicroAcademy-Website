@@ -55,19 +55,42 @@ export type WhyPoint = {
   description: string;
 };
 
-export const trainAndHireWhyPoints: WhyPoint[] = [
+export const studentWhyPoints: WhyPoint[] = [
   {
-    title: "Maximizing Cost Benefits",
+    title: "Off-Campus Opportunity",
+    description:
+      "Access direct placement drives and off-campus recruitment campaigns with leading global technology companies.",
+  },
+  {
+    title: "Pre-Selected by the Company then Undergoing Training",
+    description:
+      "Secure your employment offer first, then undergo corporate-aligned training customized for your future role.",
+  },
+  {
+    title: "Industry In-Demand Customized Training",
+    description:
+      "Master cutting-edge technologies and specialized skill sets that are in high demand across the industry.",
+  },
+  {
+    title: "Trainer Selected by the Company and Program",
+    description:
+      "Learn from expert trainers hand-picked by the hiring company, using a syllabus tailored to their project environment.",
+  },
+];
+
+export const clientWhyPoints: WhyPoint[] = [
+  {
+    title: "Zero Risks",
     description:
       "Mitigate capital risk with zero employee costs during training. We handle recruitment and up-skilling, eliminating early attrition overheads.",
   },
   {
-    title: "Hiring & Training Flexibility",
+    title: "Hiring Candidates",
     description:
       "Offer customized and certified trainings under one roof. Hire candidates directly post-training or transition them smoothly via Contract-to-Hire (C2H).",
   },
   {
-    title: "Necessity-Driven Standardization",
+    title: "Industry Ready Talents",
     description:
       "Standardize training curriculum across global locations. Only candidates meeting your strict post-training evaluation criteria are recruited.",
   },

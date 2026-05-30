@@ -40,7 +40,9 @@ export default function CTASection({
   const styles = variantStyles[variant];
 
   return (
-    <section className={`w-full px-4 md:px-8 py-12 md:py-16 ${styles.section}`}>
+    <section
+      className={`w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20 ${styles.section}`}
+    >
       <div
         className={`relative max-w-304 mx-auto rounded-3xl md:rounded-4xl overflow-hidden p-8 md:p-16 isolation-auto ${styles.card}`}
       >
@@ -53,7 +55,7 @@ export default function CTASection({
 
         <div className="relative z-10 flex flex-col items-start md:items-center gap-6">
           <h2
-            className={`text-left md:text-center text-xl sm:text-2xl md:text-3xl font-bold font-manrope ${styles.title}`}
+            className={`text-left md:text-center text-2xl sm:text-3xl lg:text-4xl font-extrabold font-manrope ${styles.title}`}
           >
             {title}
           </h2>

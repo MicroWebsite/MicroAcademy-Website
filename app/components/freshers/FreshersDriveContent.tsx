@@ -34,8 +34,11 @@ export default function FreshersDriveContent() {
       <main className="min-h-screen">
         <HomeTemplate heroContent={freshersHeroData} />
         <StandardHighlightCards />
-        <section id="active-domains" className="py-12 md:py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
+        <section
+          id="active-domains"
+          className="py-14 sm:py-16 lg:py-20 bg-white"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center py-20">
               <div
                 className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"
@@ -68,8 +71,8 @@ export default function FreshersDriveContent() {
       <HomeTemplate heroContent={freshersHeroData} />
       <StandardHighlightCards />
 
-      <section id="active-domains" className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="active-domains" className="py-14 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

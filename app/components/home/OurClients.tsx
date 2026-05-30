@@ -17,7 +17,7 @@ const ClientLogoCard: React.FC<{ client: Client }> = ({ client }) => {
   };
 
   return (
-    <div className="relative w-40 h-24 md:w-52 md:h-32 bg-white rounded-2xl border border-border/40 flex items-center justify-center overflow-hidden transition-all duration-300 select-none group cursor-pointer shrink-0 hover:-translate-y-1 hover:border-primary/20">
+    <div className="relative w-40 h-24 md:w-52 md:h-32 bg-white rounded-2xl border-2 border-primary/60 flex items-center justify-center overflow-hidden transition-all duration-300 select-none group cursor-pointer shrink-0 hover:-translate-y-1 hover:border-primary">
       <div className="absolute inset-0 bg-primary/1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="relative w-full h-full flex items-center justify-center p-2.5 md:p-3.5">
@@ -50,7 +50,7 @@ const OurClients: React.FC = () => {
   const { clients } = clientsData;
 
   return (
-    <section className="w-full bg-bg-cream py-10 md:py-16 overflow-hidden">
+    <section className="w-full bg-white py-10 md:py-16 overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -83,16 +83,13 @@ const OurClients: React.FC = () => {
             title="Trusted by the Best in the Business"
           />
         </motion.div>
+      </div>
 
-        <div className="relative w-full overflow-hidden py-4">
-          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-bg-cream to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-bg-cream to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-logo-marquee flex gap-6 md:gap-8">
-            {[...clients, ...clients, ...clients].map((client, idx) => (
-              <ClientLogoCard key={`${client.id}-${idx}`} client={client} />
-            ))}
-          </div>
+      <div className="relative w-full overflow-hidden py-4">
+        <div className="animate-logo-marquee flex gap-6 md:gap-8">
+          {[...clients, ...clients, ...clients].map((client, idx) => (
+            <ClientLogoCard key={`${client.id}-${idx}`} client={client} />
+          ))}
         </div>
       </div>
     </section>

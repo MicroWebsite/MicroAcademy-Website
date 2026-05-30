@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="w-full bg-white dark:bg-[#0a0a0a] pt-12 pb-24 px-6 sm:px-12 lg:px-24 text-black dark:text-white mt-2">
+    <div className="w-full bg-white dark:bg-[#0a0a0a] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 text-black dark:text-white mt-2">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-4">
           <h1 className="text-2xl sm:text-3xl font-bold font-manrope tracking-tight text-text-dark dark:text-white">

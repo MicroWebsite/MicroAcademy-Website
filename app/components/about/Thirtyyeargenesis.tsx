@@ -83,7 +83,7 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
     <div
       ref={cardRef}
       className={`
-        relative flex flex-col items-start gap-4 py-12
+        relative flex flex-col items-start gap-4 py-4 md:py-6
         md:flex-row md:items-center md:gap-0
         ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}
       `}

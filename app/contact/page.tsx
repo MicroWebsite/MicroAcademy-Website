@@ -19,7 +19,7 @@ export default function ContactPage() {
     <>
       <HomeTemplate heroContent={contactHeroData} />
       <section className="w-full bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-30">
             <div className="lg:col-span-3">
               <ContactForm />
@@ -30,10 +30,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Map Section */}
-      <section className="w-full bg-bg-cream py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="w-full bg-bg-white px-4 lg:px-8 pb-20 pt-10">
+        <div className="max-w-7xl mx-auto">
           <GoogleMap />
         </div>
       </section>

@@ -7,7 +7,7 @@ import CTASection from "../common/CTASection";
 
 export default function ContractHiringPage() {
   const contractHiringData = capabilitiesData.items.find(
-    (item) => item.id === "contract-to-hire",
+    (item) => item.id === "contract-hiring",
   );
 
   return (

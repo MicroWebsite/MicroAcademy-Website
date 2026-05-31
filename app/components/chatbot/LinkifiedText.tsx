@@ -53,7 +53,7 @@ const LINK_MAPPINGS: Record<string, string> = {
   "direct/lateral hiring": "/services/direct-lateral-hiring",
   "direct-lateral hiring": "/services/direct-lateral-hiring",
   "recruitment services": "/services/direct-lateral-hiring",
-  "contract to hire": "/services/contract-hiring",
+  "contract hiring": "/services/contract-hiring",
   "corporate training": "/services/corporate-training",
 };
 

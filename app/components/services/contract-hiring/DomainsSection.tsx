@@ -32,6 +32,10 @@ export default function DomainsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="flex items-center gap-3 p-5 rounded-lg border border-border-alt bg-bg-cream-alt"
               >
                 <div className="text-primary">

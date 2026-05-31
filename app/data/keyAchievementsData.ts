@@ -1,20 +1,20 @@
 export const keyAchievementsData = [
   {
-    title: "Diversity & Inclusion (D&I)",
+    title: "Diversity & Inclusive Hiring",
     description:
-      "Successfully spearheaded large-scale diversity hiring drives, ensuring an inclusive and balanced workforce for top-tier IT partners.",
+      "Helped companies build diverse and inclusive workforces through targeted hiring initiatives across various IT roles.",
     icon: "users-round",
   },
   {
-    title: "Captive IT Organization Setups",
+    title: "Captive IT Organization Setup",
     description:
-      "Assisted captive IT organizations in setting up their offices in India from scratch by sourcing the complete gamut from entry-level to leadership.",
+      "Supported captive IT organizations in establishing operations in India by hiring talent across all levels, from entry-level professionals to leadership positions.",
     icon: "building-2",
   },
   {
-    title: "Rapid Resource Ramp-Ups",
+    title: "Rapid Ramp-Up for Niche Skills",
     description:
-      "Delivered emergency, high-volume sourcing at multiple levels for IT Services clients demanding quick scale in niche and emerging skills.",
+      "Successfully sourced professionals at multiple levels for IT services clients requiring quick ramp-ups in niche and emerging technology skills.",
     icon: "zap",
   },
 ];

@@ -65,7 +65,7 @@ export type ContractDomain = {
 };
 
 export const contractDomains: ContractDomain[] = [
-  { icon: "cpu", name: "Software Engineering (Frontend/Backend)" },
+  { icon: "cpu", name: "Software Engineering" },
   { icon: "target", name: "QA & Automation Testing" },
   { icon: "briefcase", name: "Project & Product Management" },
   { icon: "shield", name: "Cybersecurity & InfoSec" },

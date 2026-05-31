@@ -195,7 +195,7 @@ export default function ThirtyYearGenesis() {
       ref={containerRef}
       className="
         relative min-h-screen w-full overflow-hidden
-        bg-bg-cream py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20
+        bg-white py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20
       "
     >
       <div

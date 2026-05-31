@@ -45,6 +45,10 @@ export default function WhySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            whileHover={{
+              y: -5,
+              transition: { type: "spring", stiffness: 400, damping: 25 },
+            }}
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-primary/20 flex items-center gap-3">
@@ -77,6 +81,10 @@ export default function WhySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            whileHover={{
+              y: -5,
+              transition: { type: "spring", stiffness: 400, damping: 25 },
+            }}
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-secondary/50 flex items-center gap-3">

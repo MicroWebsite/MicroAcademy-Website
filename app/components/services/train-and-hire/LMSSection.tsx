@@ -192,6 +192,10 @@ export default function LMSSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="px-4 py-3.5 rounded-xl border bg-bg-cream border-amber-100/60 flex gap-3 items-center"
               >
                 <div

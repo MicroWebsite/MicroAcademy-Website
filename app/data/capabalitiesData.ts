@@ -2,116 +2,95 @@ import { HeroProps } from "../types/hero";
 
 export interface Capability {
   id: string;
-  icon:
-    | "train-hire"
-    | "direct-lateral-hiring"
-    | "corporate-training"
-    | "contract-to-hire";
   title: string;
   description: string;
   ctaLabel: string;
   ctaHref: string;
   highlighted: boolean;
-  image?: string;
-  images?: string[];
   heroData: HeroProps;
 }
 
-export const capabilitiesData: {
-  sectionTag: string;
-  heading: string;
-  items: Capability[];
-} = {
+export const capabilitiesData = {
   sectionTag: "OUR CORE CAPABILITIES",
-  heading: "Tailored Solutions for IT Excellence",
+  heading: "Comprehensive Talent & Learning Solutions",
   items: [
     {
       id: "train-hire",
-      icon: "train-hire",
-      title: "Train and Hire Services",
+      title: "Train and Hire",
       description:
-        "We help address your need for 'Just in Time' hiring be it for fresh graduates or lateral.",
-      ctaLabel: "Explore Train and Hire Services",
+        "We source, assess, train, and deploy candidates based on your business requirements. Our Train and Hire model enables organizations to build a skilled workforce in niche technologies while reducing recruitment and training costs.",
+      ctaLabel: "Explore Train and Hire",
       ctaHref: "/services/train-and-hire",
       highlighted: false,
       heroData: {
-        badge: "MICRO ACADEMY EXCLUSIVE",
-        titleLine1: "Train to Hire",
-        titleAccent: "Model",
+        badge: "TRAIN • ASSESS • DEPLOY",
+        titleLine1: "Train and",
+        titleAccent: "Hire",
         description:
-          "We transform raw talent into enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
-        // primaryCTA: { label: "Partner With Us", href: "/contact" },
-        // secondaryCTA: { label: "Explore Services", href: "/services" },
+          "From sourcing and assessment to customized technical training and final deployment, we deliver job-ready professionals aligned to your business needs.",
         image: {
           src: "/assets/headers/train.png",
-          alt: "Authentic Technical Training Session at Micro Academy Bangalore",
+          alt: "Train and Hire Program at Micro Academy",
         },
       },
     },
     {
       id: "direct-lateral-hiring",
-      icon: "direct-lateral-hiring",
       title: "Direct/Lateral Hiring",
       description:
-        "With the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.",
+        "Leveraging multiple sourcing channels, industry networks, advisory recommendations, and three decades of IT expertise, we help organizations hire the right talent across entry-level, mid-level, senior, and leadership positions.",
       ctaLabel: "Explore Direct/Lateral Hiring",
       ctaHref: "/services/direct-lateral-hiring",
       highlighted: true,
       heroData: {
-        badge: "Direct/Lateral Hiring Excellence",
-        titleLine1: "Strategic Talent",
-        titleAccent: "Architecture",
+        badge: "IT RECRUITMENT SPECIALISTS",
+        titleLine1: "Direct/Lateral",
+        titleAccent: "Hiring",
         description:
-          "From raw potential to industry mastery — we build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
-        // primaryCTA: { label: "Explore Services", href: "/contact" },
-        // secondaryCTA: { label: "View Roles", href: "/services" },
+          "From software engineers and cloud specialists to architects and CXOs, we identify and deliver top-tier technology talent for long-term success.",
         image: {
           src: "/assets/headers/DirectLateralHiring.png",
-          alt: "Authentic Direct/Lateral Hiring Drive Event at Micro Academy",
+          alt: "IT Recruitment and Direct/Lateral Hiring Services",
         },
       },
     },
     {
-      id: "contract-to-hire",
-      icon: "contract-to-hire",
-      title: "Contract to Hire",
+      id: "contract-hiring",
+      title: "Contract Hiring",
       description:
-        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
-      ctaLabel: "Explore Contract to Hire",
+        "We source and deploy skilled professionals on Micro Academy's payroll for the contract duration, providing clients with flexibility to directly absorb resources during or after the engagement period.",
+      ctaLabel: "Explore Contract Hiring",
       ctaHref: "/services/contract-hiring",
       highlighted: false,
       heroData: {
-        badge: "AGILE STAFFING",
+        badge: "FLEXIBLE WORKFORCE SOLUTIONS",
         titleLine1: "Contract",
-        titleAccent: "Hiring Solutions",
+        titleAccent: "Hiring",
         description:
-          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, closing urgent skill gaps while minimizing attrition risks.",
-        // primaryCTA: { label: "Hire Contractors", href: "/contact" },
-        // secondaryCTA: { label: "Browse Roles", href: "/services" },
+          "Scale your teams quickly with pre-screened IT professionals while retaining the flexibility to convert high-performing talent into full-time employees.",
         image: {
           src: "/assets/headers/Contract.png",
-          alt: "Diverse team at Micro Academy Bangalore office",
+          alt: "Contract Hiring Staffing Solutions",
         },
       },
     },
     {
       id: "corporate-training",
-      icon: "corporate-training",
       title: "Corporate Training",
       description:
-        "Having been in the IT training domain for over 3 decades, we have with us instructors/consultants, who specialize in a wide range of technologies and have rich domain experience helping us customize your training requirement.",
+        "With over 30 years of learning and development expertise, we deliver customized corporate, technical, certification-oriented, and soft-skills training programs across emerging and enterprise technologies.",
       ctaLabel: "Explore Corporate Training",
       ctaHref: "/services/corporate-training",
       highlighted: true,
       heroData: {
-        badge: "The Strategic Framework",
-        titleLine1: "Strategic Skill",
-        titleAccent: "Architecture",
+        badge: "30 YEARS OF LEARNING EXCELLENCE",
+        titleLine1: "Corporate",
+        titleAccent: "Training",
         description:
-          "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
+          "Empower your workforce with industry-relevant training in AI, Cloud, Cybersecurity, Full Stack Development, System Administration, Leadership, and more.",
         image: {
           src: "/assets/headers/Corporate.png",
-          alt: "Corporate Training Facility at Micro Academy Bangalore",
+          alt: "Corporate Training Programs at Micro Academy",
         },
       },
     },

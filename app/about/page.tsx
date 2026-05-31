@@ -18,8 +18,8 @@ export default function AboutPage() {
   return (
     <div className="relative w-full">
       <HomeTemplate heroContent={aboutHeroData} />
-      <KeyAchievements />
       <ThirtyYearGenesis />
+      <KeyAchievements />
       <Gallery />
     </div>
   );

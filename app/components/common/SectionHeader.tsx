@@ -19,7 +19,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className={`flex max-w-3xl flex-col gap-3 ${alignClasses[align]} ${className}`}
+      className={`flex max-w-4xl w-full flex-col gap-3 px-6 sm:px-10 lg:px-0 ${alignClasses[align]} ${className}`}
     >
       <p className="font-inter text-xs font-bold uppercase leading-5 tracking-[0.16em] text-primary sm:text-[13px]">
         {eyebrow}

@@ -52,6 +52,10 @@ export default function DirectLateralHiringSourcesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.05 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="border border-border rounded-xl p-5 bg-bg-cream"
               >
                 <div className="flex items-center gap-3 mb-2">

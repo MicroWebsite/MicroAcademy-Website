@@ -87,7 +87,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "train-hire": GraduationCap,
   "direct-lateral-hiring": Briefcase,
-  "contract-to-hire": UserCheck,
+  "contract-hiring": UserCheck,
   "corporate-training": Award,
 };
 
@@ -99,7 +99,7 @@ const CoreCapabilities: React.FC = () => {
   );
   const directLateralHiringItems = items.filter(
     (item) =>
-      item.id === "direct-lateral-hiring" || item.id === "contract-to-hire",
+      item.id === "direct-lateral-hiring" || item.id === "contract-hiring",
   );
 
   return (

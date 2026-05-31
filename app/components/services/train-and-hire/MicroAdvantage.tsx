@@ -126,6 +126,10 @@ export default function MicroAdvantage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.06 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="rounded-3xl bg-white border border-border p-6 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
               >
                 <div className="flex items-start gap-4">

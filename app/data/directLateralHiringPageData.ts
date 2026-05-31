@@ -8,13 +8,13 @@ export const directLateralHiringServiceCards: DirectLateralHiringServiceCard[] =
   [
     {
       icon: "users",
-      title: "Permanent Hire",
+      title: "Direct/Lateral Hire",
       description:
         "Based on client requirements, Micro Academy will source the right candidate for the role, ensuring a perfect professional and organizational fit.",
     },
     {
       icon: "briefcase",
-      title: "Contract to Hire",
+      title: "Contract Hiring",
       description:
         "Our strategic headhunting team focuses on middle to senior-level management transitions. We act as a surgical instrument in the recruitment and talent market, identifying and securing leaders who align with your long-term vision.",
     },

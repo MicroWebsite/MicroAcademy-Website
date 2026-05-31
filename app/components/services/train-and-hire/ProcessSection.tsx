@@ -92,6 +92,10 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="relative flex-1 w-full md:w-auto h-auto md:h-105 flex flex-col justify-between items-center z-10"
               >
                 {i < trainAndHireSteps.length - 1 && (

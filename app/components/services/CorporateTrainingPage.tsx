@@ -1,132 +1,98 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Code2, Cpu, Monitor, Users, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import HomeTemplate from "../common/HeroSection";
 import { capabilitiesData } from "@/app/data/capabalitiesData";
 import CTASection from "../common/CTASection";
 import SectionHeader from "../common/SectionHeader";
-
-const trainingTracks = [
-  {
-    id: "niche-tech",
-    category: "Niche Technologies",
-    icon: <Cpu className="w-7 h-7" />,
-    items: [
-      "AI Transformation for Business & IT Leaders",
-      "AI / ML / Gen AI Tech Stack",
-      "Data Science & Analytics",
-      "Network & Cybersecurity",
-      "Automation & Robotics",
-    ],
-  },
-  {
-    id: "sys-admin",
-    category: "System Administration",
-    icon: <Monitor className="w-7 h-7" />,
-    items: [
-      "Windows & Linux Server Administration",
-      "IBM Mainframe / IBM i Administration",
-      "Networking & Virtualization",
-      "Database Administration",
-      "Storage & Backup",
-    ],
-  },
-  {
-    id: "app-dev",
-    category: "Application Development",
-    icon: <Code2 className="w-7 h-7" />,
-    items: [
-      "Java Full Stack",
-      "Dot net",
-      "Angular JS",
-      "Testing",
-      "Web Technologies",
-      "Middleware",
-    ],
-  },
-  {
-    id: "soft-skills",
-    category: "Soft Skills",
-    icon: <Users className="w-7 h-7" />,
-    items: [
-      "Critical thinking & Problem Solving",
-      "Agility & Adaptability",
-      "Leadership & Project Management",
-      "Cross Cultural Collaboration",
-    ],
-  },
-];
+import { trainingTracks } from "@/app/data/trainingTracksData";
 
 function TechLogosGrid() {
-  return (
-    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-      <div className="max-w-336 mx-auto flex flex-col gap-10 lg:gap-12">
-        <SectionHeader eyebrow="Our Domains" title="Trainings Conducted" />
+  const [activeTab, setActiveTab] = useState(trainingTracks[0].id);
+  const activeTrack =
+    trainingTracks.find((t) => t.id === activeTab) || trainingTracks[0];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {trainingTracks.map((track, i) => {
-            const isNiche = track.id === "niche-tech";
+  return (
+    <section className="w-full bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-20 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        <SectionHeader
+          eyebrow="Our Domains"
+          title="Trainings Conducted"
+          align="center"
+        />
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-3 lg:gap-4 mb-16 mt-8 relative z-10 w-full px-4 lg:px-0">
+          {trainingTracks.map((track) => {
+            const isActive = activeTab === track.id;
+            const Icon = track.icon;
             return (
-              <motion.div
+              <button
                 key={track.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 25 },
-                }}
-                className={`relative rounded-2xl p-6 md:p-7 border flex flex-col group transition-all duration-300 ${
-                  isNiche
-                    ? "bg-text-dark text-white border-primary shadow-[0_8px_30px_rgba(106,95,0,0.15)] scale-[1.03] lg:scale-[1.05] z-10"
-                    : "bg-bg-cream text-text-dark border-border/50 shadow-[0_2px_20px_rgba(0,0,0,0.02)]"
+                onClick={() => setActiveTab(track.id)}
+                className={`relative flex items-center justify-center gap-2.5 px-6 py-3 rounded-full font-manrope font-bold text-sm lg:text-[15px] transition-all duration-500 ease-out w-full sm:w-auto focus:outline-none focus:ring-0 ${
+                  isActive
+                    ? "text-white cursor-default"
+                    : "text-text-muted-alt bg-white shadow-sm cursor-pointer hover:text-text-dark"
                 }`}
               >
-                <div className="flex flex-col items-start gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-[#fde047] text-gray-900 group-hover:scale-110 transition-transform duration-300 shrink-0">
-                    {track.icon}
-                  </div>
-
-                  <h3
-                    className={`text-lg font-bold font-manrope leading-snug ${
-                      isNiche ? "text-white" : "text-text-dark"
-                    }`}
-                  >
-                    {track.category}
-                  </h3>
-                </div>
-
-                <div
-                  className={`w-full h-px mb-6 ${
-                    isNiche ? "bg-white/10" : "bg-border/60"
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTabIndicator"
+                    className="absolute inset-0 bg-text-dark rounded-full -z-10"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <Icon
+                  className={`w-4 h-4 shrink-0 transition-colors duration-300 ${
+                    isActive ? "text-[#fde047]" : "text-primary"
                   }`}
+                  strokeWidth={2.5}
                 />
-
-                <ul className="flex flex-col gap-3">
-                  {track.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#fde047] shrink-0 mt-0.5">
-                        <Check
-                          className="w-3 h-3 text-gray-900"
-                          strokeWidth={3}
-                        />
-                      </span>
-                      <span
-                        className={`text-sm font-medium font-manrope leading-snug ${
-                          isNiche ? "text-gray-200" : "text-text-muted-alt"
-                        }`}
-                      >
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+                {track.category}
+              </button>
             );
           })}
+        </div>
+        <div className="w-full max-w-5xl relative min-h-[340px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1.05, filter: "blur(4px)" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="flex flex-wrap justify-center gap-y-12 gap-x-8 sm:gap-x-12 lg:gap-x-16 w-full max-w-[850px] mx-auto relative z-10"
+            >
+              {activeTrack.items.map((item, index) => {
+                const ItemIcon = item.icon;
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1,
+                      type: "spring",
+                    }}
+                    className="flex flex-col items-center text-center w-[140px] sm:w-[180px] lg:w-[200px]"
+                  >
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#fde047] flex items-center justify-center mb-5 shrink-0">
+                      <ItemIcon
+                        className="w-8 h-8 sm:w-10 sm:h-10 text-[#111111]"
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                    <div className="min-h-[48px] sm:min-h-[56px] flex items-start justify-center w-full px-1">
+                      <h3 className="text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-text-dark font-manrope leading-snug">
+                        {item.name}
+                      </h3>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
@@ -144,7 +110,6 @@ export default function CorporateTrainingPage() {
         <HomeTemplate heroContent={corporateTrainingData.heroData} />
       )}
       <TechLogosGrid />
-
       <CTASection
         title="Empower Your Workforce"
         description="Elevate your team's skills with our industry-leading corporate training programs. We offer customized learning paths to drive innovation and efficiency."

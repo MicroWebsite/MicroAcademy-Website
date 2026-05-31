@@ -47,7 +47,6 @@ function findMatchedDrive(
       "landmark",
       "selection",
       "process",
-      "contact",
       "notes",
       "criteria",
       "academic",
@@ -363,8 +362,11 @@ const contactKeywords = [
 ];
 
 const aboutKeywords = [
-  "about",
   "about us",
+  "about micro",
+  "about microacademy",
+  "about micro academy",
+  "about company",
   "who are you",
   "who is micro",
   "what is micro",
@@ -672,7 +674,7 @@ const contractProcessKeywords = [
 const directLateralProcessKeywords = [
   "lateral hiring process",
   "lateral hiring source",
-  "permanent hire",
+  "direct hire",
   "talent expertise",
   "leadership position",
   "mid-level position",
@@ -762,7 +764,7 @@ export function generateBotResponse(
   }
 
   if (matchesAny(lower, directLateralProcessKeywords)) {
-    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/Lateral Hiring page for full details!`;
+    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in direct placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/Lateral Hiring page for full details!`;
   }
   if (strapiData?.isLoaded) {
     // 1. Specific Fresher Drive Lookup
@@ -791,6 +793,9 @@ export function generateBotResponse(
         return `🎓 **Eligibility Criteria for ${matchedDrive.title}**:\n• **Degree Requirement:** ${matchedDrive.degree_requirement || "BE/BTech/MCA/Graduates"}\n• **Minimum Aggregate:** ${matchedDrive.minimum_aggregate || "60%"}\n• **Academic Year:** ${matchedDrive.academic_year || "2024/2025"}\n• **Education Gap:** ${matchedDrive.education_gap || "No gaps allowed"}\n\nVisit our Freshers Drive page for full prerequisites!`;
       }
       if (matchesAny(lower, contactKeywords)) {
+        if (!matchedDrive.contact || matchedDrive.contact.trim() === "") {
+          return `📞 **Contact Information for ${matchedDrive.title}** is not explicitly specified.\n\nHere is our general contact information:\n${botResponses["📞 Contact Info"]}`;
+        }
         return `📞 **Contact Information for ${matchedDrive.title}**:\n${matchedDrive.contact}\n\nFor queries, call the above numbers or visit our Contact page!`;
       }
       if (lower.includes("training")) {
@@ -871,7 +876,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Direct/Lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 Our Direct/Lateral Hiring Services:\n\nLeveraging multiple sourcing channels, industry networks, advisory recommendations, and three decades of IT expertise, we help organizations hire the right talent across entry-level, mid-level, senior, and leadership positions.\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
 
     if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
       response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;
@@ -894,7 +899,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, contractKeywords)) {
     let response =
-      "📝 Contract to Hire:\n\nMicro Academy sources candidates who join on our payroll for the contract period. The client can directly hire the resource during or after the contract.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
+      "📝 Contract Hiring:\n\nWe source and deploy skilled professionals on Micro Academy's payroll for the contract duration, providing clients with flexibility to directly absorb resources during or after the engagement period.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
 
     if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
       response += `\n\n📋 Current contract positions:\n\n`;
@@ -1037,10 +1042,10 @@ export function generateBotResponse(
     return "We have opportunities across all experience levels. You can visit our Recruitments page, or see our Freshers Drive page for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
-    return "🎓 Train & Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals. Our value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire \n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
+    return "🎓 Train & Hire Services:\n\nWe source, assess, train, and deploy candidates based on your business requirements. Our Train and Hire model enables organizations to build a skilled workforce in niche technologies while reducing recruitment and training costs.\n\nOur value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire \n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
   }
   if (matchesAny(lower, corporateTrainingKeywords)) {
-    return "🏫 Corporate Training:\n\nWith 3 decades of IT training expertise, we offer specialized programs across 4 key technology domains:\n\n💻 1. System Administration\n• Windows & Linux Server Administration\n• IBM Mainframe / IBM i Administration\n• Networking & Virtualization, Database Admin, Storage & Backup\n\n🚀 2. Application Development\n• Java Full Stack, .NET, Angular JS\n• Web Technologies, Middleware, Testing\n\n🤝 3. Soft Skills\n• Critical Thinking & Problem Solving, Agility & Adaptability\n• Leadership & Project Management, Cross-Cultural Collaboration\n\n🔮 4. Niche Technologies\n• AI Transformation for Business & IT Leaders\n• AI / ML / Gen AI Tech Stack\n• Data Science & Analytics, Network & Cybersecurity, Automation & Robotics\n\n📊 3,500+ Trainings Delivered | 25,000+ People Trained\n🏅 ISO 9001:2015 Certified Methodology\n\nContact us to customize a training program for your team!";
+    return "🏫 Corporate Training:\n\nWith over 30 years of learning and development expertise, we deliver customized corporate, technical, certification-oriented, and soft-skills training programs across emerging and enterprise technologies.\n\nWe offer specialized programs across 4 key technology domains:\n\n💻 1. System Administration\n• Windows & Linux Server Administration\n• IBM Mainframe / IBM i Administration\n• Networking & Virtualization, Database Admin, Storage & Backup\n\n🚀 2. Application Development\n• Java Full Stack, .NET, Angular JS\n• Web Technologies, Middleware, Testing\n\n🤝 3. Soft Skills\n• Critical Thinking & Problem Solving, Agility & Adaptability\n• Leadership & Project Management, Cross-Cultural Collaboration\n\n🔮 4. Niche Technologies\n• AI Transformation for Business & IT Leaders\n• AI / ML / Gen AI Tech Stack\n• Data Science & Analytics, Network & Cybersecurity, Automation & Robotics\n\n📊 3,500+ Trainings Delivered | 25,000+ People Trained\n🏅 ISO 9001:2015 Certified Methodology\n\nContact us to customize a training program for your team!";
   }
   if (matchesAny(lower, serviceKeywords)) {
     return botResponses["📋 Our Services"];
@@ -1064,7 +1069,7 @@ export function generateBotResponse(
   if (matchesAny(lower, contactKeywords)) {
     return botResponses["📞 Contact Info"];
   }
-  if (matchesAny(lower, aboutKeywords)) {
+  if (matchesAny(lower, aboutKeywords) || lower === "about") {
     return botResponses["🏢 About Us"];
   }
   if (matchesAny(lower, missionKeywords)) {

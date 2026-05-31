@@ -82,12 +82,17 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
             <tbody className="divide-y divide-black/5">
               {jobs.map((pos, idx) => (
                 <tr
-                  key={pos.jobId || pos.id || idx}
+                  key={
+                    pos.jobId ||
+                    (pos as { job_id?: string }).job_id ||
+                    pos.id ||
+                    idx
+                  }
                   className="group hover:bg-bg-cream/25 transition-colors duration-150"
                 >
                   <td className="py-5 px-6 align-middle">
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary bg-primary-50 px-2.5 py-1.5 rounded-full ring-1 ring-primary/10 font-sans">
-                      {pos.jobId}
+                      {pos.jobId || (pos as { job_id?: string }).job_id}
                     </span>
                   </td>
                   <td className="py-5 px-6 font-bold text-text-dark align-middle group-hover:text-primary transition-colors duration-150">
@@ -132,7 +137,9 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
       >
         {jobs.map((pos, idx) => (
           <motion.div
-            key={pos.jobId || pos.id || idx}
+            key={
+              pos.jobId || (pos as { job_id?: string }).job_id || pos.id || idx
+            }
             variants={cardVariants}
             className="group relative flex flex-col rounded-2xl bg-bg-input-row ring-1 ring-black/4 overflow-hidden transition-all duration-300 hover:ring-primary/30 hover:shadow-[0_8px_40px_rgba(106,95,0,0.08)] hover:-translate-y-1 w-full sm:w-[calc(50%-12px)] max-w-[360px]"
           >
@@ -153,7 +160,7 @@ const JobCardSection: React.FC<JobCardSectionProps> = ({
                       d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7"
                     />
                   </svg>
-                  {pos.jobId}
+                  {pos.jobId || (pos as { job_id?: string }).job_id}
                 </span>
               </div>
               <h3 className="text-lg font-bold text-text-dark mb-4 leading-snug font-sans group-hover:text-primary transition-colors duration-200">

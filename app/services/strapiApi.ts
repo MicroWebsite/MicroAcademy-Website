@@ -7,15 +7,37 @@ export const fetchGallery = async (): Promise<GalleryItem[]> => {
 };
 
 export const fetchDirectLateralHiring = async (): Promise<JobPosition[]> => {
-  const response = await strapiApi.get<JobPosition[]>(
+  const response = await strapiApi.get<Record<string, unknown>[]>(
     "/api/direct-lateral-hirings",
   );
-  return response.data;
+  return (response.data || []).map((job) => ({
+    ...job,
+    jobId: (job.jobId || job.job_id || "").toString().trim(),
+    contractPeriod: (job.contractPeriod || job.contract_period || "")
+      .toString()
+      .trim(),
+    location: (job.location || "").toString().trim(),
+    experience: (job.experience || "").toString().trim(),
+    education: (job.education || "").toString().trim(),
+    title: (job.title || "").toString().trim(),
+  }));
 };
 
 export const fetchContractHiring = async (): Promise<JobPosition[]> => {
-  const response = await strapiApi.get<JobPosition[]>("/api/contract-hirings");
-  return response.data;
+  const response = await strapiApi.get<Record<string, unknown>[]>(
+    "/api/contract-hirings",
+  );
+  return (response.data || []).map((job) => ({
+    ...job,
+    jobId: (job.jobId || job.job_id || "").toString().trim(),
+    contractPeriod: (job.contractPeriod || job.contract_period || "")
+      .toString()
+      .trim(),
+    location: (job.location || "").toString().trim(),
+    experience: (job.experience || "").toString().trim(),
+    education: (job.education || "").toString().trim(),
+    title: (job.title || "").toString().trim(),
+  }));
 };
 
 export const fetchFresherDrives = async (): Promise<FresherDrive[]> => {

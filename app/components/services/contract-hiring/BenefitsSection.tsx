@@ -30,6 +30,10 @@ export default function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
                 className="bg-bg-cream rounded-2xl p-6 md:p-7 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.04)] h-full flex flex-col items-start"
               >
                 <div className="flex flex-col items-start gap-4 mb-4 w-full">

@@ -93,6 +93,14 @@ export default function DirectLateralHiringExpertiseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.06 }}
+                    whileHover={{
+                      y: -5,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                      },
+                    }}
                     className="flex-shrink-0 snap-start bg-white rounded-xl p-4 shadow-sm border border-gray-100"
                     style={{
                       width: `calc((100% - ${16 * (cardsPerView - 1)}px) / ${cardsPerView})`,

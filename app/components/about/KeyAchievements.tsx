@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const KeyAchievements: React.FC = () => {
   return (
-    <section className="w-full bg-bg-white py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
+    <section className="w-full bg-bg-cream py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ const KeyAchievements: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-bg-cream-alt rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border-light relative overflow-hidden group"
+              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border-light relative overflow-hidden group"
             >
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
 

@@ -43,7 +43,7 @@ export default function OfficeDetails() {
           href="tel:+918025358182"
           className="hover:text-primary transition-colors"
         >
-          +91 080-25358182 / 92
+          +91 080-25358182 / 25359192
         </a>
       ),
       icon: (
@@ -105,7 +105,7 @@ export default function OfficeDetails() {
             key={ch.id}
             className="flex flex-col items-center gap-3 lg:flex-row lg:items-start lg:gap-5 group"
           >
-            <div className="shrink-0 w-12 h-12 rounded-2xl bg-btn-primary text-white flex items-center justify-center shadow-lg shadow-btn-primary/20 group-hover:scale-110 transition-all duration-300">
+            <div className="shrink-0 w-12 h-12 rounded-2xl bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-110 transition-all duration-300">
               {ch.icon}
             </div>
 

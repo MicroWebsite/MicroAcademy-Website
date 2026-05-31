@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { X, Megaphone } from "lucide-react";
+import { X, Bell } from "lucide-react";
 import { fetchAnnouncement, AnnouncementData } from "@/app/services/strapiApi";
 
 export default function AnnouncementRunner() {
@@ -83,7 +83,7 @@ export default function AnnouncementRunner() {
             <X className="w-5 h-5" />
           </button>
           <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-primary-dark mb-6 shadow-xs">
-            <Megaphone className="w-8 h-8 text-primary animate-bounce" />
+            <Bell className="w-8 h-8 text-primary animate-bounce" />
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-text-dark mb-4 leading-tight">
             {headerText}

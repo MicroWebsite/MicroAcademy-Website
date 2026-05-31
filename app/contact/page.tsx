@@ -30,7 +30,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <section className="w-full bg-bg-white px-4 lg:px-8 pb-20 pt-10">
+      <section className="w-full bg-white px-4 lg:px-8 pb-20 pt-10">
         <div className="max-w-7xl mx-auto">
           <GoogleMap />
         </div>

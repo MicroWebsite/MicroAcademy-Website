@@ -193,7 +193,7 @@ const Gallery: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="mb-10 lg:mb-12"
       >
-        <SectionHeader eyebrow="Gallery" title="Our Gallery" />
+        <SectionHeader eyebrow="Moments" title="Our Gallery" />
       </motion.div>
 
       <div className="max-w-7xl mx-auto">

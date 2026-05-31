@@ -48,6 +48,13 @@ export const timelineMilestones: TimelineMilestone[] = [
       "Catalyzed a digital revolution by launching high-fidelity online learning platforms integrated with simulated Cloud Labs for hands-on sandbox environments.",
     side: "right",
   },
+  {
+    year: "2025",
+    title: "AI & Next-Gen Cloud Labs",
+    description:
+      "Accelerated workforce transformation by integrating Advanced Generative AI training models and automated Cloud Sandbox infrastructures.",
+    side: "left",
+  },
 ];
 
 export const timelineHeader = {

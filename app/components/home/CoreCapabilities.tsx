@@ -2,30 +2,37 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  GraduationCap,
+  Briefcase,
+  UserCheck,
+  Award,
+} from "lucide-react";
 import { capabilitiesData } from "@/data/capabalitiesData";
 import SectionHeader from "@/app/components/common/SectionHeader";
 
 interface CapabilityCardProps {
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   ctaLabel: string;
   ctaHref: string;
   highlighted: boolean;
   index: number;
+  iconVariant?: "primary" | "secondary";
 }
 
 const CapabilityCard: React.FC<CapabilityCardProps> = ({
-  icon,
+  icon: Icon,
   title,
   description,
   ctaLabel,
   ctaHref,
   highlighted,
   index,
+  iconVariant = "secondary",
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -50,14 +57,14 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
     />
 
     <div className="relative z-10 flex flex-col h-full">
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6">
-        <Image
-          src={icon}
-          alt={`${title} icon`}
-          width={28}
-          height={28}
-          style={{ width: "auto", height: "auto" }}
-        />
+      <div
+        className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-6 ${
+          iconVariant === "primary"
+            ? "bg-primary text-white"
+            : "bg-secondary text-text-dark"
+        }`}
+      >
+        <Icon className="w-6 h-6" />
       </div>
 
       <h3 className="text-xl font-bold text-text-dark mb-3">{title}</h3>
@@ -77,11 +84,11 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   </motion.div>
 );
 
-const iconMap: Record<string, string> = {
-  "train-hire": "/assets/home/trainandhire.svg",
-  "direct-lateral-hiring": "/assets/home/re.svg",
-  "contract-to-hire": "/assets/home/trainandhire.svg",
-  "corporate-training": "/assets/home/co.svg",
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  "train-hire": GraduationCap,
+  "direct-lateral-hiring": Briefcase,
+  "contract-to-hire": UserCheck,
+  "corporate-training": Award,
 };
 
 const CoreCapabilities: React.FC = () => {
@@ -120,6 +127,9 @@ const CoreCapabilities: React.FC = () => {
                   {...item}
                   icon={iconMap[item.id]}
                   index={index}
+                  iconVariant={
+                    item.id === "corporate-training" ? "primary" : "secondary"
+                  }
                 />
               ))}
             </div>
@@ -141,6 +151,11 @@ const CoreCapabilities: React.FC = () => {
                   }
                   icon={iconMap[item.id]}
                   index={index}
+                  iconVariant={
+                    item.id === "direct-lateral-hiring"
+                      ? "primary"
+                      : "secondary"
+                  }
                 />
               ))}
             </div>

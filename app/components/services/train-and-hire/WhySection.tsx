@@ -48,7 +48,6 @@ export default function WhySection() {
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-primary/20 flex items-center gap-3">
-              <span className="w-2.5 h-6 bg-primary rounded-full" />
               Student-Based Opportunities
             </h3>
 
@@ -57,7 +56,7 @@ export default function WhySection() {
                 const Icon = studentIcons[i];
                 return (
                   <div key={i} className="flex gap-5 group">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-105 transition-all duration-300 shrink-0">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary text-white shrink-0">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex flex-col gap-1.5">
@@ -73,8 +72,6 @@ export default function WhySection() {
               })}
             </div>
           </motion.div>
-
-          {/* Right Side: Client Based */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -83,7 +80,6 @@ export default function WhySection() {
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-secondary/50 flex items-center gap-3">
-              <span className="w-2.5 h-6 bg-secondary rounded-full" />
               Client & Company Advantages
             </h3>
 
@@ -92,7 +88,7 @@ export default function WhySection() {
                 const Icon = clientIcons[i];
                 return (
                   <div key={i} className="flex gap-5 group">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-secondary/20 text-text-badge group-hover:bg-secondary group-hover:scale-105 transition-all duration-300 shrink-0">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-secondary text-text-dark shrink-0">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex flex-col gap-1.5">

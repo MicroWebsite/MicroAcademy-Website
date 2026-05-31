@@ -109,6 +109,7 @@ export default function ApplicationFormModal({
         selectedPosition?.title || formData.position,
       );
       formDataToSend.append("type", "direct-lateral-hiring");
+      formDataToSend.append("jobId", selectedPosition?.jobId || "");
       formDataToSend.append("message", formData.message);
       if (resumeFile) {
         formDataToSend.append("resume", resumeFile);
@@ -170,6 +171,11 @@ export default function ApplicationFormModal({
         <div className="p-8 sm:p-12">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
+              {selectedPosition && selectedPosition.jobId && (
+                <span className="self-start text-[10px] font-bold tracking-widest text-primary bg-primary-50 px-2.5 py-1 rounded-full ring-1 ring-primary/10 mb-2 uppercase font-sans">
+                  {selectedPosition.jobId}
+                </span>
+              )}
               <h2 className="text-2xl font-bold text-text-dark font-manrope whitespace-nowrap">
                 Apply for {selectedPosition?.title || "Position"}
               </h2>

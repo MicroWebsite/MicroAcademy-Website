@@ -6,6 +6,7 @@ export interface JobPosition {
   education: string;
   type: string;
   isNew?: boolean;
+  contractPeriod?: string;
 }
 
 export const openPositionsData = {

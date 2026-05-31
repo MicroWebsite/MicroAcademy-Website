@@ -13,12 +13,14 @@ export async function processDirectLateralHiringSubmission(data: {
   type: string;
   message: string;
   resumeFile: File | null;
+  jobId?: string;
 }) {
   const timestamp = getIndiaTimestamp();
   const resume = await toResumeAttachment(data.resumeFile);
   try {
     await appendSheetValues("Recruitment", [
       [
+        data.jobId || "",
         data.firstName,
         data.lastName,
         data.email,
@@ -54,6 +56,7 @@ export async function processDirectLateralHiringSubmission(data: {
       message: data.message,
       timestamp,
       hasResume: Boolean(resume),
+      jobId: data.jobId,
     }),
     attachments: resume
       ? [

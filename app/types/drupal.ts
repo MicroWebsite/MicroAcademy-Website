@@ -6,13 +6,13 @@ export interface GalleryItem {
 
 export interface JobPosition {
   id?: string;
-  job_id?: string;
   jobId?: string;
   title: string;
   location: string;
   education: string;
   experience?: string;
   type?: string;
+  contractPeriod?: string;
 }
 
 export interface FresherDrive {

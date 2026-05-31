@@ -56,7 +56,7 @@ export default function DriveDetailPage({
     : [drive.title, "", ""];
 
   const driveHeroData = {
-    badge: "Selection Drive 2026",
+    badge: "Selection Drive",
     titleLine1,
     titleAccentPrefix,
     titleAccent,
@@ -96,7 +96,7 @@ export default function DriveDetailPage({
                   </span>
                 )}
                 {titleAccent && (
-                  <span className="text-primary font-extrabold">
+                  <span className="block text-primary font-extrabold">
                     {titleAccent}
                   </span>
                 )}

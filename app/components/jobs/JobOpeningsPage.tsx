@@ -88,7 +88,7 @@ export default function JobOpeningsPage() {
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
                   eyebrow="Direct Hiring"
-                  title="Full-Time Jobs"
+                  title="Full-Time Job  Postions"
                   className="mb-10 md:mb-12"
                 />
                 <JobCardSection
@@ -104,14 +104,15 @@ export default function JobOpeningsPage() {
             <section className="py-14 sm:py-16 lg:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                  eyebrow="Contractual Hiring"
-                  title="Contract Jobs"
+                  eyebrow="Contract Hiring"
+                  title="Contract Job Positions"
                   className="mb-10 md:mb-12"
                 />
                 <JobCardSection
                   jobs={contractJobs}
                   onApply={handleApplyForContractJob}
                   loading={loadingContractJobs}
+                  isContract={true}
                 />
               </div>
             </section>

@@ -53,7 +53,7 @@ export default function JobOpeningsLanding() {
             </span>
           </h1>
           <p className="text-base sm:text-lg text-text-body leading-relaxed">
-            Bridge the gap to your future. Explore dedicated paths tailored for
+            Chart your path to your future. Explore dedicated paths tailored for
             your experience level. Choose below to view relevant openings and
             drive registration details.
           </p>
@@ -68,68 +68,6 @@ export default function JobOpeningsLanding() {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="group relative flex flex-col justify-between p-8 md:p-10 bg-white border border-border rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(106,95,0,0.08)] hover:border-primary-300 transition-all duration-300 overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-[100px] transition-all group-hover:scale-110 -z-10" />
-
-            <div>
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  <Briefcase className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-bold text-primary tracking-widest uppercase">
-                  Experienced Roles
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark mb-4 group-hover:text-primary transition-colors">
-                Recruitments
-              </h2>
-              <p className="text-sm sm:text-base text-text-muted leading-relaxed mb-8">
-                For experienced candidates and lateral hires. Apply to active
-                job postings across various technology domains.
-              </p>
-
-              <div className="space-y-4 mb-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-dark shrink-0">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-muted-alt">
-                    Full-Time Job Openings
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-dark shrink-0">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-muted-alt">
-                    Contract Hiring Positions
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-dark shrink-0">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-muted-alt">
-                    Track Progress Section
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <Link
-              href="/job-openings/recruitments"
-              className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-primary text-white font-bold text-base transition-all duration-300 hover:bg-primary-dark shadow-sm hover:shadow-md active:scale-98"
-            >
-              Explore Openings
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ y: -8, transition: { duration: 0.3 } }}
             className="group relative flex flex-col justify-between p-8 md:p-10 bg-bg-dark border border-bg-dark-alt rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:border-secondary transition-all duration-300 overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-bg-dark-alt rounded-bl-[100px] transition-all group-hover:scale-110 -z-10" />
@@ -140,15 +78,15 @@ export default function JobOpeningsLanding() {
                   <GraduationCap className="w-7 h-7" />
                 </div>
                 <span className="text-xs font-bold text-secondary tracking-widest uppercase">
-                  Campus & Graduates
+                  Freshers Role
                 </span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 group-hover:text-secondary transition-colors">
-                Freshers Drive
+                Freshers Hiring
               </h2>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-8">
-                For young graduates and entry-level talent. Join scheduled
+                Emergent Level talent & Recent Graduate. Join scheduled
                 recruitment drives with comprehensive prep, training, and
                 placement.
               </p>
@@ -186,6 +124,60 @@ export default function JobOpeningsLanding() {
               className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-linear-to-r from-btn-grad-start to-btn-grad-end text-white font-bold text-base transition-all duration-300 hover:brightness-115 shadow-sm hover:shadow-md active:scale-98"
             >
               View Selection Drives
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className="group relative flex flex-col justify-between p-8 md:p-10 bg-white border border-border rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(106,95,0,0.08)] hover:border-primary-300 transition-all duration-300 overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-[100px] transition-all group-hover:scale-110 -z-10" />
+
+            <div>
+              <div className="flex items-center justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <Briefcase className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold text-primary tracking-widest uppercase">
+                  Experienced Roles
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark mb-4 group-hover:text-primary transition-colors">
+                Open Positions
+              </h2>
+              <p className="text-sm sm:text-base text-text-muted leading-relaxed mb-8">
+                For experienced candidates and lateral hires. Apply to active
+                job postings across various technology domains.
+              </p>
+
+              <div className="space-y-4 mb-10">
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-dark shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="text-sm font-semibold text-text-muted-alt">
+                    Full-Time Job Postions
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-dark shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="text-sm font-semibold text-text-muted-alt">
+                    Contract Job Positions
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/job-openings/recruitments"
+              className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-primary text-white font-bold text-base transition-all duration-300 hover:bg-primary-dark shadow-sm hover:shadow-md active:scale-98"
+            >
+              Explore Openings
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>

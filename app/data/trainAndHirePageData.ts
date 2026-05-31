@@ -17,35 +17,35 @@ export const trainAndHireSteps: TrainAndHireStep[] = [
     icon: "search",
     title: "Sourcing",
     description:
-      "Candidates are strategically sourced and shortlisted based strictly on your precise technical and cultural criteria.",
+      "Candidates are strategically sourced and shortlisted based strictly on the precise technical and cultural criteria.",
     highlighted: false,
   },
   {
     icon: "filter",
     title: "Pre-Selection",
     description:
-      "A rigorous pre-selection by your team, encompassing aptitude, technical capability, and HR round evaluations.",
+      "A rigorous pre-selection by the team, encompassing aptitude, technical capability, and HR round evaluations.",
     highlighted: true,
   },
   {
     icon: "bookOpen",
     title: "Training",
     description:
-      "Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to your business needs.",
+      "Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to the business needs.",
     highlighted: false,
   },
   {
     icon: "checkCircle",
     title: "Assessment",
     description:
-      "Comprehensive final assessment conducted by your team to validate readiness before formal induction.",
+      "Comprehensive final assessment conducted by the team to validate readiness before formal induction.",
     highlighted: true,
   },
   {
     icon: "briefcase",
     title: "Job Placement",
     description:
-      "Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire (C2H) basis.",
+      "Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire basis.",
     highlighted: false,
   },
 ];
@@ -64,7 +64,7 @@ export const studentWhyPoints: WhyPoint[] = [
   {
     title: "Pre-Selected by the Company then Undergoing Training",
     description:
-      "Secure your employment offer first, then undergo corporate-aligned training customized for your future role.",
+      "Secure the employment offer first, then undergo corporate-aligned training customized for the future role.",
   },
   {
     title: "Industry In-Demand Customized Training",
@@ -87,12 +87,12 @@ export const clientWhyPoints: WhyPoint[] = [
   {
     title: "Hiring Candidates",
     description:
-      "Offer customized and certified trainings under one roof. Hire candidates directly post-training or transition them smoothly via Contract-to-Hire (C2H).",
+      "Offer customized and certified trainings under one roof. Hire candidates directly post-training or transition them smoothly via Contract-to-Hire.",
   },
   {
     title: "Industry Ready Talents",
     description:
-      "Standardize training curriculum across global locations. Only candidates meeting your strict post-training evaluation criteria are recruited.",
+      "Standardize training curriculum across global locations. Only candidates meeting the strict post-training evaluation criteria are recruited.",
   },
   {
     title: "Seamless Enterprise Scalability",

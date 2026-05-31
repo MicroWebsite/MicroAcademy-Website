@@ -82,7 +82,7 @@ export default function FreshersDriveContent() {
           >
             <SectionHeader
               eyebrow="Career Pathways"
-              title="Current Active Domains"
+              title="Current Active Openings"
             />
           </motion.div>
 

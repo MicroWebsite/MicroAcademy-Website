@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
     const position = formData.get("position") as string;
     const message = formData.get("message") as string;
     const resumeFile = formData.get("resume") as File | null;
+    const jobId = (formData.get("jobId") as string) || "";
 
     if (!firstName || !lastName || !email || !phone || !position) {
       return NextResponse.json(
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
       position,
       message,
       resumeFile,
+      jobId,
     });
 
     return NextResponse.json({ success: true });

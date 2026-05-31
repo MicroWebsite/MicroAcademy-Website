@@ -49,7 +49,15 @@ function YearCounter({ year, active }: { year: string; active: boolean }) {
   );
 }
 
-function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
+function MilestoneCard({
+  milestone,
+  isFirst,
+  isLast,
+}: {
+  milestone: TimelineMilestone;
+  isFirst: boolean;
+  isLast: boolean;
+}) {
   const isLeft = milestone.side === "left";
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -83,26 +91,61 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
     <div
       ref={cardRef}
       className={`
-        relative flex flex-col items-start gap-4 py-4 md:py-6
-        md:flex-row md:items-center md:gap-0
+        relative py-6 md:py-6
+        md:flex md:flex-row md:items-center md:gap-0
         ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}
+        z-10
       `}
     >
+      {isFirst && (
+        <div className="absolute top-0 bottom-1/2 left-1/2 -translate-x-1/2 w-[6px] bg-bg-cream z-[1] hidden md:block" />
+      )}
+      {isLast && (
+        <div className="absolute top-1/2 bottom-0 left-1/2 -translate-x-1/2 w-[6px] bg-bg-cream z-[1] hidden md:block" />
+      )}
+      {isFirst && (
+        <div className="absolute top-0 h-[30px] left-[16px] -translate-x-1/2 w-[4px] bg-bg-cream z-[1] md:hidden" />
+      )}
+      {isLast && (
+        <div className="absolute bottom-0 h-1/2 left-[16px] -translate-x-1/2 w-[4px] bg-bg-cream z-[1] md:hidden" />
+      )}
+      <div className="flex flex-row items-start gap-4 md:hidden w-full">
+        <div
+          className="flex flex-col items-center shrink-0 pt-1 relative z-10"
+          style={{ width: "32px" }}
+        >
+          <div
+            className={`w-3 h-3 rounded-full ring-4 ring-bg-cream transition-colors duration-500 ${isActive ? "bg-[#8a7a1a]" : "bg-gray-300"}`}
+          />
+        </div>
+        <motion.div style={{ opacity, scale }} className="flex-1 min-w-0">
+          <YearCounter year={milestone.year} active={isActive} />
+          <h3
+            className={`text-sm font-semibold mb-1.5 tracking-wide uppercase transition-colors duration-500 ${isActive ? "text-[#1a1a0e]" : "text-[#6a6a50]"}`}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              letterSpacing: "0.06em",
+            }}
+          >
+            {milestone.title}
+          </h3>
+          <p
+            className="text-xs text-[#4a4a3a] leading-relaxed"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
+          >
+            {milestone.description}
+          </p>
+        </motion.div>
+      </div>
+
+      {/* ── Desktop Layout ── */}
       <motion.div
         style={{ opacity, scale, x }}
-        className={`
-          w-full
-          md:w-[calc(50%-2rem)]
-          ${isLeft ? "md:text-right md:pr-10" : "md:text-left md:pl-10"}
-        `}
+        className={`hidden md:block md:w-[calc(50%-2rem)] ${isLeft ? "md:text-right md:pr-10" : "md:text-left md:pl-10"}`}
       >
         <YearCounter year={milestone.year} active={isActive} />
         <h3
-          className={`
-            text-sm sm:text-base font-semibold mb-1.5
-            tracking-wide uppercase transition-colors duration-500
-            ${isActive ? "text-[#1a1a0e]" : "text-[#6a6a50]"}
-          `}
+          className={`text-sm sm:text-base font-semibold mb-1.5 tracking-wide uppercase transition-colors duration-500 ${isActive ? "text-[#1a1a0e]" : "text-[#6a6a50]"}`}
           style={{
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: "0.06em",
@@ -110,18 +153,15 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
         >
           {milestone.title}
         </h3>
-
         <p
-          className={`
-            text-xs sm:text-sm text-[#4a4a3a] leading-relaxed max-w-xs
-            ${isLeft ? "md:ml-auto" : ""}
-          `}
+          className={`text-xs sm:text-sm text-[#4a4a3a] leading-relaxed max-w-xs ${isLeft ? "md:ml-auto" : ""}`}
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {milestone.description}
         </p>
       </motion.div>
 
+      {/* Desktop center dot */}
       <div className="hidden md:flex md:w-16 md:flex-col md:items-center md:shrink-0 relative z-10">
         <motion.div
           animate={{
@@ -129,23 +169,8 @@ function MilestoneCard({ milestone }: { milestone: TimelineMilestone }) {
             backgroundColor: isActive ? "#8a7a1a" : "#d1d5db",
             boxShadow: isActive ? "0 0 15px rgba(138, 122, 26, 0.4)" : "none",
           }}
-          className="
-            w-3 h-3 rounded-full 
-            ring-4 ring-bg-cream ring-offset-0
-            z-10
-          "
+          className="w-3 h-3 rounded-full ring-4 ring-bg-cream ring-offset-0 z-10"
         />
-      </div>
-      <div className="flex md:hidden items-center gap-3 -mt-1 relative z-10">
-        <div
-          className={`w-2.5 h-2.5 rounded-full shrink-0 transition-colors duration-500 ${isActive ? "bg-[#8a7a1a]" : "bg-gray-300"}`}
-        />
-        <span
-          className={`text-[10px] uppercase tracking-widest font-semibold transition-colors duration-500 ${isActive ? "text-[#8a7a1a]" : "text-gray-400"}`}
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          Milestone
-        </span>
       </div>
       <div className="hidden md:block md:w-[calc(50%-2rem)]" />
     </div>
@@ -213,7 +238,7 @@ export default function ThirtyYearGenesis() {
           <div
             className="
               block md:hidden
-              absolute left-1.25 top-0 bottom-0 w-0.5
+              absolute left-[16px] top-0 bottom-0 w-0.5
               bg-gray-200/50 overflow-hidden
             "
           >
@@ -223,9 +248,14 @@ export default function ThirtyYearGenesis() {
             />
           </div>
 
-          <div className="flex flex-col gap-0 md:gap-0 pl-7 md:pl-0">
-            {timelineMilestones.map((milestone) => (
-              <MilestoneCard key={milestone.year} milestone={milestone} />
+          <div className="flex flex-col gap-0 md:gap-0 md:pl-0">
+            {timelineMilestones.map((milestone, index) => (
+              <MilestoneCard
+                key={milestone.year}
+                milestone={milestone}
+                isFirst={index === 0}
+                isLast={index === timelineMilestones.length - 1}
+              />
             ))}
           </div>
         </div>

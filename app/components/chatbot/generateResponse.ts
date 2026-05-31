@@ -1,54 +1,45 @@
 import { botResponses } from "./data";
 import { StrapiData } from "@/app/types/chatbot";
 import { JobPosition, FresherDrive } from "@/app/types/drupal";
-
-// Enriched Static Data Imports
 import { clientsData } from "@/app/data/clientsData";
 import { countriesData } from "@/app/data/countriesData";
 import { timelineMilestones } from "@/app/data/timelineMilestones";
 import { keyAchievementsData } from "@/app/data/keyAchievementsData";
 import { microAdvantageData } from "@/app/data/microAdvantageData";
 
-// Helper to find a fresher drive in the user query
-function matchesAny(text: string, keywords: string[]): boolean {
-  return keywords.some((kw) => text.includes(kw));
-}
-
 function matchesWord(text: string, keyword: string): boolean {
-  if (keyword.length <= 3) {
-    const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return new RegExp(`\\b${escaped}\\b`, "i").test(text);
-  }
-  return text.includes(keyword);
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?<![a-zA-Z0-9])${escaped}(?![a-zA-Z0-9])`, "i").test(
+    text,
+  );
 }
 
-// Helper to find a fresher drive in the user query
+function matchesAny(text: string, keywords: string[]): boolean {
+  return keywords.some((kw) => matchesWord(text, kw));
+}
+
 function findMatchedDrive(
   query: string,
   drives: FresherDrive[],
 ): FresherDrive | null {
   if (drives.length === 0) return null;
-
-  // 1. Keyword match in title, designation, or domain
   for (const drive of drives) {
     const title = drive.title.toLowerCase();
     const designation = (drive.designation || "").toLowerCase();
     const domain = (drive.domain || "").toLowerCase();
 
     const titleWords = title.split(/\s+/).filter((w) => w.length > 3);
-    const hasWordMatch = titleWords.some((word) => query.includes(word));
+    const hasWordMatch = titleWords.some((word) => matchesWord(query, word));
 
     if (
-      (domain && query.includes(domain)) ||
-      (designation && query.includes(designation)) ||
+      (domain && matchesWord(query, domain)) ||
+      (designation && matchesWord(query, designation)) ||
       hasWordMatch ||
-      query.includes(title)
+      matchesWord(query, title)
     ) {
       return drive;
     }
   }
-
-  // 2. Fallback: if there is only 1 drive, and query asks for specific drive fields and is not generic
   if (
     drives.length === 1 &&
     matchesAny(query, [
@@ -71,26 +62,37 @@ function findMatchedDrive(
   return null;
 }
 
-// Helper to find a job position in the user query
 function findMatchedJob(
   query: string,
   jobs: JobPosition[],
 ): JobPosition | null {
   if (jobs.length === 0) return null;
-
-  // If the query is generic, do not match a specific job
-  if (matchesAny(query, ["openings", "careers", "jobs", "vacancies"])) {
+  if (
+    matchesAny(query, [
+      "openings",
+      "careers",
+      "jobs",
+      "vacancies",
+      "service",
+      "services",
+      "about",
+      "contact",
+      "training",
+      "hiring",
+      "corporate",
+    ])
+  ) {
     return null;
   }
 
   for (const job of jobs) {
     const title = job.title.toLowerCase();
-    const jobId = (job.job_id || job.jobId || "").toLowerCase();
+    const jobId = (job.jobId || "").toLowerCase();
 
-    if (jobId && query.includes(jobId)) {
+    if (jobId && matchesWord(query, jobId)) {
       return job;
     }
-    if (query.includes(title)) {
+    if (matchesWord(query, title)) {
       return job;
     }
 
@@ -107,7 +109,7 @@ function findMatchedJob(
       );
     if (
       titleWords.length > 0 &&
-      titleWords.some((word) => query.includes(word))
+      titleWords.some((word) => matchesWord(query, word))
     ) {
       return job;
     }
@@ -701,8 +703,6 @@ export function generateBotResponse(
   if (matchesAny(lower, goodbyeKeywords) && lower.length < 30) {
     return "Goodbye! 👋 Thanks for chatting with MicroBot. Feel free to come back anytime. Have a great day!";
   }
-
-  // Enriched Static Section Intents
   if (matchesAny(lower, clientKeywords)) {
     return `🤝 **Valued Partners & Clients**\n\nMicro Academy is a trusted partner for leading IT multinationals globally. A few of our valued clients include:\n\n${clientsData.clients.map((c) => `• **${c.name}**`).join("\n")}\n\nWe collaborate closely with these organizations to source elite digital talent and deliver custom L&D programs.`;
   }
@@ -750,7 +750,7 @@ export function generateBotResponse(
   }
 
   if (matchesAny(lower, trainHireStepsKeywords)) {
-    return `🎓 **Train & Hire Process Steps**\n\nWe follow a rigorous 5-step methodology to ensure candidates are enterprise-ready:\n\n1️⃣ **Sourcing:** Candidates are strategically sourced and shortlisted based strictly on your precise technical and cultural criteria.\n2️⃣ **Pre-Selection:** A rigorous pre-selection by your team, encompassing aptitude, technical capability, and HR round evaluations.\n3️⃣ **Training:** Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to your business needs.\n4️⃣ **Assessment:** Comprehensive final assessment conducted by your team to validate readiness before formal induction.\n5️⃣ **Job Placement:** Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire (C2H) basis.\n\nVisit our Train & Hire page to learn more!`;
+    return `🎓 **Train & Hire Process Steps**\n\nWe follow a rigorous 5-step methodology to ensure candidates are enterprise-ready:\n\n1️⃣ **Sourcing:** Candidates are strategically sourced and shortlisted based strictly on your precise technical and cultural criteria.\n2️⃣ **Pre-Selection:** A rigorous pre-selection by your team, encompassing aptitude, technical capability, and HR round evaluations.\n3️⃣ **Training:** Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to your business needs.\n4️⃣ **Assessment:** Comprehensive final assessment conducted by your team to validate readiness before formal induction.\n5️⃣ **Job Placement:** Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire basis.\n\nVisit our Train & Hire page to learn more!`;
   }
 
   if (matchesAny(lower, lmsKeywords)) {
@@ -764,8 +764,6 @@ export function generateBotResponse(
   if (matchesAny(lower, directLateralProcessKeywords)) {
     return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/Lateral Hiring page for full details!`;
   }
-
-  // Dynamic Strapi Data Lookups (Fresher Drives and Job Positions)
   if (strapiData?.isLoaded) {
     // 1. Specific Fresher Drive Lookup
     const matchedDrive = findMatchedDrive(lower, strapiData.fresherDrives);
@@ -801,8 +799,6 @@ export function generateBotResponse(
       if (lower.includes("note")) {
         return `ℹ️ **Additional Notes for ${matchedDrive.title}**:\n${matchedDrive.notes}`;
       }
-
-      // Default response when a drive is matched but no specific field was requested
       return `🎓 **${matchedDrive.title}**\n\nHere are the details for this Freshers Drive:\n• 💼 **Designation:** ${matchedDrive.designation} (Domain: ${matchedDrive.domain})\n• 💰 **Salary Package:** ${matchedDrive.salary}\n• 📍 **Location:** ${matchedDrive.location}\n• 🏫 **Venue:** ${matchedDrive.venue}\n• 🎓 **Eligibility:** Degree: ${matchedDrive.degree_requirement} | Aggregate: ${matchedDrive.minimum_aggregate} | Year: ${matchedDrive.academic_year}\n• 📝 **Selection Process:** ${matchedDrive.selection_process}\n• 📞 **Contact:** ${matchedDrive.contact}\n\nVisit our Freshers Drive page to register!`;
     }
 
@@ -824,7 +820,7 @@ export function generateBotResponse(
       if (matchesAny(lower, ["salary", "ctc", "package", "pay"])) {
         return `💰 Compensation for **${matchedJob.title}** is commensurate with experience and skills.\n\nApply now to discuss with our recruitment team!`;
       }
-      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.job_id || matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our Recruitments page to submit your application!`;
+      return `💼 **Job Details: ${matchedJob.title}**\n\n• 🆔 **Job ID:** ${matchedJob.jobId || "N/A"}\n• 📍 **Location:** ${matchedJob.location}\n• ⏳ **Experience:** ${matchedJob.experience || "Not specified"}\n• 🎓 **Education:** ${matchedJob.education}\n• 🏷️ **Type:** ${matchedJob.type || "Full-time"}\n\nWould you like to apply? Visit our Recruitments page to submit your application!`;
     }
   }
   if (strapiData?.isLoaded) {
@@ -875,7 +871,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Direct/Lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contractual hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 Our Direct/Lateral Hiring Services:\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
 
     if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
       response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;
@@ -969,7 +965,9 @@ export function generateBotResponse(
   }
 
   if (strapiData?.isLoaded) {
-    const matchedCity = locationCityKeywords.find((kw) => lower.includes(kw));
+    const matchedCity = locationCityKeywords.find((kw) =>
+      matchesWord(lower, kw),
+    );
 
     if (
       matchedCity &&
@@ -1009,10 +1007,10 @@ export function generateBotResponse(
     const allJobs = getAllJobs(strapiData);
 
     if (
-      lower.includes("fresher") ||
-      lower.includes("entry") ||
-      lower.includes("intern") ||
-      lower.includes("trainee")
+      matchesWord(lower, "fresher") ||
+      matchesWord(lower, "entry") ||
+      matchesWord(lower, "intern") ||
+      matchesWord(lower, "trainee")
     ) {
       if (strapiData.fresherDrives.length > 0) {
         return `Great news for freshers! 🎓\n\n${formatDriveList(strapiData.fresherDrives)}\n\nAlso visit our Recruitments page for entry-level positions.`;
@@ -1039,7 +1037,7 @@ export function generateBotResponse(
     return "We have opportunities across all experience levels. You can visit our Recruitments page, or see our Freshers Drive page for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
-    return "🎓 Train & Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals. Our value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire (C2H)\n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
+    return "🎓 Train & Hire Services:\n\nWe bridge the gap between raw talent and enterprise-ready professionals. Our value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire \n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
   }
   if (matchesAny(lower, corporateTrainingKeywords)) {
     return "🏫 Corporate Training:\n\nWith 3 decades of IT training expertise, we offer specialized programs across 4 key technology domains:\n\n💻 1. System Administration\n• Windows & Linux Server Administration\n• IBM Mainframe / IBM i Administration\n• Networking & Virtualization, Database Admin, Storage & Backup\n\n🚀 2. Application Development\n• Java Full Stack, .NET, Angular JS\n• Web Technologies, Middleware, Testing\n\n🤝 3. Soft Skills\n• Critical Thinking & Problem Solving, Agility & Adaptability\n• Leadership & Project Management, Cross-Cultural Collaboration\n\n🔮 4. Niche Technologies\n• AI Transformation for Business & IT Leaders\n• AI / ML / Gen AI Tech Stack\n• Data Science & Analytics, Network & Cybersecurity, Automation & Robotics\n\n📊 3,500+ Trainings Delivered | 25,000+ People Trained\n🏅 ISO 9001:2015 Certified Methodology\n\nContact us to customize a training program for your team!";

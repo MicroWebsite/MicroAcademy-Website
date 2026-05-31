@@ -9,6 +9,7 @@ export function buildJobApplicationEmailHtml(data: {
   message: string;
   timestamp: string;
   hasResume: boolean;
+  jobId?: string;
 }) {
   return `
       <!DOCTYPE html>
@@ -44,12 +45,17 @@ export function buildJobApplicationEmailHtml(data: {
                     </table>
                   </td>
                 </tr>
-
+ 
                 <!-- Content Section -->
                 <tr>
                   <td style="padding: 48px 40px;">
                     <!-- Position Highlight -->
                     <div style="margin-bottom: 40px; padding: 24px; background-color: #F9F8F3; border-radius: 16px; border-left: 4px solid #FBE426;">
+                      ${
+                        data.jobId
+                          ? `<div style="color: #6A5F00; font-size: 11px; font-weight: 800; background-color: #FBE426; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">JOB ID: ${data.jobId}</div>`
+                          : ""
+                      }
                       <div style="color: #666; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">APPLIED FOR</div>
                       <div style="color: #6A5F00; font-size: 20px; font-weight: 800;">${data.position}</div>
                     </div>

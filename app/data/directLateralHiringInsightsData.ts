@@ -95,7 +95,7 @@ export const directLateralHiringSources: DirectLateralHiringSource[] = [
 export const directLateralHiringAdvantages: string[] = [
   "3 decades in the IT Industry",
   "Multiple Sourcing channels",
-  "Hiring Flexibility with multiple hiring models: Permanent Hire, Contract to Hire (C2H), Train to Hire (T2H)",
+  "Hiring Flexibility with multiple hiring models: Permanent Hire, Contract to Hire, Train to Hire",
   "Strong Technical Knowledge to help better understanding of client requirement",
   "Timely supply of resources at all levels",
 ];

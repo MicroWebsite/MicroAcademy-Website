@@ -39,7 +39,7 @@ export const capabilitiesData: {
         titleLine1: "Train to Hire",
         titleAccent: "Model",
         description:
-          "We bridge the gap between raw talent and enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
+          "We transform raw talent into enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
         // primaryCTA: { label: "Partner With Us", href: "/contact" },
         // secondaryCTA: { label: "Explore Services", href: "/services" },
         image: {
@@ -62,7 +62,7 @@ export const capabilitiesData: {
         titleLine1: "Strategic Talent",
         titleAccent: "Architecture",
         description:
-          "Bridging the gap between raw potential and industry mastery. We build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
+          "From raw potential to industry mastery — we build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
         // primaryCTA: { label: "Explore Services", href: "/contact" },
         // secondaryCTA: { label: "View Roles", href: "/services" },
         image: {
@@ -85,7 +85,7 @@ export const capabilitiesData: {
         titleLine1: "Contract",
         titleAccent: "Hiring Solutions",
         description:
-          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, bridging urgent skill gaps while minimizing attrition risks.",
+          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, closing urgent skill gaps while minimizing attrition risks.",
         // primaryCTA: { label: "Hire Contractors", href: "/contact" },
         // secondaryCTA: { label: "Browse Roles", href: "/services" },
         image: {
@@ -99,7 +99,7 @@ export const capabilitiesData: {
       icon: "corporate-training",
       title: "Corporate Training",
       description:
-        "Having been in the IT training domain for over 2 decades, we have with us instructors/consultants, who specialize in a wide range of technologies and have rich domain experience helping us customize your training requirement.",
+        "Having been in the IT training domain for over 3 decades, we have with us instructors/consultants, who specialize in a wide range of technologies and have rich domain experience helping us customize your training requirement.",
       ctaLabel: "Explore Corporate Training",
       ctaHref: "/services/corporate-training",
       highlighted: true,

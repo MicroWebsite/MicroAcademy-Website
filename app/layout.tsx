@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
     images: [
       {
-        url: "/assets/headers/HomePage.jpg",
+        url: "/assets/headers/Homepage.png",
         width: 1200,
         height: 630,
         alt: "Micro Academy - Workforce Intelligence",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Micro Academy - The Future of Workforce Intelligence",
     description:
       "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems.",
-    images: ["/assets/headers/HomePage.jpg"],
+    images: ["/assets/headers/Homepage.png"],
   },
   robots: {
     index: true,

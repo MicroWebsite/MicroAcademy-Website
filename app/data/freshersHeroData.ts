@@ -1,13 +1,13 @@
 import { HeroProps } from "../types/hero";
 
 export const freshersHeroData: HeroProps = {
-  badge: "Recruitment 2026",
-  titleLine1: "Freshers Recruitment",
-  titleAccent: "Drive 2026",
+  badge: "Freshers Hiring",
+  titleLine1: "Freshers Hiring",
+  titleAccent: "Drive",
   description:
-    "We bridge the gap between academic graduates and enterprise success. Through our year-round fresher recruitment drives and intensive technical training, we prepare candidates for their dream roles in global companies.",
+    "Our training programs are custom-designed in direct collaboration with our enterprise clients. Under this model, the client participates in selecting the trainers to ensure alignment with their tech stack, while we deliver immersive, hands-on training designed to make candidates immediately productive on day one.",
   image: {
     src: "/assets/headers/freshers.png",
-    alt: "Micro Academy Freshers Recruitment Drive",
+    alt: "Micro Academy Freshers Hiring Drive",
   },
 };

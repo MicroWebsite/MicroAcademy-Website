@@ -12,6 +12,7 @@ export async function processContractHiringSubmission(data: {
   position: string;
   message: string;
   resumeFile: File | null;
+  jobId?: string;
 }) {
   const timestamp = getIndiaTimestamp();
   const resume = await toResumeAttachment(data.resumeFile);
@@ -19,6 +20,7 @@ export async function processContractHiringSubmission(data: {
   try {
     await appendSheetValues("CorporateTraining", [
       [
+        data.jobId || "",
         data.firstName,
         data.lastName,
         data.email,
@@ -54,6 +56,7 @@ export async function processContractHiringSubmission(data: {
       message: data.message,
       timestamp,
       hasResume: Boolean(resume),
+      jobId: data.jobId,
     }),
     attachments: resume
       ? [

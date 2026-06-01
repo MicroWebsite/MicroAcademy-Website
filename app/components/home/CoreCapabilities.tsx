@@ -43,10 +43,10 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
       y: -5,
       transition: { type: "spring", stiffness: 400, damping: 25 },
     }}
-    className={`relative rounded-3xl p-8 lg:p-10 flex flex-col h-full overflow-hidden ${
+    className={`relative rounded-3xl p-8 lg:p-10 flex flex-col h-full overflow-hidden border transition-all duration-300 ${
       highlighted
-        ? "bg-bg-cream"
-        : "bg-white shadow-[0_4px_25px_rgb(180,175,150,0.15)]"
+        ? "bg-bg-cream border-border-light/80 shadow-[0_8px_30px_rgba(0,0,0,0.02)]"
+        : "bg-white border-border-light shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:border-border-muted"
     }`}
   >
     <div

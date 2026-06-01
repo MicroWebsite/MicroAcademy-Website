@@ -52,7 +52,7 @@ export default function WhySection() {
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-primary/20 flex items-center gap-3">
-              Student-Based Opportunities
+              For Aspiring Talents
             </h3>
 
             <div className="flex flex-col gap-8 flex-1 justify-between">
@@ -88,7 +88,7 @@ export default function WhySection() {
             className="bg-white rounded-3xl p-6 sm:p-8 border border-border/40 shadow-[0_4px_25px_rgba(180,175,150,0.08)] flex flex-col h-full"
           >
             <h3 className="text-xl sm:text-2xl font-extrabold text-text-dark font-manrope mb-8 pb-4 border-b-2 border-secondary/50 flex items-center gap-3">
-              Client & Company Advantages
+              For Enterprise Partners
             </h3>
 
             <div className="flex flex-col gap-8 flex-1 justify-between">

@@ -12,22 +12,22 @@ export interface Capability {
 
 export const capabilitiesData = {
   sectionTag: "OUR CORE CAPABILITIES",
-  heading: "Comprehensive Talent & Learning Solutions",
+  heading: "Tailored Solutions for IT Excellence",
   items: [
     {
       id: "train-hire",
       title: "Train and Hire",
       description:
-        "We source, assess, train, and deploy candidates based on your business requirements. Our Train and Hire model enables organizations to build a skilled workforce in niche technologies while reducing recruitment and training costs.",
+        "We help address your need for 'Just in Time' hiring be it for fresh graduates. We source, screen, and train candidates on specialized technologies to make them day-one productive for the organization's requirements.",
       ctaLabel: "Explore Train and Hire",
       ctaHref: "/services/train-and-hire",
       highlighted: false,
       heroData: {
-        badge: "TRAIN • ASSESS • DEPLOY",
-        titleLine1: "Train and",
-        titleAccent: "Hire",
+        badge: "MICRO ACADEMY EXCLUSIVE",
+        titleLine1: "Train and Hire",
+        titleAccent: "Model",
         description:
-          "From sourcing and assessment to customized technical training and final deployment, we deliver job-ready professionals aligned to your business needs.",
+          "We transform raw talent into enterprise-ready professionals through our proprietary training methodology, delivering pre-vetted, job-ready candidates.",
         image: {
           src: "/assets/headers/train.png",
           alt: "Train and Hire Program at Micro Academy",
@@ -38,16 +38,16 @@ export const capabilitiesData = {
       id: "direct-lateral-hiring",
       title: "Direct/Lateral Hiring",
       description:
-        "Leveraging multiple sourcing channels, industry networks, advisory recommendations, and three decades of IT expertise, we help organizations hire the right talent across entry-level, mid-level, senior, and leadership positions.",
+        "With the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.",
       ctaLabel: "Explore Direct/Lateral Hiring",
       ctaHref: "/services/direct-lateral-hiring",
       highlighted: true,
       heroData: {
-        badge: "IT RECRUITMENT SPECIALISTS",
-        titleLine1: "Direct/Lateral",
-        titleAccent: "Hiring",
+        badge: "Direct/Lateral Hiring Excellence",
+        titleLine1: "Strategic Talent",
+        titleAccent: "Architecture",
         description:
-          "From software engineers and cloud specialists to architects and CXOs, we identify and deliver top-tier technology talent for long-term success.",
+          "From raw potential to industry mastery — we build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
         image: {
           src: "/assets/headers/DirectLateralHiring.png",
           alt: "IT Recruitment and Direct/Lateral Hiring Services",
@@ -58,19 +58,19 @@ export const capabilitiesData = {
       id: "contract-hiring",
       title: "Contract Hiring",
       description:
-        "We source and deploy skilled professionals on Micro Academy's payroll for the contract duration, providing clients with flexibility to directly absorb resources during or after the engagement period.",
+        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
       ctaLabel: "Explore Contract Hiring",
       ctaHref: "/services/contract-hiring",
       highlighted: false,
       heroData: {
         badge: "FLEXIBLE WORKFORCE SOLUTIONS",
         titleLine1: "Contract",
-        titleAccent: "Hiring",
+        titleAccent: "Hiring Solutions",
         description:
-          "Scale your teams quickly with pre-screened IT professionals while retaining the flexibility to convert high-performing talent into full-time employees.",
+          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, closing urgent skill gaps while minimizing attrition risks.",
         image: {
           src: "/assets/headers/Contract.png",
-          alt: "Contract Hiring Staffing Solutions",
+          alt: "Contract Hiring Solutions",
         },
       },
     },
@@ -78,16 +78,16 @@ export const capabilitiesData = {
       id: "corporate-training",
       title: "Corporate Training",
       description:
-        "With over 30 years of learning and development expertise, we deliver customized corporate, technical, certification-oriented, and soft-skills training programs across emerging and enterprise technologies.",
+        "Having been in the IT training domain for over 3 decades, we have with us instructors/consultants, who specialize in a wide range of technologies and have rich domain experience helping us customize your training requirement.",
       ctaLabel: "Explore Corporate Training",
       ctaHref: "/services/corporate-training",
       highlighted: true,
       heroData: {
-        badge: "30 YEARS OF LEARNING EXCELLENCE",
-        titleLine1: "Corporate",
-        titleAccent: "Training",
+        badge: "The Strategic Framework",
+        titleLine1: "Strategic Skill",
+        titleAccent: "Architecture",
         description:
-          "Empower your workforce with industry-relevant training in AI, Cloud, Cybersecurity, Full Stack Development, System Administration, Leadership, and more.",
+          "We architect enterprise-grade training ecosystems that transform your workforce into a competitive advantage. Our ISO-certified methodology ensures measurable skill elevation across all technology domains.",
         image: {
           src: "/assets/headers/Corporate.png",
           alt: "Corporate Training Programs at Micro Academy",

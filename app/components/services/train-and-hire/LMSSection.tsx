@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   BarChart3,
   BookOpen,
@@ -8,7 +9,7 @@ import {
   GraduationCap,
   Calendar,
 } from "lucide-react";
-import { lmsFeatures } from "@/app/data/trainAndHirePageData";
+import { lmsFeatures, LMSFeature } from "@/app/data/trainAndHirePageData";
 import SectionHeader from "@/app/components/common/SectionHeader";
 
 const iconMap = {
@@ -19,205 +20,252 @@ const iconMap = {
   Calendar: Calendar,
 };
 
-interface BoxPosition {
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-  x?: string;
-  y?: string;
-  lineEnd: { x: number; y: number };
-}
-
-const boxPositions: BoxPosition[] = [
-  { top: "0", left: "50%", x: "-50%", lineEnd: { x: 500, y: 110 } },
-  { top: "50%", right: "20px", y: "-50%", lineEnd: { x: 700, y: 260 } },
-  { bottom: "0", right: "10%", lineEnd: { x: 640, y: 410 } },
-  { bottom: "0", left: "10%", lineEnd: { x: 360, y: 410 } },
-  { top: "50%", left: "20px", y: "-50%", lineEnd: { x: 300, y: 260 } },
-];
-
 export default function LMSSection() {
+  const [activeFeature, setActiveFeature] = useState<LMSFeature>(
+    lmsFeatures[0],
+  );
+
+  const coordinates = [
+    { x: 0, y: -170 },
+    { x: 162, y: -53 },
+    { x: 100, y: 138 },
+    { x: -100, y: 138 },
+    { x: -162, y: -53 },
+  ];
+
   return (
     <section className="relative w-full bg-white py-14 px-4 sm:px-6 sm:py-16 lg:px-8 lg:py-20 border-t border-gray-100 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient background grid pattern and glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e0d4_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-304 mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mb-12 lg:mb-16"
+          className="mb-10 lg:mb-14"
         >
           <SectionHeader
             eyebrow="Proprietary Infrastructure"
             title="Our Learning Management System"
-            align="center"
           />
         </motion.div>
-        <div
-          className="hidden lg:block relative w-[1000px] mx-auto mb-10"
-          style={{ height: "520px" }}
-        >
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 1000 520"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            {lmsFeatures.map((_, i) => {
-              const pos = boxPositions[i];
-              const centerX = 500;
-              const centerY = 260;
 
-              return (
-                <g key={i}>
-                  <line
-                    x1={centerX}
-                    y1={centerY}
-                    x2={pos.lineEnd.x}
-                    y2={pos.lineEnd.y}
-                    stroke="#e5e7eb"
-                    strokeWidth="1.5"
-                    strokeDasharray="5 4"
-                  />
-                  <motion.line
-                    x1={centerX}
-                    y1={centerY}
-                    x2={pos.lineEnd.x}
-                    y2={pos.lineEnd.y}
-                    stroke="#fcd34d"
-                    strokeWidth="1.5"
-                    initial={{ strokeDashoffset: 0 }}
-                    animate={{ strokeDashoffset: [0, -16] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "linear",
-                    }}
-                    style={{
-                      strokeDasharray: "6 6",
-                      filter:
-                        "drop-shadow(0px 0px 2px rgba(252, 211, 77, 0.3))",
-                    }}
-                  />
-                </g>
-              );
-            })}
-          </svg>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="w-32 h-32 rounded-full bg-white border border-gray-100 flex items-center justify-center shadow-[0_6px_24px_rgb(0,0,0,0.07)] relative">
-              <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-50" />
-              <div className="absolute inset-2 rounded-full bg-radial from-amber-50 to-amber-100/10 opacity-50" />
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10">
+          <div className="hidden lg:flex items-center justify-center w-[500px] h-[500px] relative shrink-0">
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 500 500"
+            >
+              {lmsFeatures.map((feature, i) => {
+                const coord = coordinates[i];
+                const startX = 250;
+                const startY = 250;
+                const endX = 250 + coord.x;
+                const endY = 250 + coord.y;
+                const isActive = activeFeature.id === feature.id;
+
+                return (
+                  <g key={feature.id}>
+                    <line
+                      x1={startX}
+                      y1={startY}
+                      x2={endX}
+                      y2={endY}
+                      stroke="#f3f4f6"
+                      strokeWidth="3"
+                      strokeDasharray="4 4"
+                    />
+
+                    <motion.line
+                      x1={startX}
+                      y1={startY}
+                      x2={endX}
+                      y2={endY}
+                      stroke={isActive ? "#6a5f00" : "transparent"}
+                      strokeWidth="3"
+                      initial={{ strokeDashoffset: 0 }}
+                      animate={{
+                        strokeDashoffset: isActive ? [0, -10] : 0,
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 1.5,
+                        ease: "linear",
+                      }}
+                      style={{
+                        strokeDasharray: "6 3",
+                        filter: isActive
+                          ? "drop-shadow(0px 0px 4px rgba(106, 95, 0, 0.5))"
+                          : "none",
+                      }}
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+
+            <div className="absolute w-36 h-36 rounded-full bg-white flex items-center justify-center z-20 shadow-[0_8px_30px_rgba(0,0,0,0.08)] group">
+              <div className="absolute inset-0 rounded-full border-2 border-black/10 animate-ping opacity-75" />
+
+              <div className="absolute inset-2 rounded-full bg-radial from-gray-50 to-gray-100/10 opacity-60" />
               <div className="flex flex-col items-center justify-center relative">
                 <span className="text-3xl font-extrabold text-text-dark font-manrope tracking-widest">
                   LMS
                 </span>
-                <span className="text-[9px] text-primary font-bold uppercase tracking-wider mt-0.5">
+                <span className="text-[10px] text-text-dark/80 font-bold uppercase tracking-wider mt-1">
                   Core Engine
                 </span>
               </div>
             </div>
-          </div>
 
-          {lmsFeatures.map((feature, i) => {
-            const pos = boxPositions[i];
-            const Icon = iconMap[feature.iconName];
-            const isYellow = i === 1 || i === 4;
+            {lmsFeatures.map((feature, i) => {
+              const coord = coordinates[i];
+              const Icon = iconMap[feature.iconName];
+              const isActive = activeFeature.id === feature.id;
 
-            return (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="absolute z-10"
-                style={{
-                  width: "280px",
-                  top: pos.top,
-                  left: pos.left,
-                  right: pos.right,
-                  bottom: pos.bottom,
-                  x: pos.x,
-                  y: pos.y,
-                }}
-              >
-                <div className="bg-bg-cream rounded-xl px-5 py-4 border border-amber-100/60 shadow-[0_3px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)] transition-all duration-300 group">
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 ${
-                        isYellow
-                          ? "bg-amber-100 text-amber-600 group-hover:bg-amber-400 group-hover:text-white"
-                          : "bg-gray-900 text-white"
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <h3 className="text-xs font-extrabold text-text-dark font-manrope leading-tight">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p className="text-[11px] leading-relaxed text-text-muted-alt font-manrope">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-        <div className="flex flex-col gap-4 lg:hidden mb-6">
-          <div className="flex justify-center mb-3">
-            <div className="w-24 h-24 rounded-full bg-white border border-gray-100 flex items-center justify-center shadow-[0_6px_24px_rgb(0,0,0,0.06)] relative">
-              <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-50" />
-              <div className="absolute inset-2 rounded-full bg-radial from-amber-50 to-amber-100/10 opacity-50" />
-              <div className="flex flex-col items-center justify-center relative">
-                <span className="text-xl font-extrabold text-text-dark font-manrope tracking-widest">
-                  LMS
-                </span>
-                <span className="text-[7px] text-primary font-bold uppercase tracking-wider mt-0.5">
-                  Core Engine
-                </span>
-              </div>
-            </div>
-          </div>
-          {lmsFeatures.map((feature, i) => {
-            const Icon = iconMap[feature.iconName];
-            const isYellow = i === 1 || i === 4;
-
-            return (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                whileHover={{
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 25 },
-                }}
-                className="px-4 py-3.5 rounded-xl border bg-bg-cream border-amber-100/60 flex gap-3 items-center"
-              >
-                <div
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                    isYellow
-                      ? "bg-amber-100 text-amber-600"
-                      : "bg-gray-900 text-white"
-                  }`}
+              return (
+                <button
+                  key={feature.id}
+                  onMouseEnter={() => setActiveFeature(feature)}
+                  onClick={() => setActiveFeature(feature)}
+                  style={{
+                    transform: `translate(${coord.x}px, ${coord.y}px)`,
+                  }}
+                  className={`
+                    absolute w-16 h-16 rounded-full flex items-center justify-center cursor-pointer z-30 transition-all duration-300 border-0
+                    ${
+                      isActive
+                        ? "scale-110 bg-primary text-white shadow-[0_0_20px_rgba(106,95,0,0.45)]"
+                        : "bg-white text-text-dark shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:scale-105 hover:bg-white hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
+                    }
+                  `}
                 >
-                  <Icon className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <h4 className="text-xs font-bold text-text-dark font-manrope">
-                    {feature.title}
-                  </h4>
-                  <p className="text-[11px] leading-relaxed text-text-muted-alt font-manrope mt-0.5">
-                    {feature.description}
+                  <Icon className="w-6 h-6" />
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="flex-1 w-full max-w-lg min-h-[350px] flex flex-col justify-center">
+            <div className="hidden lg:block">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFeature.id}
+                  initial={{ opacity: 0, x: 15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-bg-cream rounded-3xl p-10 shadow-[0_10px_40px_rgba(252,211,77,0.04)] relative"
+                >
+                  <div className="absolute top-10 right-10 opacity-10">
+                    {React.createElement(iconMap[activeFeature.iconName], {
+                      className: "w-24 h-24 text-primary",
+                    })}
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-primary text-white shadow-lg shadow-primary/20">
+                      {React.createElement(iconMap[activeFeature.iconName], {
+                        className: "w-6 h-6",
+                      })}
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary font-inter">
+                        {activeFeature.subtitle}
+                      </span>
+                      <h3 className="text-xl font-extrabold text-text-dark font-manrope mt-0.5">
+                        {activeFeature.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <p className="text-base leading-relaxed text-text-muted-alt font-manrope">
+                    {activeFeature.description}
                   </p>
-                </div>
-              </motion.div>
-            );
-          })}
+
+                  <div className="mt-8 pt-6 border-t border-border-light/80 flex items-center justify-between text-xs text-text-muted">
+                    <span className="font-semibold uppercase tracking-wider text-amber-700">
+                      LMS Integrated Node
+                    </span>
+                    <span className="font-medium">
+                      Continuous Deployment Stack
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className="flex flex-col gap-6 lg:hidden">
+              {lmsFeatures.map((feature, i) => {
+                const Icon = iconMap[feature.iconName];
+                const isActive = activeFeature.id === feature.id;
+                const isYellowNode = i === 1 || i === 4;
+
+                return (
+                  <motion.div
+                    key={feature.id}
+                    onClick={() => setActiveFeature(feature)}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    whileHover={{
+                      y: -5,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                      },
+                    }}
+                    className={`
+                      p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-5 items-start
+                      ${
+                        isActive
+                          ? "bg-bg-cream border-transparent shadow-md"
+                          : "bg-white border-gray-100 hover:border-gray-200 hover:bg-gray-50/50"
+                      }
+                    `}
+                  >
+                    <div
+                      className={`
+                        w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300
+                        ${
+                          isActive
+                            ? "bg-primary text-white"
+                            : "bg-bg-cream text-text-dark"
+                        }
+                      `}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                        {feature.subtitle}
+                      </span>
+                      <h4 className="text-lg font-bold text-text-dark font-manrope">
+                        {feature.title}
+                      </h4>
+                      {isActive && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          transition={{ duration: 0.2 }}
+                          className="text-sm leading-relaxed text-text-muted-alt font-manrope mt-2"
+                        >
+                          {feature.description}
+                        </motion.p>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -211,7 +211,7 @@ export default function ChatWindow({
             onChange={(e) => onInputChange(e.target.value)}
             placeholder="Type your message..."
             aria-label="Type your message"
-            className="flex-1 px-4 py-2.5 rounded-full bg-bg-cream border border-border text-sm text-text-dark placeholder-text-label-input outline-none focus:border-primary focus:ring-2 focus:ring-secondary/30 transition-all"
+            className="flex-1 px-4 py-2.5 rounded-full bg-bg-cream border border-primary text-sm text-text-dark placeholder-text-label-input outline-none transition-all"
           />
           <button
             type="submit"

@@ -98,16 +98,16 @@ function MilestoneCard({
       `}
     >
       {isFirst && (
-        <div className="absolute top-0 bottom-1/2 left-1/2 -translate-x-1/2 w-[6px] bg-bg-cream z-[1] hidden md:block" />
+        <div className="absolute top-0 bottom-1/2 left-1/2 -translate-x-1/2 w-1.5 bg-white z-1 hidden md:block" />
       )}
       {isLast && (
-        <div className="absolute top-1/2 bottom-0 left-1/2 -translate-x-1/2 w-[6px] bg-bg-cream z-[1] hidden md:block" />
+        <div className="absolute top-1/2 bottom-0 left-1/2 -translate-x-1/2 w-1.5 bg-white z-1 hidden md:block" />
       )}
       {isFirst && (
-        <div className="absolute top-0 h-[30px] left-[16px] -translate-x-1/2 w-[4px] bg-bg-cream z-[1] md:hidden" />
+        <div className="absolute top-0 h-7.5 left-4 -translate-x-1/2 w-1 bg-white z-1 md:hidden" />
       )}
       {isLast && (
-        <div className="absolute bottom-0 h-1/2 left-[16px] -translate-x-1/2 w-[4px] bg-bg-cream z-[1] md:hidden" />
+        <div className="absolute bottom-0 h-1/2 left-4 -translate-x-1/2 w-1 bg-white z-1 md:hidden" />
       )}
       <div className="flex flex-row items-start gap-4 md:hidden w-full">
         <div
@@ -137,8 +137,6 @@ function MilestoneCard({
           </p>
         </motion.div>
       </div>
-
-      {/* ── Desktop Layout ── */}
       <motion.div
         style={{ opacity, scale, x }}
         className={`hidden md:block md:w-[calc(50%-2rem)] ${isLeft ? "md:text-right md:pr-10" : "md:text-left md:pl-10"}`}
@@ -160,8 +158,6 @@ function MilestoneCard({
           {milestone.description}
         </p>
       </motion.div>
-
-      {/* Desktop center dot */}
       <div className="hidden md:flex md:w-16 md:flex-col md:items-center md:shrink-0 relative z-10">
         <motion.div
           animate={{
@@ -238,7 +234,7 @@ export default function ThirtyYearGenesis() {
           <div
             className="
               block md:hidden
-              absolute left-[16px] top-0 bottom-0 w-0.5
+              absolute left-4 top-0 bottom-0 w-0.5
               bg-gray-200/50 overflow-hidden
             "
           >

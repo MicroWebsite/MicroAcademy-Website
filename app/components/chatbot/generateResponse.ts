@@ -689,7 +689,9 @@ export function generateBotResponse(
   userMessage: string,
   strapiData?: StrapiData,
 ): string {
-  if (botResponses[userMessage]) {
+  if (userMessage === "💼 Job Openings" && strapiData?.isLoaded) {
+    // Bypass static response to handle dynamically below
+  } else if (botResponses[userMessage]) {
     return botResponses[userMessage];
   }
   const lower = userMessage.toLowerCase().trim();
@@ -871,12 +873,12 @@ export function generateBotResponse(
       return "There are no freshers drives scheduled right now. 📋\n\nBut we conduct drives regularly! Keep checking our Freshers Drive page or contact us at info@microacademy.net to stay updated.";
     }
 
-    return botResponses["🎓 Freshers Drive"];
+    return botResponses["🎓 Freshers Hiring"];
   }
 
   if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Direct/Lateral Hiring Services:\n\nLeveraging multiple sourcing channels, industry networks, advisory recommendations, and three decades of IT expertise, we help organizations hire the right talent across entry-level, mid-level, senior, and leadership positions.\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 Our Direct/Lateral Hiring Services:\n\nWith the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
 
     if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
       response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;
@@ -892,6 +894,8 @@ export function generateBotResponse(
         response += `\n\n...and ${strapiData.directLateralHiring.length - 5} more!`;
       }
       response += `\n\n🔗 Visit our Recruitments page for full details and to apply!`;
+    } else {
+      response += `\n\n📋 Current direct/lateral hiring openings:\n\n• Sr. Service Desk Analyst — Chennai (3 - 10 Years)\n• Recruiter — Bangalore (1 Year)\n• Exchange and Windows AD — Chennai (6 - 15 Years)\n\n🔗 Visit our Recruitments page for full details and to apply!`;
     }
 
     return response;
@@ -899,7 +903,7 @@ export function generateBotResponse(
 
   if (matchesAny(lower, contractKeywords)) {
     let response =
-      "📝 Contract Hiring:\n\nWe source and deploy skilled professionals on Micro Academy's payroll for the contract duration, providing clients with flexibility to directly absorb resources during or after the engagement period.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
+      "📝 Contract Hiring:\n\nMicro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
 
     if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
       response += `\n\n📋 Current contract positions:\n\n`;
@@ -962,11 +966,11 @@ export function generateBotResponse(
 
       return (
         "Here are the available job vacancies by category:\n\n" +
-        parts.join("\n\n────────────────\n\n")
+        parts.join("\n\n")
       );
     }
 
-    return botResponses["💼 Job Openings"];
+    return "Here are the available job vacancies by category:\n\n💼 **Full Time**\n• Sr. Service Desk Analyst\n• Recruiter\n• Exchange and Windows AD\n\nVisit our Recruitments page to see full details!\n\n📝 **Contract**\n• Recruiter\n• Exchange and Windows AD\n\nVisit our Recruitments page to see full details!\n\n🎓 **Freshers Drive**\n• Freshers Drive for Storage and Backup Domain\n\nVisit our Freshers Drive page to see full details!";
   }
 
   if (strapiData?.isLoaded) {
@@ -1042,10 +1046,10 @@ export function generateBotResponse(
     return "We have opportunities across all experience levels. You can visit our Recruitments page, or see our Freshers Drive page for current openings!";
   }
   if (matchesAny(lower, trainHireKeywords)) {
-    return "🎓 Train & Hire Services:\n\nWe source, assess, train, and deploy candidates based on your business requirements. Our Train and Hire model enables organizations to build a skilled workforce in niche technologies while reducing recruitment and training costs.\n\nOur value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire \n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
+    return "🎓 Train & Hire Services:\n\nWe help address your need for 'Just in Time' hiring be it for fresh graduates. We source, screen, and train candidates on specialized technologies to make them day-one productive for the organization's requirements.\n\nOur value proposition is built on 4 key pillars:\n\n1️⃣ Cost Benefits\n• No employee cost during training\n• Mitigated risk of attrition during training\n• Reduced recruitment and onboarding overheads\n\n2️⃣ Flexibility\n• Option to hire trained candidates directly or through Contract-to-Hire \n• Customized as well as certified training under one roof\n• 'Necessity-driven' training tailored to your business needs\n\n3️⃣ Standardization\n• Standardized training curriculum across various locations\n• Rigorous selection where only candidates meeting client expectations are recruited\n\n4️⃣ Scalability\n• Easy ramp-up for large corporate deals\n• Ability to deploy Level 1 resources in niche and hard-to-get skills\n\n🔗 Visit our Train & Hire page or contact us to get started!";
   }
   if (matchesAny(lower, corporateTrainingKeywords)) {
-    return "🏫 Corporate Training:\n\nWith over 30 years of learning and development expertise, we deliver customized corporate, technical, certification-oriented, and soft-skills training programs across emerging and enterprise technologies.\n\nWe offer specialized programs across 4 key technology domains:\n\n💻 1. System Administration\n• Windows & Linux Server Administration\n• IBM Mainframe / IBM i Administration\n• Networking & Virtualization, Database Admin, Storage & Backup\n\n🚀 2. Application Development\n• Java Full Stack, .NET, Angular JS\n• Web Technologies, Middleware, Testing\n\n🤝 3. Soft Skills\n• Critical Thinking & Problem Solving, Agility & Adaptability\n• Leadership & Project Management, Cross-Cultural Collaboration\n\n🔮 4. Niche Technologies\n• AI Transformation for Business & IT Leaders\n• AI / ML / Gen AI Tech Stack\n• Data Science & Analytics, Network & Cybersecurity, Automation & Robotics\n\n📊 3,500+ Trainings Delivered | 25,000+ People Trained\n🏅 ISO 9001:2015 Certified Methodology\n\nContact us to customize a training program for your team!";
+    return "🏫 Corporate Training:\n\nHaving been in the IT training domain for over 3 decades, we have with us instructors/consultants, who specialize in a wide range of technologies and have rich domain experience helping us customize your training requirement.\n\nWe offer specialized programs across 4 key technology domains:\n\n💻 1. System Administration\n• Windows & Linux Server Administration\n• IBM Mainframe / IBM i Administration\n• Networking & Virtualization, Database Admin, Storage & Backup\n\n🚀 2. Application Development\n• Java Full Stack, .NET, Angular JS\n• Web Technologies, Middleware, Testing\n\n🤝 3. Soft Skills\n• Critical Thinking & Problem Solving, Agility & Adaptability\n• Leadership & Project Management, Cross-Cultural Collaboration\n\n🔮 4. Niche Technologies\n• AI Transformation for Business & IT Leaders\n• AI / ML / Gen AI Tech Stack\n• Data Science & Analytics, Network & Cybersecurity, Automation & Robotics\n\n📊 3,500+ Trainings Delivered | 25,000+ People Trained\n🏅 ISO 9001:2015 Certified Methodology\n\nContact us to customize a training program for your team!";
   }
   if (matchesAny(lower, serviceKeywords)) {
     return botResponses["📋 Our Services"];

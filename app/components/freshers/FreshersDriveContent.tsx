@@ -94,7 +94,7 @@ export default function FreshersDriveContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[360px]"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-90"
               >
                 <DomainCard
                   id={encodeURIComponent(drive.title)}

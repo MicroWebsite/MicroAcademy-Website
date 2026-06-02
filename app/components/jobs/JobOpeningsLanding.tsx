@@ -49,7 +49,7 @@ export default function JobOpeningsLanding() {
             Choose Your{" "}
             <span className="text-primary relative inline-block">
               Pathway
-              <span className="absolute bottom-1 left-0 w-full h-[6px] bg-secondary/70 -z-10 rounded-full" />
+              <span className="absolute bottom-1 left-0 w-full h-1.5 bg-secondary/70 -z-10 rounded-full" />
             </span>
           </h1>
           <p className="text-base sm:text-lg text-text-body leading-relaxed">
@@ -63,7 +63,7 @@ export default function JobOpeningsLanding() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
         >
           <motion.div
             variants={itemVariants}

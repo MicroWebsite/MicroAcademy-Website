@@ -70,7 +70,7 @@ export default function ApplicationJourneySection() {
           <SectionHeader eyebrow="Application Journey" title="How It Works" />
         </motion.div>
 
-        <div className="hidden md:block relative">
+        <div className="hidden lg:block relative">
           <div className="absolute left-[10%] right-[10%] top-1/2 -translate-y-1/2 h-0.5 bg-border-muted z-0" />
 
           <div className="grid grid-cols-5 gap-4 relative z-10">
@@ -90,10 +90,12 @@ export default function ApplicationJourneySection() {
                 >
                   {isTop && (
                     <div className="group mb-5 w-full">
-                      <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300">
-                        <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
-                          <Icon className="w-5 h-5 text-black" />
-                        </span>
+                      <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left">
+                        <div className="w-full flex justify-center mb-3">
+                          <span className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center shadow-sm shrink-0">
+                            <Icon className="w-6 h-6 text-black" />
+                          </span>
+                        </div>
                         <h3 className="text-sm font-bold text-text-dark mb-1.5 uppercase tracking-wide">
                           {step.title}
                         </h3>
@@ -113,10 +115,12 @@ export default function ApplicationJourneySection() {
                   </div>
                   {!isTop && (
                     <div className="group mt-0 w-full">
-                      <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300">
-                        <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
-                          <Icon className="w-5 h-5 text-black" />
-                        </span>
+                      <div className="bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light hover:shadow-[0_8px_32px_rgba(106,95,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left">
+                        <div className="w-full flex justify-center mb-3">
+                          <span className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center shadow-sm shrink-0">
+                            <Icon className="w-6 h-6 text-black" />
+                          </span>
+                        </div>
                         <h3 className="text-sm font-bold text-text-dark mb-1.5 uppercase tracking-wide">
                           {step.title}
                         </h3>
@@ -132,7 +136,7 @@ export default function ApplicationJourneySection() {
             })}
           </div>
         </div>
-        <div className="md:hidden relative">
+        <div className="lg:hidden relative">
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border-muted z-0" />
 
           <div className="flex flex-col gap-8">
@@ -154,9 +158,9 @@ export default function ApplicationJourneySection() {
                     </span>
                   </div>
 
-                  <div className="flex-1 bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light">
-                    <span className="w-10 h-10 rounded-full bg-secondary inline-flex items-center justify-center mb-3 shadow-sm">
-                      <Icon className="w-5 h-5 text-black" />
+                  <div className="flex-1 bg-bg-cream rounded-2xl p-5 ring-1 ring-border-light flex flex-col items-start text-left">
+                    <span className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-3 shadow-sm shrink-0">
+                      <Icon className="w-6 h-6 text-black" />
                     </span>
                     <h3 className="text-base font-bold text-text-dark mb-1.5">
                       {step.title}

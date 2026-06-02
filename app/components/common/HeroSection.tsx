@@ -74,7 +74,7 @@ export default function HomeTemplate({ heroContent }: HomeTemplateProps) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/5 shadow-none"
+                className="relative z-10 rounded-3xl overflow-hidden w-full aspect-4/4.5 shadow-none"
               >
                 <Image
                   src={image.src}

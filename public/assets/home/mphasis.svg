@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
-  <g transform="translate(22, 38)">
-    <path d="M 6 32 C 6 18, 12 12, 19 12 C 26 12, 29 18, 29 32 M 29 32 C 29 18, 35 12, 42 12 C 49 12, 51 18, 51 32" fill="none" stroke="#005B94" stroke-width="6" stroke-linecap="round"/>
-    <text x="60" y="30" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="28" fill="#005B94">Mphasis</text>
-  </g>
-</svg>

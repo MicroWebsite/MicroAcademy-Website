@@ -58,12 +58,12 @@ export const clientsData: ClientsSectionData = {
     {
       id: "kpmg-india",
       name: "KPMG India Services",
-      logo: "/assets/home/kpmg.svg",
+      logo: "/assets/home/kpmg_logo.svg",
     },
     {
       id: "cognizant-india",
       name: "Cognizant Technology Solutions India",
-      logo: "/assets/home/cognizant.svg",
+      logo: "/assets/home/cognizant_logo.svg",
     },
     {
       id: "accenture-services",
@@ -73,17 +73,17 @@ export const clientsData: ClientsSectionData = {
     {
       id: "wipro-technologies",
       name: "Wipro Technologies",
-      logo: "/assets/home/wipro.svg",
+      logo: "/assets/home/wipro_new_logo.svg",
     },
     {
       id: "mphasis-corp",
       name: "Mphasis Corporation",
-      logo: "/assets/home/mphasis.svg",
+      logo: "/assets/home/mphasis.png",
     },
     {
       id: "tata-technologies",
       name: "Tata Technologies",
-      logo: "/assets/home/tata_technologies.svg",
+      logo: "/assets/home/tata_technologies.png",
     },
     {
       id: "bny-mellon",
@@ -98,7 +98,7 @@ export const clientsData: ClientsSectionData = {
     {
       id: "vays-infotech",
       name: "Vays Infotech",
-      logo: "/assets/home/vays_infotech.svg",
+      logo: "/assets/home/vays_infotech.webp",
     },
   ],
 };

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
-  <g transform="translate(24, 38)">
-    <path d="M 16 12 C 7 12, 3 19, 3 24 C 3 29, 7 36, 16 36 C 24 36, 26 31, 27 28" fill="none" stroke="#0033A0" stroke-width="5" stroke-linecap="round"/>
-    <path d="M 21 31 C 28 31, 32 24, 32 19 C 32 13, 28 6, 21 6 C 13 6, 11 12, 10 14" fill="none" stroke="#00B5E2" stroke-width="5" stroke-linecap="round"/>
-    <text x="42" y="32" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24" fill="#0033A0" letter-spacing="-0.5">Cognizant</text>
-  </g>
-</svg>

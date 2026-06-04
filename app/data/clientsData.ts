@@ -93,7 +93,7 @@ export const clientsData: ClientsSectionData = {
     {
       id: "nagarro",
       name: "Nagarro Software",
-      logo: "/assets/home/nagarro.svg",
+      logo: "/assets/home/nagarro_logo.jpg",
     },
     {
       id: "vays-infotech",

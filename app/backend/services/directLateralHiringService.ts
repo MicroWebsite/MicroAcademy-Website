@@ -18,7 +18,7 @@ export async function processDirectLateralHiringSubmission(data: {
   const timestamp = getIndiaTimestamp();
   const resume = await toResumeAttachment(data.resumeFile);
   try {
-    await appendSheetValues("Recruitment", [
+    await appendSheetValues("DirectLateralHiring", [
       [
         data.jobId || "",
         data.firstName,
@@ -41,13 +41,13 @@ export async function processDirectLateralHiringSubmission(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"Micro Academy Recruitment" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Direct/Lateral Hiring" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
-    subject: `[${data.type.toUpperCase()}] Application: ${data.position} - ${data.firstName} ${data.lastName}`,
+    subject: `[DIRECT/LATERAL] Application: ${data.position} - ${data.firstName} ${data.lastName}`,
     html: buildJobApplicationEmailHtml({
-      badgeLabel: data.type.toUpperCase(),
-      title: "Job Application",
+      badgeLabel: "DIRECT/LATERAL",
+      title: "Direct/Lateral Hiring Application",
       position: data.position,
       firstName: data.firstName,
       lastName: data.lastName,

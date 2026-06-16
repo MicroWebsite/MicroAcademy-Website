@@ -17,7 +17,7 @@ export const botResponses: Record<string, string> = {
     "Here are the available job vacancies by category:\n\n💼 **Full Time**\n• Sr. Service Desk Analyst\n• Recruiter\n• Exchange and Windows AD\n\nVisit our Recruitments page to see full details!\n\n📝 **Contract**\n• Recruiter\n• Exchange and Windows AD\n\nVisit our Recruitments page to see full details!\n\n🎓 **Freshers Drive**\n• Freshers Drive for Storage and Backup Domain\n\nVisit our Freshers Drive page to see full details!",
 
   "📞 Contact Info":
-    "📍 #189, Amar Jyothi Layout, Domlur Ring Road, Bangalore - 560071\n📞 +91 080-25358182 / 25359192\n📧 info@microacademy.net\n🌐 www.microacademy.net\n\nYou can also reach us through the Contact page on our website!",
+    "📍 #189, Amar Jyothi Layout, Domlur Ring Road, Bangalore - 560071\n📞 +91 080-25358182 / 25359192\n📧 info@microacademy.net\n🌐 microacademy.net\n\nYou can also reach us through the Contact page on our website!",
 
   "🏢 About Us":
     "Micro Academy is a premier IT training and L&D organization established in 1995. 🏢\n\n📊 30+ Years of L&D Excellence\n🚀 Pioneered Train & Hire Since 2005\n🌍 Conducted training across 20+ countries (including South East Asia, Middle East, Africa, and Eastern Europe)\n👥 25,000+ Candidates Trained & Deployed\n🏅 ISO 9001:2015 Certified\n⚖️ 100% Statutory Compliant (GST, ESI, PF, PT, Shops & Establishments)\n\n🎯 Mission: To empower global organizations by curating elite, future-ready digital talent.\n👁️ Vision: To be the definitive global standard for workforce intelligence.\n\nWant to know more about our history or values?",

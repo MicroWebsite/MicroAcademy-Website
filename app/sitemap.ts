@@ -1,8 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.microacademy.net";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
 
   const staticPages = [
     { path: "/", priority: 1.0, changeFrequency: "weekly" as const },

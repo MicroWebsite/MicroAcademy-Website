@@ -16,8 +16,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.microacademy.net";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -18,7 +18,7 @@ export async function processContractHiringSubmission(data: {
   const resume = await toResumeAttachment(data.resumeFile);
 
   try {
-    await appendSheetValues("CorporateTraining", [
+    await appendSheetValues("ContractHiring", [
       [
         data.jobId || "",
         data.firstName,
@@ -41,13 +41,13 @@ export async function processContractHiringSubmission(data: {
   }
 
   await smtp.transporter.sendMail({
-    from: `"Micro Academy Recruitment" <${smtp.smtpUser}>`,
+    from: `"Micro Academy Contract Hiring" <${smtp.smtpUser}>`,
     to: smtp.toEmail,
     replyTo: data.email,
     subject: `[CONTRACT] Application: ${data.position} - ${data.firstName} ${data.lastName}`,
     html: buildJobApplicationEmailHtml({
-      badgeLabel: "CONTRACT",
-      title: "Job Application",
+      badgeLabel: "CONTRACT HIRING",
+      title: "Contract Hiring Application",
       position: data.position,
       firstName: data.firstName,
       lastName: data.lastName,

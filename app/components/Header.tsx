@@ -53,7 +53,7 @@ export default function Header() {
   const navLinks = STATIC_NAV_LINKS;
 
   return (
-    <header className="w-full bg-bg-header border-b border-border relative z-50">
+    <header className="w-full bg-bg-header border-b border-border fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
         <Link
           href="/"

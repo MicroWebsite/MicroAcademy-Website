@@ -136,7 +136,7 @@ export default function RootLayout({
         <ToastProvider>
           <ScrollToTop />
           <Header />
-          <main className="relative flex-1">{children}</main>
+          <main className="relative flex-1 pt-20 md:pt-24">{children}</main>
           <Footer />
           <Chatbot />
         </ToastProvider>

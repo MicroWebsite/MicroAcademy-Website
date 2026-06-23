@@ -2,6 +2,7 @@ export function buildContactEmailHtml(data: {
   fullName: string;
   email: string;
   phone: string;
+  reasonForContact: string;
   message: string;
   timestamp: string;
 }) {
@@ -61,6 +62,12 @@ export function buildContactEmailHtml(data: {
                         <td style="padding: 18px 0; border-bottom: 1px solid #EEEEEE;">
                           <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">PHONE NUMBER</div>
                           <div style="color: #1B1C19; font-size: 15px; font-weight: 600;">${data.phone}</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 18px 0; border-bottom: 1px solid #EEEEEE;">
+                          <div style="color: #888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">REASON FOR CONTACT</div>
+                          <div style="color: #1B1C19; font-size: 15px; font-weight: 600;">${data.reasonForContact}</div>
                         </td>
                       </tr>
                       <tr>

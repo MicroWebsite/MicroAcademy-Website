@@ -6,10 +6,12 @@ import { useDriveRegistrationForm } from "./drive-registration/useDriveRegistrat
 
 interface RegistrationFormProps {
   domainTitle: string;
+  onSuccess?: () => void;
 }
 
 export default function DriveRegistrationForm({
   domainTitle,
+  onSuccess,
 }: RegistrationFormProps) {
   const {
     errors,
@@ -21,7 +23,7 @@ export default function DriveRegistrationForm({
     handleSubmit,
     resume,
     status,
-  } = useDriveRegistrationForm(domainTitle);
+  } = useDriveRegistrationForm(domainTitle, onSuccess);
 
   return (
     <div className="bg-white relative overflow-hidden rounded-[2.5rem] p-8 sm:p-10 lg:p-14 shadow-[0_10px_60px_rgba(0,0,0,0.08)] border border-border">
@@ -30,11 +32,14 @@ export default function DriveRegistrationForm({
       <div className="relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-4">
-            Begin Your Career Journey
+            {domainTitle === "fresh enquiry"
+              ? "Register for Future Drives"
+              : "Begin Your Career Journey"}
           </h2>
           <p className="text-highlight-muted text-sm leading-relaxed font-medium">
-            Fill out the registration form below to participate in the{" "}
-            {domainTitle}.
+            {domainTitle === "fresh enquiry"
+              ? "Fill out the registration form below to get notified and fast-tracked for upcoming placement drives."
+              : `Fill out the registration form below to participate in the ${domainTitle}.`}
           </p>
         </div>
 

@@ -7,7 +7,7 @@ export const heroData: HeroProps = {
   titleAccent: "Curated.",
   description:
     "We bridge the gap between human potential and enterprise excellence. Micro Academy is your strategic partner in designing high-performance talent ecosystems through specialized training and recruitment.",
-  primaryCTA: { label: "Contact Us", href: "/contact" },
+  primaryCTA: { label: "Contact Us", href: "/contact?reason=other" },
   secondaryCTA: { label: "Explore Solutions", href: "/services" },
   image: {
     src: "/assets/headers/Homepage.png",

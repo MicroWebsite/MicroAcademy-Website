@@ -7,11 +7,19 @@ async function appendContactToSheet(data: {
   fullName: string;
   email: string;
   phone: string;
+  reasonForContact: string;
   message: string;
   timestamp: string;
 }) {
   await appendSheetValues("Contact", [
-    [data.fullName, data.email, data.phone, data.message, data.timestamp],
+    [
+      data.fullName,
+      data.email,
+      data.phone,
+      data.reasonForContact,
+      data.message,
+      data.timestamp,
+    ],
   ]);
 }
 
@@ -19,6 +27,7 @@ async function sendContactEmail(data: {
   fullName: string;
   email: string;
   phone: string;
+  reasonForContact: string;
   message: string;
   timestamp: string;
 }) {
@@ -41,6 +50,7 @@ export async function processContactSubmission(input: {
   fullName: string;
   email: string;
   phone: string;
+  reasonForContact: string;
   message: string;
 }) {
   const timestamp = getIndiaTimestamp();

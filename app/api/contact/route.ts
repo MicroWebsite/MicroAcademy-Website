@@ -3,9 +3,10 @@ import { processContactSubmission } from "@/app/backend/services/contactService"
 
 export async function POST(req: NextRequest) {
   try {
-    const { fullName, email, phone, message } = await req.json();
+    const { fullName, email, phone, reasonForContact, message } =
+      await req.json();
 
-    if (!fullName || !email || !phone || !message) {
+    if (!fullName || !email || !phone || !reasonForContact || !message) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 },
@@ -16,6 +17,7 @@ export async function POST(req: NextRequest) {
       fullName,
       email,
       phone,
+      reasonForContact,
       message,
     });
 

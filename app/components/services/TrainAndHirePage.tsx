@@ -28,7 +28,7 @@ export default function TrainAndHirePage() {
         title="Ready to Build Your Dream Team?"
         description="Partner with us to train and hire top talent custom-built for your organization's unique needs. Start transforming your workforce today."
         buttonText="Get Started Today"
-        buttonHref="/contact"
+        buttonHref="/contact?reason=train-and-hire"
       />
     </div>
   );

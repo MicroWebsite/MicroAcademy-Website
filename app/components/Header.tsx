@@ -27,7 +27,7 @@ const STATIC_NAV_LINKS = [
     label: "Job Openings",
     href: "/job-openings",
   },
-  { label: "Contact us", href: "/contact" },
+  { label: "Contact us", href: "/contact?reason=other" },
 ];
 
 export default function Header() {
@@ -37,15 +37,29 @@ export default function Header() {
   >({});
   const pathname = usePathname();
 
-  const isPathActive = (href: string) =>
-    pathname === href || pathname.startsWith(`${href}/`);
+  const isPathActive = (href: string) => {
+    const basePath = href.split("?")[0].split("#")[0];
+    return (
+      pathname === basePath ||
+      (basePath !== "/" && pathname.startsWith(`${basePath}/`))
+    );
+  };
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    if (pathname === href) {
+    const basePath = href.split("?")[0].split("#")[0];
+    if (pathname === basePath) {
       e.preventDefault();
+      const params = new URLSearchParams(href.split("?")[1] || "");
+      if (params.get("reason")) {
+        const element = document.getElementById("contact-form");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };

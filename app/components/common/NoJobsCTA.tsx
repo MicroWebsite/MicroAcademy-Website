@@ -8,7 +8,7 @@ interface NoJobsCTAProps {
   title?: string;
   titleAccent?: string;
   description?: string;
-  primaryCTA?: { label: string; href: string };
+  primaryCTA?: { label: string; href?: string; onClick?: () => void };
   secondaryCTA?: { label: string; href: string };
 }
 
@@ -16,7 +16,7 @@ export default function NoJobsCTA({
   title = "No Jobs",
   titleAccent = "Currently Available",
   description = "Our recruitment drives are highly sought after and fill up quickly. Get in touch with us to be notified when the next window opens.",
-  primaryCTA = { label: "Contact Us", href: "/contact" },
+  primaryCTA = { label: "Contact Us", href: "/contact?reason=other" },
   secondaryCTA,
 }: NoJobsCTAProps) {
   return (
@@ -42,15 +42,27 @@ export default function NoJobsCTA({
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
-            <Link
-              href={primaryCTA.href}
-              className="w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] text-white bg-linear-to-r from-primary to-btn-grad-end-alt shadow-lg hover:shadow-xl"
-            >
-              {primaryCTA.label}
-              <span className="w-5 h-5 flex items-center justify-center">
-                <ArrowRight className="w-5 h-5 text-white" />
-              </span>
-            </Link>
+            {primaryCTA.onClick ? (
+              <button
+                onClick={primaryCTA.onClick}
+                className="w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] text-white bg-linear-to-r from-primary to-btn-grad-end-alt shadow-lg hover:shadow-xl cursor-pointer border-none"
+              >
+                {primaryCTA.label}
+                <span className="w-5 h-5 flex items-center justify-center">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </button>
+            ) : (
+              <Link
+                href={primaryCTA.href || "/contact?reason=other"}
+                className="w-full sm:w-auto inline-flex items-center gap-2 justify-center rounded-full font-bold transition-all hover:brightness-110 font-manrope text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 active:scale-[0.98] text-white bg-linear-to-r from-primary to-btn-grad-end-alt shadow-lg hover:shadow-xl"
+              >
+                {primaryCTA.label}
+                <span className="w-5 h-5 flex items-center justify-center">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </Link>
+            )}
             {secondaryCTA && (
               <Link
                 href={secondaryCTA.href}

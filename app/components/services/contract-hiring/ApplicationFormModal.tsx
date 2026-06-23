@@ -112,6 +112,19 @@ export default function ApplicationFormModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .no-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+            .no-scrollbar {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          `,
+        }}
+      />
       <div
         className="absolute inset-0 transition-opacity duration-300 bg-black/70 backdrop-blur-sm"
         style={{ opacity: isAnimating ? 1 : 0 }}
@@ -119,7 +132,7 @@ export default function ApplicationFormModal({
       />
 
       <div
-        className="relative w-full max-h-[95vh] overflow-y-auto transition-all duration-300 ease-out max-w-160 mx-4 bg-bg-cream-alt rounded-3xl shadow-2xl"
+        className="relative w-full max-h-[95vh] overflow-y-auto no-scrollbar transition-all duration-300 ease-out max-w-160 mx-4 bg-bg-cream-alt rounded-3xl shadow-2xl"
         style={{
           transform: isAnimating
             ? "translateY(0) scale(1)"

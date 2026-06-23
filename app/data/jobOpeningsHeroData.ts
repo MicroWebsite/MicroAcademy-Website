@@ -6,7 +6,7 @@ export const jobOpeningsHeroData: HeroProps = {
   titleAccent: "Openings",
   description:
     "Accelerate your career with direct lateral hiring opportunities. We connect experienced professionals and industry experts with leading global enterprises for high-impact roles across key technology domains, including full-time and contract positions.",
-  primaryCTA: { label: "Contact Us", href: "/contact" },
+  primaryCTA: { label: "Contact Us", href: "/contact?reason=other" },
   secondaryCTA: { label: "Explore Services", href: "/services" },
   image: {
     src: "/assets/headers/Recruitment.png",

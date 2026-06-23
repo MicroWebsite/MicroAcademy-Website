@@ -18,9 +18,10 @@ export default function DirectLateralHiringPage() {
       <DirectLateralHiringSourcesSection />
       <DirectLateralHiringExpertiseSection />
       <CTASection
-        title="Looking for Top Talent?"
+        title="Looking for Expert Talent?"
         description="Streamline your hiring process with our expert direct/lateral hiring solutions. We help you find the perfect match for your organization's culture and technical needs."
-        buttonText="Hire Now"
+        buttonText="Contact Now"
+        buttonHref="/contact?reason=direct-lateral-hiring"
       />
     </div>
   );

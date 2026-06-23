@@ -1,5 +1,5 @@
 interface SectionHeaderProps {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   align?: "center" | "left" | "responsive";
   className?: string;
@@ -21,9 +21,11 @@ export default function SectionHeader({
     <div
       className={`flex max-w-4xl w-full flex-col gap-3 px-6 sm:px-10 lg:px-0 ${alignClasses[align]} ${className}`}
     >
-      <p className="font-inter text-xs font-bold uppercase leading-5 tracking-[0.16em] text-primary sm:text-[13px]">
-        {eyebrow}
-      </p>
+      {eyebrow && (
+        <p className="font-inter text-xs font-bold uppercase leading-5 tracking-[0.16em] text-primary sm:text-[13px]">
+          {eyebrow}
+        </p>
+      )}
       <h2 className="font-manrope text-2xl font-extrabold leading-[1.15] text-text-dark sm:text-3xl lg:text-4xl">
         {title}
       </h2>

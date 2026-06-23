@@ -45,14 +45,6 @@ export const fetchFresherDrives = async (): Promise<FresherDrive[]> => {
   return response.data;
 };
 
-export interface AnnouncementData {
-  headerText: string;
-  descriptionText: string;
-  linkText?: string;
-  linkUrl?: string;
-  isActive: boolean;
-}
-
 export interface NavigationSubLink {
   label: string;
   href: string;
@@ -65,10 +57,3 @@ export interface NavigationItem {
   order?: number;
   subLinks?: NavigationSubLink[] | null;
 }
-
-export const fetchAnnouncement = async (): Promise<AnnouncementData | null> => {
-  const response = await strapiApi.get<AnnouncementData | null>(
-    "/api/announcement",
-  );
-  return response.data;
-};

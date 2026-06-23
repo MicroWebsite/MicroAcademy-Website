@@ -10,10 +10,12 @@ import NoJobsCTA from "../common/NoJobsCTA";
 import SectionHeader from "../common/SectionHeader";
 import { fetchFresherDrives } from "@/app/services/strapiApi";
 import { FresherDrive } from "@/app/types/drupal";
+import DriveRegistrationModal from "./DriveRegistrationModal";
 
 export default function FreshersDriveContent() {
   const [drives, setDrives] = useState<FresherDrive[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const loadDrives = async () => {
@@ -60,7 +62,18 @@ export default function FreshersDriveContent() {
         <HomeTemplate heroContent={freshersHeroData} />
         <StandardHighlightCards />
         <NoJobsCTA
-          secondaryCTA={{ label: "Other Services", href: "/services" }}
+          title="Register for"
+          titleAccent="Upcoming Freshers Drives"
+          description="There are no active placement drives scheduled at the moment. Register your profile now to get notified and fast-tracked as soon as our next drive opens."
+          primaryCTA={{
+            label: "Register Now",
+            onClick: () => setIsModalOpen(true),
+          }}
+        />
+        <DriveRegistrationModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          domainTitle="fresh enquiry"
         />
       </main>
     );

@@ -33,7 +33,7 @@ const variantStyles = {
 export default function CTASection({
   title = "Ready to Augment Your Team?",
   description = "Connect with our talent architects today and get access to the industry\u2019s best contract professionals tailored for your immediate project needs.",
-  buttonText = "Request Talent Now",
+  buttonText = "Contact Now",
   buttonHref = "/contact",
   variant = "default",
 }: CTASectionProps) {

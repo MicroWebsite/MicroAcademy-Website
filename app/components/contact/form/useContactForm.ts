@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useToast } from "@/app/context/ToastContext";
 import {
   validateEmail,
@@ -15,7 +15,16 @@ const initialFormData: ContactFormData = {
   fullName: "",
   email: "",
   phone: "",
+  reasonForContact: "Other / General Inquiry",
   message: "",
+};
+
+const reasonMapping: Record<string, string> = {
+  "direct-lateral-hiring": "Direct/Lateral Hiring",
+  "contract-hiring": "Contract Hiring",
+  "train-and-hire": "Train and Hire",
+  "corporate-training": "Corporate Training",
+  other: "Other / General Inquiry",
 };
 
 export function useContactForm() {
@@ -24,8 +33,23 @@ export function useContactForm() {
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState<ContactSubmitStatus>("idle");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const reasonParam = params.get("reason");
+      if (reasonParam && reasonMapping[reasonParam]) {
+        setFormData((prev) => ({
+          ...prev,
+          reasonForContact: reasonMapping[reasonParam],
+        }));
+      }
+    }
+  }, []);
+
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e:
+      | ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+      | { target: { name: string; value: string } },
   ) => {
     const { name, value } = e.target;
     const nextValue = name === "phone" ? value.replace(/\D/g, "") : value;
@@ -48,11 +72,16 @@ export function useContactForm() {
     const nameErr = validateRequired(formData.fullName, "Full Name");
     const emailErr = validateEmail(formData.email);
     const phoneErr = validatePhone(formData.phone);
+    const reasonErr = validateRequired(
+      formData.reasonForContact,
+      "Reason for Contact",
+    );
     const messageErr = validateRequired(formData.message, "Message");
 
     if (nameErr) newErrors.fullName = nameErr;
     if (emailErr) newErrors.email = emailErr;
     if (phoneErr) newErrors.phone = phoneErr;
+    if (reasonErr) newErrors.reasonForContact = reasonErr;
     if (messageErr) newErrors.message = messageErr;
 
     if (Object.keys(newErrors).length > 0) {

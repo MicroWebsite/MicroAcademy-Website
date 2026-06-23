@@ -19,7 +19,10 @@ const initialFormData: DriveFormData = {
   phone: "",
 };
 
-export function useDriveRegistrationForm(domainTitle: string) {
+export function useDriveRegistrationForm(
+  domainTitle: string,
+  onSuccess?: () => void,
+) {
   const { showToast } = useToast();
   const [formData, setFormData] = useState<DriveFormData>(initialFormData);
   const [resume, setResume] = useState<File | null>(null);
@@ -120,6 +123,9 @@ export function useDriveRegistrationForm(domainTitle: string) {
       showToast("Registration submitted successfully!", "success");
       setFormData(initialFormData);
       setResume(null);
+      if (onSuccess) {
+        onSuccess();
+      }
       setTimeout(() => setStatus("idle"), 5000);
     } catch (err: unknown) {
       setStatus("error");

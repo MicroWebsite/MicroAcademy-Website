@@ -114,6 +114,7 @@ export default function CorporateTrainingPage() {
         title="Empower Your Workforce"
         description="Elevate your team's skills with our industry-leading corporate training programs. We offer customized learning paths to drive innovation and efficiency."
         buttonText="Enquire Now"
+        buttonHref="/contact?reason=corporate-training"
       />
     </div>
   );

@@ -108,7 +108,7 @@ export default function LMSSection() {
               })}
             </svg>
 
-            <div className="absolute w-36 h-36 rounded-full bg-white flex items-center justify-center z-20 shadow-[0_8px_30px_rgba(0,0,0,0.08)] group">
+            <div className="absolute w-36 h-36 rounded-full bg-white flex items-center justify-center z-20 shadow-[0_20px_50px_rgba(0,0,0,0.15)] group">
               <div className="absolute inset-0 rounded-full border-2 border-black/10 animate-ping opacity-75" />
 
               <div className="absolute inset-2 rounded-full bg-radial from-gray-50 to-gray-100/10 opacity-60" />
@@ -139,8 +139,8 @@ export default function LMSSection() {
                     absolute w-16 h-16 rounded-full flex items-center justify-center cursor-pointer z-30 transition-all duration-300 border-0
                     ${
                       isActive
-                        ? "scale-110 bg-primary text-white shadow-[0_0_20px_rgba(106,95,0,0.45)]"
-                        : "bg-white text-text-dark shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:scale-105 hover:bg-white hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
+                        ? "scale-110 bg-primary text-white shadow-[0_0_35px_rgba(106,95,0,0.65)]"
+                        : "bg-white text-text-dark shadow-[0_10px_25px_rgba(0,0,0,0.12)] hover:scale-105 hover:bg-white hover:shadow-[0_16px_36px_rgba(0,0,0,0.18)]"
                     }
                   `}
                 >
@@ -159,7 +159,7 @@ export default function LMSSection() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -15 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-bg-cream rounded-3xl p-10 shadow-[0_10px_40px_rgba(252,211,77,0.04)] relative"
+                  className="bg-bg-cream rounded-3xl p-10 shadow-[0_20px_50px_rgba(106,95,0,0.12)] border border-primary/10 relative"
                 >
                   <div className="absolute top-10 right-10 opacity-10">
                     {React.createElement(iconMap[activeFeature.iconName], {
@@ -186,15 +186,6 @@ export default function LMSSection() {
                   <p className="text-base leading-relaxed text-text-muted-alt font-manrope">
                     {activeFeature.description}
                   </p>
-
-                  <div className="mt-8 pt-6 border-t border-border-light/80 flex items-center justify-between text-xs text-text-muted">
-                    <span className="font-semibold uppercase tracking-wider text-amber-700">
-                      LMS Integrated Node
-                    </span>
-                    <span className="font-medium">
-                      Continuous Deployment Stack
-                    </span>
-                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -225,7 +216,7 @@ export default function LMSSection() {
                       p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-5 items-start
                       ${
                         isActive
-                          ? "bg-bg-cream border-transparent shadow-md"
+                          ? "bg-bg-cream border-transparent shadow-[0_12px_30px_rgba(106,95,0,0.12)]"
                           : "bg-white border-gray-100 hover:border-gray-200 hover:bg-gray-50/50"
                       }
                     `}

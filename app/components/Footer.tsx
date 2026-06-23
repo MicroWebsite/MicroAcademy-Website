@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Job Openings", href: "/job-openings" },
-  { label: "Contact us", href: "/contact" },
+  { label: "Contact us", href: "/contact?reason=other" },
 ];
 
 const legalLinks = [
@@ -54,8 +54,17 @@ export default function Footer() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    if (pathname === href) {
+    const basePath = href.split("?")[0].split("#")[0];
+    if (pathname === basePath) {
       e.preventDefault();
+      const params = new URLSearchParams(href.split("?")[1] || "");
+      if (params.get("reason")) {
+        const element = document.getElementById("contact-form");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };

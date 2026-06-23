@@ -75,11 +75,23 @@ export default function JobOpeningsPage() {
       <ApplicationJourneySection />
       {isNoJobsInBothCategories ? (
         <NoJobsCTA
-          title="No Job Openings"
-          titleAccent="Currently Available"
-          description="We do not have active full-time or contract openings at the moment. Please check back soon or contact us to get notified when new roles are published."
-          primaryCTA={{ label: "Contact Us", href: "/contact" }}
-          secondaryCTA={{ label: "Explore Services", href: "/services" }}
+          title="Register for"
+          titleAccent="Upcoming Opportunities"
+          description="We do not have active full-time or contract openings at the moment. Register your profile now to get notified and fast-tracked as soon as new roles are published."
+          primaryCTA={{
+            label: "Register Now",
+            onClick: () => {
+              setSelectedFullTimeJob({
+                title: "fresh enquiry",
+                jobId: "",
+                id: "",
+                experience: "",
+                location: "",
+                education: "",
+              } as JobPosition);
+              setIsFullTimeModalOpen(true);
+            },
+          }}
         />
       ) : (
         <>

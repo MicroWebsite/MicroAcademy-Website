@@ -45,7 +45,7 @@ export const capabilitiesData = {
       heroData: {
         badge: "Direct/Lateral Hiring Excellence",
         titleLine1: "Strategic Talent",
-        titleAccent: "Architecture",
+        titleAccent: "Acquisition",
         description:
           "From raw potential to industry mastery — we build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
         image: {

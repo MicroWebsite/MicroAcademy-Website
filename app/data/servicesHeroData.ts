@@ -3,8 +3,8 @@ export const servicesHeroData = {
   title: "Services",
   description:
     "We design high-performance talent ecosystems for global enterprises through a full suite of bespoke technical training, direct/lateral hiring, and agile contract staffing solutions.",
-  ctaLabel: "Partner With Us",
-  ctaHref: "/contact",
+  ctaLabel: "Contact Us",
+  ctaHref: "/contact?reason=other",
   image: {
     src: "/assets/headers/Services.png",
     alt: "Micro Academy Bangalore Office - Professional Environment",

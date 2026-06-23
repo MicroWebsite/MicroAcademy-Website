@@ -2,6 +2,7 @@ export type ContactFormData = {
   fullName: string;
   email: string;
   phone: string;
+  reasonForContact: string;
   message: string;
 };
 

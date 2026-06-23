@@ -17,36 +17,36 @@ export const trainAndHireSteps: TrainAndHireStep[] = [
     icon: "search",
     title: "Sourcing",
     description:
-      "Candidates are strategically sourced and shortlisted based strictly on the precise technical and cultural criteria.",
-    highlighted: false,
+      "Candidates are strategically sourced and shortlisted based strictly on the precise technical and client criteria.",
+    highlighted: true,
   },
   {
     icon: "filter",
     title: "Pre-Selection",
     description:
       "A rigorous pre-selection by the team, encompassing aptitude, technical capability, and HR round evaluations.",
-    highlighted: true,
+    highlighted: false,
   },
   {
     icon: "bookOpen",
     title: "Training",
     description:
-      "Pre-selected candidates undergo intensive, customized training with Micro Academy tailored exactly to the business needs.",
-    highlighted: false,
+      "Pre-selected candidates undergo intensive customized training with Micro Academy, tailored exactly to the business needs.",
+    highlighted: true,
   },
   {
     icon: "checkCircle",
     title: "Assessment",
     description:
       "Comprehensive final assessment conducted by the team to validate readiness before formal induction.",
-    highlighted: true,
+    highlighted: false,
   },
   {
     icon: "briefcase",
     title: "Job Placement",
     description:
       "Selected candidates are smoothly boarded by the client as Full-Time Employees (FTE) or on a Contract-to-Hire basis.",
-    highlighted: false,
+    highlighted: true,
   },
 ];
 
@@ -62,9 +62,9 @@ export const studentWhyPoints: WhyPoint[] = [
       "Access direct placement drives and off-campus recruitment campaigns with leading global technology companies.",
   },
   {
-    title: "Pre-Selected by the Company then Undergoing Training",
+    title: "Pre-Selected by the Company before Undergoing Training",
     description:
-      "Secure the employment offer first, then undergo corporate-aligned training customized for the future role.",
+      "Secure the employment offer first, then undergo company-aligned training customized for the future role.",
   },
   {
     title: "Industry In-Demand Customized Training",
@@ -85,14 +85,14 @@ export const clientWhyPoints: WhyPoint[] = [
       "Mitigate capital risk with zero employee costs during training. We handle recruitment and up-skilling, eliminating early attrition overheads.",
   },
   {
-    title: "Hiring Candidates",
+    title: "Hiring Options",
     description:
       "Offer customized and certified trainings under one roof. Hire candidates directly post-training or transition them smoothly via Contract-to-Hire.",
   },
   {
     title: "Industry Ready Talents",
     description:
-      "Standardize training curriculum across global locations. Only candidates meeting the strict post-training evaluation criteria are recruited.",
+      "Standardize training curriculum across locations. Only candidates meeting the strict post-training evaluation criteria are recruited.",
   },
   {
     title: "Seamless Enterprise Scalability",

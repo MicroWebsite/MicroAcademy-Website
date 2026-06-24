@@ -77,7 +77,7 @@ export default function JobOpeningsPage() {
         <NoJobsCTA
           title="Register for"
           titleAccent="Upcoming Opportunities"
-          description="We do not have active full-time or contract openings at the moment. Register your profile now to get notified and fast-tracked as soon as new roles are published."
+          description="We do not have active full-time or contract openings at the moment. Register your profile now so we can keep in touch and fast-track you as soon as new roles are published."
           primaryCTA={{
             label: "Register Now",
             onClick: () => {

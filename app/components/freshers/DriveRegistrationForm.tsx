@@ -38,7 +38,7 @@ export default function DriveRegistrationForm({
           </h2>
           <p className="text-highlight-muted text-sm leading-relaxed font-medium">
             {domainTitle === "fresh enquiry"
-              ? "Fill out the registration form below to get notified and fast-tracked for upcoming placement drives."
+              ? "Fill out the registration form below so we can keep in touch and fast-track you for upcoming placement drives."
               : `Fill out the registration form below to participate in the ${domainTitle}.`}
           </p>
         </div>

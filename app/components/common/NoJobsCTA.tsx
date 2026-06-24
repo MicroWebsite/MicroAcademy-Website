@@ -15,7 +15,7 @@ interface NoJobsCTAProps {
 export default function NoJobsCTA({
   title = "No Jobs",
   titleAccent = "Currently Available",
-  description = "Our recruitment drives are highly sought after and fill up quickly. Get in touch with us to be notified when the next window opens.",
+  description = "Our recruitment drives are highly sought after and fill up quickly. Get in touch with us and we will get back to you as soon as the next window opens.",
   primaryCTA = { label: "Contact Us", href: "/contact?reason=other" },
   secondaryCTA,
 }: NoJobsCTAProps) {

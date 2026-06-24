@@ -1008,7 +1008,7 @@ export function generateBotResponse(
         return `No job openings in ${matchedCity} right now, but we have freshers drives there!\n\n${formatDriveList(cityDrives)}`;
       }
 
-      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations: see our Recruitments page, or check out our Freshers Drive page. Or send your resume to info@microacademy.net and we'll notify you!`;
+      return `No current openings in ${matchedCity}. 😔\n\nYou can check for roles in other locations: see our Recruitments page, or check out our Freshers Drive page. Or send your resume to info@microacademy.net and we'll get back to you!`;
     }
   }
 

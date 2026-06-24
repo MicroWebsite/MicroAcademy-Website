@@ -27,7 +27,7 @@ const STATIC_NAV_LINKS = [
     label: "Job Openings",
     href: "/job-openings",
   },
-  { label: "Contact us", href: "/contact?reason=other" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export default function Header() {

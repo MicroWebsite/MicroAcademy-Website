@@ -100,7 +100,7 @@ export default function CountriesCarousel() {
   }
 
   return (
-    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20 overflow-hidden">
+    <section className="w-full bg-white px-4 py-14 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10">
           <SectionHeader

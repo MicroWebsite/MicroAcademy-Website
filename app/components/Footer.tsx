@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Job Openings", href: "/job-openings" },
-  { label: "Contact us", href: "/contact?reason=other" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 const legalLinks = [

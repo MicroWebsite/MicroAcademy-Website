@@ -38,7 +38,7 @@ const steps = [
   {
     title: "Start Your Journey",
     description:
-      "Join the team, complete onboarding, and begin making an impact from day one.",
+      "Complete onboarding, join our team, and begin making an impact from day one.",
     icon: Sparkles,
   },
 ];

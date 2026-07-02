@@ -8,12 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" as const },
     {
-      path: "/services/direct-lateral-hiring",
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      path: "/services/contract-hiring",
+      path: "/services/recruitment",
       priority: 0.8,
       changeFrequency: "monthly" as const,
     },

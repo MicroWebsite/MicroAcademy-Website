@@ -7,21 +7,18 @@ import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { NavigationSubLink } from "@/app/services/strapiApi";
 
-const STATIC_NAV_LINKS = [
+interface HeaderNavLink {
+  label: string;
+  href: string;
+  subLinks?: NavigationSubLink[];
+}
+
+const STATIC_NAV_LINKS: HeaderNavLink[] = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/about" },
   {
     label: "Services",
     href: "/services",
-    subLinks: [
-      {
-        label: "Direct/Lateral Hiring",
-        href: "/services/direct-lateral-hiring",
-      },
-      { label: "Contract Hiring", href: "/services/contract-hiring" },
-      { label: "Train and Hire", href: "/services/train-and-hire" },
-      { label: "Corporate Training", href: "/services/corporate-training" },
-    ],
   },
   {
     label: "Job Openings",

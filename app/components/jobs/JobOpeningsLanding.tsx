@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import {
-  Briefcase,
+  BriefcaseBusiness,
   GraduationCap,
   ArrowRight,
   CheckCircle2,
@@ -30,8 +30,7 @@ export default function JobOpeningsLanding() {
   };
 
   return (
-    <section className="relative w-full min-h-[72vh] py-14 sm:py-16 lg:py-20 bg-bg-cream overflow-hidden flex flex-col justify-center">
-      <div className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-secondary/15 blur-[120px] pointer-events-none" />
+    <section className="relative w-full min-h-[72vh] py-14 sm:py-16 lg:py-20 bg-white overflow-hidden flex flex-col justify-center">
       <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-light/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -47,10 +46,7 @@ export default function JobOpeningsLanding() {
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-text-dark leading-tight tracking-tight mb-6">
             Choose Your{" "}
-            <span className="text-primary relative inline-block">
-              Pathway
-              <span className="absolute bottom-1 left-0 w-full h-1.5 bg-secondary/70 -z-10 rounded-full" />
-            </span>
+            <span className="text-primary relative inline-block">Pathway</span>
           </h1>
           <p className="text-base sm:text-lg text-text-body leading-relaxed">
             Chart your path to your future. Explore dedicated paths tailored for
@@ -68,9 +64,9 @@ export default function JobOpeningsLanding() {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="group relative flex flex-col justify-between p-8 md:p-10 bg-bg-dark border border-bg-dark-alt rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:border-secondary transition-all duration-300 overflow-hidden"
+            className="group relative flex flex-col justify-between p-8 md:p-10 bg-bg-dark border border-bg-dark-alt rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-bg-dark-alt rounded-bl-[100px] transition-all group-hover:scale-110 -z-10" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-bg-dark-alt rounded-bl-[100px] opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 -z-10" />
 
             <div>
               <div className="flex items-center justify-between mb-8">
@@ -131,14 +127,14 @@ export default function JobOpeningsLanding() {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="group relative flex flex-col justify-between p-8 md:p-10 bg-white border border-border rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(106,95,0,0.08)] hover:border-primary-300 transition-all duration-300 overflow-hidden"
+            className="group relative flex flex-col justify-between p-8 md:p-10 bg-bg-cream border border-border-light/80 rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(106,95,0,0.08)] transition-all duration-300 overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-[100px] transition-all group-hover:scale-110 -z-10" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/15 rounded-bl-[100px] opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 -z-10" />
 
             <div>
               <div className="flex items-center justify-between mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  <Briefcase className="w-7 h-7" />
+                  <BriefcaseBusiness className="w-7 h-7" />
                 </div>
                 <span className="text-xs font-bold text-primary tracking-widest uppercase">
                   Experienced Roles

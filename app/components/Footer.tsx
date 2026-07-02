@@ -41,8 +41,7 @@ const socialLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Direct/Lateral Hiring", href: "/services/direct-lateral-hiring" },
-  { label: "Contract Hiring", href: "/services/contract-hiring" },
+  { label: "Recruitment", href: "/services/recruitment" },
   { label: "Train and Hire", href: "/services/train-and-hire" },
   { label: "Corporate Training", href: "/services/corporate-training" },
 ];

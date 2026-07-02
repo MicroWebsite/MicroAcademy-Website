@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   keywords: [
     "Micro Academy",
     "workforce intelligence",
+    "recruitment",
     "direct-lateral hiring",
     "direct/lateral hiring",
     "direct-lateral-hiring",

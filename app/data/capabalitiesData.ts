@@ -35,42 +35,22 @@ export const capabilitiesData = {
       },
     },
     {
-      id: "direct-lateral-hiring",
-      title: "Direct/Lateral Hiring",
+      id: "recruitment",
+      title: "Recruitment",
       description:
-        "With the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.",
-      ctaLabel: "Explore Direct/Lateral Hiring",
-      ctaHref: "/services/direct-lateral-hiring",
+        "End-to-end recruitment solutions — from direct/lateral hiring to contract staffing. We cater to all your IT recruitment requirements with a strong technical team, helping you find the best-suited candidates for your organization.",
+      ctaLabel: "Explore Recruitment",
+      ctaHref: "/services/recruitment",
       highlighted: true,
       heroData: {
-        badge: "Direct/Lateral Hiring Excellence",
+        badge: "Recruitment Excellence",
         titleLine1: "Strategic Talent",
-        titleAccent: "Acquisition",
+        titleAccent: "Solutions",
         description:
-          "From raw potential to industry mastery — we build the human infrastructure that drives organizational growth through curated, elite-level recruitment and headhunting.",
+          "From strategic direct hires to agile contract staffing — we build the responsive human infrastructure that drives organizational growth through elite-level recruitment and scalable workforce deployment.",
         image: {
           src: "/assets/headers/DirectLateralHiring.png",
-          alt: "IT Recruitment and Direct/Lateral Hiring Services",
-        },
-      },
-    },
-    {
-      id: "contract-hiring",
-      title: "Contract Hiring",
-      description:
-        "Micro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.",
-      ctaLabel: "Explore Contract Hiring",
-      ctaHref: "/services/contract-hiring",
-      highlighted: false,
-      heroData: {
-        badge: "FLEXIBLE WORKFORCE SOLUTIONS",
-        titleLine1: "Contract",
-        titleAccent: "Hiring Solutions",
-        description:
-          "Deploy pre-trained, enterprise-ready contract IT professionals to scale your workforce dynamically, closing urgent skill gaps while minimizing attrition risks.",
-        image: {
-          src: "/assets/headers/Contract.png",
-          alt: "Contract Hiring Solutions",
+          alt: "IT Recruitment and Hiring Services",
         },
       },
     },

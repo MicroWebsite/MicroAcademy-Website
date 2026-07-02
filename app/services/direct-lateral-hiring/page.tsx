@@ -1,15 +1,5 @@
-import { Metadata } from "next";
-import DirectLateralHiringPage from "../../components/services/DirectLateralHiringPage";
-
-export const metadata: Metadata = {
-  title: "Direct/Lateral Hiring",
-  description:
-    "Strategic talent architecture and recruitment — precision hiring pipelines connecting exceptional professionals with visionary organizations.",
-  alternates: {
-    canonical: "/services/direct-lateral-hiring",
-  },
-};
+import { redirect } from "next/navigation";
 
 export default function DirectLateralHiring() {
-  return <DirectLateralHiringPage />;
+  redirect("/services/recruitment");
 }

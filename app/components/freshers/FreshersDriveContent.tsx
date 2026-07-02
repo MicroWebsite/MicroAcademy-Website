@@ -64,7 +64,7 @@ export default function FreshersDriveContent() {
         <NoJobsCTA
           title="Register for"
           titleAccent="Upcoming Freshers Drives"
-          description="There are no active placement drives scheduled at the moment. Register your profile now so we can keep in touch and fast-track you as soon as our next drive opens."
+          description="Register your profile now so we can keep in touch and fast-track you as soon as our next drive opens."
           primaryCTA={{
             label: "Register Now",
             onClick: () => setIsModalOpen(true),

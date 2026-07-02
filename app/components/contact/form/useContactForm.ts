@@ -15,16 +15,15 @@ const initialFormData: ContactFormData = {
   fullName: "",
   email: "",
   phone: "",
-  reasonForContact: "Other / General Inquiry",
+  reasonForContact: "General Enquiry",
   message: "",
 };
 
 const reasonMapping: Record<string, string> = {
-  "direct-lateral-hiring": "Direct/Lateral Hiring",
-  "contract-hiring": "Contract Hiring",
-  "train-and-hire": "Train and Hire",
-  "corporate-training": "Corporate Training",
-  other: "Other / General Inquiry",
+  recruitment: "Recruitment",
+  "train-and-hire": "Training",
+  "corporate-training": "Training",
+  other: "General Enquiry",
 };
 
 export function useContactForm() {
@@ -38,6 +37,7 @@ export function useContactForm() {
       const params = new URLSearchParams(window.location.search);
       const reasonParam = params.get("reason");
       if (reasonParam && reasonMapping[reasonParam]) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData((prev) => ({
           ...prev,
           reasonForContact: reasonMapping[reasonParam],

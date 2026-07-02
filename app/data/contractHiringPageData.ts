@@ -60,7 +60,15 @@ export const contractProcessSteps: ContractProcessStep[] = [
 ];
 
 export type ContractDomain = {
-  icon: "cpu" | "target" | "briefcase" | "shield" | "users2" | "zap";
+  icon:
+    | "cpu"
+    | "target"
+    | "briefcase"
+    | "shield"
+    | "users2"
+    | "zap"
+    | "brain"
+    | "database";
   name: string;
 };
 
@@ -71,6 +79,8 @@ export const contractDomains: ContractDomain[] = [
   { icon: "shield", name: "Cybersecurity & InfoSec" },
   { icon: "users2", name: "Data Engineering & Analytics" },
   { icon: "zap", name: "Cloud & DevOps Solutions" },
+  { icon: "brain", name: "Data science and AI" },
+  { icon: "database", name: "ERP" },
 ];
 
 export type ContractPosition = {

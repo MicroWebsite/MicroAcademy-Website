@@ -7,49 +7,20 @@ export type DirectLateralHiringExpertiseGroup = {
 export const directLateralHiringExpertiseGroups: DirectLateralHiringExpertiseGroup[] =
   [
     {
-      title: "Management and Leadership Positions",
-      icon: "crown",
-      roles: [
-        "IT Director",
-        "Chief Technology Officer (CTO)",
-        "Chief Information Security Officer (CISO)",
-        "Site / DC Head",
-        "Head of Finance / Legal / Facilities",
-      ],
-    },
-    {
-      title: "Level 1 , 2 Positions (Tech Roles)",
-      icon: "code2",
-      roles: ["Entry-Level Developer", "IT Support Specialist"],
-    },
-    {
-      title: "Mid-Level (L3) Positions",
-      icon: "layers",
-      roles: [
-        "Software Developer",
-        "System Administrator / Network Engineer / Database Administrator",
-        "Business Analyst / Project Manager",
-      ],
-    },
-    {
-      title: "Senior-Level Positions",
+      title: "Hiring Expertise",
       icon: "award",
-      roles: [
-        "Senior Software / Systems Engineer / Domain Specialist – ERP / CRM / Database",
-        "IT Manager / Program Manager / Solution Architect",
-        "Quality and Compliance Managers",
-      ],
+      roles: ["Entry Level", "Mid Level", "Senior Level", "Leadership"],
     },
     {
-      title: "Specialized Positions",
+      title: "Core Competencies",
       icon: "cpu",
       roles: [
-        "Data Scientist",
-        "Cybersecurity Specialist",
-        "Cloud Engineer",
-        "DevOps Engineer",
-        "Blockchain Specialist",
-        "Web3 Engineer",
+        "IT",
+        "BFSI",
+        "Engineering Services",
+        "Automotive",
+        "ERP",
+        "Healthcare",
       ],
     },
   ];

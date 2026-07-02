@@ -17,7 +17,7 @@ export const trainAndHireSteps: TrainAndHireStep[] = [
     icon: "search",
     title: "Sourcing",
     description:
-      "Candidates are strategically sourced and shortlisted based strictly on the precise technical and client criteria.",
+      "Candidates are strategically sourced and shortlisted based strictly on the precise technical and client eligibility criteria.",
     highlighted: true,
   },
   {

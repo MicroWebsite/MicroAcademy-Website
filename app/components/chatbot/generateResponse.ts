@@ -761,12 +761,13 @@ export function generateBotResponse(
     return `💻 **Our Learning Management System (LMS) Features**\n\nOur LMS provides comprehensive tracking and structured learning:\n\n📊 **Batchwise & Individual Reports:** Granular performance analytics covering sprints, module proficiencies, capstone assessments, and attendance.\n📖 **Reference Material:** Persistent repository with high-fidelity PDFs, custom guides, and developer video lectures accessible 24/7.\n💻 **Assignments & Capstones:** Daily industry-standard coding tasks, multi-layered real-world case studies, and full-stack projects.\n🎓 **Milestone Assessments:** Automated unit tests, comprehensive knowledge-based diagnostic exams, and technical interviews.\n🗓️ **Session Scheduling:** Seamless coordinating of live classes, tech cohort check-ins, and individual assessments.\n\nVisit our Train & Hire page to see it in action!`;
   }
 
-  if (matchesAny(lower, contractProcessKeywords)) {
-    return `📝 **Contract Hiring Benefits & Process**\n\n✅ **Key Benefits:**\n• **Rapid Deployment:** Bypass lengthy hiring cycles (onboard within 48-72 hours).\n• **Elastic Scalability:** Scale teams up/down based on project demands without overhead liabilities.\n• **Compliance & Payroll:** We handle all statutory compliances, payroll, and legal formalities.\n• **Niche Expertise:** Access highly specialized skills for short-term critical projects.\n\n🔄 **Our 4-Step Contracting Process:**\n1️⃣ **Requirement Analysis:** We understand your technical stack, timeline, and resource gaps.\n2️⃣ **Profile Sourcing & Curation:** We identify and pre-screen candidates from our ready talent pool.\n3️⃣ **Client Interview:** You interview a curated shortlist of top-tier professionals.\n4️⃣ **Rapid Onboarding:** We manage all paperwork and logistics for seamless integration.\n\nVisit our Contract Hiring page for more details!`;
-  }
-
-  if (matchesAny(lower, directLateralProcessKeywords)) {
-    return `🎯 **Direct/Lateral Hiring Details & Expertise**\n\nOur direct and lateral hiring services specialize in direct placement and strategic leadership staffing:\n\n🔑 **Sourcing Channels & Channels:**\n• **Major Hiring Portals:** Active pipelines across all skill bands.\n• **Advisory Recommendations:** A panel of tier-1 advisors with 30+ years of leadership experience recommends and guides candidate matching.\n• **Associate Referrals:** A vast network of candidates sourced and placed since 1995 who are now in senior multinational roles.\n• **Voluntary Applicants & Internal Search:** Strong database and reputation built over 3 decades.\n\n🏆 **Our Talent Focus Areas:**\n• **Leadership Roles:** CTO, CISO, IT Director, Site/DC Head.\n• **Specialized Tech Roles:** Data Scientist, Cybersecurity, Cloud/DevOps, Blockchain.\n• **Senior & Mid-Level:** Solution Architect, IT Manager, System Admin, Software Developer.\n\nVisit our Direct/Lateral Hiring page for full details!`;
+  if (
+    matchesAny(lower, [
+      ...contractProcessKeywords,
+      ...directLateralProcessKeywords,
+    ])
+  ) {
+    return `🎯 **Recruitment & Staffing Services**\n\nOur recruitment division provides end-to-end talent solutions, combining strategic permanent placement with agile contract staffing:\n\n💼 **1. Direct & Lateral Hiring**\n• **Strategic Sourcing:** Sourced from active talent pipelines, associate referrals, and voluntary applicants built over 3 decades.\n• **Advisory Panels:** Matches guided by industry advisors with 30+ years of leadership experience.\n• **Focus Areas:** Tech leadership (CTO, CISO, Directors) and specialized engineering roles.\n\n📝 **2. Agile Contract Hiring**\n• **Rapid Deployment:** Onboard pre-vetted professionals within 48-72 hours.\n• **Scalability & Compliance:** Easily scale project teams up/down while we handle all legal compliance, payroll, and benefits.\n\n🔗 Visit our Recruitment page for more details!`;
   }
   if (strapiData?.isLoaded) {
     // 1. Specific Fresher Drive Lookup
@@ -878,11 +879,13 @@ export function generateBotResponse(
 
   if (matchesAny(lower, directLateralHiringKeywords)) {
     let response =
-      "🎯 Our Direct/Lateral Hiring Services:\n\nWith the help of a strong technical team, we are in a position to cater to all your IT recruitment requirements and help find the candidate best suited for your organization and job role.\n\nWith a strong technical team and 30+ years of experience, we specialize in:\n\n• Strategic headhunting for mid to senior-level roles\n• Contract Hiring for project-based needs\n• Full lifecycle direct/lateral hiring support\n\nWe find the candidate best suited for your organization and job role.";
+      "🎯 **Direct/Lateral Hiring**:\n\nOur direct and lateral hiring services specialize in permanent placement and strategic leadership staffing. We find the candidates best suited for your organization's technical needs and culture:\n\n• **Mid-to-Senior Leadership:** Sourcing for roles like CTO, CISO, IT Director, and Site/DC Heads.\n• **Specialized Technical Talents:** Focus on niche domains like Data Science, Cloud/DevOps, and Cybersecurity.\n• **Curated Matchmaking:** Driven by a strong technical team and panels of veteran industry advisors.";
 
-    if (strapiData?.isLoaded && strapiData.directLateralHiring.length > 0) {
-      response += `\n\n📋 Current direct/lateral hiring openings:\n\n`;
-      response += strapiData.directLateralHiring
+    const directJobs = strapiData?.directLateralHiring || [];
+
+    if (strapiData?.isLoaded && directJobs.length > 0) {
+      response += `\n\n📋 **Current Direct/Lateral Openings:**\n\n`;
+      response += directJobs
         .slice(0, 5)
         .map(
           (j) =>
@@ -890,12 +893,12 @@ export function generateBotResponse(
         )
         .join("\n");
 
-      if (strapiData.directLateralHiring.length > 5) {
-        response += `\n\n...and ${strapiData.directLateralHiring.length - 5} more!`;
+      if (directJobs.length > 5) {
+        response += `\n\n...and ${directJobs.length - 5} more!`;
       }
-      response += `\n\n🔗 Visit our Recruitments page for full details and to apply!`;
+      response += `\n\n🔗 Visit our Recruitment page for full details and to apply!`;
     } else {
-      response += `\n\n📋 Current direct/lateral hiring openings:\n\n• Sr. Service Desk Analyst — Chennai (3 - 10 Years)\n• Recruiter — Bangalore (1 Year)\n• Exchange and Windows AD — Chennai (6 - 15 Years)\n\n🔗 Visit our Recruitments page for full details and to apply!`;
+      response += `\n\n📋 **Current Direct/Lateral Openings:**\n• Sr. Service Desk Analyst — Chennai (3 - 10 Years)\n• Recruiter — Bangalore (1 Year)\n• Exchange and Windows AD — Chennai (6 - 15 Years)\n\n🔗 Visit our Recruitment page for full details and to apply!`;
     }
 
     return response;
@@ -903,11 +906,13 @@ export function generateBotResponse(
 
   if (matchesAny(lower, contractKeywords)) {
     let response =
-      "📝 Contract Hiring:\n\nMicro Academy will source the candidates for the client. On selection by the client, the candidates will be on Micro Academy's payroll for the contract period. Client can directly hire the contracted resource during or after the contract period.\n\n✅ Benefits:\n• Rapid deployment (48-72 hours)\n• Zero long-term commitment\n• We handle payroll & compliance\n• Access niche expertise on demand";
+      "📝 **Contract Staffing & Hiring**:\n\nWe provide qualified contract professionals on Micro Academy's payroll for the project duration, offering complete flexibility to scale your resources as required:\n\n• **Rapid Deployment:** Onboard pre-vetted specialists within 48-72 hours.\n• **Zero Long-term Overhead:** Scale teams up or down based on current project sprints.\n• **Compliance Handling:** We manage all payroll administration, statutory compliance, benefits, and local labor regulations.";
 
-    if (strapiData?.isLoaded && strapiData.contractHiring.length > 0) {
-      response += `\n\n📋 Current contract positions:\n\n`;
-      response += strapiData.contractHiring
+    const contractJobs = strapiData?.contractHiring || [];
+
+    if (strapiData?.isLoaded && contractJobs.length > 0) {
+      response += `\n\n📋 **Current Contract Openings:**\n\n`;
+      response += contractJobs
         .slice(0, 5)
         .map(
           (j) =>
@@ -915,12 +920,12 @@ export function generateBotResponse(
         )
         .join("\n");
 
-      if (strapiData.contractHiring.length > 5) {
-        response += `\n\n...and ${strapiData.contractHiring.length - 5} more!`;
+      if (contractJobs.length > 5) {
+        response += `\n\n...and ${contractJobs.length - 5} more!`;
       }
-      response += `\n\n🔗 Visit our Recruitments page to see all available roles!`;
-    } else if (strapiData?.isLoaded) {
-      response += `\n\n(No active contract openings at the moment, but you can visit our Recruitments page for future updates!)`;
+      response += `\n\n🔗 Visit our Recruitment page to see all contract roles!`;
+    } else {
+      response += `\n\n📋 **Current Contract Openings:**\n• Recruiter — Bangalore (1 Year)\n• Exchange and Windows AD — Chennai (6 - 15 Years)\n\n🔗 Visit our Recruitment page to see all contract roles!`;
     }
 
     return response;

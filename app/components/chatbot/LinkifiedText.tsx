@@ -22,13 +22,13 @@ function renderTextWithBold(text: string, keyPrefix: string | number) {
 }
 
 const LINK_MAPPINGS: Record<string, string> = {
-  "direct/lateral hiring page": "/services/direct-lateral-hiring",
-  "direct-lateral hiring page": "/services/direct-lateral-hiring",
-  "direct/lateral hiring service page": "/services/direct-lateral-hiring",
-  "direct-lateral hiring service page": "/services/direct-lateral-hiring",
-  "contract hiring page": "/services/contract-hiring",
-  "contract hiring service page": "/services/contract-hiring",
-  "recruitment page": "/job-openings/recruitments",
+  "direct/lateral hiring page": "/services/recruitment",
+  "direct-lateral hiring page": "/services/recruitment",
+  "direct/lateral hiring service page": "/services/recruitment",
+  "direct-lateral hiring service page": "/services/recruitment",
+  "contract hiring page": "/services/recruitment",
+  "contract hiring service page": "/services/recruitment",
+  "recruitment page": "/services/recruitment",
   "recruitments page": "/job-openings/recruitments",
   recruitments: "/job-openings/recruitments",
   "open positions page": "/job-openings/recruitments",
@@ -50,10 +50,10 @@ const LINK_MAPPINGS: Record<string, string> = {
   "about us": "/about",
   "train and hire": "/services/train-and-hire",
   "train & hire": "/services/train-and-hire",
-  "direct/lateral hiring": "/services/direct-lateral-hiring",
-  "direct-lateral hiring": "/services/direct-lateral-hiring",
-  "recruitment services": "/services/direct-lateral-hiring",
-  "contract hiring": "/services/contract-hiring",
+  "direct/lateral hiring": "/services/recruitment",
+  "direct-lateral hiring": "/services/recruitment",
+  "recruitment services": "/services/recruitment",
+  "contract hiring": "/services/recruitment",
   "corporate training": "/services/corporate-training",
 };
 

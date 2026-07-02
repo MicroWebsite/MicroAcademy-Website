@@ -9,11 +9,9 @@ import { useContactForm } from "./form/useContactForm";
 import SectionHeader from "../common/SectionHeader";
 
 const serviceOptions = [
-  { label: "Direct/Lateral Hiring", value: "Direct/Lateral Hiring" },
-  { label: "Contract Hiring", value: "Contract Hiring" },
-  { label: "Train and Hire", value: "Train and Hire" },
-  { label: "Corporate Training", value: "Corporate Training" },
-  { label: "Other / General Inquiry", value: "Other / General Inquiry" },
+  { label: "General Enquiry", value: "General Enquiry" },
+  { label: "Training", value: "Training" },
+  { label: "Recruitment", value: "Recruitment" },
 ];
 
 export default function ContactForm() {

@@ -1,5 +1,14 @@
 import { motion } from "framer-motion";
-import { Briefcase, Cpu, Shield, Target, Users2, Zap } from "lucide-react";
+import {
+  Briefcase,
+  Cpu,
+  Shield,
+  Target,
+  Users2,
+  Zap,
+  Brain,
+  Database,
+} from "lucide-react";
 import { contractDomains } from "@/app/data/contractHiringPageData";
 import SectionHeader from "@/app/components/common/SectionHeader";
 
@@ -10,18 +19,20 @@ const iconByType = {
   shield: Shield,
   users2: Users2,
   zap: Zap,
+  brain: Brain,
+  database: Database,
 } as const;
 
 export default function DomainsSection() {
   return (
     <section className="w-full bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-      <div className="max-w-250 mx-auto flex flex-col gap-8 lg:gap-10 items-center text-center">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 lg:gap-10 items-center text-center">
         <SectionHeader
-          eyebrow="Tech Domains"
+          eyebrow="Tech Stacks"
           title="Expertise Across the Tech Spectrum"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
           {contractDomains.map((domain, i) => {
             const Icon = iconByType[domain.icon];
 

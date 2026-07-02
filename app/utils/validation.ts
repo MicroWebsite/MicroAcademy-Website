@@ -7,11 +7,11 @@ export const validateEmail = (email: string): string | null => {
 
 export const validatePhone = (phone: string): string | null => {
   if (!phone) return "Phone number is required";
-  // Basic validation for international format or 10 digits
-  const phoneRegex =
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-  if (!phoneRegex.test(phone.replace(/\s/g, "")))
-    return "Invalid phone number format";
+  // Remove formatting characters: spaces, hyphens, parentheses, and dots
+  const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, "");
+  // Validate basic length (7-15 digits) with optional leading plus
+  const phoneRegex = /^\+?[0-9]{7,15}$/;
+  if (!phoneRegex.test(cleanPhone)) return "Invalid phone number format";
   return null;
 };
 
